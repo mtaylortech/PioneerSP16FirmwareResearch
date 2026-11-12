@@ -1,0 +1,3 @@
+STATIC ORIGINAL ARM INSTRUCTIONS: 0055ae54 mapped_status_byte_0d_0055ae54
+0055ae54: 0d00d0e5 ldrb r0,[r0,#0xd]
+0055ae58: 1eff2fe1 bx lr

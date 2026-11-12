@@ -1,0 +1,14 @@
+STATIC ORIGINAL INSTRUCTIONS; 000b3ac4 main_factory_setup_000b3ac4
+000b3ac4: 80360ee3 movw r3,#0xe680
+000b3ac8: f63040e3 movt r3,#0xf6
+000b3acc: bc270ee3 movw r2,#0xe7bc
+000b3ad0: 562040e3 movt r2,#0x56
+000b3ad4: 002083e5 str r2,[r3,#0x0]
+000b3ad8: 7b0100ea b 0x000b40cc
+000b40cc: a8250ee3 movw r2,#0xe5a8
+000b40d0: a4350ee3 movw r3,#0xe5a4
+000b40d4: f62040e3 movt r2,#0xf6
+000b40d8: f63040e3 movt r3,#0xf6
+000b40dc: 000082e5 str r0,[r2,#0x0]
+000b40e0: 001083e5 str r1,[r3,#0x0]
+000b40e4: d2ffffea b 0x000b4034

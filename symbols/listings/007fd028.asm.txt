@@ -1,0 +1,23 @@
+STATIC ORIGINAL INSTRUCTIONS; 007fd028 candidate_007fd028
+007fd028: 0040a0e1 cpy r4,r0
+007fd02c: 083094e5 ldr r3,[r4,#0x8]
+007fd030: 012043e2 sub r2,r3,#0x1
+007fd034: 0221a0e1 mov r2,r2, lsl #0x2
+007fd038: 060000ea b 0x007fd058
+007fd03c: 001094e5 ldr r1,[r4,#0x0]
+007fd040: 013043e2 sub r3,r3,#0x1
+007fd044: 083084e5 str r3,[r4,#0x8]
+007fd048: 020091e7 ldr r0,[r1,r2]
+007fd04c: 042042e2 sub r2,r2,#0x4
+007fd050: 000050e3 cmp r0,#0x0
+007fd054: 0500001a bne 0x007fd070
+007fd058: 000053e3 cmp r3,#0x0
+007fd05c: f6ffffca bgt 0x007fd03c
+007fd060: 000094e5 ldr r0,[r4,#0x0]
+007fd064: 014ee0eb bl 0x00010870
+007fd068: 0400a0e1 cpy r0,r4
+007fd06c: 1080bde8 ldmia sp!,{r4,pc}
+007fd070: 003090e5 ldr r3,[r0,#0x0]
+007fd074: 043093e5 ldr r3,[r3,#0x4]
+007fd078: 33ff2fe1 blx r3
+007fd07c: eaffffea b 0x007fd02c

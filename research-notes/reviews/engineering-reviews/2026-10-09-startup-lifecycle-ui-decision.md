@@ -1,0 +1,19 @@
+<!-- source: engineering-reviews/2026-10-09-startup-lifecycle-ui-decision.md | scrubbed -->
+
+# Startup returns established; test another original UI path
+
+October 9, 2026 — America/Chicago. Review only; no experiment launched.
+
+**Result.** This cycle answered whether original initialization actually returns into main dispatch. Byte/target/object/thread/SP/saved-LR-matched returns occurred at **262.070s**, successful wrapper result was **1**, and dispatch/XPending continuation followed at **262.072s**. Fresh main completion acceptance at **269.430s** and eight identical owned **800×480 HOME** captures through **594.731s** close the selected application startup boundary. Previously, HOME and Track 2 response were verified while initialization remained unproved. No new input response was tested. Physical boot, DSP/audio and broader usability remain open. Strongest evidence: [raw receipts] `../experiments/startup-lifecycle-live-20261009-165946/run-1/supervision/guest.stdout.txt` (evidence not published), [owned captures/attributes] `../experiments/startup-lifecycle-live-20261009-165946/run-1/display-observations.json` (evidence not published), and [correlated result] `../experiments/startup-lifecycle-live-20261009-165946/result.json` (evidence not published).
+
+**Failures/limits.** Native **600.104s bounded_stop** is harness completion. [Owned closure] `../experiments/startup-lifecycle-live-20261009-165946/run-1/supervision/attempt-owned/client-closure.json` (evidence not published) and [independent postflight] `../experiments/startup-lifecycle-live-20261009-165946/run-1/endpoint-postflight-initial.json` (evidence not published) pass; no final runtime record is missing. Relocation broke host fixture paths; working-copy repairs preceded launch. Intentional vfork/device denials and shared-TLS diagnostics remain preserved; the retained helper supplies per-thread TLS. No new lifecycle mismatch or execution failure occurred. Lifecycle-only `full_startup_proved=False` does not contradict the composite readiness/display result. Inactive post-font count state matches the preceding run; neither configured count nor elapsed time proves a speedup. Baseline clock defects remain unresolved and causality unestablished.
+
+**Decision.** Retain the tested overlay, corrected independent cleanup, baseline scheduling/device/clock condition and unchanged controls. Original application progress is established under these fixtures. The current README is accurate and unchanged. Initializer-only, resource/completion rediscovery and identical Track 2 selection leave the critical path; lifecycle hooks already retire after success. Reuse the existing Ghidra project rather than repeating setup.
+
+**Next experiment:** can one post-startup **MIXER navigation tap** reach original handling and draw the distinct screen?
+
+- Map the actual control/target first; change only its tagged-input gate and sparse handler observations. Require fresh readiness, owned HOME, exact consumption, matched handler return and changed owned pixels identifying Mixer.
+- Success advances usability. Consumed/handled input without redraw directs investigation to that screen’s repaint path; missing consumption directs investigation to delivery/dispatch. Uncertain delivery permits no repeat tap.
+- Plan one **600s** guest within **1,200s**, independent **605/608/610s** supervision, guarded private display and owned cleanup/postflight. Stop for fault, byte/frame mismatch, guard breach or supervision failure. Current one-guest/no-input authorization is consumed; this review grants no new execution/input scope and requires no new chat.
+
+**Efficiency.** Bind the tap to readiness in the same initialization and observe through the remaining full-run window. Reuse unchanged validation; add controls only for the new target/gate/handler contracts. Hook savings are plausible, unmeasured.

@@ -1,0 +1,439 @@
+{
+  "schema": "pioneer-parent-static-v1",
+  "created_utc": "2026-10-08T19:18:32.082578+00:00",
+  "original_app_source": "<RESEARCH_ROOT>/experiments/emulation-startup-20261008-105916/rootfs/root/pdj/EP085_Main_R",
+  "original_app_sha256": "3d1392a61323e73ea4f2fddef8fe9e0142add7a6f6fab79ab0eb0d5396555464",
+  "PT_LOAD": [
+    {
+      "virtual_address": "0x8000",
+      "file_offset": "0x0",
+      "file_size": 11926152,
+      "memory_size": 11926152,
+      "flags": 5
+    },
+    {
+      "virtual_address": "0xb6fa88",
+      "file_offset": "0xb5fa88",
+      "file_size": 72736,
+      "memory_size": 4190724,
+      "flags": 6
+    }
+  ],
+  "points": {
+    "0x50aaf4": {
+      "name": "parent_entry",
+      "bytes": "143090e5",
+      "instruction": "ldr r3, [r0, #0x14]",
+      "file_offset": "0x502af4"
+    },
+    "0x50ab18": {
+      "name": "preceding_loop_head",
+      "bytes": "030054e1",
+      "instruction": "cmp r4, r3",
+      "file_offset": "0x502b18"
+    },
+    "0x50ab4c": {
+      "name": "preceding_virtual_call",
+      "bytes": "33ff2fe1",
+      "instruction": "blx r3",
+      "file_offset": "0x502b4c"
+    },
+    "0x50ab50": {
+      "name": "preceding_virtual_continuation",
+      "bytes": "00009de5",
+      "instruction": "ldr r0, [sp]",
+      "file_offset": "0x502b50"
+    },
+    "0x50ab7c": {
+      "name": "preceding_loop_bound",
+      "bytes": "143095e5",
+      "instruction": "ldr r3, [r5, #0x14]",
+      "file_offset": "0x502b7c"
+    },
+    "0x50ab8c": {
+      "name": "preceding_loop_complete",
+      "bytes": "003095e5",
+      "instruction": "ldr r3, [r5]",
+      "file_offset": "0x502b8c"
+    },
+    "0x50ab98": {
+      "name": "reset_callsite",
+      "bytes": "33ff2fe1",
+      "instruction": "blx r3",
+      "file_offset": "0x502b98"
+    },
+    "0x50ab9c": {
+      "name": "reset_caller_continuation",
+      "bytes": "000057e3",
+      "instruction": "cmp r7, #0",
+      "file_offset": "0x502b9c"
+    },
+    "0x50abc0": {
+      "name": "subsequent_loop_head",
+      "bytes": "0a0054e1",
+      "instruction": "cmp r4, sl",
+      "file_offset": "0x502bc0"
+    },
+    "0x50ac1c": {
+      "name": "subsequent_bound_decrement",
+      "bytes": "20a085e5",
+      "instruction": "str sl, [r5, #0x20]",
+      "file_offset": "0x502c1c"
+    },
+    "0x50ac7c": {
+      "name": "subsequent_loop_condition",
+      "bytes": "0a0054e1",
+      "instruction": "cmp r4, sl",
+      "file_offset": "0x502c7c"
+    },
+    "0x50ac84": {
+      "name": "parent_epilogue",
+      "bytes": "0cd08de2",
+      "instruction": "add sp, sp, #0xc",
+      "file_offset": "0x502c84"
+    },
+    "0x50ac88": {
+      "name": "parent_before_pop",
+      "bytes": "f085bde8",
+      "instruction": "pop {r4, r5, r6, r7, r8, sl, pc}",
+      "file_offset": "0x502c88"
+    },
+    "0x50ac94": {
+      "name": "recursive_parent_call",
+      "bytes": "96ffffeb",
+      "instruction": "bl #0x50aaf4",
+      "file_offset": "0x502c94"
+    },
+    "0x50ac98": {
+      "name": "recursive_parent_continuation",
+      "bytes": "20a095e5",
+      "instruction": "ldr sl, [r5, #0x20]",
+      "file_offset": "0x502c98"
+    },
+    "0x354f74": {
+      "name": "matrix_adjust_thunk",
+      "bytes": "240080e2",
+      "instruction": "add r0, r0, #0x24",
+      "file_offset": "0x34cf74"
+    },
+    "0x354f78": {
+      "name": "matrix_adjust_thunk_branch",
+      "bytes": "a1fdffea",
+      "instruction": "b #0x354604",
+      "file_offset": "0x34cf78"
+    },
+    "0x354604": {
+      "name": "matrix_entry",
+      "bytes": "f0412de9",
+      "instruction": "push {r4, r5, r6, r7, r8, lr}",
+      "file_offset": "0x34c604"
+    },
+    "0x354640": {
+      "name": "matrix_element_callsite",
+      "bytes": "000097e5",
+      "instruction": "ldr r0, [r7]",
+      "file_offset": "0x34c640"
+    },
+    "0x354658": {
+      "name": "matrix_element_return",
+      "bytes": "0130d6e5",
+      "instruction": "ldrb r3, [r6, #1]",
+      "file_offset": "0x34c658"
+    },
+    "0x354674": {
+      "name": "matrix_loop_complete",
+      "bytes": "147096e5",
+      "instruction": "ldr r7, [r6, #0x14]",
+      "file_offset": "0x34c674"
+    },
+    "0x3546d4": {
+      "name": "matrix_before_pop",
+      "bytes": "f081bde8",
+      "instruction": "pop {r4, r5, r6, r7, r8, pc}",
+      "file_offset": "0x34c6d4"
+    },
+    "0x353bc4": {
+      "name": "allocation_entry",
+      "bytes": "f04f2de9",
+      "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, lr}",
+      "file_offset": "0x34bbc4"
+    },
+    "0x353c80": {
+      "name": "allocation_element_return",
+      "bytes": "017087e2",
+      "instruction": "add r7, r7, #1",
+      "file_offset": "0x34bc80"
+    },
+    "0x353cbc": {
+      "name": "allocation_matrix_complete",
+      "bytes": "000056e3",
+      "instruction": "cmp r6, #0",
+      "file_offset": "0x34bcbc"
+    },
+    "0x353d04": {
+      "name": "allocation_before_pop",
+      "bytes": "f08fbde8",
+      "instruction": "pop {r4, r5, r6, r7, r8, sb, sl, fp, pc}",
+      "file_offset": "0x34bd04"
+    },
+    "0x35e068": {
+      "name": "allocation_callsite",
+      "bytes": "d5d6ffeb",
+      "instruction": "bl #0x353bc4",
+      "file_offset": "0x356068"
+    },
+    "0x35e06c": {
+      "name": "allocation_caller_continuation",
+      "bytes": "143096e5",
+      "instruction": "ldr r3, [r6, #0x14]",
+      "file_offset": "0x35606c"
+    },
+    "0x178518": {
+      "name": "parent_caller_candidate",
+      "bytes": "0520a0e1",
+      "instruction": "mov r2, r5",
+      "file_offset": "0x170518"
+    },
+    "0x1790b8": {
+      "name": "parent_caller_candidate",
+      "bytes": "143094e5",
+      "instruction": "ldr r3, [r4, #0x14]",
+      "file_offset": "0x1710b8"
+    },
+    "0x17a274": {
+      "name": "parent_caller_candidate",
+      "bytes": "b1ffffea",
+      "instruction": "b #0x17a140",
+      "file_offset": "0x172274"
+    },
+    "0x17a390": {
+      "name": "parent_caller_candidate",
+      "bytes": "61ffffea",
+      "instruction": "b #0x17a11c",
+      "file_offset": "0x172390"
+    },
+    "0x17a3d0": {
+      "name": "parent_caller_candidate",
+      "bytes": "c2ffffea",
+      "instruction": "b #0x17a2e0",
+      "file_offset": "0x1723d0"
+    },
+    "0x17a3dc": {
+      "name": "parent_caller_candidate",
+      "bytes": "0c2095e5",
+      "instruction": "ldr r2, [r5, #0xc]",
+      "file_offset": "0x1723dc"
+    },
+    "0x17c23c": {
+      "name": "parent_caller_candidate",
+      "bytes": "0400a0e1",
+      "instruction": "mov r0, r4",
+      "file_offset": "0x17423c"
+    },
+    "0x17c2d4": {
+      "name": "parent_caller_candidate",
+      "bytes": "0400a0e1",
+      "instruction": "mov r0, r4",
+      "file_offset": "0x1742d4"
+    },
+    "0x18381c": {
+      "name": "parent_caller_candidate",
+      "bytes": "b800a0e3",
+      "instruction": "mov r0, #0xb8",
+      "file_offset": "0x17b81c"
+    },
+    "0x33df48": {
+      "name": "parent_caller_candidate",
+      "bytes": "000056e3",
+      "instruction": "cmp r6, #0",
+      "file_offset": "0x335f48"
+    },
+    "0x342a74": {
+      "name": "parent_caller_candidate",
+      "bytes": "10209de5",
+      "instruction": "ldr r2, [sp, #0x10]",
+      "file_offset": "0x33aa74"
+    },
+    "0x34314c": {
+      "name": "parent_caller_candidate",
+      "bytes": "18009de5",
+      "instruction": "ldr r0, [sp, #0x18]",
+      "file_offset": "0x33b14c"
+    },
+    "0x34381c": {
+      "name": "parent_caller_candidate",
+      "bytes": "0130a0e3",
+      "instruction": "mov r3, #1",
+      "file_offset": "0x33b81c"
+    },
+    "0x356370": {
+      "name": "parent_caller_candidate",
+      "bytes": "84d08de2",
+      "instruction": "add sp, sp, #0x84",
+      "file_offset": "0x34e370"
+    },
+    "0x356614": {
+      "name": "parent_caller_candidate",
+      "bytes": "58009de5",
+      "instruction": "ldr r0, [sp, #0x58]",
+      "file_offset": "0x34e614"
+    },
+    "0x35663c": {
+      "name": "parent_caller_candidate",
+      "bytes": "f4ffffea",
+      "instruction": "b #0x356614",
+      "file_offset": "0x34e63c"
+    },
+    "0x357320": {
+      "name": "parent_caller_candidate",
+      "bytes": "f5ffffea",
+      "instruction": "b #0x3572fc",
+      "file_offset": "0x34f320"
+    },
+    "0x357330": {
+      "name": "parent_caller_candidate",
+      "bytes": "f1ffffea",
+      "instruction": "b #0x3572fc",
+      "file_offset": "0x34f330"
+    },
+    "0x50ad30": {
+      "name": "parent_caller_candidate",
+      "bytes": "143094e5",
+      "instruction": "ldr r3, [r4, #0x14]",
+      "file_offset": "0x502d30"
+    },
+    "0x50af48": {
+      "name": "parent_caller_candidate",
+      "bytes": "f7ffffea",
+      "instruction": "b #0x50af2c",
+      "file_offset": "0x502f48"
+    },
+    "0x50b008": {
+      "name": "parent_caller_candidate",
+      "bytes": "143094e5",
+      "instruction": "ldr r3, [r4, #0x14]",
+      "file_offset": "0x503008"
+    },
+    "0x50b220": {
+      "name": "parent_caller_candidate",
+      "bytes": "f7ffffea",
+      "instruction": "b #0x50b204",
+      "file_offset": "0x503220"
+    }
+  },
+  "targeted_direct_BL_scan": {
+    "scope": "4-byte-aligned executable PT_LOAD words, exact branch targets only; no semantic function inventory",
+    "parent_target": "0x50aaf4",
+    "parent_callsites": [
+      "0x178514",
+      "0x1790b4",
+      "0x17a270",
+      "0x17a38c",
+      "0x17a3cc",
+      "0x17a3d8",
+      "0x17c238",
+      "0x17c2d0",
+      "0x183818",
+      "0x33df44",
+      "0x342a70",
+      "0x343148",
+      "0x343818",
+      "0x35636c",
+      "0x356610",
+      "0x356638",
+      "0x35731c",
+      "0x35732c",
+      "0x50ac94",
+      "0x50ad2c",
+      "0x50af44",
+      "0x50b004",
+      "0x50b21c"
+    ],
+    "allocation_target": "0x353bc4",
+    "allocation_callsites": [
+      "0x35e068"
+    ],
+    "limitation": "Aligned literal words can imitate BL opcodes. Candidate windows decoded; runtime entry LR and matched return still required."
+  },
+  "parent_frame": {
+    "entry": "0x50aaf4",
+    "push": "0x50aaf8",
+    "saved_registers": 7,
+    "local_bytes": 12,
+    "body_sp_offset_from_entry": -40,
+    "saved_lr_body_sp_offset": 36,
+    "before_pop": "0x50ac88",
+    "before_pop_sp_offset_from_entry": -28,
+    "saved_lr_before_pop_sp_offset": 24
+  },
+  "reset_frame": {
+    "entry": "0x354604",
+    "saved_registers": 6,
+    "local_bytes": 0,
+    "body_sp_offset_from_call": -24,
+    "saved_lr_before_pop_sp_offset": 20,
+    "before_pop": "0x3546d4",
+    "caller": "0x50ab9c",
+    "thunk": "0x354f74",
+    "thunk_adjustment": 36
+  },
+  "allocation_frame": {
+    "entry": "0x353bc4",
+    "saved_registers": 9,
+    "local_bytes": 12,
+    "body_sp_offset_from_entry": -48,
+    "before_pop": "0x353d04",
+    "before_pop_sp_offset_from_entry": -36,
+    "saved_lr_before_pop_sp_offset": 32,
+    "caller": "0x35e06c"
+  },
+  "flow": {
+    "preceding_work": {
+      "index": "r4",
+      "bound": "signed [r5+0x14] reread on each iteration",
+      "table": "[r5+0x0c]",
+      "virtual_slot": "0x10",
+      "callsite": "0x50ab4c",
+      "continuation": "0x50ab50"
+    },
+    "reset": {
+      "once_per_observed_parent_invocation": true,
+      "virtual_slot": "0x18",
+      "callsite": "0x50ab98",
+      "continuation": "0x50ab9c",
+      "matrix_dimensions": "byte [matrix+0], byte [matrix+1]",
+      "matrix_table": "[matrix+8]",
+      "stride": 152,
+      "element_call": "0x354654",
+      "element_continuation": "0x354658"
+    },
+    "subsequent_work": {
+      "enabled_by": "entry r1 saved r7 nonzero at0x50ab9c",
+      "index": "r4, with r6 preserving index over recursive call",
+      "bound": "live signed [r5+0x20] loaded into r10/sl; can decrease during invalid-child removal",
+      "table": "[r5+0x18]",
+      "recursive_call": "0x50ac94 ->0x50aaf4",
+      "recursive_continuation": "0x50ac98",
+      "condition": "r4<r10 at0x50aca0/0x50aca4",
+      "type_tag_check": "[child+4] ==0x5e715e28 before recursion"
+    },
+    "allocation_enclosing": {
+      "local_loop_head": "0x35dfb0",
+      "index": "r8",
+      "bound": "live signed [r6+8], reread at0x35e140",
+      "increment": "0x35e144",
+      "comparison": "0x35e148; bgt0x35dfb0 at0x35e14c",
+      "rows": "ldrb [r6+4] at0x35e04c passed in r1",
+      "columns": "ldrb [r6+0x14] at0x35e054 passed in r2",
+      "matrix_object": "new enclosing child base+0x24",
+      "limitation": "This local constructor loop is not the global allocation or reset total; enclosing invocation count remains unknown."
+    }
+  },
+  "unknowns": [
+    "No single total reset bound is established; traversal is a recursive tree and live child bounds can change.",
+    "Root caller for new runtime must be identified from parent entry LR and confirmed actual continuation.",
+    "Exact application ancestor completion, parent object semantics and expected global node count remain unresolved.",
+    "Static targets do not establish loaded target or runtime return.",
+    "Virtual preceding-work targets remain runtime observations, not established reset totals."
+  ]
+}

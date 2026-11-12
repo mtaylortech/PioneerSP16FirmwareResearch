@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-08T19:21:44.620135+00:00",
+  "python_link": "experiments/emulation-20261007/tools/venv/bin/python",
+  "python_resolved": "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10",
+  "python_sha256": "1c06028eb947c0e64d44abafb1089f4d6822ebe76e78625bed3b248dda2e49b0",
+  "display_binary_sha256": "32af2740a412b7f61668a3e289966d54d39da6e129deec67c2f0b5baa2bdce49",
+  "compiler_alias_bytes_present": true,
+  "alias": "/private/tmp/p16008x/xkbcomp",
+  "versions": {
+    "python": "3.10.1 (v3.10.1:2cd268a3a9, Dec  6 2021, 14:28:59) [Clang 13.0.0 (clang-1300.0.29.3)]",
+    "executable": "<RESEARCH_ROOT>/experiments/emulation-20261007/tools/venv/bin/python",
+    "qiling": "1.4.6",
+    "unicorn": "2.1.4"
+  },
+  "held_clock_source": "experiments/emulation-20261007/tools/venv/lib/python3.10/site-packages/qiling/os/posix/syscall/time.py"
+}

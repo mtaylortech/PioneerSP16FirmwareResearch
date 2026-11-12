@@ -1,0 +1,3 @@
+STATIC ORIGINAL INSTRUCTIONS; 001c8b4c candidate_001c8b4c
+001c8b4c: 900040e2 sub r0,r0,#0x90
+001c8b50: ffffffea b 0x001c8b54

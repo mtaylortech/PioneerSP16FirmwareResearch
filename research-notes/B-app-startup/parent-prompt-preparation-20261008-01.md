@@ -1,0 +1,41 @@
+<!-- research-note: experiments/parent-prompt-preparation-20261008-01/HANDOFF.md | thread B | scrubbed, links rewritten; see EDIT-LOG.md / LINK-REWRITE-LOG.csv -->
+
+# Next-chat handoff — parent-initialization prompt, October 8, 2026
+
+The user requested a saved self-contained prompt for the next parent-initialization runtime experiment, a realistic estimate, honest partial/failure reporting, three-minute updates and durable project storage. This task prepares the prompt and handoff only. **No runtime is launched here.** The preceding chat can be closed; the next chat needs this project and the saved prompt, not conversation history.
+
+Start by submitting or explicitly invoking the new prompt `docs/NEXT_SESSION_PROMPT-20261008-PARENT-INITIALIZATION.txt` (evidence not published). Prompt discovery alone grants no runtime authority. Its estimate is **45–75 minutes overall**, with a 75-minute work ceiling, runtime stopped by session minute 60 and minutes 60–75 reserved for closure. Latest server/guest launch is minute 56. One guest observation is capped at 180 seconds; all owned guest/display/runtime helpers are signaled at 180/183 and reaped/verified by 185 seconds. A preflight-only or bounded partial handoff is valid when properly labeled. Original UI completion is not promised.
+
+## Current state and preserved context
+
+Firmware decoding and readable-file extraction are supported; latest runtime E30 supports continued main initialization after original XCreateWindow. Incorporate the [dated offline correction] `../offline-review-20261008-01/CURRENT_CORRECTION.md` (evidence not published), which qualifies earlier PROJECT_STATE/V45 and E30 README wording. The [independent review copy] `../offline-review-20261008-01/independent-review-source.md` (evidence not published) is local and durable. No Git revision exists; use file identities.
+
+The [offline check index] `../offline-review-20261008-01/README.md` (evidence not published), [delivery check] `../offline-review-20261008-01/delivery-validation.json` (evidence not published) and [final identities] `../offline-review-20261008-01/artifact-identities.json` (evidence not published) preserve completed work: real E30 passes; 19 negative controls reject missing, contradictory, empty, wrong-thread, mistimed or overclaimed evidence. Source-mode reports expose sticky/setgid and ordinary permission loss; copied clock checks reproduce defective timespec/clock-ID behavior; tracked fake endpoint tests fail when their guard is deliberately broken. These are offline checks, not a new runtime or native containment proof. [Outcome layers] `../offline-review-20261008-01/outcome-layers.json` (evidence not published) preserve F06/E30 status distinctions.
+
+Original 1.60 app SHA-256 is `3d1392a61323e73ea4f2fddef8fe9e0142add7a6f6fab79ab0eb0d5396555464`; original UPD is `ff1cc60c4b6e2a3793196486826e78eb223e2f86cd95b5c968f6fca3ade537a4`. E30 console/JSON match at 1,128 PROBE events; the review's 1,129 prose count remains qualified. E30 native final JSON is absent; worker TimeoutError and host SIGTERM/reap are retained. No missing result or historical runner was reconstructed.
+
+## Exact next question and unresolved prerequisites
+
+Measure work/index/bound and match original reset callsite 0x50ab98 (`blx r3`) to actual caller continuation 0x50ab9c (`cmp r7,#0`). This proves the callee returned into its parent; whole-parent return requires that parent's own caller continuation. Nearby r5+0x14/r5+0x20/r5+0x18 fields are clues, not an established reset-call total. Counts 495/75 at 0x353d04/0x3546d4 are before-pop return-instruction checkpoint visits. Validate local hook/caller mapping before launch; any unresolved enclosing totals/whole-parent return stay explicitly unknown.
+
+The [experiment draft] `../offline-review-20261008-01/PARENT_INITIALIZATION_DRAFT.md` (evidence not published) specifies read-only instrumentation, counted work and natural flush/map/drawable observation. Keep the held clock condition, synthetic audio/TLS/IPC/display fixtures and capped permanent hooks. A clock change requires a later one-condition scope. No panel/calibration/forced-display behavior follows from missing UI.
+
+**The held supervisor is not ready for the proposed 185-second all-process closure bound.** Static inspection found individual-PID signaling, sequential grace waits, post-stop observations and no independent process-group watchdog. New copied code must establish owned group/child identity, monotonic deadlines, independent policing, simultaneous stop, bounded helpers and tested closure. Three minutes covers only guest observation; supervisor/tracer preparation accounts for much of the 45–75-minute estimate.
+
+Held `supervise_attempt.py`/`display_server.py` embed expired cutoffs. Preparation/preflight/cleanup/integrity/archive scripts use fixed historical paths/destinations. Treat them as read-only references. New copies need unused roots/labels, actual-root/mapped cookie equality, fresh deadlines/wrappers and ownership checks. The portable display compiler alias `/private/tmp/p16008x/xkbcomp` needs an absent newly owned helper. Shared `.X11-unix` root:1777 and free X16 require checks without changing shared ownership or unrelated endpoints. This documentation task does not assert current live-host readiness.
+
+Runtime reference: `experiments/emulation-20261007/tools/venv/bin/python`, recorded Python 3.10.1/Qiling 1.4.6/Unicorn 2.1.4. E30 [launch record] `../emulation-startup-20261008-105916/launch-commands.json` (evidence not published) supplies baseline flags. Inspect copied code before execution; preserve installed runtime and all firmware/app/library bytes. A submitted prompt authorizes one attempt, no retry, packages, vendor scripts, platform boot, hardware, repack or deployment. Offline/read-only subagents may assist; one agent owns runtime.
+
+## Efficient takeover and durable output
+
+Use the selective source queue in the prompt. Avoid repeated extraction, giant log dumps, repeated dependency discovery or replaying closed prompts. New work belongs in a fresh dated `experiments/` root, with commands/exits, code/input/fixture identities, tested revisions and all failures/partials saved before further edits. Use a fresh versioned policy for new trace certification; the frozen E31 verifier certifies its held records only. Record actual three-minute due/report times from task start.
+
+Finish with a compact standalone HANDOFF.md naming the new root/label, completed and unexecuted phases, authorization/deadlines, last confirmed caller/counters/bounds, guest/worker/host/fixture status, preservation/closure and the smallest next condition. Append dated current-document corrections while preserving exact prior bytes and frozen evidence. Archive useful evidence with an external manifest/checksum/actual verification only if completed; otherwise list pending archive/check tasks and estimates. Same-disk archives do not establish off-device backup or tested restoration.
+
+[Architecture/deployment gates] `../offline-review-20261008-01/ARCHITECTURE_DEPLOYMENT_GATES.md` (evidence not published) remain unresolved: concrete feature selection, exact build/source correspondence, proprietary components/interfaces, original metadata packaging, update acceptance/routing, affected storage and tested recovery. No example is a feature requirement. Drawable UI, physical operation and replacement OS remain future milestones.
+
+## This preparation's records
+
+[User request] `REQUEST.txt` (evidence not published), [actual preparation command] `preparation-command.json` (evidence not published), [readiness check] `readiness-validation.json` (evidence not published), [identities] `identities.json` (evidence not published), [peer review] `PEER_REVIEW.md` (evidence not published) and `history-before/` document copies preserve this preparation. Current navigation/state gain only dated appends; old prompts/checksums and all frozen offline/runtime artifacts remain unchanged. The future supervisor is not implemented or tested here, and no guest/server/endpoint action occurs.
+
+To begin in the next chat: “Execute docs/NEXT_SESSION_PROMPT-20261008-PARENT-INITIALIZATION.txt in this project.”

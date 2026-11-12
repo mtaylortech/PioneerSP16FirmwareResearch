@@ -1,0 +1,8 @@
+{
+  "_comment": "Copy to config.json and edit. Relative paths are resolved from this file's folder.",
+  "qemu_binary": "/path/to/qemu-10.0.14/build/qemu-system-arm",
+  "qemu_env": {},
+  "images_dir": "/path/to/decoded-1.50/images",
+  "work_dir": "./work",
+  "boot_seconds": 300
+}

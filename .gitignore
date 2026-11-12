@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------------------
+# Safety net. This repository must never contain firmware or anything derived
+# from it. These patterns block the common cases; they are NOT a substitute for
+# checking what you stage. See CONTRIBUTING.md.
+# ---------------------------------------------------------------------------
+
+# Firmware updates, decrypted images, filesystems, panel firmware
+*.UPD
+*.upd
+*.iso
+*.sfs
+*.squashfs
+*.mot
+
+# The key — never, in any form
+aes256.key
+*.key
+
+# Firmware/application binaries
+EP085_Main_R
+*.elf
+*.so
+*.so.*
+*.ko
+
+# Device disk images and raw captures
+*.raw
+*.img
+*.qcow2
+*.cpio
+*.xwd
+*.ppm
+
+# Native disassembler databases (they embed firmware bytes)
+*.rep/
+*.gpr
+*.gbf
+*.gzf
+*.idb
+*.i64
+projects/
+
+# Python / tooling scratch
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Tool run output (regenerated locally)
+tools/normalization/results/
+tools/normalization/fixtures/
+
+# OS cruft
+.DS_Store
+
+# session scratch (rm is blocked on this device; harmless, ignored)
+.writeprobe*
+
+# Board emulator: generated disks/logs and personal config
+emulation/board/work/
+emulation/board/config.json
+
+# App emulator: guest filesystem, fixtures and run output (never commit)
+emulation/app/reference/harness/rootfs/
+emulation/app/reference/harness/null-device
+emulation/app/reference/harness/full-device
+emulation/app/reference/harness/captures/
+emulation/app/reference/harness/logs/
+*.xauth

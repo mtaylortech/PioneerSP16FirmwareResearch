@@ -1,0 +1,13 @@
+STATIC ORIGINAL INSTRUCTIONS; 0038e824 FUN_0038e824
+0038e824: c830d0e5 ldrb r3,[r0,#0xc8]
+0038e828: 10402de9 stmdb sp!,{r4,lr}
+0038e82c: 010053e1 cmp r3,r1
+0038e830: 0040a0e1 cpy r4,r0
+0038e834: 1080bd08 ldmiaeq sp!,{r4,pc}
+0038e838: c810c0e5 strb r1,[r0,#0xc8]
+0038e83c: d2ff0feb bl 0x0078e78c
+0038e840: 000050e3 cmp r0,#0x0
+0038e844: 1080bd08 ldmiaeq sp!,{r4,pc}
+0038e848: 0400a0e1 cpy r0,r4
+0038e84c: 1040bde8 ldmia sp!,{r4,lr}
+0038e850: 760710ea b 0x00790630

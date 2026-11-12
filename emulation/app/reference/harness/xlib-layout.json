@@ -1,0 +1,147 @@
+{
+  "library": "rootfs/usr/lib/libX11.so.6",
+  "sha256": "03a4cb9d73d4d6eefe5d8667e8a122e87c08458d986837c8abe4ffe54ba6f2fc",
+  "machine": "ARM32 little endian",
+  "source": "Shipped firmware 1.60 ELF .dynsym and PT_LOAD instruction bytes",
+  "entry_points": {
+    "XOpenDisplay": {
+      "elf_vaddr": 162264,
+      "hex": "0x279d8",
+      "size": 2904,
+      "entry_bytes": "f04f2de994d04de2f05a9fe50030a0e3"
+    },
+    "XCreateWindow": {
+      "elf_vaddr": 220412,
+      "hex": "0x35cfc",
+      "size": 308,
+      "entry_bytes": "f8452de90150a0e1d01490e50040a0e1"
+    },
+    "XCreateSimpleWindow": {
+      "elf_vaddr": 94792,
+      "hex": "0x17248",
+      "size": 264,
+      "entry_bytes": "f8452de90150a0e1d01490e50040a0e1"
+    },
+    "XMapWindow": {
+      "elf_vaddr": 158448,
+      "hex": "0x26af0",
+      "size": 168,
+      "entry_bytes": "38402de90040a0e1d03490e50150a0e1"
+    },
+    "XMapRaised": {
+      "elf_vaddr": 158012,
+      "hex": "0x2693c",
+      "size": 268,
+      "entry_bytes": "38402de90040a0e1d03490e50150a0e1"
+    },
+    "XFlush": {
+      "elf_vaddr": 106372,
+      "hex": "0x19f84",
+      "size": 68,
+      "entry_bytes": "10402de90040a0e1d03490e5000053e3"
+    },
+    "XSync": {
+      "elf_vaddr": 210208,
+      "hex": "0x33520",
+      "size": 240,
+      "entry_bytes": "30402de90040a0e1d03490e524d04de2"
+    },
+    "_XFlush": {
+      "elf_vaddr": 258900,
+      "hex": "0x3f354",
+      "size": 36,
+      "entry_bytes": "0010a0e310402de90120a0e10040a0e1"
+    },
+    "_XSend": {
+      "elf_vaddr": 258572,
+      "hex": "0x3f20c",
+      "size": 152,
+      "entry_bytes": "38402de90040a0e1943090e538c590e5"
+    },
+    "_XGetXCBBuffer": {
+      "elf_vaddr": 254428,
+      "hex": "0x3e1dc",
+      "size": 160,
+      "entry_bytes": "38402de90040a0e1383590e5080093e5"
+    },
+    "_XPutXCBBuffer": {
+      "elf_vaddr": 254676,
+      "hex": "0x3e2d4",
+      "size": 1196,
+      "entry_bytes": "f04f2de90050a0e15c1090e54cd04de2"
+    },
+    "XNextRequest": {
+      "elf_vaddr": 157472,
+      "hex": "0x26720",
+      "size": 12,
+      "entry_bytes": "600090e5010080e21eff2fe1"
+    },
+    "XLastKnownRequestProcessed": {
+      "elf_vaddr": 157484,
+      "hex": "0x2672c",
+      "size": 8,
+      "entry_bytes": "5c0090e51eff2fe1"
+    },
+    "XConnectionNumber": {
+      "elf_vaddr": 157072,
+      "hex": "0x26590",
+      "size": 8,
+      "entry_bytes": "080090e51eff2fe1"
+    }
+  },
+  "layout": {
+    "fd": 8,
+    "last_request_read": 92,
+    "request": 96,
+    "last_req": 100,
+    "buffer": 104,
+    "bufptr": 108,
+    "bufmax": 112,
+    "xcb_private": 1336
+  },
+  "derivation": {
+    "fd": "XConnectionNumber 0x26590 reads [r0,#8]",
+    "last_request_read": "XLastKnownRequestProcessed 0x2672c reads [r0,#0x5c]",
+    "request": "XNextRequest 0x26720 reads [r0,#0x60] and adds one; XCreateWindow increments same word",
+    "last_req": "XCreateWindow 0x35d3c stores current request pointer at +0x64",
+    "buffer_bufptr_bufmax": "XOpenDisplay 0x27c28/0x27c2c stores allocated pointer at +0x68/+0x6c; 0x27c38 adds allocation length and 0x27c44 stores at +0x70; XCreateWindow loads +0x6c/+0x70, compares room for 32 bytes and advances +0x6c",
+    "CreateWindow_request": "XCreateWindow sets opcode1 at byte0, length8 at byte2, returned resource ID at byte4, parent byte8; attribute processing can extend length",
+    "MapWindow_request": "XMapWindow sets opcode8, length2, window ID at byte4",
+    "xcb_private": "_XGetXCBBuffer 0x3e1e4 loads Display+0x538, 0x3e1e8 loads connection at private+8"
+  },
+  "confidence": "Direct binary-derived fields/entry points; names for buffer fields inferred from allocation/use with high confidence; runtime validation required before snapshots",
+  "xcb": {
+    "library": "rootfs/usr/lib/libxcb.so.1",
+    "sha256": "b3e5e0ada7073d4a4fb34ead18a4fcc223181fc21e673e678d50202aa501d009",
+    "entry_points": {
+      "xcb_flush": {
+        "elf_vaddr": 33124,
+        "size": 64,
+        "entry_bytes": "38402de90040a0e1003090e5000053e3"
+      }
+    },
+    "layout": {
+      "fd": 8,
+      "output_buffer": 4356,
+      "output_length": 8452,
+      "request": 8456,
+      "request_written": 8460
+    },
+    "derivation": {
+      "output_buffer_length": "xcb_send_request 0x7d74 loads length at +0x2104; 0x7d80/0x7d84 form buffer c+0x1104; 0x7db0 appends at buffer+length via memcpy PLT, 0x7ddc stores increased length; capacity comparison 0x7d8c is 4096",
+      "request": "xcb_send_request 0x7c8c/0x7ca4 increments +0x2108; xcb_flush 0x8180/0x8188 reads same sequence",
+      "request_written": "inner flush/send 0x7a70/0x7a78/0x7a80 copies request(+0x2108) to +0x210c after bounded output; snapshot alone does not establish success if error flag set",
+      "fd": "libxcb output I/O instructions 0x760c/0x765c read fd at c+8; runtime equality with tracked fixture is required"
+    }
+  },
+  "checkpoints": {
+    "XCreateWindow_before_unlock": {
+      "elf_vaddr": 220632,
+      "entry_bytes": "d03494e5"
+    },
+    "XCreateWindow_return_instruction": {
+      "elf_vaddr": 220680,
+      "entry_bytes": "f885bde8"
+    }
+  }
+}

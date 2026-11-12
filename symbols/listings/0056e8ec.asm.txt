@@ -1,0 +1,3 @@
+STATIC ORIGINAL INSTRUCTIONS; 0056e8ec sp16_preinit_true_0056e8ec
+0056e8ec: 0100a0e3 mov r0,#0x1
+0056e8f0: 1eff2fe1 bx lr

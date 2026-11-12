@@ -1,0 +1,7 @@
+STATIC ORIGINAL INSTRUCTIONS; 004ad45c candidate_004ad45c
+004ad45c: 10402de9 stmdb sp!,{r4,lr}
+004ad460: 0040a0e1 cpy r4,r0
+004ad464: b81091e5 ldr r1,[r1,#0xb8]
+004ad468: fe0006eb bl 0x0062d868
+004ad46c: 0400a0e1 cpy r0,r4
+004ad470: 1080bde8 ldmia sp!,{r4,pc}

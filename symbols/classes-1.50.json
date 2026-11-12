@@ -1,0 +1,2252 @@
+{
+ "meta": {
+  "program": "EP085_Main_R",
+  "firmware": "1.50",
+  "sha256": "075cff7a874e6eb319faa1c8cb74c7dd7d1534220550b589bbe652c37ba65ce2",
+  "bytes": 11993612,
+  "image_base": "0x8000",
+  "arch": "ARM:LE:32",
+  "method": "RTTI type_info/vtable walk + .rodata symbol-string demangling (static, read-only)",
+  "classes": 124
+ },
+ "classes": {
+  "AmpEnvelopeViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x87adcc",
+   "virtual_method_vas": [
+    "0x24da34",
+    "0x24db90",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x24d9f0",
+    "0x24ab4c",
+    "0x24ab64"
+   ],
+   "recovered_methods": [
+    "AmpEnvelopeViewController::AmpEnvelopeViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "ArrangerViewController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x87b5c4",
+   "virtual_method_vas": [
+    "0x250bc0",
+    "0x250e50",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x250b84",
+    "0x24de84",
+    "0x24de9c"
+   ],
+   "recovered_methods": [
+    "ArrangerViewController::ArrangerViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "AssignableUnit": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x86033c",
+   "virtual_method_vas": [
+    "0x1a80c8",
+    "0x1a8260",
+    "0x1a77f8",
+    "0x1a8cc4",
+    "0x1a7800",
+    "0x1a7810",
+    "0x1a7f64",
+    "0x1a7eb0"
+   ],
+   "recovered_methods": [
+    "AssignableUnit::setAssignableRouting(int, int)"
+   ]
+  },
+  "AudioEditor": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x830464",
+   "virtual_method_vas": [
+    "0x0b57c0",
+    "0x0b5988",
+    "0x0b88c8",
+    "0x0b88c0",
+    "0x502a6c",
+    "0x0b88d0",
+    "0x0b88d8",
+    "0x502bac"
+   ],
+   "recovered_methods": [
+    "AudioEditor::closeEditFileThread()",
+    "AudioEditor::loadEditFileThread(juce::String const&)",
+    "AudioEditor::onFinishedClose(IAudioEditor::EditorReply)",
+    "AudioEditor::onFinishedLoad(IAudioEditor::EditorReply)",
+    "AudioEditor::onFinishedSave(IAudioEditor::EditorReply)",
+    "AudioEditor::saveEditFileThread(juce::String const&)"
+   ]
+  },
+  "AudioRenderingManager": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x853f10",
+   "virtual_method_vas": [
+    "0x168354",
+    "0x168524",
+    "0x0b88c8",
+    "0x0b88c0",
+    "0x502a6c",
+    "0x1656d4",
+    "0x0b88d8",
+    "0x502bac"
+   ],
+   "recovered_methods": [
+    "AudioRenderingManager::executeJobAsyncImpl(AudioRenderingJob*)"
+   ]
+  },
+  "AudioSourceHelper": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x831118",
+   "virtual_method_vas": [
+    "0x0bdef8",
+    "0x0bdfa4"
+   ],
+   "recovered_methods": [
+    "AudioSourceHelper::FinishSwapGard(AbstractReader*)",
+    "AudioSourceHelper::StartSwapGard(AbstractReader*)",
+    "AudioSourceHelper::changeFileName(RecordableAudioSource*, infra::VirtualFilePath const&)",
+    "AudioSourceHelper::createRecordableAudioSource(juce::String const&, IRecordableAudioSourceCreateListener*)",
+    "AudioSourceHelper::load(AbstractReader*, juce::File const&, IAudioSourceListener*)",
+    "AudioSourceHelper::unload(AbstractReader*, IAudioSourceListener*)"
+   ]
+  },
+  "BankSelectPopupWidgetController": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x867b94",
+   "virtual_method_vas": [
+    "0x1e7fc8",
+    "0x1e818c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1e7f94",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "BankSelectPopupWidgetController::BankSelectPopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "BpmQuantizePopupWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x868514",
+   "virtual_method_vas": [
+    "0x1ea71c",
+    "0x1ea994",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1edb34",
+    "0x1edb48",
+    "0x1edb68"
+   ],
+   "recovered_methods": [
+    "BpmQuantizePopupWidgetController::BpmQuantizePopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "BrowseViewController": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x87c014",
+   "virtual_method_vas": [
+    "0x255058",
+    "0x2552a4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2587b0",
+    "0x251c0c",
+    "0x251260"
+   ],
+   "recovered_methods": [
+    "BrowseViewController::BrowseViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "CautionManager": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x8a03c0",
+   "virtual_method_vas": [
+    "0x3289dc",
+    "0x329498"
+   ],
+   "recovered_methods": [
+    "CautionManager::clearCaution(ICautionListener::CautionType)",
+    "CautionManager::getCaution()",
+    "CautionManager::notifyCaution(ICautionListener::CautionType, int)"
+   ]
+  },
+  "ColorAdjustView": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x92d18c",
+   "virtual_method_vas": [
+    "0x538728",
+    "0x53880c",
+    "0x751a50",
+    "0x751a3c",
+    "0x751a40",
+    "0x389900",
+    "0x751a4c",
+    "0x751a48"
+   ],
+   "recovered_methods": [
+    "ColorAdjustView::BaseColors(int)",
+    "ColorAdjustView::changeBtnText(int)",
+    "ColorAdjustView::changeTextColor(int)",
+    "ColorAdjustView::selectedIndex(int)"
+   ]
+  },
+  "CompositeFxUnit": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x85ea9c",
+   "virtual_method_vas": [
+    "0x19e7d8",
+    "0x19e934",
+    "0x0c27dc",
+    "0x19d640",
+    "0x19d5f4",
+    "0x19d714",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "CompositeFxUnit::setFxMode(CompositeFxUnit::CompositeFxMode)"
+   ]
+  },
+  "DaveSmithManager": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x832bd4",
+   "virtual_method_vas": [
+    "0x0c3b34",
+    "0x0c3c7c",
+    "0x0c27dc",
+    "0x0c294c",
+    "0x0c2950",
+    "0x0c5210",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "DaveSmithManager::assignToMaster()",
+    "DaveSmithManager::assignToTrack(int)",
+    "DaveSmithManager::assignToTrack(int, IDaveSmithManager::SendTrackSource)",
+    "DaveSmithManager::setMode(IDaveSmithManager::Mode)",
+    "DaveSmithManager::setSendTrackIndex(int)",
+    "DaveSmithManager::setSendTrackSource(IDaveSmithManager::SendTrackSource)"
+   ]
+  },
+  "Device::Gpio": {
+   "subsystem": "Infrastructure",
+   "vtable_va": "0x8b3910",
+   "virtual_method_vas": [
+    "0x381124",
+    "0x381298"
+   ],
+   "recovered_methods": [
+    "Device::Gpio::toAssert(Device::GpioIdentifier, Device::GpioCallback*)",
+    "Device::Gpio::toNegate(Device::GpioIdentifier, Device::GpioCallback*)"
+   ]
+  },
+  "DoubleColumnWithSubItemListTableWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86919c",
+   "virtual_method_vas": [
+    "0x1ee850",
+    "0x1eea14",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1ee81c",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "DoubleColumnWithSubItemListTableWidgetController::DoubleColumnWithSubItemListTableWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "DsfSendOutputSelector": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x833288",
+   "virtual_method_vas": [
+    "0x0c5e5c",
+    "0x0c5ee4",
+    "0x0c27dc",
+    "0x0c5de8",
+    "0x0c5db4",
+    "0x0c5d78",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "DsfSendOutputSelector::selectSourceChannelPair(MonoChannelIndexPairEx const&)",
+    "DsfSendOutputSelector::setMuteState(bool)"
+   ]
+  },
+  "FxInsert2BandEqViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87814c",
+   "virtual_method_vas": [
+    "0x23ee00",
+    "0x23eff4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x23edc0",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsert2BandEqViewController::FxInsert2BandEqViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertChorusViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x879c14",
+   "virtual_method_vas": [
+    "0x24765c",
+    "0x24782c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x24761c",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertChorusViewController::FxInsertChorusViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertCompressorViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87668c",
+   "virtual_method_vas": [
+    "0x236908",
+    "0x236ae0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2368c8",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertCompressorViewController::FxInsertCompressorViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertDelayViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87a164",
+   "virtual_method_vas": [
+    "0x248e58",
+    "0x249020",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x248e18",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertDelayViewController::FxInsertDelayViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertDuckerViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87155c",
+   "virtual_method_vas": [
+    "0x21fb54",
+    "0x21fe24",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x21f9f4",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertDuckerViewController::FxInsertDuckerViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertFlangerViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x879174",
+   "virtual_method_vas": [
+    "0x2445b4",
+    "0x24478c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x244574",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertFlangerViewController::FxInsertFlangerViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertLofiViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x874bb4",
+   "virtual_method_vas": [
+    "0x22d9ec",
+    "0x22dbec",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x22d9ac",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertLofiViewController::FxInsertLofiViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertMultiModeFilterViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x87740c",
+   "virtual_method_vas": [
+    "0x23b280",
+    "0x23b46c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x23b240",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertMultiModeFilterViewController::FxInsertMultiModeFilterViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertNoSelectViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87310c",
+   "virtual_method_vas": [
+    "0x22604c",
+    "0x2261f4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x22600c",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertNoSelectViewController::FxInsertNoSelectViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertPhaserViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x871b9c",
+   "virtual_method_vas": [
+    "0x221780",
+    "0x221958",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x221740",
+    "0x2263c0",
+    "0x2263d8"
+   ],
+   "recovered_methods": [
+    "FxInsertPhaserViewController::FxInsertPhaserViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxInsertViewControllerBase": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x871674",
+   "virtual_method_vas": [
+    "0x21fa34",
+    "0x21fcfc",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300"
+   ],
+   "recovered_methods": [
+    "FxInsertViewControllerBase::FxInsertViewControllerBase(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxLimiterViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87cb34",
+   "virtual_method_vas": [
+    "0x25bcac",
+    "0x25bfa0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x25bc60",
+    "0x25a4e8",
+    "0x25a500"
+   ],
+   "recovered_methods": [
+    "FxLimiterViewController::FxLimiterViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMaster2BandEqViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8786d4",
+   "virtual_method_vas": [
+    "0x241258",
+    "0x24144c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x241218",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMaster2BandEqViewController::FxMaster2BandEqViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterChorusViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8796c4",
+   "virtual_method_vas": [
+    "0x245cf8",
+    "0x245ec8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x245cb8",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterChorusViewController::FxMasterChorusViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterCompressorViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x875f54",
+   "virtual_method_vas": [
+    "0x2346f4",
+    "0x2348cc",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2346b4",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterCompressorViewController::FxMasterCompressorViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterDelayViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87a6d4",
+   "virtual_method_vas": [
+    "0x24a6a4",
+    "0x24a87c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x24a664",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterDelayViewController::FxMasterDelayViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterFlangerViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x878c24",
+   "virtual_method_vas": [
+    "0x242af0",
+    "0x242cc8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x242ab0",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterFlangerViewController::FxMasterFlangerViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterLofiViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8743e4",
+   "virtual_method_vas": [
+    "0x22b110",
+    "0x22b310",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x22b0d0",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterLofiViewController::FxMasterLofiViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterMultiModeFilterViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x876d2c",
+   "virtual_method_vas": [
+    "0x238d10",
+    "0x238efc",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x238cd0",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterMultiModeFilterViewController::FxMasterMultiModeFilterViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterNoSelectViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x872b24",
+   "virtual_method_vas": [
+    "0x225730",
+    "0x2258d8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2256f0",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterNoSelectViewController::FxMasterNoSelectViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterPhaserViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8720ec",
+   "virtual_method_vas": [
+    "0x22310c",
+    "0x22340c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x222fac",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxMasterPhaserViewController::FxMasterPhaserViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxMasterViewControllerBase": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x872204",
+   "virtual_method_vas": [
+    "0x222fec",
+    "0x2232e4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300"
+   ],
+   "recovered_methods": [
+    "FxMasterViewControllerBase::FxMasterViewControllerBase(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxReverbViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x87261c",
+   "virtual_method_vas": [
+    "0x224844",
+    "0x224a1c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x224804",
+    "0x23b69c",
+    "0x23b6b4"
+   ],
+   "recovered_methods": [
+    "FxReverbViewController::FxReverbViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "FxSelectPopupWidgetController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x86981c",
+   "virtual_method_vas": [
+    "0x1f36a0",
+    "0x1f389c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f3664",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "FxSelectPopupWidgetController::FxSelectPopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "GlobalSectionAssignWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x894b7c",
+   "virtual_method_vas": [
+    "0x2d0260",
+    "0x2d0404",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2d0224",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "GlobalSectionAssignWidgetController::GlobalSectionAssignWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "GlobalSectionHomeWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x895024",
+   "virtual_method_vas": [
+    "0x2d35e0",
+    "0x2d37cc",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2d3574",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "GlobalSectionHomeWidgetController::GlobalSectionHomeWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "GlobalSectionProjectWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8956e4",
+   "virtual_method_vas": [
+    "0x2d3df8",
+    "0x2d3f2c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2d3dcc",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "GlobalSectionProjectWidgetController::GlobalSectionProjectWidgetController(IViewDispatcher&)"
+   ]
+  },
+  "GlobalSectionTrackMenuWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x895a74",
+   "virtual_method_vas": [
+    "0x2d5cc8",
+    "0x2d5eb4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2d5c7c",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "GlobalSectionTrackMenuWidgetController::GlobalSectionTrackMenuWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "GridSlicePopupWidgetController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x86a9fc",
+   "virtual_method_vas": [
+    "0x1f43b0",
+    "0x1f4558",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f4384",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "GridSlicePopupWidgetController::GridSlicePopupWidgetController(IViewDispatcher&)"
+   ]
+  },
+  "HardMuteController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x864338",
+   "virtual_method_vas": [
+    "0x1cea20",
+    "0x1cebe4",
+    "0x1cdadc",
+    "0x1cee98",
+    "0x1cda90",
+    "0x1ce2c4",
+    "0x1ce278"
+   ],
+   "recovered_methods": [
+    "HardMuteController::addRequest(HardMuteControllerRequest*)",
+    "HardMuteController::addRequests(juce::Array<HardMuteControllerRequest*, juce::DummyCriticalSection, 0>)",
+    "HardMuteController::timerCallbackOnTaskBox()"
+   ]
+  },
+  "HeadphoneRouter": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x85f724",
+   "virtual_method_vas": [
+    "0x1a3b1c",
+    "0x1a3c54",
+    "0x1a49b8",
+    "0x1a35e8",
+    "0x1a39f0",
+    "0x1a3974",
+    "0x1a38f8",
+    "0x1a37e8"
+   ],
+   "recovered_methods": [
+    "HeadphoneRouter::setHeadphoneSource(int)"
+   ]
+  },
+  "HexaTrackAudioSystem": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x860fd8",
+   "virtual_method_vas": [
+    "0x1b5a00",
+    "0x1b6888",
+    "0x5f6c40",
+    "0x1ad3ac",
+    "0x1ad358",
+    "0x1b4e6c",
+    "0x5f68fc",
+    "0x5f74d8"
+   ],
+   "recovered_methods": [
+    "HexaTrackAudioSystem::muteAllOutput(bool)",
+    "HexaTrackAudioSystem::muteExternalInput(bool)",
+    "HexaTrackAudioSystem::switchToRendererMode()",
+    "HexaTrackAudioSystem::switchToSamplerMode()"
+   ]
+  },
+  "IProjectManager": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x8a35cc",
+   "virtual_method_vas": [
+    "0x3413bc",
+    "0x341414"
+   ],
+   "recovered_methods": [
+    "IProjectManager::eResult"
+   ]
+  },
+  "InputStringPopupWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86adfc",
+   "virtual_method_vas": [
+    "0x1f5d38",
+    "0x1f5ee0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f5d0c",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "InputStringPopupWidgetController::InputStringPopupWidgetController(IViewDispatcher&)"
+   ]
+  },
+  "LfoProcessor": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8434dc",
+   "virtual_method_vas": [
+    "0x13008c",
+    "0x12f7d0",
+    "0x1302d4",
+    "0x12f7f8",
+    "0x1309a0",
+    "0x12f820",
+    "0x12fe48",
+    "0x12f848"
+   ],
+   "recovered_methods": [
+    "LfoProcessor::setBypassMode(bool)",
+    "LfoProcessor::setDepth(int)",
+    "LfoProcessor::setDestination(ILfoProcessor::LfoDestination)",
+    "LfoProcessor::setLfoType(ILfoProcessor::LfoType)",
+    "LfoProcessor::setOffset(int)",
+    "LfoProcessor::setSpeed(float)",
+    "LfoProcessor::setSync(bool)",
+    "LfoProcessor::setTriggerMode(ILfoProcessor::LfoTriggerMode)",
+    "LfoProcessor::setTriggerOnTrigger(ILfoProcessor::LfoTriggerOn)"
+   ]
+  },
+  "LfoViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x87d7dc",
+   "virtual_method_vas": [
+    "0x25ff2c",
+    "0x260070",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x25fee8",
+    "0x25db38",
+    "0x25db50"
+   ],
+   "recovered_methods": [
+    "LfoViewController::LfoViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "LiveRecFileWriter": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x862808",
+   "virtual_method_vas": [
+    "0x1c3950",
+    "0x1c3d50",
+    "0x176a9c",
+    "0x0b88c0",
+    "0x176a18",
+    "0x17162c",
+    "0x171634"
+   ],
+   "recovered_methods": [
+    "LiveRecFileWriter::write(ILiveSampling::SavedDeviceID, int, int, IPlayer*)"
+   ]
+  },
+  "LiveSampling": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x863034",
+   "virtual_method_vas": [
+    "0x1c8c28",
+    "0x1c8fac",
+    "0x0c27dc",
+    "0x1c4548",
+    "0x1cc75c",
+    "0x1c7f3c",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "LiveSampling::saveRecordedSample(int, ILiveSampling::SavedDeviceID)",
+    "LiveSampling::setLSMode(bool)",
+    "LiveSampling::setLoopAfterRecMode(bool)",
+    "LiveSampling::setNudgeSamplesInRing(int, int)",
+    "LiveSampling::setRecLength(infra::Fraction<unsigned short>)",
+    "LiveSampling::startLiveRec(int)",
+    "LiveSampling::stopLiveRec(int, int)",
+    "LiveSampling::unloadTrack(int)"
+   ]
+  },
+  "LiveSampling::AsyncNotifier": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x863008",
+   "virtual_method_vas": [
+    "0x1c8aa8",
+    "0x1c8b48",
+    "0x176a9c",
+    "0x0b88c0",
+    "0x176a18",
+    "0x17162c",
+    "0x171634"
+   ],
+   "recovered_methods": [
+    "LiveSampling::AsyncNotifier::notify()"
+   ]
+  },
+  "LiveSamplingWaveFormViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x86da44",
+   "virtual_method_vas": [
+    "0x1fd538",
+    "0x1fd6fc",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1fec64",
+    "0x1fbfcc",
+    "0x1fc054"
+   ],
+   "recovered_methods": [
+    "LiveSamplingWaveFormViewController::LiveSamplingWaveFormViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "MessagePopupWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86b284",
+   "virtual_method_vas": [
+    "0x1f718c",
+    "0x1f7368",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f7158",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "MessagePopupWidgetController::MessagePopupWidgetController(IViewDispatcher&)"
+   ]
+  },
+  "MidiCc1ViewController": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x87e54c",
+   "virtual_method_vas": [
+    "0x263f00",
+    "0x264260",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x263e38",
+    "0x26034c",
+    "0x260364"
+   ],
+   "recovered_methods": [
+    "MidiCc1ViewController::MidiCc1ViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "MidiCc2ViewController": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x87f0e4",
+   "virtual_method_vas": [
+    "0x268be8",
+    "0x268f90",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x268b20",
+    "0x26433c",
+    "0x264354"
+   ],
+   "recovered_methods": [
+    "MidiCc2ViewController::MidiCc2ViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "MidiClockInterpreter": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x844734",
+   "virtual_method_vas": [
+    "0x13ac08",
+    "0x13aeb8",
+    "0x13a514",
+    "0x13bc50",
+    "0x13bc58",
+    "0x13bc60",
+    "0x13a51c",
+    "0x13bc68"
+   ],
+   "recovered_methods": [
+    "MidiClockInterpreter::setMidiNudgeOnDown(bool)",
+    "MidiClockInterpreter::setMidiNudgeOnUp(bool)",
+    "MidiClockInterpreter::startSyncMode()"
+   ]
+  },
+  "MidiSender": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8457d8",
+   "virtual_method_vas": [
+    "0x142948",
+    "0x142a8c",
+    "0x0b88c8",
+    "0x0b88c0",
+    "0x502a6c",
+    "0x141cf0",
+    "0x0b88d8",
+    "0x502bac"
+   ],
+   "recovered_methods": [
+    "MidiSender::sendMessageToCurrentDevice(juce::MidiBuffer const&, bool)",
+    "MidiSender::sendMessageToCurrentDevice(juce::MidiMessage const&, bool)"
+   ]
+  },
+  "MixerViewController": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x880064",
+   "virtual_method_vas": [
+    "0x26d66c",
+    "0x26da30",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x26d5d4",
+    "0x269524",
+    "0x2698a8"
+   ],
+   "recovered_methods": [
+    "MixerViewController::MixerViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "OutputSettingViewController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x880834",
+   "virtual_method_vas": [
+    "0x2719a4",
+    "0x271cac",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x271960",
+    "0x26da4c",
+    "0x26e270"
+   ],
+   "recovered_methods": [
+    "OutputSettingViewController::OutputSettingViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "PeakDetectorUnit": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x83ab48",
+   "virtual_method_vas": [
+    "0x0e4530",
+    "0x0e480c",
+    "0x0c27dc",
+    "0x0e4494",
+    "0x0e4f08",
+    "0x0e43f0",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "PeakDetectorUnit::addPeakData(PeakData*, int)",
+    "PeakDetectorUnit::removePeakData(PeakData*)"
+   ]
+  },
+  "PlaybackViewController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x880efc",
+   "virtual_method_vas": [
+    "0x273730",
+    "0x273888",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2736ec",
+    "0x272134",
+    "0x27214c"
+   ],
+   "recovered_methods": [
+    "PlaybackViewController::PlaybackViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "PlayerUnit": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8476f0",
+   "virtual_method_vas": [
+    "0x154b7c",
+    "0x154c54",
+    "0x0c27dc",
+    "0x159e60",
+    "0x15bab8",
+    "0x15b728",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "PlayerUnit::AllSceneTrackUnload_AfterStop()",
+    "PlayerUnit::InstLoad_AfterStop()",
+    "PlayerUnit::ProjectLoad_AfterStop()",
+    "PlayerUnit::setAttackCurve_Linear_PUnit(Amplifier::eCurveSetting)",
+    "PlayerUnit::setAttackIndex_PUnit(float)",
+    "PlayerUnit::setAudioSource_PUnit(AbstractReader*)",
+    "PlayerUnit::setBypassMode_PUnit(bool)",
+    "PlayerUnit::setEndSamples_PUnit(int)",
+    "PlayerUnit::setHoldIndex_PUnit(float)",
+    "PlayerUnit::setLoopMode_PUnit(bool)",
+    "PlayerUnit::setLoopStartSamples_PUnit(int, int)",
+    "PlayerUnit::setNowPlayPositionSamples_PUnit(int)",
+    "PlayerUnit::setPitchCent_PUnit(int)",
+    "PlayerUnit::setQuantOffset_PUnit(int)",
+    "PlayerUnit::setReleaseCurve_Linear_PUnit(Amplifier::eCurveSetting)",
+    "PlayerUnit::setReleaseIndex_PUnit(float)",
+    "PlayerUnit::setReversePlay_PUnit(bool)",
+    "PlayerUnit::setStartSamples_PUnit(int)",
+    "PlayerUnit::setStretchModePitchSpeed_PUnit(IPlayer::enum_TimeStretchMode, int, float)",
+    "PlayerUnit::setSyncMode_PUnit(bool)",
+    "PlayerUnit::setVelocity_PUnit(int)",
+    "PlayerUnit::stop_PUnit(int, bool)",
+    "PlayerUnit::triggerAmp_PUnit(int, bool)",
+    "PlayerUnit::trigger_PUnit(int)"
+   ]
+  },
+  "PresetSampleCopyTestPage": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x92c908",
+   "virtual_method_vas": [
+    "0x537514",
+    "0x537804",
+    "0x751a50",
+    "0x751a3c",
+    "0x751a40",
+    "0x751a44",
+    "0x751a4c",
+    "0x751a48"
+   ],
+   "recovered_methods": [
+    "PresetSampleCopyTestPage::didCompleteJob()",
+    "PresetSampleCopyTestPage::didMountMemory(juce::String)",
+    "PresetSampleCopyTestPage::didOccurError(juce::String)",
+    "PresetSampleCopyTestPage::didUnmountMemory()",
+    "PresetSampleCopyTestPage::didUpdateProgress(int, int, int)"
+   ]
+  },
+  "ProgramChangePopupWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86b7b4",
+   "virtual_method_vas": [
+    "0x1f7f34",
+    "0x1f80f8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f7f00",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "ProgramChangePopupWidgetController::ProgramChangePopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "ProgressBarWindowPopupWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86bae4",
+   "virtual_method_vas": [
+    "0x1f8818",
+    "0x1f89c8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1f87ec",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "ProgressBarWindowPopupWidgetController::ProgressBarWindowPopupWidgetController(IViewDispatcher&)"
+   ]
+  },
+  "ProjectManager": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x8a58ac",
+   "virtual_method_vas": [
+    "0x33df3c",
+    "0x33e334",
+    "0x340c70",
+    "0x338e30",
+    "0x33b4f8",
+    "0x33eed0",
+    "0x33f62c",
+    "0x33d62c"
+   ],
+   "recovered_methods": [
+    "ProjectManager::archiveProject(IProjectManagerListener*, juce::String const&, juce::String const&, double*)",
+    "ProjectManager::createNewProject(IProjectManagerListener*, bool)",
+    "ProjectManager::deleteProject(juce::File const&, IProjectManagerListener*)",
+    "ProjectManager::duplicateScene(IProjectManagerListener*, juce::File const&, int)",
+    "ProjectManager::exportSceneArchive(IProjectManagerListener*, int, juce::String const&, juce::String const&, double*, bool)",
+    "ProjectManager::goStandbyMode()",
+    "ProjectManager::goUnLoadMode()",
+    "ProjectManager::importSceneArchive(IProjectManagerListener*, int, juce::File const&, double*)",
+    "ProjectManager::loadProject(juce::File const&, IProjectManagerListener*, double*)",
+    "ProjectManager::requestUsbPrepareToStop(INotifyCompletePreparedToStop*)",
+    "ProjectManager::resumeProject(IProjectManagerListener*, double*)",
+    "ProjectManager::saveProject(juce::File const&, IProjectManagerListener*, double*)"
+   ]
+  },
+  "RealtimeTriggerHandler": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8525cc",
+   "virtual_method_vas": [
+    "0x160b1c",
+    "0x160cd0",
+    "0x15fadc",
+    "0x15f104",
+    "0x15da50",
+    "0x15d410",
+    "0x15e084",
+    "0x15dadc"
+   ],
+   "recovered_methods": [
+    "RealtimeTriggerHandler::holdParameters(juce::Array<IParameterHoldable::Param, juce::DummyCriticalSection, 0>*)",
+    "RealtimeTriggerHandler::holdParameters(juce::Array<IParameterHoldable::Param, juce::DummyCriticalSection, 0>*, int, bool)",
+    "RealtimeTriggerHandler::releaseParameters()",
+    "RealtimeTriggerHandler::releaseParameters(int)",
+    "RealtimeTriggerHandler::stopSound(int, bool)",
+    "RealtimeTriggerHandler::triggerSound(int, int, int, int, int, int, IMultiTrackSoundGenerator::TriggerSoundType)"
+   ]
+  },
+  "RecMonitorUnit": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x85ee90",
+   "virtual_method_vas": [
+    "0x19f0ac",
+    "0x19f1f0",
+    "0x0c27dc",
+    "0x19f348",
+    "0x19f20c",
+    "0x19faa4",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "RecMonitorUnit::disableCue(IMonitorMixer::MonitorSource, IMonitorMixer::MonitorDestination)",
+    "RecMonitorUnit::enableCue(IMonitorMixer::MonitorSource, IMonitorMixer::MonitorDestination)"
+   ]
+  },
+  "RenderAudioViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x882c74",
+   "virtual_method_vas": [
+    "0x2897e8",
+    "0x2899f8",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x28964c",
+    "0x280034",
+    "0x280094"
+   ],
+   "recovered_methods": [
+    "RenderAudioViewController::RenderAudioViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*, PowerManager*)"
+   ]
+  },
+  "RibbonSettingViewController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x88452c",
+   "virtual_method_vas": [
+    "0x28b358",
+    "0x28b4c0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x28b30c",
+    "0x289dbc",
+    "0x289dd4"
+   ],
+   "recovered_methods": [
+    "RibbonSettingViewController::RibbonSettingViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SampleAdjunctDataManager": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8b1be0",
+   "virtual_method_vas": [
+    "0x374180",
+    "0x374254",
+    "0x3740a0",
+    "0x375588",
+    "0x375050",
+    "0x374b18",
+    "0x374398",
+    "0x374278"
+   ],
+   "recovered_methods": [
+    "SampleAdjunctDataManager::requestUsbPrepareToStop(INotifyCompletePreparedToStop*)"
+   ]
+  },
+  "SamplingEditViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x885124",
+   "virtual_method_vas": [
+    "0x28f1b8",
+    "0x28f394",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2903bc",
+    "0x28b7bc",
+    "0x28be90"
+   ],
+   "recovered_methods": [
+    "SamplingEditViewController::SamplingEditViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SceneBpmChangePopupWidgetController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8675bc",
+   "virtual_method_vas": [
+    "0x1e681c",
+    "0x1e6b1c",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1e620c",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "SceneBpmChangePopupWidgetController::SceneBpmChangePopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "SceneEditor": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x85631c",
+   "virtual_method_vas": [
+    "0x170708",
+    "0x170830",
+    "0x16c728",
+    "0x16d584",
+    "0x170638",
+    "0x16f668",
+    "0x16c6e8",
+    "0x16d544"
+   ],
+   "recovered_methods": [
+    "SceneEditor::copyAndPasteAsync(PatternEditParameter const&, PatternEditParameter const&)",
+    "SceneEditor::copyAndPasteAsync(SceneEditParameter const&, SceneEditParameter const&)",
+    "SceneEditor::copyAndPasteAsync(SequenceEditParameter const&, SequenceEditParameter const&)",
+    "SceneEditor::copyAndPasteAsync(TrackEditParameter const&, TrackEditParameter const&, bool)",
+    "SceneEditor::finishedEdit(SceneEditor::EditType, PatternEditParameter const&, PatternEditParameter const&)",
+    "SceneEditor::finishedEdit(SceneEditor::EditType, SceneEditParameter const&, SceneEditParameter const&)",
+    "SceneEditor::finishedEdit(SceneEditor::EditType, SequenceEditParameter const&, SequenceEditParameter const&)",
+    "SceneEditor::finishedEdit(SceneEditor::EditType, TrackEditParameter const&, TrackEditParameter const&, bool)",
+    "SceneEditor::prepareToEdit(SceneEditor::EditType, PatternEditParameter const&, PatternEditParameter const&)",
+    "SceneEditor::prepareToEdit(SceneEditor::EditType, SceneEditParameter const&, SceneEditParameter const&)",
+    "SceneEditor::prepareToEdit(SceneEditor::EditType, SequenceEditParameter const&, SequenceEditParameter const&)",
+    "SceneEditor::prepareToEdit(SceneEditor::EditType, TrackEditParameter const&, TrackEditParameter const&, bool)",
+    "SceneEditor::resetAsync(PatternEditParameter const&)",
+    "SceneEditor::resetAsync(SceneEditParameter const&)",
+    "SceneEditor::resetAsync(SequenceEditParameter const&)",
+    "SceneEditor::resetAsync(TrackEditParameter const&, bool)",
+    "SceneEditor::swapAsync(TrackEditParameter const&, TrackEditParameter const&, bool)"
+   ]
+  },
+  "SceneManagerSequenceViewController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x86f034",
+   "virtual_method_vas": [
+    "0x209688",
+    "0x2097a4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x20b688",
+    "0x209014",
+    "0x20902c"
+   ],
+   "recovered_methods": [
+    "SceneManagerSequenceViewController::SceneManagerSequenceViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SceneManagerTrackViewController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x86e714",
+   "virtual_method_vas": [
+    "0x201d70",
+    "0x201f20",
+    "0x1e6428",
+    "0x201788",
+    "0x1e6300",
+    "0x2081a8",
+    "0x201504",
+    "0x20151c"
+   ],
+   "recovered_methods": [
+    "SceneManagerTrackViewController::SceneManagerTrackViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SceneManagerViewController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x86fe54",
+   "virtual_method_vas": [
+    "0x216cd0",
+    "0x216f10",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x21bc58",
+    "0x20b770",
+    "0x20b8bc"
+   ],
+   "recovered_methods": [
+    "SceneManagerViewController::setPairing(IViewDispatcher&)"
+   ]
+  },
+  "ScenePackId::SourceId": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8a14a0",
+   "virtual_method_vas": [
+    "0x336b0c",
+    "0x33826c",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "ScenePackId::SourceId::SourceId(int)"
+   ]
+  },
+  "ScenePatternManager": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8593d4",
+   "virtual_method_vas": [
+    "0x17e214",
+    "0x17e368",
+    "0x0c27dc",
+    "0x17ce40",
+    "0x17ccc0",
+    "0x17d6c4",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "ScenePatternManager::clearSceneBpm(int)",
+    "ScenePatternManager::onProjectDataAboutToReplace(prj::ProjectData&)",
+    "ScenePatternManager::onProjectDataReplaced()",
+    "ScenePatternManager::setSceneBpm(int, double)",
+    "ScenePatternManager::setSceneColour(int, int)"
+   ]
+  },
+  "ScenePatternSwitcher": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x859c04",
+   "virtual_method_vas": [
+    "0x17f808",
+    "0x17fafc",
+    "0x17f428",
+    "0x17ef10",
+    "0x17f24c",
+    "0x17f074",
+    "0x17f0ac",
+    "0x17f024"
+   ],
+   "recovered_methods": [
+    "ScenePatternSwitcher::cancelIfPossible()",
+    "ScenePatternSwitcher::setSwitchable(bool)",
+    "ScenePatternSwitcher::switchSceneAndPattern(int, int, bool)"
+   ]
+  },
+  "SectionSequencer": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x85a8cc",
+   "virtual_method_vas": [
+    "0x182768",
+    "0x182878",
+    "0x0c27dc",
+    "0x180b44",
+    "0x18076c",
+    "0x180ad8",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "SectionSequencer::deleteFixedBpm(int)",
+    "SectionSequencer::deleteSectionSequence(int)",
+    "SectionSequencer::exitSectionSequence()",
+    "SectionSequencer::insertSectionSequence(int, unsigned char, unsigned char, unsigned char, int)",
+    "SectionSequencer::replaceSectionSequence(int, unsigned char, unsigned char)",
+    "SectionSequencer::setCurrentSectionIndex(int, bool)",
+    "SectionSequencer::setFixedBpm(int, int)",
+    "SectionSequencer::setRepeatCount(int, unsigned char)",
+    "SectionSequencer::startSectionSequence()"
+   ]
+  },
+  "SequenceViewController": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x885b64",
+   "virtual_method_vas": [
+    "0x293454",
+    "0x2935b4",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x293410",
+    "0x290450",
+    "0x290468"
+   ],
+   "recovered_methods": [
+    "SequenceViewController::SequenceViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "Sequencer": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x85b78c",
+   "virtual_method_vas": [
+    "0x18a2a0",
+    "0x18a508",
+    "0x0c27dc",
+    "0x1854f8",
+    "0x18a750",
+    "0x1855e0",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "Sequencer::deleteIndependentParameter(int, int, ModuleIndex)",
+    "Sequencer::deleteIndependentParameter(int, int, ParamIndex)",
+    "Sequencer::deleteIndependentParameter(int, int, int, FxParamIndex)",
+    "Sequencer::deleteStepSequenceData(int, int)",
+    "Sequencer::playPauseSequence(bool)",
+    "Sequencer::processStepShift(int, int)",
+    "Sequencer::quantize(int)",
+    "Sequencer::recSequence()",
+    "Sequencer::setCurrentTransportPpq(double)",
+    "Sequencer::setCurrentTransportStepIndex(int)",
+    "Sequencer::setMetronomeMode(bool)",
+    "Sequencer::setPatternLength(int)",
+    "Sequencer::setPreCountLength(int)",
+    "Sequencer::setPreCountMode(bool)",
+    "Sequencer::setRealTimeSequenceData(prj::StepData&, bool)",
+    "Sequencer::setStepSequenceData(prj::StepData const&)",
+    "Sequencer::setStepSequenceDataIndividuallyAsFloat(int, int, ParamIndex, float, ValueChangeTypeToNextStepData)",
+    "Sequencer::setStepSequenceDataIndividuallyAsFloat(int, int, int, FxParamIndex, float, ValueChangeTypeToNextStepData)",
+    "Sequencer::setStepSequenceDataIndividuallyAsIndex(int, int, ParamIndex, int, bool, ValueChangeTypeToNextStepData)",
+    "Sequencer::setStepSequenceDataIndividuallyAsIndex(int, int, int, FxParamIndex, int, bool, ValueChangeTypeToNextStepData)",
+    "Sequencer::setStepSequenceDataIndividuallyOnlyIndex(int, int, ParamIndex, int, ValueChangeTypeToNextStepData)",
+    "Sequencer::setStepSequenceDataTriggerType(int, int, TriggerType)",
+    "Sequencer::setStepShiftArea(int, IStepSequenceEditor::StepShiftArea)",
+    "Sequencer::setToIgnoreStepSequence(int, bool)",
+    "Sequencer::setToIgnoreStepSequenceForUndo(bool)",
+    "Sequencer::setTranspose(int, int)",
+    "Sequencer::stopSequence()"
+   ]
+  },
+  "SetScaleMidiViewController": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x875534",
+   "virtual_method_vas": [
+    "0x232310",
+    "0x232620",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x230fe4",
+    "0x22de44",
+    "0x22de74"
+   ],
+   "recovered_methods": [
+    "SetScaleMidiViewController::SetScaleMidiViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SetScaleViewController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x87540c",
+   "virtual_method_vas": [
+    "0x23218c",
+    "0x232494",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x230fd0",
+    "0x22de5c",
+    "0x22deb4"
+   ],
+   "recovered_methods": [
+    "SetScaleViewController::SetScaleViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SetSliceViewController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x886504",
+   "virtual_method_vas": [
+    "0x295220",
+    "0x2954d0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2951dc",
+    "0x2938b0",
+    "0x2938c8"
+   ],
+   "recovered_methods": [
+    "SetSliceViewController::SetSliceViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "SoftwareKeyboardPopupWidgetController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x86c5b4",
+   "virtual_method_vas": [
+    "0x1fbc1c",
+    "0x1fbe40",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x1fbbd8",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "SoftwareKeyboardPopupWidgetController::SoftwareKeyboardPopupWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "TestModeController": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x92d6fc",
+   "virtual_method_vas": [
+    "0x548174",
+    "0x5486a4",
+    "0x1cd328",
+    "0x5490a0",
+    "0x1cd330",
+    "0x5334a4",
+    "0x52cc2c",
+    "0x52cc7c"
+   ],
+   "recovered_methods": [
+    "TestModeController::setViewMode(TestMode::PageIndex::Identifier)"
+   ]
+  },
+  "TouchDetector": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x926b70",
+   "virtual_method_vas": [
+    "0x4f5050",
+    "0x4f510c",
+    "0x4f554c",
+    "0x4f52fc",
+    "0x4f4e9c",
+    "0x4f5c7c",
+    "0x4f5130"
+   ],
+   "recovered_methods": [
+    "TouchDetector::didChangeTouchPoint(IUITouchPanel const&, juce::Point<int>)",
+    "TouchDetector::didTouchDown(IUITouchPanel const&, juce::Point<int>)",
+    "TouchDetector::didTouchUp(IUITouchPanel const&, juce::Point<int>)"
+   ]
+  },
+  "TrackMenuViewController": {
+   "subsystem": "Track",
+   "vtable_va": "0x88713c",
+   "virtual_method_vas": [
+    "0x2a7108",
+    "0x2a74b0",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2a70bc",
+    "0x29642c",
+    "0x2965ac"
+   ],
+   "recovered_methods": [
+    "TrackMenuViewController::TrackMenuViewController(IViewDispatcher&, WidgetControllers&, ControllerDataManager*)"
+   ]
+  },
+  "TrackUnit": {
+   "subsystem": "Track",
+   "vtable_va": "0x861eec",
+   "virtual_method_vas": [
+    "0x1c0190",
+    "0x1c06a0",
+    "0x0c27dc",
+    "0x1bbc48",
+    "0x1bba50",
+    "0x1be22c",
+    "0x5f68fc",
+    "0x0c27c0"
+   ],
+   "recovered_methods": [
+    "TrackUnit::setChokeGroup(int)",
+    "TrackUnit::setMainVolume(int, int)",
+    "TrackUnit::setMode(ITrack::TrackMode)",
+    "TrackUnit::setMuteSetting(bool)",
+    "TrackUnit::setPan(int, int)",
+    "TrackUnit::setSendAmount(int, int)",
+    "TrackUnit::setSendSource(IDaveSmithSendSource::SendSource)",
+    "TrackUnit::setTriggerMode(ITrack::TriggerMode)"
+   ]
+  },
+  "ViewControllerManager": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x89f964",
+   "virtual_method_vas": [
+    "0x31a378",
+    "0x31a50c",
+    "0x3198ec",
+    "0x1d021c",
+    "0x3196c8",
+    "0x1d0224",
+    "0x319ccc",
+    "0x319cfc"
+   ],
+   "recovered_methods": [
+    "ViewControllerManager::didChangeButtonPressState(IUIButton const&, bool)",
+    "ViewControllerManager::didChangeEncoderPressState(IUIRotaryEncoder const&, bool)",
+    "ViewControllerManager::didChangeEncoderValue(IUIRotaryEncoder const&, int)",
+    "ViewControllerManager::showLiveSamplingView(bool)"
+   ]
+  },
+  "WaveFormDetailWidgetController": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x89adf4",
+   "virtual_method_vas": [
+    "0x2ee7c4",
+    "0x2eea94",
+    "0x1e6428",
+    "0x1e651c",
+    "0x1e6300",
+    "0x2ef998",
+    "0x1e61b0",
+    "0x1e61b4"
+   ],
+   "recovered_methods": [
+    "WaveFormDetailWidgetController::WaveFormDetailWidgetController(IViewDispatcher&, ControllerDataManager*)"
+   ]
+  },
+  "dat::SampleAdjunctData": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8b1a38",
+   "virtual_method_vas": [
+    "0x376770",
+    "0x376608",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "dat::SampleAdjunctData::SampleAdjunctData()"
+   ]
+  },
+  "infra::RbxUnitTestRunner": {
+   "subsystem": "Infrastructure",
+   "vtable_va": "0x9281b0",
+   "virtual_method_vas": [
+    "0x5055d8",
+    "0x505668",
+    "0x616f08",
+    "0x504c2c",
+    "0x5055a4"
+   ],
+   "recovered_methods": [
+    "infra::RbxUnitTestRunner::setLogFile(juce::File const&)"
+   ]
+  },
+  "prj::AmpEnvelopeData": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8a9478",
+   "virtual_method_vas": [
+    "0x36ecc8",
+    "0x36f2c4",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::AmpEnvelopeData::AmpEnvelopeData(prj::Config const&)"
+   ]
+  },
+  "prj::ArrangementData": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8b09a8",
+   "virtual_method_vas": [
+    "0x36ec6c",
+    "0x36f1f8",
+    "0x1714c0",
+    "0x1714c8",
+    "0x3549c4",
+    "0x352dc4",
+    "0x3524e0",
+    "0x352658"
+   ],
+   "recovered_methods": [
+    "prj::ArrangementData::ArrangementData(int, prj::Config const&)"
+   ]
+  },
+  "prj::EffectData": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8aa528",
+   "virtual_method_vas": [
+    "0x36ecf8",
+    "0x36f44c",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::EffectData::EffectData(juce::String const&, prj::Config const&)"
+   ]
+  },
+  "prj::LfoData": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8b08e8",
+   "virtual_method_vas": [
+    "0x36ebac",
+    "0x36f3b0",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::LfoData::LfoData(prj::Config const&)"
+   ]
+  },
+  "prj::MidiCc1Data": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8a9c30",
+   "virtual_method_vas": [
+    "0x36ef30",
+    "0x36ef50",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiCc1Data::MidiCc1Data(prj::Config const&)"
+   ]
+  },
+  "prj::MidiCc2Data": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8a9f08",
+   "virtual_method_vas": [
+    "0x36ef78",
+    "0x36ef98",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiCc2Data::MidiCc2Data(prj::Config const&)"
+   ]
+  },
+  "prj::MidiInOutData": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8aa430",
+   "virtual_method_vas": [
+    "0x36f050",
+    "0x36f190",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x369cc4",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiInOutData::MidiInOutData(juce::String const&, prj::Config const&)"
+   ]
+  },
+  "prj::MidiModeData": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8a9ab8",
+   "virtual_method_vas": [
+    "0x36f008",
+    "0x36f028",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiModeData::MidiModeData(prj::Config const&)"
+   ]
+  },
+  "prj::MidiNoteData": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8a9b10",
+   "virtual_method_vas": [
+    "0x36eee8",
+    "0x36ef08",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiNoteData::MidiNoteData(prj::Config const&)"
+   ]
+  },
+  "prj::MidiOtherData": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8aa230",
+   "virtual_method_vas": [
+    "0x36efc0",
+    "0x36efe0",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::MidiOtherData::MidiOtherData(prj::Config const&)"
+   ]
+  },
+  "prj::PlaybackData": {
+   "subsystem": "Other",
+   "vtable_va": "0x8a92e0",
+   "virtual_method_vas": [
+    "0x36ec98",
+    "0x36f2fc",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x35c650",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::PlaybackData::PlaybackData(prj::Config const&)"
+   ]
+  },
+  "prj::ProjectData": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x8b0948",
+   "virtual_method_vas": [
+    "0x336b60",
+    "0x3382d0",
+    "0x353ec4",
+    "0x1714c8",
+    "0x1714d0",
+    "0x340dbc",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::ProjectData::ProjectData(prj::Config const&)"
+   ]
+  },
+  "prj::RibbonPitchSettingData": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x8aa3b0",
+   "virtual_method_vas": [
+    "0x36f114",
+    "0x36f134",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::RibbonPitchSettingData::RibbonPitchSettingData()"
+   ]
+  },
+  "prj::RibbonUserSettingData::Item": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x8aa308",
+   "virtual_method_vas": [
+    "0x36ed98",
+    "0x36f28c",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::RibbonUserSettingData::Item::Item(int, prj::Config const&)"
+   ]
+  },
+  "prj::RoutingData": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8b0978",
+   "virtual_method_vas": [
+    "0x36ec18",
+    "0x36f3f0",
+    "0x1714c0",
+    "0x1714c8",
+    "0x356604",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::RoutingData::RoutingData(prj::Config const&)"
+   ]
+  },
+  "prj::ScaleData": {
+   "subsystem": "UI / View / Panel / Encoder",
+   "vtable_va": "0x8a97d8",
+   "virtual_method_vas": [
+    "0x36f0c4",
+    "0x36f25c",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::ScaleData::ScaleData(prj::Config const&)"
+   ]
+  },
+  "prj::ScaleDataMidi": {
+   "subsystem": "MIDI & Sync",
+   "vtable_va": "0x8a9880",
+   "virtual_method_vas": [
+    "0x36f0ec",
+    "0x36f22c",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::ScaleDataMidi::ScaleDataMidi(prj::Config const&)"
+   ]
+  },
+  "prj::SceneData": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x856c40",
+   "virtual_method_vas": [
+    "0x17cc3c",
+    "0x17cc78",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::SceneData::SceneData(int, prj::Config const&)"
+   ]
+  },
+  "prj::SendData": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x8a9230",
+   "virtual_method_vas": [
+    "0x36ed50",
+    "0x36ed70",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::SendData::SendData(prj::Config const&)"
+   ]
+  },
+  "prj::SequencerData": {
+   "subsystem": "Sequencer / Pattern / Scene",
+   "vtable_va": "0x8a9638",
+   "virtual_method_vas": [
+    "0x36ee58",
+    "0x36ee78",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::SequencerData::SequencerData(prj::Config const&)"
+   ]
+  },
+  "prj::SliceData": {
+   "subsystem": "Sampling / Audio / DSP",
+   "vtable_va": "0x8a9730",
+   "virtual_method_vas": [
+    "0x36ee20",
+    "0x36f370",
+    "0x1714c0",
+    "0x1714c8",
+    "0x35c7dc",
+    "0x1714d4",
+    "0x35c7e8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::SliceData::SliceData(prj::Config const&)"
+   ]
+  },
+  "prj::TrackData": {
+   "subsystem": "Track",
+   "vtable_va": "0x8545b8",
+   "virtual_method_vas": [
+    "0x17494c",
+    "0x174c64",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x17150c",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::TrackData::TrackData(int, prj::Config const&)"
+   ]
+  },
+  "prj::TrackRoutingData": {
+   "subsystem": "Mixer / FX / Send / Routing",
+   "vtable_va": "0x854788",
+   "virtual_method_vas": [
+    "0x174998",
+    "0x174c34",
+    "0x1714c0",
+    "0x1714c8",
+    "0x1714d0",
+    "0x1714d4",
+    "0x1714d8",
+    "0x1714dc"
+   ],
+   "recovered_methods": [
+    "prj::TrackRoutingData::TrackRoutingData(int, prj::Config const&)"
+   ]
+  },
+  "prj::UndoManager": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x8b23ac",
+   "virtual_method_vas": [
+    "0x378264",
+    "0x378374",
+    "0x376e2c",
+    "0x376c80",
+    "0x376900",
+    "0x377104",
+    "0x376990",
+    "0x3769c8"
+   ],
+   "recovered_methods": [
+    "prj::UndoManager::clearUndoablePoint()",
+    "prj::UndoManager::setUndoablePoint()",
+    "prj::UndoManager::undo(bool)"
+   ]
+  },
+  "ui::UsbStorageManager": {
+   "subsystem": "Project / File / Storage",
+   "vtable_va": "0x8b2f80",
+   "virtual_method_vas": [
+    "0x37c554",
+    "0x37ca44",
+    "0x289648",
+    "0x37db90",
+    "0x37d66c",
+    "0x37df68",
+    "0x37abd0",
+    "0x37dc88"
+   ],
+   "recovered_methods": [
+    "ui::UsbStorageManager::notify_usb_mount(ui::UsbStorageManager::USB_STATE, juce::String const&)",
+    "ui::UsbStorageManager::notify_usb_remove(ui::UsbStorageManager::USB_STATE)",
+    "ui::UsbStorageManager::notify_usb_stop_complete(ui::UsbStorageManager::USB_STATE)",
+    "ui::UsbStorageManager::notify_usb_umount(ui::UsbStorageManager::USB_STATE)",
+    "ui::UsbStorageManager::onCompletePreparedToStop(IStorageUser*)",
+    "ui::UsbStorageManager::onRenameCancelPushed()",
+    "ui::UsbStorageManager::onRenameOKPushed()",
+    "ui::UsbStorageManager::request_usb_stop(ui::UsbStorageManager::USB_STATE)"
+   ]
+  }
+ }
+}

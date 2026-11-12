@@ -1,0 +1,6 @@
+STATIC ORIGINAL INSTRUCTIONS; 001c79bc candidate_001c79bc
+001c79bc: 900040e2 sub r0,r0,#0x90
+001c79c0: ffffffea b 0x001c79c4
+001c79c4: 243190e5 ldr r3,[r0,#0x124]
+001c79c8: 040093e5 ldr r0,[r3,#0x4]
+001c79cc: 1eff2fe1 bx lr

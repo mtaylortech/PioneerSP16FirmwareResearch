@@ -1,0 +1,9 @@
+STATIC ORIGINAL INSTRUCTIONS; 002fdf7c FUN_002fdf7c
+002fdf7c: 08402de9 stmdb sp!,{r3,lr}
+002fdf80: b7b500eb bl 0x0032b664
+002fdf84: 003090e5 ldr r3,[r0,#0x0]
+002fdf88: 903093e5 ldr r3,[r3,#0x90]
+002fdf8c: 33ff2fe1 blx r3
+002fdf90: 000090e2 adds r0,r0,#0x0
+002fdf94: 0100a013 movne r0,#0x1
+002fdf98: 0880bde8 ldmia sp!,{r3,pc}

@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "code_identities": [
+    {
+      "path": "async_readiness.py",
+      "sha256": "2e3498d1b8cd6e0cb0b02f57236149e3a843952ad6e5e1fa61917b0fd31a003f"
+    },
+    {
+      "path": "lifecycle-map.json",
+      "sha256": "dda0fdb5f31e07a5d19f8a6439c8641f2f4d4befcfac96ce8a116f6d2779622c"
+    },
+    {
+      "path": "lifecycle_observer.py",
+      "sha256": "a6fcda41b96d0ac76938473c704dbd676bc86b7ec743bfd78d65234d4b048ee5"
+    },
+    {
+      "path": "postflight_native.py",
+      "sha256": "fa1c528b2e368eb270d74d2b246cc9ac98f2b83e5aabb4db894f031514af0643"
+    },
+    {
+      "path": "probe.py",
+      "sha256": "3fcbf89db21ab6cd0165dc67ac4bc8d56fc0ea832c65786d406d38275fdcf56b"
+    },
+    {
+      "path": "run_once.py",
+      "sha256": "887abebb61a041ab2800fd3769eaad32c5a46d8e243d34c2452197120c02bc2f"
+    },
+    {
+      "path": "stop_policy.py",
+      "sha256": "ebc8a797d4f89550ce04e375407e481abee1884dae057ee4fb8a909a88d25530"
+    },
+    {
+      "path": "supervision/runtime_limits.py",
+      "sha256": "fc45eeccd0150fd6a1157f0ebbd46412855b5c07f43caa7f542fd414c680e1c6"
+    },
+    {
+      "path": "supervision/supervisor.py",
+      "sha256": "bfc2d6e812a799b249f88101914b8cca4b9bcf29edb4f151223b0a80e24fe7cc"
+    },
+    {
+      "path": "supervision/watchdog.py",
+      "sha256": "cc0edfdbaf3e3bc2a21280151bfbe673d8755d70af781c73f4f2498c266a5c37"
+    }
+  ],
+  "scope": "Source/synthetic validation only; not live validation.",
+  "controls": {
+    "cleanup": "<RESEARCH_ROOT>/experiments/audit-remediation-20261009/cleanup/focused-controls.json",
+    "lifecycle": "<RESEARCH_ROOT>/experiments/audit-remediation-20261009/lifecycle/offline-controls.json"
+  },
+  "reused_seed_validation": "<RESEARCH_ROOT>/experiments/input-response-preparation-20261009/reused-validation.json",
+  "no_input": true,
+  "baseline_clock_retained": true
+}

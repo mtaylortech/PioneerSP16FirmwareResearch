@@ -1,0 +1,11 @@
+STATIC ORIGINAL INSTRUCTIONS; 0056cfe4 UIThread_start_0056cfe4
+0056cfe4: d030d0e5 ldrb r3,[r0,#0xd0]
+0056cfe8: 10402de9 stmdb sp!,{r4,lr}
+0056cfec: 000053e3 cmp r3,#0x0
+0056cff0: 0040a0e1 cpy r4,r0
+0056cff4: 0100000a beq 0x0056d000
+0056cff8: 0010e0e3 mvn r1,#0x0
+0056cffc: a13003eb bl 0x00639288
+0056d000: 0400a0e1 cpy r0,r4
+0056d004: 1040bde8 ldmia sp!,{r4,lr}
+0056d008: 0b6803ea b 0x0064703c

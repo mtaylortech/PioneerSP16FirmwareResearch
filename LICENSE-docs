@@ -1,0 +1,25 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 SP-16 open research project contributors
+
+The original explanatory prose in this repository (README.md, CONTRIBUTING.md,
+NOTICE.md, DISCLAIMER.md, everything under docs/, and the prose parts of the
+per-directory README.md files) and the analyst label data
+(symbols/labels-1.60.json, symbols/labels-1.60.csv,
+symbols/annotations-reviewed-1.60.json, symbols/partial-structures-1.60.txt)
+are licensed under CC BY 4.0. The disassembly listings in symbols/listings/
+are NOT covered (see DISCLAIMER.md).
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:         https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit ("SP-16 open research project" plus a link
+to the repository), link to the license, and indicate if changes were made.
+
+This license covers only the contributors' own writing. It does not relicense
+Pioneer/AlphaTheta material (none is included), the firmware's shipped GPL/BSP
+license notices, the code in this repository (MIT, see LICENSE), or the
+disassembly listings (see DISCLAIMER.md). Short factual values quoted for
+identification and interoperability (hashes, version strings, offsets) are
+stated as research findings. No endorsement by any named party is implied.

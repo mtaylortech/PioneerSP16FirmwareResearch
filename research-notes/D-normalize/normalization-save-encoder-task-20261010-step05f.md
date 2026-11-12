@@ -1,0 +1,45 @@
+<!-- research-note: experiments/normalization-save-encoder-task-20261010-step05f/HANDOFF.md | thread D | scrubbed, links rewritten; see EDIT-LOG.md / LINK-REWRITE-LOG.csv -->
+
+# Step 05f — encoder binding and queued Task delivery
+
+Question: bind the input manager's encoder array to concrete objects/indices, then follow the queued press Task to the Project receiver.
+
+**Result: both offline instruction chains are qualified, with runtime conditions. Step 05 remains partial.** No original input event, queue acceptance, running-thread/active-view state or save persistence was observed. No guest or input ran.
+
+Fresh output uses a copy of Step 05e's project. Held original **1.50** ELF SHA-256 remains `075cff7a874e6eb319faa1c8cb74c7dd7d1534220550b589bbe652c37ba65ce2`, size 11,993,612 bytes. Installed tools and qualified supervision were reused. Only the copied query helper gained an immediate-ADD reference mode; [changed code identities] `changed-code.json` (evidence not published) and [preparation/bounds] `preparation.json` (evidence not published) retain this change. Raw commands, stdout/stderr and owned cleanup receipts are in [logs] `logs/` (evidence not published).
+
+## Encoder array → object → index
+
+Let U be UIInputManager and S=[U+8]. Constructor `0x55e134` allocates S and calls `0x55e970`, which constructs the seven `UIRotaryEncoder` objects at S+`0xcf4, 0xd5c, 0xdc4, 0xe2c, 0xe94, 0xefc, 0xf64`. Their constructor `0x564190` installs table `0x92fa4c`.
+
+The U wrapper `0x55e68c` loads S and enters `0x561e7c`. Calls `0x562288` through `0x562340` pass those exact objects and indices **0–6** to `0x5642bc`; its `0x5642c8` stores the index at encoder+8. The completed configuration path calls `0x56012c` at `0x5627e4`. That builder assigns the same objects to S's encoder array at +0x1c, in index order, with capacity/count at +0x20/+0x24. Entry zero is explicitly S+0xcf4; entries 1–6 use the other constructed addresses. This closes the earlier concrete-array gap by pointer construction and stores, not signatures or equal-value joins.
+
+The unchanged `0x55e454` registration helper selects that array entry and calls its virtual +0x14 → `0x563ff4` to append W, the ViewControllerManager observer. Encoder virtual +8 → `0x563e08` returns the configured encoder+8 index. Thus the Project receiver's zero-return test is encoder **index zero** on this bound route. Evidence: [owning construction] `exports/encoder-array-builder-export/0055e134.asm.txt` (evidence not published), [embedded objects] `exports/manager-embedded-construction-export/0055e970.asm.txt` (evidence not published), [setup calls] `exports/encoder-configuration-export/00561e7c.asm.txt` (evidence not published), [index setter] `exports/queued-delivery-exports/005642bc.asm.txt` (evidence not published), [array builder] `exports/encoder-array-builder-export/0056012c.asm.txt` (evidence not published).
+
+## Queued press → message → Task → current controller
+
+The unchanged W press receiver `0x3198ec` allocates Task T when its thread comparison fails. T+0x14 stores W, +0x1c the encoder reference, and +0x18 the captured boolean byte. The installed primary table is `0x89f884`; execute slot +8 (`0x89f88c`) points to `0x318550`. T+8 has table `0x89f89c`, whose callback slot +8 points to `0xb8890`.
+
+W+0x38 is initialized to task-box table `0x8540e8`. Its worker getter +8 → `0x169cec` returns `0x695154`'s MessageManager object+8, the same thread ID source used by the W receiver. Its post slot +0x10 → `0x169d00` constructs a message and passes T+8 to `0x6979ac`. That method creates/retains the listener holder and posts through `0x696b00` when the MessageManager state permits it. Queue admission is conditional; a returned task ID alone is not proof of admission or delivery.
+
+The producer uses global `0xf6c324`'s +0x50 queue. Original pump `0x699420` uses that same global/queue, removes its first message and invokes message virtual +8 at `0x69961c`. Message table `0xaac938` binds that callback to `0x693d84`, which checks its holder/listener pointers and calls listener virtual +8. `0xb8890` subtracts **8** from T+8; `0xb8898` calls T's execute slot, then its deleting-destructor slot.
+
+Execute `0x318550` reloads **r0=W, r1=encoder reference, r2=captured boolean byte** and calls W virtual +8 → `0x3198ec`. On the matching message thread, the established direct branch resolves the current active view/controller and current popup. For Project C with no current popup, it dispatches C+8 virtual +8 → `0x2740a8` → `0x2740b0`. The receiver still requires a valid Project view, a nonzero press and index zero, then forwards the **current selected row**. Controller/row selection occurs at delivery; neither C nor the selected row was captured in T.
+
+Evidence: [Task execute] `exports/task-execution-export/00318550.asm.txt` (evidence not published), [post/worker methods] `exports/queued-delivery-exports/00169d00.asm.txt` (evidence not published), [message posting] `exports/encoder-configuration-export/006979ac.asm.txt` (evidence not published), [queue producer] `exports/encoder-configuration-export/00696b00.asm.txt` (evidence not published), [queue consumer] `exports/message-pump-export/00699420.asm.txt` (evidence not published), [message callback] `exports/queued-delivery-exports/00693d84.asm.txt` (evidence not published), [Task thunk/execution adapter] `exports/queued-delivery-exports/000b8898.asm.txt` (evidence not published), and unchanged [Step 05e delivery/conditions] `../normalization-save-list-input-20261010-step05e/HANDOFF.md` (evidence not published).
+
+## Verification and closeout
+
+[Verification] `verification.json` (evidence not published) passed 25,720 checks: 17 required exports / 3,585 listing records, 21,867 query records, nine unchanged accepted prior exports, decisive original instructions/tables and rejection controls for wrong object/index, value-Task substitution, boolean width, T/C adjustments and popup/row identity joins. Required exports were validated after exit zero for loaded ELF pin, presence, nonempty records, requested entry inclusion and original-byte correspondence. Inferred C and complete function boundaries are not certified by byte matching; static branches do not establish runtime occurrence.
+
+The focused local permission/supervision [control] `logs/permission-control/result.json` (evidence not published) passed. Each relevant call requested narrow local socket/process permissions; all launched stages passed with no timeout or launch/verifier failure. Earlier Step 05e permission/verifier failures remain unchanged in their original evidence directory. Rejected leads here are retained: `0x5deaa8` concerns unrelated numeric processing, and `0x31df10` / `0x5753d4` concern different owners. Offset coincidence was not accepted as object binding. [Discovery close] `discovery-close.json` (evidence not published) records the exclusions and early cutoff.
+
+Independent [postflight] `postflight.json` (evidence not published) passed **228 checks** with no residual root-naming process. It checks owned groups, watchdogs, private endpoints/directories, project locks and root-naming processes after supervision stopped. Its raw stdout/stderr and command are in [independent cleanup logs] `logs/independent-postflight/` (evidence not published); [final result] `result.json` (evidence not published) records actual status, counts and elapsed time. PermissionError is never absence, and arbitrary detached descendants remain outside complete containment guarantees.
+
+Execution started **19:06:11 UTC**; discovery cutoff **19:18:11**, absolute ceiling **19:22:11**. Discovery closed early, preserving the four-minute closeout reserve. This allowance is closed.
+
+Remaining/next test: under separately authorized scope, verify actual Project active-view/no-popup state, selection of default SAVE row 2 and consumption of one original encoder-zero press through this chain. Queue/lifetime and correct-thread conditions must hold. Physical panel mapping and list mouse/touch input remain unproved; this handoff grants no input or runtime authorization.
+
+Step 05c/05d accepted findings and exclusions remain unchanged: SAVE row 2 is conditional on selection; C+0x160 / `0x3c9290` second button / `0xf52924` / `0x1f63b0` / popup+0x48 operation 5 stays distinct from C+0x164 / `0x3c9da8` scene-copy. C+0x13c progress presentation, the `0x1f83d0` constant-1 loop, `0x3276dc` / `0x276e08`, interior `0x1f7fb0` / `0x4531a0`, generic Component listeners and Step 05e's `0x564b20` value tail remain excluded. C+0xc → V+0x80 is distinct from the C+8 encoder interface.
+
+Normalize → Keep permanently affects the selected original; Discard leaves it unchanged. Existing OS functions, held 1.50 / runtime 1.60 / unit release distinctions and deferred MIDI timing are preserved. Originals, earlier evidence and installed tools were unchanged. No guest, GUI/input experiment, Step 06, installation, hardware, external network, subagents or inter-chat messages occurred.

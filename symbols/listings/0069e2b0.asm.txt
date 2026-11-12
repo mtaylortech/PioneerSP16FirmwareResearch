@@ -1,0 +1,7 @@
+STATIC ORIGINAL ARM INSTRUCTIONS: 0069e2b0 mapped_set_dispatch_exit_flag_0069e2b0
+0069e2b0: 10309fe5 ldr r3,[0x69e2c8]
+0069e2b4: 043093e5 ldr r3,[r3,#0x4]
+0069e2b8: 000053e3 cmp r3,#0x0
+0069e2bc: 0120a013 movne r2,#0x1
+0069e2c0: 0520c315 strbne r2,[r3,#0x5]
+0069e2c4: 1eff2fe1 bx lr

@@ -1,0 +1,51 @@
+<!-- source: docs/handoffs/2026-10-10-revision2-sequence/06B-TRACK-ASSIGNMENT.md | scrubbed -->
+
+# P06 bounded follow-up — Track assignment and project references
+
+October 10, 2026, America/Chicago. **Bounded static result complete; project persistence closure remains partial.** Reviewed [06] `06-ACCEPTANCE-WRITES.md` (evidence not published) and [06A] `06A-AUDIOEDITOR-POSTSAVE.md` (evidence not published) are preserved. The owner authorized one further 16-minute read-only tranche, then Prompt 7 with resolved effects or a precisely named gap. No candidate construction or firmware/runtime/hardware execution was authorized or performed.
+
+The identified constructor route reaches **PlayerParameterManager**, which changes a scene-selected **prj::PlaybackData** sample reference. That reference has a registered ValueTree conversion named **`audioSourceUrl`**. Consequently, recovery planning cannot assume that SAVE & REPLACE concerns only the saved audio and its appended `.dat` sidecar. The assignment changes project data that can be serialized later. The inspected setter and its bound follow-up command do not themselves establish an immediate project-file write, automatic project save, destination filename, or successful persistence.
+
+## Identity and method
+
+Original held 1.50 application: [EP085_Main_R] `decode/output/image1/payloads/pdj/pdj/EP085_Main_R` (evidence not published), 11,993,612 bytes, SHA-256 `075cff7a874e6eb319faa1c8cb74c7dd7d1534220550b589bbe652c37ba65ce2`, checked at opening. ARM32 little-endian ET_EXEC; addresses below are A32 virtual addresses, with file offset = VA − `0x8000` in the inspected load segment. These are held-release facts, not an installed-unit readback.
+
+Read-only inline disassembly used the existing [Python environment] `experiments/emulation-20261007/tools/venv/bin/python` (evidence not published), `-B`, Capstone and pyelftools. Direct branches, literal references and field-store searches were leads checked against bounded original disassembly and vtable data. They are not a whole-program call-graph proof. No executable/source/tool was created or changed. One records search used a nonexistent `04-PHYSICAL-READY.md` name and returned exit 2; the correct [04-UNIT-ACCESS.md] `04-UNIT-ACCESS.md` (evidence not published) was then read. Large truncated listings were followed by focused reads; no truncated listing is treated as exhaustive evidence.
+
+## Checked dispatch and effects
+
+**S** = checked static bytes/constructor/data relationship. **U** = unresolved activation or physical behavior. The first provider relationship below remains conditional; matching interface methods alone do not prove its installation in the editor context.
+
+| Edge | Original evidence | Result / limit |
+|---|---|---|
+| SAVE & REPLACE completion | `0x28bc60` calls `0x2f8ed0` with the copied VirtualFilePath, after the successful-save branch and editor close documented in 06 | **S** reaches the assignment call. Service `0x60da54` and reset helpers `0x2b5f58/0x2b6c9c/0x2b6744` in surrounding completion remain outside this setter closure. |
+| Setter dispatch | `0x2f8ed0–0x2f8f10`: context = `[referrer+4]`; track index = `[context+0x54]`; `0x329614` returns `[context+0x4344]`; successive virtual slots `+0x10`, `+0x0c`, `+8` receive track index, then saved path | **S** exact dispatch protocol. **U** the store establishing `context+0x4344` for this instance was not bound. |
+| Matching owner provider | HexaTrackAudioSystem constructor `0x1b68dc–0x1b690c` installs primary vtable `0x860fd8` and interface vtable `0x8611a8` at owner `+0x200`. Its `+0x10` = `0x1acf34` adjusts −`0x200`; `0x1acf3c` indexes owner `+0x60c`, bounds against `+0x614`, returns TrackUnit `+0x80`. Its `+0x68` returns the editor `+0x104` from owner `+0x59c` | **S** constructed provider and matching editor/track route. **U** installing this provider in the context above. Out-of-range/null handling is not proven safe at the unguarded setter chain. |
+| Track → parameter manager | TrackUnit interface vtable `0x862090`, slot `+0x0c` = `0x1c2504`, adjusts −`0x80`, then returns track `+0xc8`. `0x1bd4d4` stores its r1 there. Owner setup `0x1af3ac–0x1af488` allocates `0x2d8`, constructs it via `0x14f990`, passes object `+0x0c` to that setup | **S** concrete constructor relationship. |
+| Concrete final setter | RTTI `0x846e4c` names `22PlayerParameterManager`. Constructor `0x14f9c4–0x14f9c8` installs vtable `0x846864` at object `+0x0c`; slot `+8` = `0x14c7ac`, adjusts −`0x0c`, enters `0x14c7b4` | **S** final setter in this constructed route. |
+| Busy branch | `0x14c7dc–0x14c834` tests bytes `+0x2ba/+0x2bb`; if either is set, logs `PPM::load( ERROR!!!.NowLoading.[TrNo=%d,SceneNo=%d,Path=%s] )` and returns | **S** assignment can be refused without a returned success check in `0x2f8ed0`. Saved audio/sidecar success therefore does not prove the track reference changed. |
+| Accepted assignment | `0x14c834` calls primary slot `+0x13c` = `0x14a524`, a player-state query, then sets `+0x2bb=1`. Through the switchable object at manager `+0x80`, selects its current object (index checked against 16), copies path string to selected object `+0x3c` with `0x628fe0`, and stores the path's second word at `+0x40` (`0x14c870–0x14c884`) | **S** volatile project-model reference change, selected scene/object only. No loop changes all scenes or all users of the audio file here. Actual selection, aliases and physical resolution remain **U**. |
+| Follow-up / scheduling | Constructor `0x14fca4` binds manager `+0x28` to its PlayerUnit argument. Setter `0x14c888` calls `0x15993c` on it. That routine compares `pthread_self` (`0x645750 → PLT 0x109a8`) against a scheduler virtual result. Direct branch sets player bytes `+0x94=0`, `+0x11a=1` at `0x1599f8`. Other branch creates a command with vtable `0x84783c`, callback `+8 = 0x159a18`, queues via `0x154a5c`; callback re-enters `0x15993c` | **S** player state invalidation/request, possibly queued. This is not evidence of project disk commit or completed reader refresh. Scheduler delivery/error outcome remains **U**. |
+| Project representation | Diagnostic string `0x846558` identifies `SwitchableObject<prj::PlaybackData,17>`. PlaybackData RTTI at `0x8aa630`, primary vtable `0x8a92e0`; constructor `0x370e20` creates path at `+0x3c`. It registers converter vtable `0x8a9428` at `0x3710b0–0x3710d4`; converter output `0x3624bc` reads `owner+0x3c` into a var and writes property through `0x68e3c0`; literal `0x362584` is `audioSourceUrl` at `0x8b1154`. Input converter `0x366030` reads that property, requires a string, and calls `0x4f6e6c` for `owner+0x3c` | **S** sample reference participates in project ValueTree serialization/deserialization. **U** serializer activation, project file destination, ordering/durability and recovery. |
+
+## Recovery consequence and named remaining gaps
+
+The directly mapped immediate file effects remain those in 06/06A: output audio creation and potentially destructive sidecar rewrite. The track edge additionally changes a **serializable scene/track reference**, then requests player state work. Treat project/reference state as potentially affected before admitting any stock Save & Replace observation or integrated Keep route. Audio-plus-sidecar backup alone has not been shown sufficient to restore the loaded project or its later saved form. A same-path replacement also has independent loaded-reader/cache requirements.
+
+The precise remaining gaps are:
+
+1. **Context provider installation:** the originating store to `[editor referrer context+0x4344]`, proving it selects the HexaTrackAudioSystem `+0x200` interface in this save route. Until closed, the concrete dispatch result above is tied to the demonstrated construction route, not every possible context implementation.
+2. **Project flush activation and destinations:** callers that serialize the changed PlaybackData `audioSourceUrl` into a file after `0x28bc60`, including automatic versus explicit save, actual path set, other project/settings writes, failed/partial save and interruption behavior. ValueTree conversion proves representability, not disk persistence timing.
+3. **Completion scope outside the setter:** optional `0x60da54` service and the three reset helpers named above, plus actual scheduler completion/reader refresh and shared-reference consequences. No physical unit or whole-app write exclusion is claimed.
+
+These are named limits, not permission for another tranche. [Prompt 7 proposal] `07-OBSERVATION-PROPOSAL.md` (evidence not published) proceeds with them carried forward.
+
+## New host receipt reconciled
+
+The owner supplied the completed [Keep fault probe] `experiments/keep-fault-probe-20261010-065129/HANDOFF.md` (evidence not published) and updated [05] `05-FEATURE-BOUNDARY.md` (evidence not published). Its eight independently verified host cases support checked exact-write staging, direct rename and distinct pre-commit/post-commit-sync outcomes. Its open descriptor retains old bytes after rename; attributes change; crash/interruption restoration and physical storage remain unproved. It does not exercise these ARM setters, serialize project references, or qualify a stock Save & Replace recovery envelope. No repeat host probe is proposed to answer the already completed discriminator.
+
+## Closeout
+
+First accounting clock **2026-10-10 06:54:12 UTC**; charge 15 seconds opening preparation and reserve 45 seconds final closeout. Total **960 seconds**, covering this trace and proposal preparation; no renewed allowance. Stop for owner review at completion. Final accounting is appended after both artifacts are saved and checked. Originals and prior handoffs remain unchanged; no Git, device connection, runtime, build, install, test, delegated agent or cross-chat message occurred.
+
+**Closed for review:** final accounting clock **2026-10-10 07:05:35 UTC**. Measured 683 seconds + 15 seconds opening + 45 seconds charged final save/readback/delivery = **743/960 seconds debited; 217 seconds unspent**. Both new artifacts were read back, their local evidence links resolved, and the original application hash still matched. Unused time grants no further work. Project flush closure remains the named gap above; Prompt 7 is prepared, not executed.

@@ -1,0 +1,94 @@
+/* INFERRED PSEUDOCODE. Check original instructions; names/types may be wrong. No execution in this task. */
+
+undefined4 * FUN_002df924(undefined4 *param_1,undefined4 *param_2)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  undefined4 uVar4;
+  undefined4 *puVar5;
+  undefined1 auStack_40 [4];
+  undefined1 auStack_3c [4];
+  undefined1 auStack_38 [4];
+  undefined1 auStack_34 [4];
+  undefined1 auStack_30 [4];
+  undefined1 auStack_2c [8];
+  
+  puVar5 = param_2 + 1;
+  FUN_002c0458();
+  uVar2 = DAT_002dfb98;
+  iVar1 = DAT_002dfb94;
+  *param_1 = *param_2;
+  param_1[1] = iVar1;
+  param_1[2] = param_2[9];
+  uVar4 = param_2[10];
+  puVar3 = param_1 + 8;
+  param_1[10] = iVar1 + 0x68;
+  param_1[8] = iVar1 + 0x58;
+  param_1[3] = uVar4;
+  param_1[0xb] = iVar1 + 0x98;
+  FUN_0062ab18(auStack_40,uVar2,iVar1 + 0x68,iVar1 + 0x98,puVar5);
+  *(undefined1 *)(param_1 + 0x11) = 0;
+  param_1[0x12] = 0;
+  param_1[0x13] = 0;
+  param_1[0x14] = 0;
+  *(undefined1 *)(param_1 + 0x15) = 0;
+  FUN_0062ab18(param_1 + 0x16,auStack_40);
+  param_1[0x17] = 0;
+  FUN_00627f38(auStack_40);
+  FUN_0062ab18(auStack_3c,DAT_002dfb98);
+  *(undefined1 *)(param_1 + 0x18) = 0;
+  param_1[0x19] = 0;
+  param_1[0x1a] = 0;
+  param_1[0x1b] = 0;
+  *(undefined1 *)(param_1 + 0x1c) = 0;
+  FUN_0062ab18(param_1 + 0x1d,auStack_3c);
+  param_1[0x1e] = 0;
+  FUN_00627f38(auStack_3c);
+  FUN_0062ab18(auStack_38,DAT_002dfb98);
+  *(undefined1 *)(param_1 + 0x1f) = 0;
+  param_1[0x20] = 0;
+  param_1[0x21] = 0;
+  param_1[0x22] = 0;
+  *(undefined1 *)(param_1 + 0x23) = 0;
+  FUN_0062ab18(param_1 + 0x24,auStack_38);
+  param_1[0x25] = 0;
+  FUN_00627f38(auStack_38);
+  FUN_0062ab18(auStack_34,DAT_002dfb98);
+  *(undefined1 *)(param_1 + 0x26) = 0;
+  param_1[0x27] = 0;
+  param_1[0x28] = 0;
+  param_1[0x29] = 0;
+  *(undefined1 *)(param_1 + 0x2a) = 0;
+  FUN_0062ab18(param_1 + 0x2b,auStack_34);
+  param_1[0x2c] = 0;
+  FUN_00627f38(auStack_34);
+  FUN_0062ab18(auStack_30,DAT_002dfb98);
+  *(undefined1 *)(param_1 + 0x2d) = 0;
+  param_1[0x2e] = 0;
+  param_1[0x2f] = 0;
+  param_1[0x30] = 0;
+  *(undefined1 *)(param_1 + 0x31) = 0;
+  FUN_0062ab18(param_1 + 0x32,auStack_30);
+  param_1[0x33] = 0;
+  FUN_00627f38(auStack_30);
+  FUN_0062ab18(auStack_2c,DAT_002dfb98);
+  *(undefined1 *)(param_1 + 0x34) = 0;
+  param_1[0x35] = 0;
+  param_1[0x36] = 0;
+  param_1[0x37] = 0;
+  *(undefined1 *)(param_1 + 0x38) = 0;
+  FUN_0062ab18(param_1 + 0x39,auStack_2c);
+  param_1[0x3a] = 0;
+  FUN_00627f38(auStack_2c);
+  FUN_002f3d20(puVar3,param_1 + 0x12,param_1 + 0x13);
+  FUN_002f40a8(puVar3,param_1 + 0x19,param_1 + 0x1a);
+  FUN_002f5e08(puVar3,param_1 + 0x20,param_1 + 0x21);
+  param_1[0x27] = 0;
+  param_1[0x28] = 0x7f;
+  FUN_002f6254(puVar3,param_1 + 0x2e,param_1 + 0x2f);
+  FUN_002f6318(puVar3,param_1 + 0x35,param_1 + 0x36);
+  return param_1;
+}
+

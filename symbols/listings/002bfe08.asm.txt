@@ -1,0 +1,3 @@
+STATIC ORIGINAL INSTRUCTIONS; 002bfe08 candidate_002bfe08
+002bfe08: 280040e2 sub r0,r0,#0x28
+002bfe0c: ffffffea b 0x002bfe10

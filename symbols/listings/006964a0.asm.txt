@@ -1,0 +1,12 @@
+STATIC ORIGINAL ARM INSTRUCTIONS: 006964a0 FUN_006964a0
+006964a0: 24c09fe5 ldr r12,[0x6964cc]
+006964a4: 44260ee3 movw r2,#0xe644
+006964a8: f62040e3 movt r2,#0xf6
+006964ac: 0010a0e3 mov r1,#0x0
+006964b0: 041080e5 str r1,[r0,#0x4]
+006964b4: 00c080e5 str r12,[r0,#0x0]
+006964b8: 01c0a0e3 mov r12,#0x1
+006964bc: 0c1080e5 str r1,[r0,#0xc]
+006964c0: 08c0c0e5 strb r12,[r0,#0x8]
+006964c4: 000082e5 str r0,[r2,#0x0]
+006964c8: 1eff2fe1 bx lr

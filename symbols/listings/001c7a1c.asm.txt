@@ -1,0 +1,3 @@
+STATIC ORIGINAL INSTRUCTIONS; 001c7a1c candidate_001c7a1c
+001c7a1c: 0c0080e8 stmia r0,{r2,r3}
+001c7a20: 1eff2fe1 bx lr

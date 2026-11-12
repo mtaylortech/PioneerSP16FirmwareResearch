@@ -1,0 +1,4 @@
+STATIC ORIGINAL INSTRUCTIONS; 0026f5c0 candidate_0026f5c0
+0026f5c0: b80204e3 movw r0,#0x42b8
+0026f5c4: f50040e3 movt r0,#0xf5
+0026f5c8: 1eff2fe1 bx lr

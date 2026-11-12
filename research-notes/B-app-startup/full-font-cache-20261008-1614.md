@@ -1,0 +1,24 @@
+<!-- research-note: experiments/full-font-cache-20261008-1614/HANDOFF.md | thread B | scrubbed, links rewritten; see EDIT-LOG.md / LINK-REWRITE-LOG.csv -->
+
+# Full original font discovery — October 8, 2026
+
+**The 180-second victory condition remains unmet. A tested five-minute configuration is saved for later at the user's request.** All five original BDF fonts and fonts.conf remain unchanged. Original app/libraries, firmware and installed runtime were unchanged.
+
+| Attempt | Condition and observed result |
+| --- | --- |
+| [C1] `../full-font-cache-20261008-1614-c1/cache-result.json` (evidence not published) | Original ARM fc-cache read all five fonts, then returned code 3 after write/validation failures. Held ARM open created mode 000 files. |
+| [C2] `../full-font-cache-20261008-1614-c2/supervision/guest.stderr.txt` (evidence not published) | Added cache observations; observer PermissionError reading mode 000 file. Native final missing; real failure retained. |
+| [C3] `../full-font-cache-20261008-1614-c3/cache-result.json` (evidence not published) | Scoped cache O_CREAT mode correction, five controls passed. Original ARM utility returned code 0 in 19.615s; original ARM FcDirCacheLoadFile accepted the 18,168-byte five-font cache. |
+| [A1] `../full-font-cache-20261008-1614-a1/font-experiment-summary.json` (evidence not published) | Valid ARM caches supplied. App opened fonts.conf and BDF files directly, with no cache-file access. ISO face returned0; BIG5 remained at 4,153,344/5,260,058 bytes at 175.019s. Scan/manager returns absent. |
+| [A2] `../full-font-cache-20261008-1614-a2/font-experiment-summary.json` (evidence not published) | Same caches; main scan receives finite 100× instruction slices. BIG5 EOF at 174.393s, but its FreeType call still pending at 175.165s. No discovery return or next-stage execution. |
+| [A3] `../full-font-cache-20261008-1614-a3/attempt-supervision.json` (evidence not published), [A4] `../full-font-cache-20261008-1614-a4/attempt-supervision.json` (evidence not published) | Prepared 300-second trials; launch gates rejected before any guest, display or watchdog started. No five-minute firmware run occurred. |
+
+A1/A2 native finals are bounded stops, not clean guest completion. Actual runtime observations use the independent process-creation deadlines; font function returns require saved LR and restored SP matches, with subsequent original main execution separately observed. Drawable UI remains unconfirmed.
+
+The app's custom XML/directory discovery calls FreeType directly. The original-library cache is valid, but observed app discovery did not use it. C3 utility cache acceptance does not establish application startup. [Before/after A2 font/cache identity checks] `../full-font-cache-20261008-1614-a2/cache-fixture-after.json` (evidence not published) confirm all five original font hashes and fonts.conf.
+
+Next smallest test: [prepare a fresh five-minute trial] `prepare_next_trial.py` (evidence not published) from the [saved configuration] `PREPARED-TRIAL.json` (evidence not published), refresh its deadlines, confirm unused owned endpoints/private display credentials, then run through native permission. Main alone receives a finite 20ms slice without Unicorn's instruction counter during the observed font scan. Translation caches flush on every counted/uncounted transition; the epilogue restores the original 31,337 instruction scheduling before caller execution. Native controls `tools/font-scan-timed-native-control.stdout.json` (evidence not published) passed worker interleaving and exact epilogue/caller/SP restoration. Actual font speed and discovery return in this condition are untested. Preserve the300/303/305 stop bounds and295 advisory; do not reuse A4's expired clock.
+
+The user's [macOS crash report] `native-control-crash-report.txt` (evidence not published) strongly matches a standalone default-sandbox Unicorn control, before firmware execution:16:27:18, first mapping0x706000, SIGILL in init_cache_info at host instruction `mrs x8, ctr_el0`. Exact PID was not independently recorded. Three default control invocations were reported; explicit captures returned132. The native-permission control passed. Execution-context restriction is an inference. A separate initial count-mode transition benchmark hit its 3-second alarm; cache-flush transition controls subsequently passed. These control failures are separate from original-app behavior. [Attribution record] `native-control-crash-attribution.json` (evidence not published).
+
+All five created guests and owned helpers closed, with fresh process/endpoint censuses passing. Runtime-to-owned-closure total 392.374s. Total through this reporting timestamp 28.40min; no session overrun. No additional runtime was launched after the user chose to save the trial. [Timing/closure] `session-summary.json` (evidence not published), [short log] `EXPERIMENT_LOG.md` (evidence not published).

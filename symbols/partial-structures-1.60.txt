@@ -1,0 +1,26 @@
+Partial analyst views. Unknown offsets remain undefined; not recovered source layouts.
+LiveSamplerApplication_view_009327f0 size=0x8c
+  +0x0 void *32 primary_vtable // RTTI LiveSamplerApplication at 00932990; vtable address point 009327f0
+  +0x4 uint exit_code // Read by main after dispatch
+  +0x8 byte initialise_wrapper_state // Cleared at 00698558
+  +0xc void *32 optional_listener // Sorted registration through 00696e68
+  +0x10 void *32 secondary_vtable // Factory store
+  +0x18 void *32 main_window // MainWindow RTTI and store 0057217c
+  +0x1c void *32 settings // Settings constructor 0056c4bc; store 00571d90
+  +0x28 void *32 ui_thread // UIThread RTTI; allocation 0x418
+  +0x2c void *32 processing_graph // Mode-dependent construction by 005712cc
+  +0x40 void *32 controller_data_manager // ControllerDataManager RTTI in default UI constructor
+MessageManager_view_0069826c size=0x28
+  +0x4 byte initialise_gate // Read by initialise wrapper; semantic purpose unresolved
+  +0x5 byte dispatch_exit_flag // Tested at 0069b04c
+  +0x8 uint owner_thread // pthread_self in constructor
+  +0x10 byte[24] mutex_storage // pthread_mutex_init target
+MessageQueue_view_00697fc0 size=0x34
+  +0x0 byte[24] mutex_storage // pthread mutex
+  +0x18 void *32 message_array // Queue storage
+  +0x1c uint capacity // Array allocation capacity
+  +0x20 uint count // Locked append/pop
+  +0x24 uint wake_write_fd // socketpair fd[0]
+  +0x28 uint wake_read_fd // socketpair fd[1]; select source
+  +0x2c uint wake_count // Byte wake bookkeeping
+  +0x30 uint alternation_counter // Chooses queue/X11 servicing order

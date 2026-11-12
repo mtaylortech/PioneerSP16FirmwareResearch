@@ -1,0 +1,137 @@
+address,name,kind,priority,rationale,alternates,source
+0x0000feec,<EXTERNAL>::XInitThreads,import,2,,,ghidra/exports/refine/index.json
+0x0001006c,<EXTERNAL>::write,import,3,,,ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/006986a0.json
+0x0001009c,<EXTERNAL>::XConnectionNumber,import,2,,,ghidra/exports/refine/0069afc0.json
+0x000100cc,<EXTERNAL>::XCreateWindow,import,2,,,ghidra/exports/refine/index.json
+0x00010120,<EXTERNAL>::sigaction,import,2,,,ghidra/exports/refine/index.json
+0x000101d4,<EXTERNAL>::calloc,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00805e38.json
+0x0001027c,<EXTERNAL>::XOpenDisplay,import,2,,,ghidra/exports/refine/index.json
+0x000102b8,<EXTERNAL>::realloc,import,2,,,ghidra/exports/refine/0055659c.json
+0x000102e8,<EXTERNAL>::operator.new,import,2,,,ghidra/exports/refine/00571d24.json
+0x000103b4,<EXTERNAL>::__cxa_guard_acquire,import,2,,,ghidra/exports/refine/00571d24.json
+0x000103cc,<EXTERNAL>::XrmUniqueQuark,import,2,,,ghidra/exports/refine/index.json
+0x00010420,<EXTERNAL>::__cxa_allocate_exception,import,2,,,ghidra/exports/refine/index.json
+0x0001045c,<EXTERNAL>::XCreatePixmap,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.json
+0x00010540,<EXTERNAL>::sigemptyset,import,2,,,ghidra/exports/refine/index.json
+0x000105b8,<EXTERNAL>::XUnlockDisplay,import,2,,,ghidra/exports/refine/0069afc0.json
+0x00010600,<EXTERNAL>::pthread_mutex_lock,import,2,,,ghidra/exports/refine/0064703c.json
+0x0001072c,<EXTERNAL>::close,import,2,,,ghidra/exports/refine/0069ac58.json
+0x00010774,<EXTERNAL>::__cxa_guard_release,import,2,,,ghidra/exports/refine/00571d24.json
+0x0001078c,<EXTERNAL>::memcpy,import,2,,,ghidra/exports/refine/005712cc.json
+0x00010798,<EXTERNAL>::memmove,import,2,,,ghidra/exports/refine/00696e68.json
+0x00010870,<EXTERNAL>::free,import,2,,,ghidra/exports/refine/0055659c.json
+0x000108ac,<EXTERNAL>::XFindContext,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-1/00817cf0.json
+0x000108d0,<EXTERNAL>::XCreateGC,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.json
+0x000108dc,<EXTERNAL>::__cxa_throw,import,2,,,ghidra/exports/refine/index.json
+0x0001090c,<EXTERNAL>::XDestroyWindow,import,2,,,ghidra/exports/refine/0069ac58.json
+0x000109fc,<EXTERNAL>::operator.new[],import,2,,,ghidra/exports/refine/0056cd14.json
+0x00010a08,<EXTERNAL>::XSetErrorHandler,import,2,,,ghidra/exports/refine/0069ac58.json
+0x00010a5c,<EXTERNAL>::statvfs,import,2,,,ghidra/exports/refine/00571d24.json
+0x00010a74,<EXTERNAL>::signal,import,2,,,ghidra/exports/refine/index.json
+0x00010bb8,<EXTERNAL>::operator.delete,import,2,,,ghidra/exports/refine/0069ac58.json
+0x00010d14,<EXTERNAL>::XInitImage,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00805e38.json
+0x00010d74,<EXTERNAL>::__aeabi_atexit,import,2,,,ghidra/exports/refine/00571d24.json
+0x00010d98,<EXTERNAL>::malloc,import,2,,,ghidra/exports/refine/0055659c.json
+0x00010da4,<EXTERNAL>::select,import,2,,,ghidra/exports/refine/0069afc0.json
+0x00010e04,<EXTERNAL>::__aeabi_idiv,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00805e38.json
+0x00010e58,<EXTERNAL>::tan,import,3,,,ghidra/parallel-send-round-20261009/display/exports/index.json
+0x00010f78,<EXTERNAL>::XNextEvent,import,2,,,ghidra/exports/refine/0069afc0.json
+0x000110b0,<EXTERNAL>::memset,import,2,,,ghidra/exports/refine/0056cd14.json
+0x000110ec,<EXTERNAL>::__dynamic_cast,import,2,,,ghidra/exports/refine/0056f7f4.json
+0x00011104,<EXTERNAL>::getenv,import,2,,,ghidra/exports/refine/index.json
+0x0001117c,<EXTERNAL>::ceilf,import,3,,,ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/007fd958.json
+0x000111dc,<EXTERNAL>::std::ios_base::Init::Init,import,3,,,ghidra/parallel-ui-paths-20261009/exports/send-model-setter-1/004aa210.json
+0x0001120c,<EXTERNAL>::pthread_cond_broadcast,import,2,,,ghidra/exports/refine/0064703c.json
+0x00011278,<EXTERNAL>::pthread_create,import,2,,,ghidra/exports/refine/0064703c.json
+0x000113f8,<EXTERNAL>::XPending,import,2,,,ghidra/exports/refine/0069afc0.json
+0x0001141c,<EXTERNAL>::XPutImage,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.json
+0x00011494,<EXTERNAL>::socketpair,import,2,,,ghidra/exports/refine/index.json
+0x000114c4,<EXTERNAL>::pthread_detach,import,2,,,ghidra/exports/refine/0064703c.json
+0x0001156c,<EXTERNAL>::XCloseDisplay,import,2,,,ghidra/exports/refine/0069ac58.json
+0x00011590,<EXTERNAL>::read,import,2,,,ghidra/exports/refine/0069afc0.json
+0x0001159c,<EXTERNAL>::pthread_mutex_unlock,import,2,,,ghidra/exports/refine/0064703c.json
+0x00011644,<EXTERNAL>::floorf,import,3,,,ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/007fd958.json
+0x00011650,<EXTERNAL>::XLockDisplay,import,2,,,ghidra/exports/refine/0069afc0.json
+0x00011674,<EXTERNAL>::XSetIOErrorHandler,import,2,,,ghidra/exports/refine/0069ac58.json
+0x000116bc,<EXTERNAL>::nanosleep,import,2,,,ghidra/exports/refine/006457dc.json
+0x000116d4,<EXTERNAL>::XFreeGC,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.json
+0x000116ec,<EXTERNAL>::XCreateImage,import,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.json
+0x000b3ac4,main_factory_setup_000b3ac4,function_or_label,1,Main entry stores factory then transfers to main body.,mapped_main_entry,ghidra/exports/refine/annotations.json
+0x000b4034,main_initialise_then_dispatch_000b4034,function_or_label,1,"vtable +0x30 call, return at 000b4060, nonzero branch to dispatch call 000b4094.",mapped_main_body,ghidra/exports/refine/annotations.json
+0x001c7994,candidate_001c7994,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c7994.json
+0x001c79bc,candidate_001c79bc,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c79bc.json
+0x001c79d0,candidate_001c79d0,function_or_label,3,,sp16_batch_send_ui_range_selector,ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/001c79d0.json
+0x001c7a1c,candidate_001c7a1c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/001c7a1c.json
+0x001c8980,candidate_001c8980,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c8980.json
+0x001c8b4c,candidate_001c8b4c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c8b4c.json
+0x001e8348,candidate_001e8348,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/001e8348.json
+0x0026b528,candidate_0026b528,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b528.json
+0x0026b8d4,candidate_0026b8d4,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b8d4.json
+0x0026c220,candidate_0026c220,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-mode-and-channel-drag-4/index.json
+0x0026caa0,candidate_0026caa0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/0026caa0.json
+0x0026cacc,candidate_0026cacc,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/creation-and-render/0026cacc.json
+0x0026cce0,candidate_0026cce0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/0026cce0.json
+0x0026d148,candidate_0026d148,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d148.json
+0x0026d458,candidate_0026d458,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d458.json
+0x0026f5b8,candidate_0026f5b8,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/index.json
+0x0026f5c0,candidate_0026f5c0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/0026f5c0.json
+0x002bfe08,candidate_002bfe08,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002bfe08.json
+0x002bff00,candidate_002bff00,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/002bff00.json
+0x002c004c,candidate_002c004c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002c004c.json
+0x002c01e4,candidate_002c01e4,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002c01e4.json
+0x002c01ec,candidate_002c01ec,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002c01ec.json
+0x002df330,candidate_002df330,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df330.json
+0x002df33c,candidate_002df33c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df33c.json
+0x002df348,candidate_002df348,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df348.json
+0x0032a1e8,candidate_0032a1e8,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/index.json
+0x0032a9d0,candidate_0032a9d0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/0032a9d0.json
+0x0037c428,TSP16VirtualPathSetting_renameToraiz_0037c428,function_or_label,1,Original full method diagnostic string survives.,,ghidra/exports/refine/annotations.json
+0x00391fdc,candidate_00391fdc,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/00391fdc.json
+0x00392100,candidate_00392100,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/navigation-1/index.json
+0x003927ac,candidate_003927ac,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/003927ac.json
+0x00392818,candidate_00392818,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/00392818.json
+0x00393120,candidate_00393120,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/refs-00393120.json
+0x0039312c,candidate_0039312c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039312c.json
+0x0039313c,candidate_0039313c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039313c.json
+0x00393598,candidate_00393598,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/00393598.json
+0x004ad45c,candidate_004ad45c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/004ad45c.json
+0x004f722c,candidate_004f722c,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f722c.json
+0x00509724,<EXTERNAL>::sync,import,2,,,ghidra/exports/refine/0037c428.json
+0x0055659c,sp16_device_initialise_0055659c,function_or_label,1,Called with testmode flag; hardware effects unverified.,,ghidra/exports/refine/annotations.json
+0x0056c4bc,Settings_construct_0056c4bc,function_or_label,1,"Original diagnostic Settings::Settings(), Toraiz_SP16.dat and FlashWriter.",,ghidra/exports/refine/annotations.json
+0x0056cd14,UIThread_construct_0056cd14,function_or_label,1,Original UIThread/UIThreadTimer strings and RTTI.,,ghidra/exports/refine/annotations.json
+0x0056cfe4,UIThread_start_0056cfe4,function_or_label,1,Thread start and singleton binding; no completion proof.,,ghidra/exports/refine/annotations.json
+0x0056e7bc,sp16_application_factory_0056e7bc,function_or_label,1,"Allocation 0x8c, original LiveSamplerApplication vtable.",mapped_application_factory,ghidra/exports/refine/annotations.json
+0x0056e8ec,sp16_preinit_true_0056e8ec,function_or_label,1,"ARM mov r0,#1; bx lr.",,ghidra/exports/refine/annotations.json
+0x0056f7f4,sp16_create_mode_content_0056f7f4,function_or_label,1,Mode-dependent view; default ControllerDataManager RTTI survives.,,ghidra/exports/refine/annotations.json
+0x005712cc,sp16_build_mode_graph_005712cc,function_or_label,1,Mode bit 0 selects test graph; bits 1/2 skip normal graph. Audio/MIDI node strings support interpretation.,,ghidra/exports/refine/annotations.json
+0x0057155c,sp16_wire_graph_controllers_0057155c,function_or_label,1,Mode/graph-dependent helper objects; relationships inferred.,,ghidra/exports/refine/annotations.json
+0x00571d24,sp16_initialise_00571d24,function_or_label,1,"Constructs settings, UIThread, mode graph and MainWindow. Normal return 0057222c; caller ignores r0, so void is a working convention.",mapped_startup_initializer,ghidra/exports/refine/annotations.json
+0x00644d08,<EXTERNAL>::pthread_mutex_lock,import,2,,,ghidra/exports/refine/00571d24.json
+0x00644d20,<EXTERNAL>::pthread_mutex_unlock,import,2,,,ghidra/exports/refine/00571d24.json
+0x006457dc,sleep_milliseconds_006457dc,function_or_label,1,Converts milliseconds and calls nanosleep.,,ghidra/exports/refine/annotations.json
+0x0064703c,juce_start_thread_0064703c,function_or_label,1,r0 supplies thread object; pthread_create at 0064708c and detach on zero return.,,ghidra/exports/refine/annotations.json
+0x006472f0,<EXTERNAL>::pthread_self,import,2,,,ghidra/exports/refine/0069826c.json
+0x0065e09c,sp16_mode_tokens_construct_0065e09c,function_or_label,1,Token checks testmode/mscmode/colmode/scriptmode/scriptrecmode.,,ghidra/exports/refine/annotations.json
+0x00696e68,juce_register_listener_sorted_00696e68,function_or_label,1,Mutex-protected sorted pointer insertion.,,ghidra/exports/refine/annotations.json
+0x00697fc0,juce_x11_queue_bootstrap_00697fc0,function_or_label,1,"X11 imports, DISPLAY, socketpair, auxiliary window.",,ghidra/exports/refine/annotations.json
+0x0069826c,juce_get_message_manager_0069826c,function_or_label,1,"Singleton construction, Message Thread and pthread_self.",,ghidra/exports/refine/annotations.json
+0x0069850c,juce_initialise_wrapper_0069850c,function_or_label,1,Indirect +0x14 call returns at 00698548; manager gate controls 0/1 result.,mapped_initializer_wrapper,ghidra/exports/refine/annotations.json
+0x0069afc0,juce_x11_message_dispatch_0069afc0,function_or_label,1,"XPending/XNextEvent and mutex-protected internal virtual callbacks, select wait, exit flag +5.",mapped_dispatch,ghidra/exports/refine/annotations.json
+0x0069e6f0,candidate_0069e6f0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/0069e6f0.json
+0x0069eaf0,candidate_0069eaf0,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-message-dispatch/0069eaf0.json
+0x007535ec,candidate_007535ec,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-final-touch-leaf-11/007535ec.json
+0x007535f8,candidate_007535f8,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535f8.json
+0x007535fc,candidate_007535fc,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535fc.json
+0x00753600,candidate_00753600,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/00753600.json
+0x00753650,candidate_00753650,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753650.json
+0x00753654,candidate_00753654,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753654.json
+0x00753658,candidate_00753658,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753658.json
+0x00753660,candidate_00753660,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/index.json
+0x00753670,candidate_00753670,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753670.json
+0x00753778,candidate_00753778,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753778.json
+0x007552b0,sp16_initialise_thunk_007552b0,function_or_label,1,Tail branch to 0069850c.,mapped_initializer_thunk,ghidra/exports/refine/annotations.json
+0x007fd028,candidate_007fd028,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/creation-and-render/index.json
+0x00806840,candidate_00806840,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/00806840.json
+0x00806858,candidate_00806858,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/00806858.json
+0x00806898,candidate_00806898,function_or_label,3,,,ghidra/parallel-ui-paths-20261009/exports/mixer-track-registration/00806898.json

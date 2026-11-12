@@ -1,0 +1,6 @@
+STATIC ORIGINAL INSTRUCTIONS; 0062d868 FUN_0062d868
+0062d868: 10402de9 stmdb sp!,{r4,lr}
+0062d86c: 0040a0e1 cpy r4,r0
+0062d870: c4c1ffeb bl 0x0061df88
+0062d874: 0400a0e1 cpy r0,r4
+0062d878: 1080bde8 ldmia sp!,{r4,pc}

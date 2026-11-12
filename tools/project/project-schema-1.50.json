@@ -1,0 +1,392 @@
+{
+ "ProjectData": {
+  "count": 1,
+  "fields": {
+   "masterVolume": "int",
+   "headphoneVolume": "int",
+   "sendTrackVolume": "int",
+   "monitorVolume": "int",
+   "bDaveSmithFilter": "bool",
+   "daveSmithRouteMode": "string",
+   "daveSmithSendMode": "string",
+   "daveSmithSendTrack": "int",
+   "bSoftLimitter": "bool",
+   "bPlayArrangement": "bool",
+   "swingRate": "int",
+   "projectBpm": "double",
+   "patternQuantizeUnit": "int",
+   "padQuantizeUnit": "int",
+   "padSequenceStart": "bool",
+   "sceneIndex": "int",
+   "patternIndex": "int",
+   "projectFilePath": "string",
+   "versionNo": "int",
+   "minorVersionNo": "int"
+  },
+  "children": {
+   "SceneData": 16,
+   "ArrangementData": 1,
+   "RibbonData": 1,
+   "MidiSettingData": 1
+  }
+ },
+ "SceneData": {
+  "count": 16,
+  "fields": {
+   "colourIndex": "int",
+   "name": "string",
+   "bpm": "double"
+  },
+  "children": {
+   "TrackData": 256,
+   "PatternData": 64,
+   "SendFx": 16,
+   "MasterFx": 16,
+   "RoutingData": 16
+  }
+ },
+ "TrackData": {
+  "count": 256,
+  "fields": {
+   "trackMode": "string",
+   "triggerMode": "string",
+   "chokeGroup": "int",
+   "volume": "int",
+   "pan": "int",
+   "soloSetting": "bool",
+   "muteSetting": "bool",
+   "colourIndex": "int",
+   "instrument": "string"
+  },
+  "children": {
+   "PlaybackData": 256,
+   "AmpEnvelopeData": 256,
+   "SequencerData": 256,
+   "SliceData": 256,
+   "ScaleSetting": 256,
+   "ScaleSettingMidi": 256,
+   "InsertFx": 512,
+   "SendData": 256,
+   "LfoData": 256,
+   "MidiTrackData": 256
+  }
+ },
+ "PlaybackData": {
+  "count": 256,
+  "fields": {
+   "startSample": "int",
+   "loopStartSample": "int",
+   "lengthSample": "int",
+   "bLoop": "bool",
+   "bReverse": "bool",
+   "pitchCent": "int",
+   "stretchMode": "string",
+   "audioSourceUrl": "string",
+   "bBypass": "bool"
+  },
+  "children": {}
+ },
+ "AmpEnvelopeData": {
+  "count": 256,
+  "fields": {
+   "attackNorm": "double",
+   "holdNorm": "double",
+   "releaseNorm": "double",
+   "volumeIndex": "int",
+   "bSync": "bool",
+   "bVelocityEffective": "bool",
+   "bRetriggerMode": "bool",
+   "attackCurveType": "string",
+   "releaseCurveType": "string",
+   "bBypass": "bool"
+  },
+  "children": {}
+ },
+ "SequencerData": {
+  "count": 256,
+  "fields": {
+   "retriggerCount": "int",
+   "retriggerSpeed": "int",
+   "offset": "int",
+   "stepShiftArea": "int",
+   "transpose": "int"
+  },
+  "children": {}
+ },
+ "SliceData": {
+  "count": 256,
+  "fields": {
+   "grids": "array",
+   "nGrids": "int",
+   "windowOffset": "int"
+  },
+  "children": {}
+ },
+ "ScaleSetting": {
+  "count": 256,
+  "fields": {
+   "scaleType": "string",
+   "keyShift": "int",
+   "windowOffset": "int"
+  },
+  "children": {}
+ },
+ "ScaleSettingMidi": {
+  "count": 256,
+  "fields": {
+   "scaleTypeMidi": "string",
+   "scalePosition": "int",
+   "rootNote": "int"
+  },
+  "children": {}
+ },
+ "InsertFx": {
+  "count": 512,
+  "fields": {
+   "effectType": "string",
+   "bSync": "bool",
+   "bBypass": "bool",
+   "bType1": "string",
+   "bType2": "string",
+   "params": "array"
+  },
+  "children": {}
+ },
+ "SendData": {
+  "count": 256,
+  "fields": {
+   "sendChannel": "int",
+   "sendAmount": "int"
+  },
+  "children": {}
+ },
+ "LfoData": {
+  "count": 256,
+  "fields": {
+   "speed": "double",
+   "depth": "int",
+   "phaseOffset": "int",
+   "destination": "int",
+   "type": "string",
+   "triggerMode": "string",
+   "triggerOn": "string",
+   "sync": "bool",
+   "randStartNum": "int",
+   "bypass": "bool"
+  },
+  "children": {}
+ },
+ "MidiTrackData": {
+  "count": 256,
+  "fields": {},
+  "children": {
+   "MidiNoteData": 256,
+   "MidiCc1Data": 256,
+   "MidiCc2Data": 256,
+   "MidiOtherData": 256,
+   "MidiModeData": 256
+  }
+ },
+ "MidiNoteData": {
+  "count": 256,
+  "fields": {
+   "note1": "int",
+   "velocity": "int",
+   "length": "int",
+   "note2": "int",
+   "note3": "int",
+   "note4": "int"
+  },
+  "children": {}
+ },
+ "MidiCc1Data": {
+  "count": 256,
+  "fields": {
+   "pitchBendValue": "int",
+   "afterTouchValue": "int",
+   "param3Value": "int",
+   "param4Value": "int",
+   "param5Value": "int",
+   "param6Value": "int",
+   "param3CcNo": "int",
+   "param4CcNo": "int",
+   "param5CcNo": "int",
+   "param6CcNo": "int",
+   "pitchBendActive": "int",
+   "afterTouchActive": "int",
+   "param3Active": "int",
+   "param4Active": "int",
+   "param5Active": "int",
+   "param6Active": "int",
+   "MidiBypassFlg": "int"
+  },
+  "children": {}
+ },
+ "MidiCc2Data": {
+  "count": 256,
+  "fields": {
+   "param1Value": "int",
+   "param2Value": "int",
+   "param3Value": "int",
+   "param4Value": "int",
+   "param5Value": "int",
+   "param6Value": "int",
+   "param1CcNo": "int",
+   "param2CcNo": "int",
+   "param3CcNo": "int",
+   "param4CcNo": "int",
+   "param5CcNo": "int",
+   "param6CcNo": "int",
+   "param1Active": "int",
+   "param2Active": "int",
+   "param3Active": "int",
+   "param4Active": "int",
+   "param5Active": "int",
+   "param6Active": "int",
+   "MidiBypassFlg": "int"
+  },
+  "children": {}
+ },
+ "MidiOtherData": {
+  "count": 256,
+  "fields": {
+   "bankselmsb": "int",
+   "banksellsb": "int",
+   "programchange": "int"
+  },
+  "children": {}
+ },
+ "MidiModeData": {
+  "count": 256,
+  "fields": {
+   "midimode": "int"
+  },
+  "children": {}
+ },
+ "PatternData": {
+  "count": 64,
+  "fields": {
+   "Steps": "binary",
+   "Length": "int",
+   "TrackMutes": "array",
+   "TrackSolos": "array"
+  },
+  "children": {}
+ },
+ "SendFx": {
+  "count": 16,
+  "fields": {
+   "effectType": "string",
+   "bSync": "bool",
+   "bBypass": "bool",
+   "bType1": "string",
+   "bType2": "string",
+   "params": "array"
+  },
+  "children": {}
+ },
+ "MasterFx": {
+  "count": 16,
+  "fields": {
+   "effectType": "string",
+   "bSync": "bool",
+   "bBypass": "bool",
+   "bType1": "string",
+   "bType2": "string",
+   "params": "array"
+  },
+  "children": {}
+ },
+ "RoutingData": {
+  "count": 16,
+  "fields": {
+   "assignMode": "string",
+   "headphoneOutCh": "string",
+   "effectMode": "string",
+   "bDaveSmithFilter": "bool",
+   "daveSmithRouteMode": "string",
+   "daveSmithSendMode": "string",
+   "daveSmithSendTrack": "int"
+  },
+  "children": {
+   "TrackRoutingData": 256
+  }
+ },
+ "TrackRoutingData": {
+  "count": 256,
+  "fields": {
+   "assignableOutCh": "string"
+  },
+  "children": {}
+ },
+ "ArrangementData": {
+  "count": 1,
+  "fields": {
+   "length": "int",
+   "Sections": "binary"
+  },
+  "children": {}
+ },
+ "RibbonData": {
+  "count": 1,
+  "fields": {},
+  "children": {
+   "UserSetting": 2,
+   "PitchSetting": 1
+  }
+ },
+ "UserSetting": {
+  "count": 2,
+  "fields": {},
+  "children": {
+   "Item": 16
+  }
+ },
+ "Item": {
+  "count": 16,
+  "fields": {
+   "target": "int",
+   "topValue": "void",
+   "bottomValue": "void"
+  },
+  "children": {}
+ },
+ "PitchSetting": {
+  "count": 1,
+  "fields": {
+   "topCent": "int",
+   "bottomCent": "int"
+  },
+  "children": {}
+ },
+ "MidiSettingData": {
+  "count": 1,
+  "fields": {},
+  "children": {
+   "Input": 1,
+   "Output": 1
+  }
+ },
+ "Input": {
+  "count": 1,
+  "fields": {
+   "bUseClock": "bool",
+   "bUseStartStop": "bool",
+   "bUseNoteCC": "bool",
+   "bUseSongPosition": "bool",
+   "channelNo": "array"
+  },
+  "children": {}
+ },
+ "Output": {
+  "count": 1,
+  "fields": {
+   "bUseClock": "bool",
+   "bUseStartStop": "bool",
+   "bUseNoteCC": "bool",
+   "bUseSongPosition": "bool",
+   "channelNo": "array"
+  },
+  "children": {}
+ }
+}

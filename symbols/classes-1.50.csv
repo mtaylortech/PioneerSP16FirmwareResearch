@@ -1,0 +1,125 @@
+class,subsystem,namespace,vtable_va,first_method_va,virtual_methods_seen,named_methods_recovered
+Device::Gpio,Infrastructure,Device,0x8b3910,0x381124,2,2
+infra::RbxUnitTestRunner,Infrastructure,infra,0x9281b0,0x5055d8,5,1
+LiveSampling::AsyncNotifier,MIDI & Sync,LiveSampling,0x863008,0x1c8aa8,7,1
+MidiCc1ViewController,MIDI & Sync,,0x87e54c,0x263f00,8,1
+MidiCc2ViewController,MIDI & Sync,,0x87f0e4,0x268be8,8,1
+MidiClockInterpreter,MIDI & Sync,,0x844734,0x13ac08,8,3
+MidiSender,MIDI & Sync,,0x8457d8,0x142948,8,2
+SetScaleMidiViewController,MIDI & Sync,,0x875534,0x232310,8,1
+prj::MidiCc1Data,MIDI & Sync,prj,0x8a9c30,0x36ef30,8,1
+prj::MidiCc2Data,MIDI & Sync,prj,0x8a9f08,0x36ef78,8,1
+prj::MidiInOutData,MIDI & Sync,prj,0x8aa430,0x36f050,8,1
+prj::MidiModeData,MIDI & Sync,prj,0x8a9ab8,0x36f008,8,1
+prj::MidiNoteData,MIDI & Sync,prj,0x8a9b10,0x36eee8,8,1
+prj::MidiOtherData,MIDI & Sync,prj,0x8aa230,0x36efc0,8,1
+prj::ScaleDataMidi,MIDI & Sync,prj,0x8a9880,0x36f0ec,8,1
+FxInsert2BandEqViewController,Mixer / FX / Send / Routing,,0x87814c,0x23ee00,8,1
+FxInsertChorusViewController,Mixer / FX / Send / Routing,,0x879c14,0x24765c,8,1
+FxInsertCompressorViewController,Mixer / FX / Send / Routing,,0x87668c,0x236908,8,1
+FxInsertDelayViewController,Mixer / FX / Send / Routing,,0x87a164,0x248e58,8,1
+FxInsertDuckerViewController,Mixer / FX / Send / Routing,,0x87155c,0x21fb54,8,1
+FxInsertFlangerViewController,Mixer / FX / Send / Routing,,0x879174,0x2445b4,8,1
+FxInsertLofiViewController,Mixer / FX / Send / Routing,,0x874bb4,0x22d9ec,8,1
+FxInsertNoSelectViewController,Mixer / FX / Send / Routing,,0x87310c,0x22604c,8,1
+FxInsertPhaserViewController,Mixer / FX / Send / Routing,,0x871b9c,0x221780,8,1
+FxInsertViewControllerBase,Mixer / FX / Send / Routing,,0x871674,0x21fa34,5,1
+FxLimiterViewController,Mixer / FX / Send / Routing,,0x87cb34,0x25bcac,8,1
+FxMaster2BandEqViewController,Mixer / FX / Send / Routing,,0x8786d4,0x241258,8,1
+FxMasterChorusViewController,Mixer / FX / Send / Routing,,0x8796c4,0x245cf8,8,1
+FxMasterCompressorViewController,Mixer / FX / Send / Routing,,0x875f54,0x2346f4,8,1
+FxMasterDelayViewController,Mixer / FX / Send / Routing,,0x87a6d4,0x24a6a4,8,1
+FxMasterFlangerViewController,Mixer / FX / Send / Routing,,0x878c24,0x242af0,8,1
+FxMasterLofiViewController,Mixer / FX / Send / Routing,,0x8743e4,0x22b110,8,1
+FxMasterNoSelectViewController,Mixer / FX / Send / Routing,,0x872b24,0x225730,8,1
+FxMasterPhaserViewController,Mixer / FX / Send / Routing,,0x8720ec,0x22310c,8,1
+FxMasterViewControllerBase,Mixer / FX / Send / Routing,,0x872204,0x222fec,5,1
+FxReverbViewController,Mixer / FX / Send / Routing,,0x87261c,0x224844,8,1
+FxSelectPopupWidgetController,Mixer / FX / Send / Routing,,0x86981c,0x1f36a0,8,1
+MixerViewController,Mixer / FX / Send / Routing,,0x880064,0x26d66c,8,1
+prj::EffectData,Mixer / FX / Send / Routing,prj,0x8aa528,0x36ecf8,8,1
+prj::RoutingData,Mixer / FX / Send / Routing,prj,0x8b0978,0x36ec18,8,1
+prj::SendData,Mixer / FX / Send / Routing,prj,0x8a9230,0x36ed50,8,1
+prj::TrackRoutingData,Mixer / FX / Send / Routing,prj,0x854788,0x174998,8,1
+prj::PlaybackData,Other,prj,0x8a92e0,0x36ec98,8,1
+BankSelectPopupWidgetController,Project / File / Storage,,0x867b94,0x1e7fc8,8,1
+BrowseViewController,Project / File / Storage,,0x87c014,0x255058,8,1
+IProjectManager,Project / File / Storage,,0x8a35cc,0x3413bc,2,1
+LiveRecFileWriter,Project / File / Storage,,0x862808,0x1c3950,7,1
+ProjectManager,Project / File / Storage,,0x8a58ac,0x33df3c,8,12
+prj::ProjectData,Project / File / Storage,prj,0x8b0948,0x336b60,8,1
+prj::UndoManager,Project / File / Storage,prj,0x8b23ac,0x378264,8,3
+ui::UsbStorageManager,Project / File / Storage,ui,0x8b2f80,0x37c554,8,8
+AmpEnvelopeViewController,Sampling / Audio / DSP,,0x87adcc,0x24da34,8,1
+AssignableUnit,Sampling / Audio / DSP,,0x86033c,0x1a80c8,8,1
+AudioEditor,Sampling / Audio / DSP,,0x830464,0x0b57c0,8,6
+AudioRenderingManager,Sampling / Audio / DSP,,0x853f10,0x168354,8,1
+AudioSourceHelper,Sampling / Audio / DSP,,0x831118,0x0bdef8,2,6
+CompositeFxUnit,Sampling / Audio / DSP,,0x85ea9c,0x19e7d8,8,1
+DaveSmithManager,Sampling / Audio / DSP,,0x832bd4,0x0c3b34,8,6
+DsfSendOutputSelector,Sampling / Audio / DSP,,0x833288,0x0c5e5c,8,2
+FxInsertMultiModeFilterViewController,Sampling / Audio / DSP,,0x87740c,0x23b280,8,1
+FxMasterMultiModeFilterViewController,Sampling / Audio / DSP,,0x876d2c,0x238d10,8,1
+GridSlicePopupWidgetController,Sampling / Audio / DSP,,0x86a9fc,0x1f43b0,8,1
+HeadphoneRouter,Sampling / Audio / DSP,,0x85f724,0x1a3b1c,8,1
+HexaTrackAudioSystem,Sampling / Audio / DSP,,0x860fd8,0x1b5a00,8,4
+LfoProcessor,Sampling / Audio / DSP,,0x8434dc,0x13008c,8,9
+LfoViewController,Sampling / Audio / DSP,,0x87d7dc,0x25ff2c,8,1
+LiveSampling,Sampling / Audio / DSP,,0x863034,0x1c8c28,8,8
+LiveSamplingWaveFormViewController,Sampling / Audio / DSP,,0x86da44,0x1fd538,8,1
+PeakDetectorUnit,Sampling / Audio / DSP,,0x83ab48,0x0e4530,8,2
+PlayerUnit,Sampling / Audio / DSP,,0x8476f0,0x154b7c,8,24
+PresetSampleCopyTestPage,Sampling / Audio / DSP,,0x92c908,0x537514,8,5
+RecMonitorUnit,Sampling / Audio / DSP,,0x85ee90,0x19f0ac,8,2
+RenderAudioViewController,Sampling / Audio / DSP,,0x882c74,0x2897e8,8,1
+SampleAdjunctDataManager,Sampling / Audio / DSP,,0x8b1be0,0x374180,8,1
+SamplingEditViewController,Sampling / Audio / DSP,,0x885124,0x28f1b8,8,1
+SetSliceViewController,Sampling / Audio / DSP,,0x886504,0x295220,8,1
+WaveFormDetailWidgetController,Sampling / Audio / DSP,,0x89adf4,0x2ee7c4,8,1
+dat::SampleAdjunctData,Sampling / Audio / DSP,dat,0x8b1a38,0x376770,8,1
+prj::AmpEnvelopeData,Sampling / Audio / DSP,prj,0x8a9478,0x36ecc8,8,1
+prj::LfoData,Sampling / Audio / DSP,prj,0x8b08e8,0x36ebac,8,1
+prj::SliceData,Sampling / Audio / DSP,prj,0x8a9730,0x36ee20,8,1
+ArrangerViewController,Sequencer / Pattern / Scene,,0x87b5c4,0x250bc0,8,1
+BpmQuantizePopupWidgetController,Sequencer / Pattern / Scene,,0x868514,0x1ea71c,8,1
+GlobalSectionAssignWidgetController,Sequencer / Pattern / Scene,,0x894b7c,0x2d0260,8,1
+GlobalSectionHomeWidgetController,Sequencer / Pattern / Scene,,0x895024,0x2d35e0,8,1
+GlobalSectionProjectWidgetController,Sequencer / Pattern / Scene,,0x8956e4,0x2d3df8,8,1
+GlobalSectionTrackMenuWidgetController,Sequencer / Pattern / Scene,,0x895a74,0x2d5cc8,8,1
+RealtimeTriggerHandler,Sequencer / Pattern / Scene,,0x8525cc,0x160b1c,8,6
+SceneBpmChangePopupWidgetController,Sequencer / Pattern / Scene,,0x8675bc,0x1e681c,8,1
+SceneEditor,Sequencer / Pattern / Scene,,0x85631c,0x170708,8,17
+SceneManagerSequenceViewController,Sequencer / Pattern / Scene,,0x86f034,0x209688,8,1
+SceneManagerTrackViewController,Sequencer / Pattern / Scene,,0x86e714,0x201d70,8,1
+SceneManagerViewController,Sequencer / Pattern / Scene,,0x86fe54,0x216cd0,8,1
+ScenePackId::SourceId,Sequencer / Pattern / Scene,ScenePackId,0x8a14a0,0x336b0c,8,1
+ScenePatternManager,Sequencer / Pattern / Scene,,0x8593d4,0x17e214,8,5
+ScenePatternSwitcher,Sequencer / Pattern / Scene,,0x859c04,0x17f808,8,3
+SectionSequencer,Sequencer / Pattern / Scene,,0x85a8cc,0x182768,8,9
+SequenceViewController,Sequencer / Pattern / Scene,,0x885b64,0x293454,8,1
+Sequencer,Sequencer / Pattern / Scene,,0x85b78c,0x18a2a0,8,27
+prj::ArrangementData,Sequencer / Pattern / Scene,prj,0x8b09a8,0x36ec6c,8,1
+prj::SceneData,Sequencer / Pattern / Scene,prj,0x856c40,0x17cc3c,8,1
+prj::SequencerData,Sequencer / Pattern / Scene,prj,0x8a9638,0x36ee58,8,1
+TrackMenuViewController,Track,,0x88713c,0x2a7108,8,1
+TrackUnit,Track,,0x861eec,0x1c0190,8,8
+prj::TrackData,Track,prj,0x8545b8,0x17494c,8,1
+CautionManager,UI / View / Panel / Encoder,,0x8a03c0,0x3289dc,2,3
+ColorAdjustView,UI / View / Panel / Encoder,,0x92d18c,0x538728,8,4
+DoubleColumnWithSubItemListTableWidgetController,UI / View / Panel / Encoder,,0x86919c,0x1ee850,8,1
+HardMuteController,UI / View / Panel / Encoder,,0x864338,0x1cea20,7,3
+InputStringPopupWidgetController,UI / View / Panel / Encoder,,0x86adfc,0x1f5d38,8,1
+MessagePopupWidgetController,UI / View / Panel / Encoder,,0x86b284,0x1f718c,8,1
+OutputSettingViewController,UI / View / Panel / Encoder,,0x880834,0x2719a4,8,1
+PlaybackViewController,UI / View / Panel / Encoder,,0x880efc,0x273730,8,1
+ProgramChangePopupWidgetController,UI / View / Panel / Encoder,,0x86b7b4,0x1f7f34,8,1
+ProgressBarWindowPopupWidgetController,UI / View / Panel / Encoder,,0x86bae4,0x1f8818,8,1
+RibbonSettingViewController,UI / View / Panel / Encoder,,0x88452c,0x28b358,8,1
+SetScaleViewController,UI / View / Panel / Encoder,,0x87540c,0x23218c,8,1
+SoftwareKeyboardPopupWidgetController,UI / View / Panel / Encoder,,0x86c5b4,0x1fbc1c,8,1
+TestModeController,UI / View / Panel / Encoder,,0x92d6fc,0x548174,8,1
+TouchDetector,UI / View / Panel / Encoder,,0x926b70,0x4f5050,7,3
+ViewControllerManager,UI / View / Panel / Encoder,,0x89f964,0x31a378,8,4
+prj::RibbonPitchSettingData,UI / View / Panel / Encoder,prj,0x8aa3b0,0x36f114,8,1
+prj::RibbonUserSettingData::Item,UI / View / Panel / Encoder,prj,0x8aa308,0x36ed98,8,1
+prj::ScaleData,UI / View / Panel / Encoder,prj,0x8a97d8,0x36f0c4,8,1

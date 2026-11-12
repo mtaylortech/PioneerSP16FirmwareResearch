@@ -1,0 +1,6 @@
+STATIC ORIGINAL INSTRUCTIONS; 0032a9d0 candidate_0032a9d0
+0032a9d0: 182093e5 ldr r2,[r3,#0x18]
+0032a9d4: 003090e5 ldr r3,[r0,#0x0]
+0032a9d8: 003093e5 ldr r3,[r3,#0x0]
+0032a9dc: 33ff2fe1 blx r3
+0032a9e0: 0880bde8 ldmia sp!,{r3,pc}

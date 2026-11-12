@@ -1,0 +1,4 @@
+STATIC ORIGINAL INSTRUCTIONS; 002df33c candidate_002df33c
+002df33c: 200080e2 add r0,r0,#0x20
+002df340: 0e10a0e3 mov r1,#0xe
+002df344: 58c800ea b 0x003114ac

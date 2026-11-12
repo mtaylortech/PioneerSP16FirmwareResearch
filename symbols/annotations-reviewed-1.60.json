@@ -1,0 +1,158 @@
+[
+  {
+    "address": "00571d24",
+    "name": "sp16_initialise_00571d24",
+    "rationale": "Constructs settings, UIThread, mode graph and MainWindow. Normal return 0057222c; caller ignores r0, so void is a working convention.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0069850c",
+    "name": "juce_initialise_wrapper_0069850c",
+    "rationale": "Indirect +0x14 call returns at 00698548; manager gate controls 0/1 result.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0056e7bc",
+    "name": "sp16_application_factory_0056e7bc",
+    "rationale": "Allocation 0x8c, original LiveSamplerApplication vtable.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0056e8ec",
+    "name": "sp16_preinit_true_0056e8ec",
+    "rationale": "ARM mov r0,#1; bx lr.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0069afc0",
+    "name": "juce_x11_message_dispatch_0069afc0",
+    "rationale": "XPending/XNextEvent and mutex-protected internal virtual callbacks, select wait, exit flag +5.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0069826c",
+    "name": "juce_get_message_manager_0069826c",
+    "rationale": "Singleton construction, Message Thread and pthread_self.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "005712cc",
+    "name": "sp16_build_mode_graph_005712cc",
+    "rationale": "Mode bit 0 selects test graph; bits 1/2 skip normal graph. Audio/MIDI node strings support interpretation.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0057155c",
+    "name": "sp16_wire_graph_controllers_0057155c",
+    "rationale": "Mode/graph-dependent helper objects; relationships inferred.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0056f7f4",
+    "name": "sp16_create_mode_content_0056f7f4",
+    "rationale": "Mode-dependent view; default ControllerDataManager RTTI survives.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "000b3ac4",
+    "name": "main_factory_setup_000b3ac4",
+    "rationale": "Main entry stores factory then transfers to main body.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "000b4034",
+    "name": "main_initialise_then_dispatch_000b4034",
+    "rationale": "vtable +0x30 call, return at 000b4060, nonzero branch to dispatch call 000b4094.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "007552b0",
+    "name": "sp16_initialise_thunk_007552b0",
+    "rationale": "Tail branch to 0069850c.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0056c4bc",
+    "name": "Settings_construct_0056c4bc",
+    "rationale": "Original diagnostic Settings::Settings(), Toraiz_SP16.dat and FlashWriter.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0056cd14",
+    "name": "UIThread_construct_0056cd14",
+    "rationale": "Original UIThread/UIThreadTimer strings and RTTI.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0056cfe4",
+    "name": "UIThread_start_0056cfe4",
+    "rationale": "Thread start and singleton binding; no completion proof.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0055659c",
+    "name": "sp16_device_initialise_0055659c",
+    "rationale": "Called with testmode flag; hardware effects unverified.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0065e09c",
+    "name": "sp16_mode_tokens_construct_0065e09c",
+    "rationale": "Token checks testmode/mscmode/colmode/scriptmode/scriptrecmode.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0037c428",
+    "name": "TSP16VirtualPathSetting_renameToraiz_0037c428",
+    "rationale": "Original full method diagnostic string survives.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "00697fc0",
+    "name": "juce_x11_queue_bootstrap_00697fc0",
+    "rationale": "X11 imports, DISPLAY, socketpair, auxiliary window.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "00696e68",
+    "name": "juce_register_listener_sorted_00696e68",
+    "rationale": "Mutex-protected sorted pointer insertion.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "006457dc",
+    "name": "sleep_milliseconds_006457dc",
+    "rationale": "Converts milliseconds and calls nanosleep.",
+    "signature_is_analyst_convention": false
+  },
+  {
+    "address": "0056c4bc",
+    "name": "Settings_construct_0056c4bc",
+    "rationale": "r0 saved as this at 0056c4c0 and returned at 0056c558; r1 is settings path, r2 is forwarded into base constructor. Surviving Settings::Settings() diagnostic.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0056cd14",
+    "name": "UIThread_construct_0056cd14",
+    "rationale": "r0 is constructor destination; original UIThread/UIThreadTimer strings and RTTI.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0056cfe4",
+    "name": "UIThread_start_0056cfe4",
+    "rationale": "Tail branch to 0064703c after optional stop request; thread startup does not establish worker completion.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "0064703c",
+    "name": "juce_start_thread_0064703c",
+    "rationale": "r0 supplies thread object; pthread_create at 0064708c and detach on zero return.",
+    "signature_is_analyst_convention": true
+  },
+  {
+    "address": "006457dc",
+    "name": "sleep_milliseconds_006457dc",
+    "rationale": "Integer milliseconds converted to timespec; nanosleep result ignored.",
+    "signature_is_analyst_convention": true
+  }
+]

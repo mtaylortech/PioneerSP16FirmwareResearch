@@ -1,0 +1,7 @@
+STATIC ORIGINAL INSTRUCTIONS; 00393598 candidate_00393598
+00393598: 10402de9 stmdb sp!,{r4,lr}
+0039359c: 841081e2 add r1,r1,#0x84
+003935a0: 0040a0e1 cpy r4,r0
+003935a4: 7d510aeb bl 0x00627ba0
+003935a8: 0400a0e1 cpy r0,r4
+003935ac: 1080bde8 ldmia sp!,{r4,pc}

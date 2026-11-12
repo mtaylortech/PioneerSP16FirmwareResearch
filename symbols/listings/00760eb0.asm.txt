@@ -1,0 +1,7 @@
+STATIC ORIGINAL INSTRUCTIONS; 00760eb0 FUN_00760eb0
+00760eb0: 6830d0e5 ldrb r3,[r0,#0x68]
+00760eb4: 011021e2 eor r1,r1,#0x1
+00760eb8: 9131c3e7 bfi r3,r1,#0x3,#0x1
+00760ebc: 1232c4e7 bfi r3,r2,#0x4,#0x1
+00760ec0: 6830c0e5 strb r3,[r0,#0x68]
+00760ec4: 1eff2fe1 bx lr

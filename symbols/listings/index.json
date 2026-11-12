@@ -1,0 +1,3079 @@
+{
+ "program_sha256": "3d1392a61323e73ea4f2fddef8fe9e0142add7a6f6fab79ab0eb0d5396555464",
+ "firmware": "1.60",
+ "note": "Ghidra 12.1.4 output for EP085_Main_R 1.60. .asm.txt = disassembly; .inferred.c = decompiler pseudocode (NOT original source). Derived from Pioneer copyrighted code; not covered by this repo MIT/CC BY licenses.",
+ "listings": [
+  {
+   "address": "0x000b3ac4",
+   "file": "000b3ac4.asm.txt",
+   "source": "ghidra/exports/refine/000b3ac4.asm.txt",
+   "sha256": "33b2c995b5fd82c1e5bffef08f8b67f7377f442383e13fd58acbd238b59cf6a8"
+  },
+  {
+   "address": "0x000b3ac4",
+   "file": "000b3ac4.inferred.c",
+   "source": "ghidra/exports/refine/000b3ac4.inferred.c",
+   "sha256": "670d4c06d51fa38a9959f18803e29cdec0855e1b39cb00e27a02445a5c00d31b"
+  },
+  {
+   "address": "0x000b4034",
+   "file": "000b4034.asm.txt",
+   "source": "ghidra/exports/refine/000b4034.asm.txt",
+   "sha256": "f2f74f6b01680a513626944ccc32b616dee20ef4ccefd47da03af23b39f5dcc1"
+  },
+  {
+   "address": "0x000b4034",
+   "file": "000b4034.inferred.c",
+   "source": "ghidra/exports/refine/000b4034.inferred.c",
+   "sha256": "e0362babbb9591a66320d158dfe8168b065b38193d7a3783f0d1a6e97056e2cb"
+  },
+  {
+   "address": "0x001c7928",
+   "file": "001c7928.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-async-refresh/001c7928.asm.txt",
+   "sha256": "455e8ff4811e3084182f687a5e580e10468068cfdd6c3810bb247a7da59ef316"
+  },
+  {
+   "address": "0x001c7928",
+   "file": "001c7928.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-async-refresh/001c7928.inferred.c",
+   "sha256": "37f814905c33f39ceb2f3108c3cbbe4fba7b58430a4c86f5341e9a776841f0bc"
+  },
+  {
+   "address": "0x001c7970",
+   "file": "001c7970.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/001c7970.asm.txt",
+   "sha256": "b45e1065560c63eb0ffba95dcf8a0f0243f44ca9deb4ff14503eebae38132434"
+  },
+  {
+   "address": "0x001c7970",
+   "file": "001c7970.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/001c7970.inferred.c",
+   "sha256": "ce2fd7d23827cc2fd8d33f467e713f47ddaa2c8902c239f646a670504a8512b7"
+  },
+  {
+   "address": "0x001c7994",
+   "file": "001c7994.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c7994.asm.txt",
+   "sha256": "525ff7ad645216d9694f7848ee565f18d1b8cc427ae5a02df24308cb7f6c1ad0"
+  },
+  {
+   "address": "0x001c7994",
+   "file": "001c7994.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c7994.inferred.c",
+   "sha256": "03105a83cd1c5e805fee8119a6ea7b982c5387a8038bf62ec06ad0c24ba0a56f"
+  },
+  {
+   "address": "0x001c79bc",
+   "file": "001c79bc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c79bc.asm.txt",
+   "sha256": "e4b86d58bb1a638b1c19ad124468d0b331b9e9f8733399ebf3ec61906b42e62b"
+  },
+  {
+   "address": "0x001c79bc",
+   "file": "001c79bc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c79bc.inferred.c",
+   "sha256": "814161b9c6e2084d32c8075f9dd296108b010cfe56320d6d35425c4ac102e66f"
+  },
+  {
+   "address": "0x001c79d0",
+   "file": "001c79d0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/001c79d0.asm.txt",
+   "sha256": "6941829bc6703d22e40bdbd524185ea648dfc9a93c42b5bbe1e3549b0085297f"
+  },
+  {
+   "address": "0x001c79d0",
+   "file": "001c79d0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/001c79d0.inferred.c",
+   "sha256": "4dbe5a7101f5f0814eebfd020ba00b1d1ca2b690e2856ef557bab21e4ece57c0"
+  },
+  {
+   "address": "0x001c7a1c",
+   "file": "001c7a1c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/001c7a1c.asm.txt",
+   "sha256": "c5ddcc2882c424ba56cd2197a3b3df6fecf3dd7c2d0e44a55edadb1bcc76e01d"
+  },
+  {
+   "address": "0x001c7a1c",
+   "file": "001c7a1c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/001c7a1c.inferred.c",
+   "sha256": "638b81cb9d5e17bb863ca6a4a041cfef9d5aaf8db49ca9ab15d04110d6522a0a"
+  },
+  {
+   "address": "0x001c8980",
+   "file": "001c8980.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c8980.asm.txt",
+   "sha256": "92b7eae135ad50a8959516e7b16ed4758089e83eb8d3e8f4d315d5748c60664c"
+  },
+  {
+   "address": "0x001c8980",
+   "file": "001c8980.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/001c8980.inferred.c",
+   "sha256": "bb680594756d0c33e3fbf70c190c2a1beaa6621ab49f9ceadcc6c560c89aee56"
+  },
+  {
+   "address": "0x001c8988",
+   "file": "001c8988.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/001c8988.asm.txt",
+   "sha256": "61cb0a6ae7b77f0b98f02581e533b0623c458ab370354a8af68f314c6bcccf63"
+  },
+  {
+   "address": "0x001c8988",
+   "file": "001c8988.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/001c8988.inferred.c",
+   "sha256": "769acd5ecc3faba1c0d72f9548d7aaea4f4f8a32938faf1e2f157461e71f31c2"
+  },
+  {
+   "address": "0x001c8b4c",
+   "file": "001c8b4c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c8b4c.asm.txt",
+   "sha256": "0003e5decff90c10f5bba1352c69afe3c5b132b6e7e6c4c27d40f8e489de531e"
+  },
+  {
+   "address": "0x001c8b4c",
+   "file": "001c8b4c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-xrefs-1/001c8b4c.inferred.c",
+   "sha256": "4f6d7fcb0e6b6887eac88ebeee53ac6a3597f5a2b7eb40afbf90d03f19769250"
+  },
+  {
+   "address": "0x001c8b54",
+   "file": "001c8b54.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/001c8b54.asm.txt",
+   "sha256": "0f6a5636cbfcc02d075c5712be169d947723cd9a4aab1c1f399c992635632fae"
+  },
+  {
+   "address": "0x001c8b54",
+   "file": "001c8b54.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-model-setter-1/001c8b54.inferred.c",
+   "sha256": "fcd25159b499fb83c78c2cd0cbce19bcfcc844705042d121b2c7af9b0bf12a20"
+  },
+  {
+   "address": "0x001e8220",
+   "file": "001e8220.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/001e8220.asm.txt",
+   "sha256": "081b0cd9027260eadbaae214eca42a865415a751dcc484e50f169ec1ac757dbe"
+  },
+  {
+   "address": "0x001e8220",
+   "file": "001e8220.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/001e8220.inferred.c",
+   "sha256": "dfa6a903a2e765051293be7d2f049c3afce084180e4d548fdd56ff0bae465d6c"
+  },
+  {
+   "address": "0x001e8348",
+   "file": "001e8348.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/001e8348.asm.txt",
+   "sha256": "89ee66ca2bea603c20801c78f8700c73ca51a2bbbce2da04eadd0bc6d5f2687d"
+  },
+  {
+   "address": "0x001e8348",
+   "file": "001e8348.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/001e8348.inferred.c",
+   "sha256": "2eb6fd7fd013840fe0b153fedb7f18345437f8a1188b213930e0f071d76ac931"
+  },
+  {
+   "address": "0x001e843c",
+   "file": "001e843c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/001e843c.asm.txt",
+   "sha256": "2f08fd03a951556bb500a2e1da540bc1a5c0a6c3228d8fc3a8d26f307f743f72"
+  },
+  {
+   "address": "0x001e843c",
+   "file": "001e843c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/001e843c.inferred.c",
+   "sha256": "2e5c0ad7d39ecd688c8797be46ef929dd4ede644715f0d2e996fd95087712008"
+  },
+  {
+   "address": "0x0026b404",
+   "file": "0026b404.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026b404.asm.txt",
+   "sha256": "d6b87efa58de2b4a5b7f73eedbfc33465991a307de9561bd4e4a720d41cb249b"
+  },
+  {
+   "address": "0x0026b404",
+   "file": "0026b404.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026b404.inferred.c",
+   "sha256": "c48f7a6c04912829cfdafccaa9bd4308df02cbba501796c15b5732a35bbb7e15"
+  },
+  {
+   "address": "0x0026b508",
+   "file": "0026b508.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0026b508.asm.txt",
+   "sha256": "2f27d1bf9ea978c02387793a49a22b0a472215992f9cb40f1a3c5a38f0b54109"
+  },
+  {
+   "address": "0x0026b508",
+   "file": "0026b508.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0026b508.inferred.c",
+   "sha256": "70dfae4c8867ce65709df83b63cf53beca56e7bfc3bd77c7f4c10a35900d1af7"
+  },
+  {
+   "address": "0x0026b528",
+   "file": "0026b528.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b528.asm.txt",
+   "sha256": "86508fc4eed17b68766685a259696724322e1153bacf8a83cf7739358ef6385d"
+  },
+  {
+   "address": "0x0026b528",
+   "file": "0026b528.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b528.inferred.c",
+   "sha256": "ecc88b36fa70c5d7de678657285bcb36eda3222f3b97464bf2f45b2cab9199e6"
+  },
+  {
+   "address": "0x0026b6ac",
+   "file": "0026b6ac.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b6ac.asm.txt",
+   "sha256": "4205010dc56d247ce28437ea71ba3f25c0a9657228b0e260d047cbbcc39bf3e7"
+  },
+  {
+   "address": "0x0026b6ac",
+   "file": "0026b6ac.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b6ac.inferred.c",
+   "sha256": "250c58cf2661a11050256b873096a4dc35b44f7466b4b4494ca50923cf0a695d"
+  },
+  {
+   "address": "0x0026b88c",
+   "file": "0026b88c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b88c.asm.txt",
+   "sha256": "5c41cc4438f9a567d366b33fd2d1b79ae020e82b6c64bb3dbc6b7e666f3a4f5e"
+  },
+  {
+   "address": "0x0026b88c",
+   "file": "0026b88c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b88c.inferred.c",
+   "sha256": "7b0359bed0b71e4659971ed76c5c54147860e1c2160bf6dd2686e184f5d62c9e"
+  },
+  {
+   "address": "0x0026b8d4",
+   "file": "0026b8d4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b8d4.asm.txt",
+   "sha256": "395354bf28c97a618a2ec5c11f6f23ca26f6a627a4522d3ddff3c3d93c6ef11e"
+  },
+  {
+   "address": "0x0026b8d4",
+   "file": "0026b8d4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026b8d4.inferred.c",
+   "sha256": "f5616bf4eb6b362dab902065893d53b920b384781d2d07a601d462208e2caf3c"
+  },
+  {
+   "address": "0x0026ba40",
+   "file": "0026ba40.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0026ba40.asm.txt",
+   "sha256": "a5a04fc0dc6cd33b442bd873a4afdbe3175950fbeb1dfd399151e09003f46e8a"
+  },
+  {
+   "address": "0x0026ba40",
+   "file": "0026ba40.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0026ba40.inferred.c",
+   "sha256": "b245d04a8c7af5fe43e9f6b476b15f40de3f83926e2699fbfd490e8886028d97"
+  },
+  {
+   "address": "0x0026c220",
+   "file": "0026c220.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mode-and-channel-drag-4/0026c220.asm.txt",
+   "sha256": "ac0fe6bda4745840d5810274150112f2defb9d6a2973a5535d94579767822d86"
+  },
+  {
+   "address": "0x0026c220",
+   "file": "0026c220.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mode-and-channel-drag-4/0026c220.inferred.c",
+   "sha256": "4b9465a026b693f9be9aace9fd433923a43cbef2bac48d60a85b2351b4c66e38"
+  },
+  {
+   "address": "0x0026c238",
+   "file": "0026c238.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mode-and-channel-drag-4/0026c238.asm.txt",
+   "sha256": "df3731261d51d295eafe2000fd0dcbaab750f6194267b4bd8795801a6a30a45b"
+  },
+  {
+   "address": "0x0026c238",
+   "file": "0026c238.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mode-and-channel-drag-4/0026c238.inferred.c",
+   "sha256": "0e6bbbdd0bbdfcbcd5c7493cb47b362297534d3b875c3aafe97ae2218052542a"
+  },
+  {
+   "address": "0x0026c654",
+   "file": "0026c654.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026c654.asm.txt",
+   "sha256": "65aee2195afae604da1445cedd805cbedff43522081cbda3917952a1e31467d7"
+  },
+  {
+   "address": "0x0026c654",
+   "file": "0026c654.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0026c654.inferred.c",
+   "sha256": "d508529d01e36df69663c5ba1090611a1dcb8c5d8f91ce97918cdf2d9551887e"
+  },
+  {
+   "address": "0x0026c6c8",
+   "file": "0026c6c8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0026c6c8.asm.txt",
+   "sha256": "435b451df645c941f126c762bb85fabdb66b7b5a560eb67deee84be2fc76c8ab"
+  },
+  {
+   "address": "0x0026c6c8",
+   "file": "0026c6c8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0026c6c8.inferred.c",
+   "sha256": "0b5c3b8ee6b04b189ecb7f6cb329685dd9494b15b726cd1a7eb04a1c11e67cc0"
+  },
+  {
+   "address": "0x0026caa0",
+   "file": "0026caa0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/0026caa0.asm.txt",
+   "sha256": "c5582b9cc665b5b04ef5d6bca89cb37d7487432c55bac61ac36e47287d6cd95b"
+  },
+  {
+   "address": "0x0026caa0",
+   "file": "0026caa0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/0026caa0.inferred.c",
+   "sha256": "912cb5a4b11caab7a3de4b3d19caac82a7cbddf9f81bb7545eaa521a37f62887"
+  },
+  {
+   "address": "0x0026cacc",
+   "file": "0026cacc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/0026cacc.asm.txt",
+   "sha256": "fde1ab8c40331ffe52627bc98477936a561866a98a0f49237fb4d3a4bfd86696"
+  },
+  {
+   "address": "0x0026cacc",
+   "file": "0026cacc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/0026cacc.inferred.c",
+   "sha256": "e944323a7a38a0f54b035e877a4f089e44ae2e5075fe71c326be7f46e4f1e7e5"
+  },
+  {
+   "address": "0x0026cce0",
+   "file": "0026cce0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/0026cce0.asm.txt",
+   "sha256": "ece8605e552014a02c897dd1c90c8343f696627311c70a5e72da73a8a04d6941"
+  },
+  {
+   "address": "0x0026cce0",
+   "file": "0026cce0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/0026cce0.inferred.c",
+   "sha256": "caf27b3cbfae4b356e49ec97501322dd6bb9a9d66c47c1f0bf9b57691b8935b5"
+  },
+  {
+   "address": "0x0026cec0",
+   "file": "0026cec0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mode-and-channel-drag-4/0026cec0.asm.txt",
+   "sha256": "7110bc108460d5482b08611cf6d5d65227858dfbd5494ffae2c916e1f9fea09f"
+  },
+  {
+   "address": "0x0026cec0",
+   "file": "0026cec0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mode-and-channel-drag-4/0026cec0.inferred.c",
+   "sha256": "8374c7e0e96b184e1f4d6637e8658fb7f3a065798caca0843f6887d257c2b390"
+  },
+  {
+   "address": "0x0026d148",
+   "file": "0026d148.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d148.asm.txt",
+   "sha256": "53376e0b39967bb7fc8431345fef2f940b6a7b7763276e45783e11d194082a59"
+  },
+  {
+   "address": "0x0026d148",
+   "file": "0026d148.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d148.inferred.c",
+   "sha256": "36df4f364a5bb2a20cdb217fc659d0b5d4d790dc6edca3bee6492a6ba870a52d"
+  },
+  {
+   "address": "0x0026d170",
+   "file": "0026d170.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mode-and-channel-drag-4/0026d170.asm.txt",
+   "sha256": "d878b77df0e96b3fdd423ee192cd0591cecccd1231c51619ac83d4a4c252463f"
+  },
+  {
+   "address": "0x0026d170",
+   "file": "0026d170.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mode-and-channel-drag-4/0026d170.inferred.c",
+   "sha256": "3d0f727d8434caea0e9fdb60c97631ef739e076643ebfdfa902bba5deee3772a"
+  },
+  {
+   "address": "0x0026d458",
+   "file": "0026d458.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d458.asm.txt",
+   "sha256": "0a48ee30f9f7dc4ac2278d90e944ddcbafd886746b9b7f6c57a4eeb60a3032db"
+  },
+  {
+   "address": "0x0026d458",
+   "file": "0026d458.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0026d458.inferred.c",
+   "sha256": "07ff15c5d0022f18e59e12de77d010e11dab77558fbcca1a50d64a021f131da4"
+  },
+  {
+   "address": "0x0026d4a4",
+   "file": "0026d4a4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/0026d4a4.asm.txt",
+   "sha256": "89dc5b5890d611c511823985422c3925aad6cb34431ff79157dd8fdebad96d54"
+  },
+  {
+   "address": "0x0026d4a4",
+   "file": "0026d4a4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/0026d4a4.inferred.c",
+   "sha256": "fc6149bd2f33b91643bfb6b33130c994881e8dd63f938cf15e82c8847cfbe040"
+  },
+  {
+   "address": "0x0026f5b8",
+   "file": "0026f5b8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0026f5b8.asm.txt",
+   "sha256": "dc24e5c7b99082b267c7265a6bf98c7c56f7209191c84b519033688f2515a675"
+  },
+  {
+   "address": "0x0026f5b8",
+   "file": "0026f5b8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0026f5b8.inferred.c",
+   "sha256": "aacdd57b84d93cc2aafa76ab0cbdeab3fff5ed6cb06c867d0bfdfae7892e61c0"
+  },
+  {
+   "address": "0x0026f5c0",
+   "file": "0026f5c0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/0026f5c0.asm.txt",
+   "sha256": "62ae5462499e015eadeb630e172591b2418e0338f7c9f7872e669b3a44fde3ba"
+  },
+  {
+   "address": "0x0026f5c0",
+   "file": "0026f5c0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/0026f5c0.inferred.c",
+   "sha256": "42c1ea32f7248274a37e204f449327c694d51e1da585f4041a82e2c876180dae"
+  },
+  {
+   "address": "0x0028f820",
+   "file": "0028f820.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/0028f820.asm.txt",
+   "sha256": "41c5df0d41c3d1d367df009cc18d084bdb0cdeff18758702bde975ff0663e25b"
+  },
+  {
+   "address": "0x0028f820",
+   "file": "0028f820.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/0028f820.inferred.c",
+   "sha256": "43098aa4b31a5c573c6c4fca14dcae63cd1185e2a2da578da235e795937bceb3"
+  },
+  {
+   "address": "0x002bfe08",
+   "file": "002bfe08.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002bfe08.asm.txt",
+   "sha256": "b33de8836bd7f710ad53ed74742fd2c6a36197a023629e866e53449325f005c9"
+  },
+  {
+   "address": "0x002bfe08",
+   "file": "002bfe08.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002bfe08.inferred.c",
+   "sha256": "df7d8a6bfd5be73d835cf411f52e48ef3d0956c8e5bbe0ed69d951d428690058"
+  },
+  {
+   "address": "0x002bfe10",
+   "file": "002bfe10.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002bfe10.asm.txt",
+   "sha256": "4ad7df94750e38f1602fdc1f055c552d320bc0d2b60551d57ca0f5de9b1abf2f"
+  },
+  {
+   "address": "0x002bfe10",
+   "file": "002bfe10.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/002bfe10.inferred.c",
+   "sha256": "11cd6f569997193a6dc2538e90b321a631caf533029945907c8d7a2933cb989a"
+  },
+  {
+   "address": "0x002bfe6c",
+   "file": "002bfe6c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002bfe6c.asm.txt",
+   "sha256": "11f7726e8f55d22249898c0e885fd36e32c596362476bc8542ec604f7e6a348b"
+  },
+  {
+   "address": "0x002bfe6c",
+   "file": "002bfe6c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002bfe6c.inferred.c",
+   "sha256": "64e18736cdf1b88a3b54af0c90fb2192a1d6526de88ce45502b99838de817334"
+  },
+  {
+   "address": "0x002bff00",
+   "file": "002bff00.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/002bff00.asm.txt",
+   "sha256": "9c7ccc9f9b6376b2923b18324e62c5e4b6d38a31bab93f4a68ef890560f9be15"
+  },
+  {
+   "address": "0x002bff00",
+   "file": "002bff00.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/002bff00.inferred.c",
+   "sha256": "4e766e551bd82e7ca4461b9894cebe18af87a1499f2e225cbda9d032f18213f7"
+  },
+  {
+   "address": "0x002bffb0",
+   "file": "002bffb0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002bffb0.asm.txt",
+   "sha256": "b6780b47365435edcfbbeedf3ec859a5e079f95a9a33bc23805654b14210242b"
+  },
+  {
+   "address": "0x002bffb0",
+   "file": "002bffb0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002bffb0.inferred.c",
+   "sha256": "b393ecb2731bc3fa75f6f5a7eee3d3e46fd102da5abbcb663e345e8cba554a48"
+  },
+  {
+   "address": "0x002c004c",
+   "file": "002c004c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/mixer-volume-dispatch/002c004c.asm.txt",
+   "sha256": "3da53b22866ec43f98ccaa92312338dc14a4aea9332a1db935cae92720d67f3c"
+  },
+  {
+   "address": "0x002c004c",
+   "file": "002c004c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/mixer-volume-dispatch/002c004c.inferred.c",
+   "sha256": "3293f59510a049c6f32589ef06a3060d2fe0d1449ac99e46741390a4eebc4d06"
+  },
+  {
+   "address": "0x002c01e4",
+   "file": "002c01e4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002c01e4.asm.txt",
+   "sha256": "b71559155bae448619dd9bd9d08179af07365d0baebfa3f52bda340cdb3e7b8b"
+  },
+  {
+   "address": "0x002c01e4",
+   "file": "002c01e4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-parameter-edit-1/002c01e4.inferred.c",
+   "sha256": "bd40c2e3ff80f0bf1a74c8deb50318aeb8c55d3a417ba09e1d83e346c99a4ee1"
+  },
+  {
+   "address": "0x002c01ec",
+   "file": "002c01ec.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002c01ec.asm.txt",
+   "sha256": "dde28da36080be47b801572397968f87935a607e7ed01d0f43d8544832908d14"
+  },
+  {
+   "address": "0x002c01ec",
+   "file": "002c01ec.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/002c01ec.inferred.c",
+   "sha256": "18ce0b1eab43eb292ba15ff54308388bcf313d54d2beca7ed43e811b01a39907"
+  },
+  {
+   "address": "0x002c0458",
+   "file": "002c0458.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-footer-controls-1/002c0458.asm.txt",
+   "sha256": "b908b2e3cc9dca5a282f426d07da8011c620e5784ca4ce4a503e68dff1beda25"
+  },
+  {
+   "address": "0x002c0458",
+   "file": "002c0458.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-footer-controls-1/002c0458.inferred.c",
+   "sha256": "6698ac7541c7559a8af9dfb3f7a0b029779068359ad94a16b8fccd1ced9cdbfc"
+  },
+  {
+   "address": "0x002df330",
+   "file": "002df330.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-fader-construction-1/002df330.asm.txt",
+   "sha256": "5cc63a6ca8a756846dff9b33bf2616689f902e245d5758c4f5256b13b36a25e5"
+  },
+  {
+   "address": "0x002df330",
+   "file": "002df330.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-fader-construction-1/002df330.inferred.c",
+   "sha256": "4c7fa5741c5f26ad829e23567a27761f54c3c823bbab47a5333a86162965cd74"
+  },
+  {
+   "address": "0x002df33c",
+   "file": "002df33c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df33c.asm.txt",
+   "sha256": "be79db75c517e07ec97a539d70d799945527a99b99dff0b2c8246215c8825b63"
+  },
+  {
+   "address": "0x002df33c",
+   "file": "002df33c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df33c.inferred.c",
+   "sha256": "60aa988de026be8306ad7a0c71e000836abe85f66120cfe48d529d7ca3bd0995"
+  },
+  {
+   "address": "0x002df348",
+   "file": "002df348.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df348.asm.txt",
+   "sha256": "5d82b52514126b3a542c66862ae7c5a774bd944a3170ea0308cff460bf7b092c"
+  },
+  {
+   "address": "0x002df348",
+   "file": "002df348.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-fader-construction-1/002df348.inferred.c",
+   "sha256": "4be340946b519feaf8756c4b7a0499feb82441aecaddee06f965f24dbce20c3f"
+  },
+  {
+   "address": "0x002df3b4",
+   "file": "002df3b4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df3b4.asm.txt",
+   "sha256": "88b491670c979306aa0e42ce205f3e645f1a8fde27b51c6c78fad909560735a8"
+  },
+  {
+   "address": "0x002df3b4",
+   "file": "002df3b4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df3b4.inferred.c",
+   "sha256": "f52fd80a481a3aeda396efbabb6703505f0f1b8e105cbda5a7d627e93cd69922"
+  },
+  {
+   "address": "0x002df414",
+   "file": "002df414.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df414.asm.txt",
+   "sha256": "1a67f41bbd1e8f2a15dde84796295b7bc6ca8df5ecb11bd13e4853688127de66"
+  },
+  {
+   "address": "0x002df414",
+   "file": "002df414.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df414.inferred.c",
+   "sha256": "10ef2609627feaa834f9cd952e9cc74ced3d2d5bf460e03b15d3249f5d902432"
+  },
+  {
+   "address": "0x002df49c",
+   "file": "002df49c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df49c.asm.txt",
+   "sha256": "9653d13d9551f54ad07ebb62496a107d55a352705c16a4eba6f79831e989c96b"
+  },
+  {
+   "address": "0x002df49c",
+   "file": "002df49c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002df49c.inferred.c",
+   "sha256": "2dbb32c9815f32efd4a1bba501beff95335768658184a0b2d73fc3a3b4e883ab"
+  },
+  {
+   "address": "0x002df590",
+   "file": "002df590.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002df590.asm.txt",
+   "sha256": "09a30e4b8ebab5e0107e725bd96fc5081293f11fc0f1f3bbf6c9d36d012b004d"
+  },
+  {
+   "address": "0x002df590",
+   "file": "002df590.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/mixer-volume-handlers/002df590.inferred.c",
+   "sha256": "e9048fd0247ba79d2d860df02244fcc67ec84f25419fb9fd5b1c9d103d9e6a11"
+  },
+  {
+   "address": "0x002df62c",
+   "file": "002df62c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002df62c.asm.txt",
+   "sha256": "9c0474994bccf3203ffc95dc8d3a0f9c671d58e7c08f25cc0d9aeed29c5d0ef6"
+  },
+  {
+   "address": "0x002df62c",
+   "file": "002df62c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/mixer-volume-async-refresh/002df62c.inferred.c",
+   "sha256": "35cc71f44eed60a4b7f286080ed8978b82113b883788890e334c5da734f97f80"
+  },
+  {
+   "address": "0x002df924",
+   "file": "002df924.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002df924.asm.txt",
+   "sha256": "9950dfd02e51790c6a15142a690caa7a91863432e11131b559c39030a7e85979"
+  },
+  {
+   "address": "0x002df924",
+   "file": "002df924.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002df924.inferred.c",
+   "sha256": "deb93f6b023863afe2feab9bb4251489b19465fa79bd489c8fba3b03f8cb7fac"
+  },
+  {
+   "address": "0x002dfb9c",
+   "file": "002dfb9c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002dfb9c.asm.txt",
+   "sha256": "e3aa83e8aa98cb2322efe51ecc893c9f81ec3e97dc15929a4db0b993ab57960a"
+  },
+  {
+   "address": "0x002dfb9c",
+   "file": "002dfb9c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/002dfb9c.inferred.c",
+   "sha256": "02c88166b7d9fa18ce7857f928eb2f96c119ea6da33636e9be9e9990a3f501d8"
+  },
+  {
+   "address": "0x002dff48",
+   "file": "002dff48.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002dff48.asm.txt",
+   "sha256": "86d39921d8a73dfcad17c2e6a6765ac27b48508ab7dadd48b62701d3fffa643d"
+  },
+  {
+   "address": "0x002dff48",
+   "file": "002dff48.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-handlers/002dff48.inferred.c",
+   "sha256": "f034cfa2ea26102837ba4b853c406378db81614e9faf3a8a2c4a458f978826ce"
+  },
+  {
+   "address": "0x002eb570",
+   "file": "002eb570.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002eb570.asm.txt",
+   "sha256": "9267957dd6c6e699a87006d2e382d7a4a258ccc514b0c41c82876cdd42b047a3"
+  },
+  {
+   "address": "0x002eb570",
+   "file": "002eb570.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002eb570.inferred.c",
+   "sha256": "866c3fab86a980416c553f8217f149a9288c59e97ee4b3689b08fa493e0b40d1"
+  },
+  {
+   "address": "0x002ebd38",
+   "file": "002ebd38.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002ebd38.asm.txt",
+   "sha256": "f5a388c82bb88f40f75bf6ab2c7101a71b0ee35050051d3bda96d942aace20ef"
+  },
+  {
+   "address": "0x002ebd38",
+   "file": "002ebd38.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002ebd38.inferred.c",
+   "sha256": "b1946bcfd614afcb43bd6abef6bc6136b319ac75826027faa5a2c74d845d34ef"
+  },
+  {
+   "address": "0x002edefc",
+   "file": "002edefc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/002edefc.asm.txt",
+   "sha256": "9283309533a6f63e0526e81563b427717b20341b42434f151a63c438b3c617a3"
+  },
+  {
+   "address": "0x002edefc",
+   "file": "002edefc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/002edefc.inferred.c",
+   "sha256": "8e35b2b4794144ce60a60af53066cec34304fe46ea8d060faad6ab486caff5a1"
+  },
+  {
+   "address": "0x002ee9fc",
+   "file": "002ee9fc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/002ee9fc.asm.txt",
+   "sha256": "35cb1785f1f68fe5c980fa83567e07ed91e3e42f7bf3a8dab744d2f30b3dca9a"
+  },
+  {
+   "address": "0x002ee9fc",
+   "file": "002ee9fc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-widget-controller/002ee9fc.inferred.c",
+   "sha256": "cec7e9bed958e9c50bfc2a6fc0df3ff8b58c537e7794ed49f2d2e65e88dfdea1"
+  },
+  {
+   "address": "0x002f32e8",
+   "file": "002f32e8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/002f32e8.asm.txt",
+   "sha256": "a3c488afed5b265352880b8fbd07640791812aa68e5502fd6de656a85192cf31"
+  },
+  {
+   "address": "0x002f32e8",
+   "file": "002f32e8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/002f32e8.inferred.c",
+   "sha256": "e2c159abdc557d8d36bbaf073e811f8848b83d0467ef2a4c30c9f8a2f05f54b4"
+  },
+  {
+   "address": "0x002f35b0",
+   "file": "002f35b0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f35b0.asm.txt",
+   "sha256": "e1059348d3b76907b716ed4ebcb4575f6d0adcf96f37a3e0e31e41d7c4dce8a8"
+  },
+  {
+   "address": "0x002f35b0",
+   "file": "002f35b0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f35b0.inferred.c",
+   "sha256": "40cacb981b918f529c4509421c6ae5357b85be858104456b063297206e8926ae"
+  },
+  {
+   "address": "0x002f3aec",
+   "file": "002f3aec.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3aec.asm.txt",
+   "sha256": "aafad936ff3f294cc9e8e9ba383730db970e2c96e3888453c0157ce73f24cd58"
+  },
+  {
+   "address": "0x002f3aec",
+   "file": "002f3aec.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3aec.inferred.c",
+   "sha256": "2c7ca88f2f9fc074e496d87fd42f150d615e81364423ea9f6f386687657998a5"
+  },
+  {
+   "address": "0x002f3b40",
+   "file": "002f3b40.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f3b40.asm.txt",
+   "sha256": "2edfe5ece5c0df20c4fe6f1c8f847bd928d1488282107a01879a06eeba92b9ab"
+  },
+  {
+   "address": "0x002f3b40",
+   "file": "002f3b40.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f3b40.inferred.c",
+   "sha256": "403430db3211d1d443b12600cb6e852a890a192dcc7c6da9cd0e1417d6521b97"
+  },
+  {
+   "address": "0x002f3bd0",
+   "file": "002f3bd0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3bd0.asm.txt",
+   "sha256": "4e1a48168ceb870d291430052b7bf645ec026404887fd941d2eaca80049f93de"
+  },
+  {
+   "address": "0x002f3bd0",
+   "file": "002f3bd0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3bd0.inferred.c",
+   "sha256": "39190304ca30a832086997dc9801804d3d5b2f4878c994f5d4b1e141d7b5ac85"
+  },
+  {
+   "address": "0x002f3d20",
+   "file": "002f3d20.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3d20.asm.txt",
+   "sha256": "36654cdc58e2d128d46e1b87821be5888f5f777a9ee6432c29443e0e9cd69511"
+  },
+  {
+   "address": "0x002f3d20",
+   "file": "002f3d20.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3d20.inferred.c",
+   "sha256": "4fcb12ee949947267915c43108b9873b32979c1f593a7fd9972f3bff0d6a5525"
+  },
+  {
+   "address": "0x002f3d94",
+   "file": "002f3d94.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3d94.asm.txt",
+   "sha256": "62c22aea0431d91cbe5e58089279ceb4b9c90df42b38102e36b2a6937eb473d1"
+  },
+  {
+   "address": "0x002f3d94",
+   "file": "002f3d94.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-event-services/002f3d94.inferred.c",
+   "sha256": "2b566079ac69ca86cb964c5a6a243062d7dc125c50a93ce78e8a13b600a96db5"
+  },
+  {
+   "address": "0x002f3ea0",
+   "file": "002f3ea0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3ea0.asm.txt",
+   "sha256": "5312680d4493d445a5bd8f04d9062f24e1a9a29b4434a4edcb85d8242a522bb2"
+  },
+  {
+   "address": "0x002f3ea0",
+   "file": "002f3ea0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3ea0.inferred.c",
+   "sha256": "4aaf320b1056817fe0132ab13ba42f22cef4a8d1a41d05fb44604c62dd0d0031"
+  },
+  {
+   "address": "0x002f3fa0",
+   "file": "002f3fa0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3fa0.asm.txt",
+   "sha256": "688d3ad92562484b60ddbab79552e696d66022d6ba1ec60f09c8a8745d6078fb"
+  },
+  {
+   "address": "0x002f3fa0",
+   "file": "002f3fa0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/002f3fa0.inferred.c",
+   "sha256": "4edff81ad41d6836e132958a8e716dfd9aedde69aeb5b6396fdb8e876bfec306"
+  },
+  {
+   "address": "0x002f3ff4",
+   "file": "002f3ff4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f3ff4.asm.txt",
+   "sha256": "6bf70038358c523432eb1c14d9c1b281b6e23c5dbcc8eb1345197ee38682a7e1"
+  },
+  {
+   "address": "0x002f3ff4",
+   "file": "002f3ff4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f3ff4.inferred.c",
+   "sha256": "a2d7cc48532553ee43fd9cb8d7341a40fda24629a0cd1c54728d1423823d9d53"
+  },
+  {
+   "address": "0x002f5e08",
+   "file": "002f5e08.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/002f5e08.asm.txt",
+   "sha256": "c8e78b3084541f58ba81fa4f26a76ba3afdc0aa1de72ff1928ac6ecfe1734d37"
+  },
+  {
+   "address": "0x002f5e08",
+   "file": "002f5e08.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/002f5e08.inferred.c",
+   "sha256": "343f215ef34db2bb0d00203dcfb47c8332e09c5593deb92820c5f424735a39c0"
+  },
+  {
+   "address": "0x002f5e7c",
+   "file": "002f5e7c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002f5e7c.asm.txt",
+   "sha256": "81b4a4e3f6b14adb0c7555e893dd6543861e53c5bfae79c8461c8c1b6ef1b326"
+  },
+  {
+   "address": "0x002f5e7c",
+   "file": "002f5e7c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-factory-table-1/002f5e7c.inferred.c",
+   "sha256": "b6fb75ab82f35f50dd2d4470e60c60616379ff4f6dd8e42367631e62d983cf2f"
+  },
+  {
+   "address": "0x002f5f88",
+   "file": "002f5f88.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/002f5f88.asm.txt",
+   "sha256": "68859ede82798f36e0a3b6b45ec0d91c7e1316cf389554d9270a6c228002cc94"
+  },
+  {
+   "address": "0x002f5f88",
+   "file": "002f5f88.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/002f5f88.inferred.c",
+   "sha256": "82590e8dcfb2bf9aeaa3bb2aa92409e34daeb603789a0e1f3cf687cdc18cf3df"
+  },
+  {
+   "address": "0x002f6088",
+   "file": "002f6088.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/002f6088.asm.txt",
+   "sha256": "c1596d2b10add92d9ad6ff45af7a76a1a3847bae8f21c8bb7f0f573adb33b439"
+  },
+  {
+   "address": "0x002f6088",
+   "file": "002f6088.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-child-input-and-ownership-6/002f6088.inferred.c",
+   "sha256": "e0047aa217a61a955fc4370195a3ea8de07a129b1e136524cb72f0b30b23034b"
+  },
+  {
+   "address": "0x002f60dc",
+   "file": "002f60dc.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/002f60dc.asm.txt",
+   "sha256": "6fbd34bd65e1f94821451f272e98ff5fed21385f658f1cdc8c00920bd5617cbc"
+  },
+  {
+   "address": "0x002f60dc",
+   "file": "002f60dc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-table-1/002f60dc.inferred.c",
+   "sha256": "c620dadec007f6f494bc65f083973c0cfac1b7a12004c584f8695e6b3a81c737"
+  },
+  {
+   "address": "0x002f61fc",
+   "file": "002f61fc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f61fc.asm.txt",
+   "sha256": "19bb0cd91651a8ebdb6e71a6c274a05dbea9805f8ac156821dda76744cc60077"
+  },
+  {
+   "address": "0x002f61fc",
+   "file": "002f61fc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f61fc.inferred.c",
+   "sha256": "68cee586db12012a5f4316591a3fb23ad56daccb8b1acc0e98e55bf21b0feef3"
+  },
+  {
+   "address": "0x002f6224",
+   "file": "002f6224.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f6224.asm.txt",
+   "sha256": "98f1c14eaa6d3b2e920f3a3aca6b9486978d9aa481ffe180b996a920121362ee"
+  },
+  {
+   "address": "0x002f6224",
+   "file": "002f6224.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-dispatch/002f6224.inferred.c",
+   "sha256": "ac90cc201fc5da0a2a4b9aedbaee48adbb4b487765d2c6d32401a4eb03772e70"
+  },
+  {
+   "address": "0x002fdf7c",
+   "file": "002fdf7c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-table-1/002fdf7c.asm.txt",
+   "sha256": "9f6f580b415810aafc2daebe9e1a3bef7828e5fb77f5c85cb48e6b7e8a114dd0"
+  },
+  {
+   "address": "0x002fdf7c",
+   "file": "002fdf7c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-table-1/002fdf7c.inferred.c",
+   "sha256": "0e2f863d08397c39df0f7ba3fc3eef15853e120bb6560ccbcc9b1434c2c5c77a"
+  },
+  {
+   "address": "0x003114ac",
+   "file": "003114ac.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-parameter-edit-1/003114ac.asm.txt",
+   "sha256": "1b9609c002d08de7dd3b1dc2823ee8fb28732c8267b4d717a3f09a96d29d4abc"
+  },
+  {
+   "address": "0x003114ac",
+   "file": "003114ac.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-parameter-edit-1/003114ac.inferred.c",
+   "sha256": "b83a89e679669de696fcc5f5e91aba5659354cdc44bd918b5f891fe7063b81b1"
+  },
+  {
+   "address": "0x0031f790",
+   "file": "0031f790.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/0031f790.asm.txt",
+   "sha256": "b4475309bb58087a51b9703f9cdcbbc39430a10787baed30f5d2d1291617f7b5"
+  },
+  {
+   "address": "0x0031f790",
+   "file": "0031f790.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-model/0031f790.inferred.c",
+   "sha256": "be297c3ec01620c40674bdf189419f7139c87482fec047e3a8476b3731ef9fd7"
+  },
+  {
+   "address": "0x00326fd0",
+   "file": "00326fd0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/00326fd0.asm.txt",
+   "sha256": "cb57875935d76157a33a24d34188b6cdf1c5ae4bf7b3bc111849946b214f10a4"
+  },
+  {
+   "address": "0x00326fd0",
+   "file": "00326fd0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/00326fd0.inferred.c",
+   "sha256": "c2cf615eea4b50c8d0ea9897d7d9c181b1b9cd5d17afb4eae9f010108597d8a3"
+  },
+  {
+   "address": "0x0032a1e8",
+   "file": "0032a1e8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0032a1e8.asm.txt",
+   "sha256": "aebaac6d4434856dc62821993930387588db3ed60a0b2576ff2ebfcd625938e6"
+  },
+  {
+   "address": "0x0032a1e8",
+   "file": "0032a1e8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0032a1e8.inferred.c",
+   "sha256": "4da3950db18bfdaa55c790281e0b0090568af95a1d626cfdcfb70c63b48df2c6"
+  },
+  {
+   "address": "0x0032a9d0",
+   "file": "0032a9d0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/0032a9d0.asm.txt",
+   "sha256": "e1bbee49ae4c778aa6cb1cadf11daf112030ab25f2cbd5e54e2268c8d3a3fbeb"
+  },
+  {
+   "address": "0x0032a9d0",
+   "file": "0032a9d0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-registration/0032a9d0.inferred.c",
+   "sha256": "93fa63b824e0d64db0340432573c61759d4def28a96746c346146dbef5941beb"
+  },
+  {
+   "address": "0x0032b664",
+   "file": "0032b664.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-track-registration/0032b664.asm.txt",
+   "sha256": "188ef3325128d320dfe7aec9b73d40fd362bf9b0292bdf6bd60cb930298f4f11"
+  },
+  {
+   "address": "0x0032b664",
+   "file": "0032b664.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-track-registration/0032b664.inferred.c",
+   "sha256": "9f797c90ae6d0711e20af509e407268f20d3953f127e5d9629fa4e16677be11f"
+  },
+  {
+   "address": "0x0037c428",
+   "file": "0037c428.asm.txt",
+   "source": "ghidra/exports/refine/0037c428.asm.txt",
+   "sha256": "02d6482e7191ce40f9aa9511d6d06bf07f0dcc458f408ae25ecdcee12599e119"
+  },
+  {
+   "address": "0x0037c428",
+   "file": "0037c428.inferred.c",
+   "source": "ghidra/exports/refine/0037c428.inferred.c",
+   "sha256": "ae614dcf44348e4775b35ee9ad600a55057caabe35fc94bf135c1564fa409d70"
+  },
+  {
+   "address": "0x0037fd38",
+   "file": "0037fd38.asm.txt",
+   "source": "ghidra/exports/refine/0037fd38.asm.txt",
+   "sha256": "c409b64b6b7c5cb6dd5c26be68b61d311e5d0a9dcfb38db4d8d88c7f3c540c4d"
+  },
+  {
+   "address": "0x0037fd38",
+   "file": "0037fd38.inferred.c",
+   "source": "ghidra/exports/refine/0037fd38.inferred.c",
+   "sha256": "bb79ae5f0b2b2f8eeec424249b7e41b8dd24e997f1a268e048d6e1f8fd3fd16f"
+  },
+  {
+   "address": "0x0038a53c",
+   "file": "0038a53c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0038a53c.asm.txt",
+   "sha256": "3efe55e0aeecc18191afdbc66bda758cfa433ddabe0b1f32cf4ddfb5646d1290"
+  },
+  {
+   "address": "0x0038a53c",
+   "file": "0038a53c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/activation-and-mixer/0038a53c.inferred.c",
+   "sha256": "4390ecda3e66da1d4c9d718335c7669fc0ea9ac1adbabc4b8981340b556ec036"
+  },
+  {
+   "address": "0x0038a570",
+   "file": "0038a570.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038a570.asm.txt",
+   "sha256": "2397ebb24dc1de7af9141235955b1e8db52914a3739ec93c064835b7a9373fe3"
+  },
+  {
+   "address": "0x0038a570",
+   "file": "0038a570.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038a570.inferred.c",
+   "sha256": "71a4a0c259ec7735f65a2adf2ee9d416dbc30e47210a62ddd59c6378da863bc6"
+  },
+  {
+   "address": "0x0038aa4c",
+   "file": "0038aa4c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/0038aa4c.asm.txt",
+   "sha256": "23f3bcda752c44da825bcab0b33551efb15cb17f58e2e036f1dc9d155bb3e68c"
+  },
+  {
+   "address": "0x0038aa4c",
+   "file": "0038aa4c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-volume-setter/0038aa4c.inferred.c",
+   "sha256": "e410b0c214c3a32fde4ffe76199aeee4579c4dcfb0f20151526c25942c857ee6"
+  },
+  {
+   "address": "0x0038bb04",
+   "file": "0038bb04.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-range-boundary-repair-8/0038bb04.asm.txt",
+   "sha256": "d65b1891486677cbb5ba78de2497af090d8bcac32964b69c4f93563445c00af2"
+  },
+  {
+   "address": "0x0038bb04",
+   "file": "0038bb04.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-range-boundary-repair-8/0038bb04.inferred.c",
+   "sha256": "619ad50352d4d614c87e373b829804b97780a2cfb2e0daffc8cc957a722d4b93"
+  },
+  {
+   "address": "0x0038c23c",
+   "file": "0038c23c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/0038c23c.asm.txt",
+   "sha256": "f3fcdaaf75430ca5bcf41f96bc7d7108803bfe14056454f10f82b91922e2e5e3"
+  },
+  {
+   "address": "0x0038c23c",
+   "file": "0038c23c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/0038c23c.inferred.c",
+   "sha256": "dffcc187e5f3583d25774ef3135a4f5c1f708dfc16a95e4832e90ed50b9a9c50"
+  },
+  {
+   "address": "0x0038c530",
+   "file": "0038c530.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038c530.asm.txt",
+   "sha256": "93afd07dc5e3ed2848a81d49fa0a740311f7d82d8ce7c46f90de864cd7ea63c8"
+  },
+  {
+   "address": "0x0038c530",
+   "file": "0038c530.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038c530.inferred.c",
+   "sha256": "463f0a7234a910a947844d5892e7dd5cc6bf378def7bab6616eebe988a830bcd"
+  },
+  {
+   "address": "0x0038d6e8",
+   "file": "0038d6e8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0038d6e8.asm.txt",
+   "sha256": "4bb19ac92289ce7ad7376c065283fe25804022fcffcd65ed80b5d21392aef1e0"
+  },
+  {
+   "address": "0x0038d6e8",
+   "file": "0038d6e8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0038d6e8.inferred.c",
+   "sha256": "3904f40b9af04346197f1d59355cccb78fe6984e62c2a631022edcc2f76f4376"
+  },
+  {
+   "address": "0x0038dbb8",
+   "file": "0038dbb8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038dbb8.asm.txt",
+   "sha256": "35b5b08a33763efc7fc9c5bbdec39a1eaf779bc7481371fe15223df0d7e9ebab"
+  },
+  {
+   "address": "0x0038dbb8",
+   "file": "0038dbb8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0038dbb8.inferred.c",
+   "sha256": "6c126280fdd38980958e87cc5cb6a9a5caa0a6b14383cec74c3143557ac3dcf8"
+  },
+  {
+   "address": "0x0038e434",
+   "file": "0038e434.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/0038e434.asm.txt",
+   "sha256": "94f32382a0ab6f304296a9b2f3ce545cf7630dab12d8523fc3c41eb83ada08f1"
+  },
+  {
+   "address": "0x0038e434",
+   "file": "0038e434.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/0038e434.inferred.c",
+   "sha256": "da923569f6baa5e7ddc78f6ca940b9429b2ac1c730b65b59924b7ff29c7ebc31"
+  },
+  {
+   "address": "0x0038e768",
+   "file": "0038e768.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038e768.asm.txt",
+   "sha256": "a76e3a3c58636128f729b56df49bf0d1456b8be68b26d7e8130586661afc1c1e"
+  },
+  {
+   "address": "0x0038e768",
+   "file": "0038e768.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038e768.inferred.c",
+   "sha256": "c139b2ef3c4f62bb9e9050bace48e0bd27f3c9da7a52e2d660f2190778858f06"
+  },
+  {
+   "address": "0x0038e824",
+   "file": "0038e824.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038e824.asm.txt",
+   "sha256": "eac3139a869759fe575461994deac3bd0a9e5082125a03cfb94abe6675265afe"
+  },
+  {
+   "address": "0x0038e824",
+   "file": "0038e824.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038e824.inferred.c",
+   "sha256": "e4ea4cd294b54f53923a1d84bd7ab0e1b6d2540eac7bd37ec3aaeb8a804fd82f"
+  },
+  {
+   "address": "0x0038e928",
+   "file": "0038e928.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/0038e928.asm.txt",
+   "sha256": "3b3d7ef779b5f0a4ef28e606dbbd37fe022288bf06643e4ead4cdacd323b9c81"
+  },
+  {
+   "address": "0x0038e928",
+   "file": "0038e928.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-child-input-and-ownership-6/0038e928.inferred.c",
+   "sha256": "800bc2041a462dc99cf4e90f61daed06d1e11580f79c9bc7104c6bbc6475898a"
+  },
+  {
+   "address": "0x0038eac8",
+   "file": "0038eac8.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038eac8.asm.txt",
+   "sha256": "608d815f3dc4c5f612b95ad28e5fbec3c8daa1394cc66ad5bf1ad0fcce099b49"
+  },
+  {
+   "address": "0x0038eac8",
+   "file": "0038eac8.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0038eac8.inferred.c",
+   "sha256": "c69d54b9bb3bdc87ea88fafce52629a25d32231acfd4332e94b956e4474adecf"
+  },
+  {
+   "address": "0x0038fb1c",
+   "file": "0038fb1c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0038fb1c.asm.txt",
+   "sha256": "97c78cbf1bdec198e699cf1a74fa47b31135ddca8d2ef528bab082873adb66e9"
+  },
+  {
+   "address": "0x0038fb1c",
+   "file": "0038fb1c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-registered-drag-handlers-3/0038fb1c.inferred.c",
+   "sha256": "cd77ffbe0d8cee4ccd2ee796a58685cbc52ebd4c41d7fcc8b45fb2a1236fc4a9"
+  },
+  {
+   "address": "0x0038fd28",
+   "file": "0038fd28.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/0038fd28.asm.txt",
+   "sha256": "0a5653654622b7e1400d85681c681919a8cee747dc27dd6ae3c78b594def83b1"
+  },
+  {
+   "address": "0x0038fd28",
+   "file": "0038fd28.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/0038fd28.inferred.c",
+   "sha256": "d0fd6c37a5aa34488d60c63f1cfc1033a60fc6e98aaf0eb2cb8f73643675513a"
+  },
+  {
+   "address": "0x0038fef4",
+   "file": "0038fef4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/0038fef4.asm.txt",
+   "sha256": "645bd86b647a857e3d150259a2bf282d44645b1c2f36af6c545d0777c1a7b80f"
+  },
+  {
+   "address": "0x0038fef4",
+   "file": "0038fef4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/0038fef4.inferred.c",
+   "sha256": "a7df80ae1e8a2959cae64bbf59112c68a884c59d9290b340f2d942139a7405d4"
+  },
+  {
+   "address": "0x00390154",
+   "file": "00390154.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/00390154.asm.txt",
+   "sha256": "948b63216b6fe81e14dae8d8be8d5ed2a76878017b00d80d856fb634298d7438"
+  },
+  {
+   "address": "0x00390154",
+   "file": "00390154.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/00390154.inferred.c",
+   "sha256": "87b0d754a5f574671c1e35d603b9aee3b524830c6a0f0d03bcc84fa1088b58a8"
+  },
+  {
+   "address": "0x003901c0",
+   "file": "003901c0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/003901c0.asm.txt",
+   "sha256": "d75c067c9adaecc5795fd8e1609ae054192b5afd65f8a6eb1a2594f071079855"
+  },
+  {
+   "address": "0x003901c0",
+   "file": "003901c0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/003901c0.inferred.c",
+   "sha256": "cb4bc0da4bb769178279e5dac1f77944d35b8310f2dd5b1d06082d74941b9a99"
+  },
+  {
+   "address": "0x0039025c",
+   "file": "0039025c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0039025c.asm.txt",
+   "sha256": "2e6bafa97f8955454ba95cd5673b4d0d38c1edbfe63a1c89897dd96abd0e2006"
+  },
+  {
+   "address": "0x0039025c",
+   "file": "0039025c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-slot-validation-7/0039025c.inferred.c",
+   "sha256": "9f68c31a2afb1361e92d54e77e5fe0123cb5eddf14699f36b4a6ae31b5ae4a0f"
+  },
+  {
+   "address": "0x0039173c",
+   "file": "0039173c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/0039173c.asm.txt",
+   "sha256": "a45c99fe7d993cbcba21a9b5224f1418a700b39bad67fbe0699274f3f0e8f3a0"
+  },
+  {
+   "address": "0x0039173c",
+   "file": "0039173c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-input-leaves-2/0039173c.inferred.c",
+   "sha256": "23aaf71444016a1fb95be9c4fc951c019bc1855431f2495f799c989f4dc8cbe1"
+  },
+  {
+   "address": "0x00391d58",
+   "file": "00391d58.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-3/00391d58.asm.txt",
+   "sha256": "2d779cc3159226ac7d4e5cc32e1e83ac9613a130c354fbb73650312c7b744396"
+  },
+  {
+   "address": "0x00391d58",
+   "file": "00391d58.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-3/00391d58.inferred.c",
+   "sha256": "feb8c464938f1071e7a7fa32cdd6f17bdc89e971e6a13653ce3489563c4aaceb"
+  },
+  {
+   "address": "0x00391fdc",
+   "file": "00391fdc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/00391fdc.asm.txt",
+   "sha256": "a6849c901dd587f130b6b763c981a9de2148803ff1b1235d2a559a4ae78aaa87"
+  },
+  {
+   "address": "0x00391fdc",
+   "file": "00391fdc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/00391fdc.inferred.c",
+   "sha256": "2c67d54982ce0acd0b3d15a2a6ce7ad278288f758bc8a4ddb871e25f2ee832b7"
+  },
+  {
+   "address": "0x00392020",
+   "file": "00392020.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-3/00392020.asm.txt",
+   "sha256": "2f9dd9ca24dab5dad358508b683a7fc128c40eaebb0ceedef08f0f1ec4cb40c6"
+  },
+  {
+   "address": "0x00392020",
+   "file": "00392020.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-3/00392020.inferred.c",
+   "sha256": "31133519259705185713a161ad4e85a7c3d076b65860615a27a29810d7413673"
+  },
+  {
+   "address": "0x00392100",
+   "file": "00392100.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-1/00392100.asm.txt",
+   "sha256": "6ee3252418a46cd4769e0e70e4d67fc3869533ea0ea859a82da36b4197c6b549"
+  },
+  {
+   "address": "0x00392100",
+   "file": "00392100.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-1/00392100.inferred.c",
+   "sha256": "6ebc2479549c4c157b8b9229de1aacfd340545814157aa998f0fbadee2a51f27"
+  },
+  {
+   "address": "0x00392108",
+   "file": "00392108.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00392108.asm.txt",
+   "sha256": "4881289d5d7bb20ef2ceb9d3d420dd4471d2040211a214292ba47bdc3ccead10"
+  },
+  {
+   "address": "0x00392108",
+   "file": "00392108.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00392108.inferred.c",
+   "sha256": "646f3e3e6f1e84e9345010885832df5c0834db7879bd8c2e3813329e4d52ccc0"
+  },
+  {
+   "address": "0x003927ac",
+   "file": "003927ac.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/003927ac.asm.txt",
+   "sha256": "6888b4a36fcd41868677bdfa0a10b2dc476a9a1f32a29ba7248336e23a657a6e"
+  },
+  {
+   "address": "0x003927ac",
+   "file": "003927ac.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/003927ac.inferred.c",
+   "sha256": "595c713762965d0de5666067dd57e53ae97ec6d29f4f3284b395630a1bcfddec"
+  },
+  {
+   "address": "0x00392818",
+   "file": "00392818.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/00392818.asm.txt",
+   "sha256": "5125bdce6d1d92d77fda6a16b969416b3cceb4efa39b556e90cf43a4a7aad0c5"
+  },
+  {
+   "address": "0x00392818",
+   "file": "00392818.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-custom-input-9/00392818.inferred.c",
+   "sha256": "6c19e6a3c5913b29dcae14b5bc2729b7b12afbc0f11992f8729d1d6978bbd826"
+  },
+  {
+   "address": "0x003928e0",
+   "file": "003928e0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/003928e0.asm.txt",
+   "sha256": "0781fc044781abfcc04df9e4d5ccab9bba512aeab5b1945f924217f1ede62b02"
+  },
+  {
+   "address": "0x003928e0",
+   "file": "003928e0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/003928e0.inferred.c",
+   "sha256": "e2dd9bc6c7582b723b0e5d360912eba7a57275db0f710a281329dde862d540cb"
+  },
+  {
+   "address": "0x00392940",
+   "file": "00392940.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/00392940.asm.txt",
+   "sha256": "106594f08d00fa081cadf5b1d9a7050d46d8cd411b85e79bd1b6971430d2b479"
+  },
+  {
+   "address": "0x00392940",
+   "file": "00392940.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/00392940.inferred.c",
+   "sha256": "cbe88aa4268725595c97c489f436d06cbb22dca511f3137085d5d23564c9a220"
+  },
+  {
+   "address": "0x00392a10",
+   "file": "00392a10.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/00392a10.asm.txt",
+   "sha256": "3a28934cf73815d1803fac6cef0e7ccda78e45093c1ea0daa8f5a79cf60e7042"
+  },
+  {
+   "address": "0x00392a10",
+   "file": "00392a10.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-custom-input-9/00392a10.inferred.c",
+   "sha256": "1cbaa501346590d48782edb0676e233f6feaffa9eb633a900d767ab67d203c03"
+  },
+  {
+   "address": "0x00392c2c",
+   "file": "00392c2c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/00392c2c.asm.txt",
+   "sha256": "7c916844eebb5d88ba1e3d7c1b0e0b0c4b88e88acf6db533615eb4dd21048fda"
+  },
+  {
+   "address": "0x00392c2c",
+   "file": "00392c2c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/00392c2c.inferred.c",
+   "sha256": "fedcc82405d2424042336f1b01ed89cf99cda27d4b9b5187302046dcd2c5fb0e"
+  },
+  {
+   "address": "0x00393120",
+   "file": "00393120.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/00393120.asm.txt",
+   "sha256": "53ebecb8b3ea24823c48c9fb9ac7c63d2b8a35cd135a8431e3791c4fa36e690a"
+  },
+  {
+   "address": "0x00393120",
+   "file": "00393120.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/00393120.inferred.c",
+   "sha256": "b1d5668de8c7a278949bd24e3635a0f71ab17a14bff458ba1fedfba6addf9bfc"
+  },
+  {
+   "address": "0x0039312c",
+   "file": "0039312c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039312c.asm.txt",
+   "sha256": "df2e599a80acda3badab021049b9a636efdaeb80afed03b6989bb1a1efa64bd5"
+  },
+  {
+   "address": "0x0039312c",
+   "file": "0039312c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039312c.inferred.c",
+   "sha256": "4e98fb396c3533ac324e4a38c4ab8a7f67ddcfa14f9f4fc94f7e5a2d0625d503"
+  },
+  {
+   "address": "0x0039313c",
+   "file": "0039313c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039313c.asm.txt",
+   "sha256": "9b2a7feaaea3ac83d482a2ce7633dab580aa8e6b6dead8458b70ce23d7ad5ad5"
+  },
+  {
+   "address": "0x0039313c",
+   "file": "0039313c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-listener-targets-10/0039313c.inferred.c",
+   "sha256": "467847140230b4717d58a16bdb9311cdac6e3ff6c61af5484b9a6ddf93e0c039"
+  },
+  {
+   "address": "0x00393598",
+   "file": "00393598.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/00393598.asm.txt",
+   "sha256": "ff7841149d526424492c8a8aea4e866d55e9f6a8d2fe33e5ffbb9b36381051a3"
+  },
+  {
+   "address": "0x00393598",
+   "file": "00393598.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-input-router-1/00393598.inferred.c",
+   "sha256": "c7b2866bcfdd02e75b04a9d63f11578767e716a61096ba669b31a2a6605ffbe4"
+  },
+  {
+   "address": "0x00394614",
+   "file": "00394614.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-listener-targets-10/00394614.asm.txt",
+   "sha256": "cb64a18d7fd837bd8182a3f9eca5f713b9341281f0aec64209c8c8957941975f"
+  },
+  {
+   "address": "0x00394614",
+   "file": "00394614.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-widget-listener-targets-10/00394614.inferred.c",
+   "sha256": "f56502d87903fa01dadf4369ffda411bd642aaec1f5bd2fae2c72d3787ebaee4"
+  },
+  {
+   "address": "0x0039a2c0",
+   "file": "0039a2c0.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0039a2c0.asm.txt",
+   "sha256": "8c5b95870ba82671cb5ea074b1de2d6fb287f8c948d3f39979f5075daa35484b"
+  },
+  {
+   "address": "0x0039a2c0",
+   "file": "0039a2c0.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0039a2c0.inferred.c",
+   "sha256": "9a0d5c4a7241aaa91775a5eb309fa35b472a8962c2496bd6f8e10ae6caee31e6"
+  },
+  {
+   "address": "0x00448d78",
+   "file": "00448d78.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/00448d78.asm.txt",
+   "sha256": "61d66f7ffac24feabc1d85821cc02050ffade2e6a64d337c8ee285cc5267bed2"
+  },
+  {
+   "address": "0x00448d78",
+   "file": "00448d78.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/00448d78.inferred.c",
+   "sha256": "07d0b895f52c21d68455f44582e98bf99256d186cbfbd1f27c567c56757d1631"
+  },
+  {
+   "address": "0x0044c23c",
+   "file": "0044c23c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/draw-and-mixer-touch/0044c23c.asm.txt",
+   "sha256": "368f064afc7026824c43430628d7527cebb973dfc5d1504067b668903d02e96c"
+  },
+  {
+   "address": "0x0044c23c",
+   "file": "0044c23c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/draw-and-mixer-touch/0044c23c.inferred.c",
+   "sha256": "c26c358d9b457331ea5545ab35f1adbd3c0a203289e0768a594b05f0462aa05c"
+  },
+  {
+   "address": "0x0044c6c4",
+   "file": "0044c6c4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0044c6c4.asm.txt",
+   "sha256": "ba8f44717f94ab5bf0190f7033be5cf919fba8cf9e0506d59f3707b3eaefe4e8"
+  },
+  {
+   "address": "0x0044c6c4",
+   "file": "0044c6c4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0044c6c4.inferred.c",
+   "sha256": "5e81ac89bd212824c8bc85d0d1cc4c4a4b505dd93445f1d96a85ea3cee8224ac"
+  },
+  {
+   "address": "0x004a0d98",
+   "file": "004a0d98.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/004a0d98.asm.txt",
+   "sha256": "f95ff834b3f839de089642e9fb539d85ed01adab14fbce7e49caf47abe642780"
+  },
+  {
+   "address": "0x004a0d98",
+   "file": "004a0d98.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/004a0d98.inferred.c",
+   "sha256": "cb068e759a348a728faeaeef8b7984d9c5d82cd4a129a6c811d0820168c5bb06"
+  },
+  {
+   "address": "0x004a1798",
+   "file": "004a1798.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mutation-xrefs-2/004a1798.asm.txt",
+   "sha256": "ca36c069304624b06e29756c4aa0352c30395899802452b115b2a1be7c00caa3"
+  },
+  {
+   "address": "0x004a1798",
+   "file": "004a1798.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mutation-xrefs-2/004a1798.inferred.c",
+   "sha256": "d5c78561af95240302333686c7b89aa85b779c0b47098951dfab37bea22a7cb7"
+  },
+  {
+   "address": "0x004a1ab8",
+   "file": "004a1ab8.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-widget-registration-1/004a1ab8.asm.txt",
+   "sha256": "486e9d365da80b20195639210dc152625c6834a66d2404f28a7aee79601b44bb"
+  },
+  {
+   "address": "0x004a1ab8",
+   "file": "004a1ab8.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-widget-registration-1/004a1ab8.inferred.c",
+   "sha256": "1e3bc301a4ad1d4f50c32a51c8af7bd8bb6cf510b806f8d3660b26f1d094affb"
+  },
+  {
+   "address": "0x004a4c54",
+   "file": "004a4c54.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/004a4c54.asm.txt",
+   "sha256": "e4cb7ca50b423e2da85b820a68a3566103993dd4761171d2f10fb1bc0527d5a7"
+  },
+  {
+   "address": "0x004a4c54",
+   "file": "004a4c54.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/footer-widget-constructor/004a4c54.inferred.c",
+   "sha256": "312735d08616d8380e86de9bbda8cedc4e40cebd8f2dbd1e0803f0c6b0a5ff03"
+  },
+  {
+   "address": "0x004a4e94",
+   "file": "004a4e94.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/refresh-timer-message/004a4e94.asm.txt",
+   "sha256": "853ffbc720426d742385235dc5edb6722f13cee6fcb736f3be4c4f6c54cd7b4e"
+  },
+  {
+   "address": "0x004a4e94",
+   "file": "004a4e94.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/refresh-timer-message/004a4e94.inferred.c",
+   "sha256": "2b3d76aa4b2aab3a485c48a597daf34b298b538b7a4a0eff6dacbafd51787117"
+  },
+  {
+   "address": "0x004a8404",
+   "file": "004a8404.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-table-1/004a8404.asm.txt",
+   "sha256": "dce2183c86f942c81f913d7a3147ed6b296f4146470889974a7831813d92e227"
+  },
+  {
+   "address": "0x004a8404",
+   "file": "004a8404.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-factory-table-1/004a8404.inferred.c",
+   "sha256": "67301be369ecf76a997d0f70627cda44b07294d6dcd69b42f7a63e961872d07b"
+  },
+  {
+   "address": "0x004aa210",
+   "file": "004aa210.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-model-setter-1/004aa210.asm.txt",
+   "sha256": "04aca1ee045e00274d77000ab70a69a169df3b766f20cb390e0384ac8e69882a"
+  },
+  {
+   "address": "0x004aa210",
+   "file": "004aa210.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-model-setter-1/004aa210.inferred.c",
+   "sha256": "dbb791c2fc18b12795f868e3b116d2c577a044d2c0e82046e31b025b320821f9"
+  },
+  {
+   "address": "0x004ad214",
+   "file": "004ad214.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-registration-1/004ad214.asm.txt",
+   "sha256": "b404185c1acb2a7854908016b415831c91b9198f91c5b64fbfb2f16b5fcb4626"
+  },
+  {
+   "address": "0x004ad214",
+   "file": "004ad214.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-registration-1/004ad214.inferred.c",
+   "sha256": "71cefea9b9a04603282b4d8090219bd38611b0f5b9cd5111da4619737a185b0b"
+  },
+  {
+   "address": "0x004ad45c",
+   "file": "004ad45c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-touch-callbacks-1/004ad45c.asm.txt",
+   "sha256": "afed67b7c072da5127c6b2ff4ebcca7d99126c6515040592ebd3421584e30e76"
+  },
+  {
+   "address": "0x004ad45c",
+   "file": "004ad45c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-touch-callbacks-1/004ad45c.inferred.c",
+   "sha256": "144991705bd2cadad407421bdcad7bc70d8d5aaeee8c5cea19b212e67894d9d1"
+  },
+  {
+   "address": "0x004af7cc",
+   "file": "004af7cc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/004af7cc.asm.txt",
+   "sha256": "099e55c95f8d50f3680823a2de9749d064349c1aa5acaca1025fcbdde8c0a70c"
+  },
+  {
+   "address": "0x004af7cc",
+   "file": "004af7cc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/004af7cc.inferred.c",
+   "sha256": "c47f88e28e3c01c2580967aef553214f2946e5d74268077f627dd83c8056b50c"
+  },
+  {
+   "address": "0x004b07a4",
+   "file": "004b07a4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-footer-controls-1/004b07a4.asm.txt",
+   "sha256": "9b68fed9434370f2663fbfa9f66cf7d0e87061f537dff110558a244e1e39c447"
+  },
+  {
+   "address": "0x004b07a4",
+   "file": "004b07a4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-footer-controls-1/004b07a4.inferred.c",
+   "sha256": "2b9b2210ec3cbda4b423a6be084ab2df357dc1c2e58ca814a3d9c4f894135875"
+  },
+  {
+   "address": "0x004b7c84",
+   "file": "004b7c84.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/004b7c84.asm.txt",
+   "sha256": "62611288bf7625f84c8df7b58f05256cfec5438bccb97ff680143088b65b01b7"
+  },
+  {
+   "address": "0x004b7c84",
+   "file": "004b7c84.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-fader-construction-1/004b7c84.inferred.c",
+   "sha256": "9de7d78469bbaf77aed235f9d84a1481b7a564aece3d10b886ac4f1882e2ea1b"
+  },
+  {
+   "address": "0x004b8350",
+   "file": "004b8350.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/004b8350.asm.txt",
+   "sha256": "8b9116a928d46d102b83238c390fe1317979b5d963b688d386ac13fff45adb4a"
+  },
+  {
+   "address": "0x004b8350",
+   "file": "004b8350.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-footer-controls-1/004b8350.inferred.c",
+   "sha256": "abccf7533832ca68a9913b88ab5fba0f1c1030b657f4aff24a046a4c90b3f001"
+  },
+  {
+   "address": "0x004c8990",
+   "file": "004c8990.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mutation-xrefs-2/004c8990.asm.txt",
+   "sha256": "0260b7c451b0f51fb03ee5bdcbb539408d323ba288d04af6e633a8a3b6179a48"
+  },
+  {
+   "address": "0x004c8990",
+   "file": "004c8990.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-mutation-xrefs-2/004c8990.inferred.c",
+   "sha256": "6b60ed23f0941e9e13075f4cb73cc52d1b530b18205146f7be103ac9cf15f126"
+  },
+  {
+   "address": "0x004c8b18",
+   "file": "004c8b18.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/004c8b18.asm.txt",
+   "sha256": "d1581fd14795aeefccc1ff5a69fc2bc5117d4fe68e047b318bec2ea25bf2d0cd"
+  },
+  {
+   "address": "0x004c8b18",
+   "file": "004c8b18.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/send-touch-callbacks-1/004c8b18.inferred.c",
+   "sha256": "2795a64605c59d1c7b66bdc4496fe6c5559ecb15f89991a72f9619f0287ff17c"
+  },
+  {
+   "address": "0x004c8c90",
+   "file": "004c8c90.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/004c8c90.asm.txt",
+   "sha256": "46961a7941d7c128652d3f0b40021b21d7c68c99dc12d4e8209150b74eaac9ce"
+  },
+  {
+   "address": "0x004c8c90",
+   "file": "004c8c90.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-callbacks-1/004c8c90.inferred.c",
+   "sha256": "2570761c0c275a81ab632cd73d5569fcf28d573bc9e88d7e4521462df2c3667e"
+  },
+  {
+   "address": "0x004c8d3c",
+   "file": "004c8d3c.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/contract/exports/004c8d3c.asm.txt",
+   "sha256": "ea9b327e566a71133b0e6ef74103de75418f8c938ac266ed0156230d432ffced"
+  },
+  {
+   "address": "0x004c8d3c",
+   "file": "004c8d3c.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-touch-widget-1/004c8d3c.inferred.c",
+   "sha256": "7d4cc19fe0ac7068876b9dd427dacd3554d1160a156fc656e0dee0bd738af720"
+  },
+  {
+   "address": "0x004e6fd4",
+   "file": "004e6fd4.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/footer-registration/004e6fd4.asm.txt",
+   "sha256": "8c124dff90bda779f3471040708c46f53b634d3a39919e4d045c7f6e1e4f331f"
+  },
+  {
+   "address": "0x004e6fd4",
+   "file": "004e6fd4.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/footer-registration/004e6fd4.inferred.c",
+   "sha256": "d90fe58ab6440d57627fe41146d0f50b5a2d0e7cbe9f6f5bd92c7145f69aac4e"
+  },
+  {
+   "address": "0x004f644c",
+   "file": "004f644c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f644c.asm.txt",
+   "sha256": "179bf7f871908df24f8a516fed0ebe2c0603f29436b509691b932939b66b6468"
+  },
+  {
+   "address": "0x004f644c",
+   "file": "004f644c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f644c.inferred.c",
+   "sha256": "1258675f9ddde0ebbdc25baf7b9eb2666b8c23bbff906c606b81dc2e700c77da"
+  },
+  {
+   "address": "0x004f66e0",
+   "file": "004f66e0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f66e0.asm.txt",
+   "sha256": "24c16a39104ae37db8a400ff4b2f2fac69d4ad7ce86c600ef8cf9aa5245942c6"
+  },
+  {
+   "address": "0x004f66e0",
+   "file": "004f66e0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f66e0.inferred.c",
+   "sha256": "f9730487290ddf6bf6b91f719099c7c9206fd555500d04bd69ac0860d258f2b0"
+  },
+  {
+   "address": "0x004f68ac",
+   "file": "004f68ac.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f68ac.asm.txt",
+   "sha256": "b83af30cc32ab953eed047757d8d374d34e6fbb41c1bf80bd79a8239998441ea"
+  },
+  {
+   "address": "0x004f68ac",
+   "file": "004f68ac.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f68ac.inferred.c",
+   "sha256": "45a7abbc98b840837a6268f664b22a3fd061c46f91681f6b3fc3275a7566649c"
+  },
+  {
+   "address": "0x004f6afc",
+   "file": "004f6afc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f6afc.asm.txt",
+   "sha256": "7eb080fa3dc1f702fcc1ae6aa1aea315aa80f77e459e307028693d3ecdc5318d"
+  },
+  {
+   "address": "0x004f6afc",
+   "file": "004f6afc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f6afc.inferred.c",
+   "sha256": "5a4d6b2dacbaf9495a2fdfc0293b84610e43ac61ab9bf4eb8f407a5a28325452"
+  },
+  {
+   "address": "0x004f722c",
+   "file": "004f722c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f722c.asm.txt",
+   "sha256": "9f37224dd6224678ac406e55f3c1410fbc4ec4c6234ecce1cdd275f2824f957f"
+  },
+  {
+   "address": "0x004f722c",
+   "file": "004f722c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/004f722c.inferred.c",
+   "sha256": "676f9f8fd107c0ea06f1f59e0f057b03f3785f8277cda0e52fc6b805db435e09"
+  },
+  {
+   "address": "0x004ffc80",
+   "file": "004ffc80.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/004ffc80.asm.txt",
+   "sha256": "cd7ed11f42a02854ec512fe7c9ba1adada133ccb1d56f1e6706bd5c282d46708"
+  },
+  {
+   "address": "0x004ffc80",
+   "file": "004ffc80.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/004ffc80.inferred.c",
+   "sha256": "5104b22de825dabec120ba7f60aac270a066a6bf80b1897b8677825a2fdee687"
+  },
+  {
+   "address": "0x00523514",
+   "file": "00523514.asm.txt",
+   "source": "ghidra/exports/refine/00523514.asm.txt",
+   "sha256": "b3745628de9cd1e69d9a4f06f6df69037740a7602093c584daece42b5fd412c3"
+  },
+  {
+   "address": "0x00523514",
+   "file": "00523514.inferred.c",
+   "source": "ghidra/exports/refine/00523514.inferred.c",
+   "sha256": "6669cefa192f448b92ee63ce21d2d6dd82775ef2a4e8fe3dd06bbefb349684f2"
+  },
+  {
+   "address": "0x00556044",
+   "file": "00556044.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00556044.asm.txt",
+   "sha256": "246439f8d5b17f381d36497d4d32926f498d3645f48227dda8eed987101a34a0"
+  },
+  {
+   "address": "0x00556044",
+   "file": "00556044.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00556044.inferred.c",
+   "sha256": "e54f4fad7f426a4b0209027321b14f2e51eb8034a5ae562796b1df53d5fa4931"
+  },
+  {
+   "address": "0x005560bc",
+   "file": "005560bc.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/005560bc.asm.txt",
+   "sha256": "4cbf48999322f0771c879bae6a1b5924dd5b66512c21d35cc5e16d3f68a833d3"
+  },
+  {
+   "address": "0x005560bc",
+   "file": "005560bc.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/005560bc.inferred.c",
+   "sha256": "33c5c0d80d2203e32b737545465786c95d28e9bb5642adba20392a98a483fb15"
+  },
+  {
+   "address": "0x0055659c",
+   "file": "0055659c.asm.txt",
+   "source": "ghidra/exports/refine/0055659c.asm.txt",
+   "sha256": "9d54a112fbc9fe123abac729bb451ff57f14e8e7a7cfeee7507494fec99d9d59"
+  },
+  {
+   "address": "0x0055659c",
+   "file": "0055659c.inferred.c",
+   "source": "ghidra/exports/refine/0055659c.inferred.c",
+   "sha256": "7620c177c5658224be04c375190a0b6b06b461ce814ee4b1d2c89236fe6d694d"
+  },
+  {
+   "address": "0x00556880",
+   "file": "00556880.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00556880.asm.txt",
+   "sha256": "c1af0ecb216aed81cdd09c7c08c72c2725da4656a74bebd8d1b35e09324ec179"
+  },
+  {
+   "address": "0x00556880",
+   "file": "00556880.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00556880.inferred.c",
+   "sha256": "1c904ca52dfd07c2ec6e2ac9551ae72c488ad2fc3ec5d2b8e8c5617fa109d2b5"
+  },
+  {
+   "address": "0x0055803c",
+   "file": "0055803c.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055803c.asm.txt",
+   "sha256": "1caac9c956210cd30d768e5a38f13b27087242a4f3c3940ac93784f0ea94910f"
+  },
+  {
+   "address": "0x0055803c",
+   "file": "0055803c.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055803c.inferred.c",
+   "sha256": "7056212101cf9e7d2be89f50e17dd2bb70012bd20c1088e0f7fcfe956dbf0c79"
+  },
+  {
+   "address": "0x0055ae54",
+   "file": "0055ae54.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055ae54.asm.txt",
+   "sha256": "2adbe5e8f39138e6ed169632629d6e3c8803104e9b2d7fed4494dcff6e603a13"
+  },
+  {
+   "address": "0x0055ae54",
+   "file": "0055ae54.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055ae54.inferred.c",
+   "sha256": "a964fab6871f7f6f1568a9ea48a48d25bd4645aa55f71fcfc16f419dbcc6d3ea"
+  },
+  {
+   "address": "0x0055b0f8",
+   "file": "0055b0f8.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055b0f8.asm.txt",
+   "sha256": "aabcf3367e4e83d64dda51951a18cf9a39746bf911c1ed16b13606a7753a13d8"
+  },
+  {
+   "address": "0x0055b0f8",
+   "file": "0055b0f8.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0055b0f8.inferred.c",
+   "sha256": "3696459c7ce8cc8582d01bd11698a1331a35304f3c0f0083f4d97f7ecdac9744"
+  },
+  {
+   "address": "0x0055b1a4",
+   "file": "0055b1a4.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/0055b1a4.asm.txt",
+   "sha256": "064db62121533a72b70bcac1babf45cd9dd7ec8eb6d2366a4b6ed0af8afc84f2"
+  },
+  {
+   "address": "0x0055b1a4",
+   "file": "0055b1a4.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/0055b1a4.inferred.c",
+   "sha256": "6955f975ecc593c55f8d7778ec6e67f871da6b8c44a2101feb3a38b2bfeb40e3"
+  },
+  {
+   "address": "0x0056c4bc",
+   "file": "0056c4bc.asm.txt",
+   "source": "ghidra/exports/refine/0056c4bc.asm.txt",
+   "sha256": "84fd3dbd827e09843081faac64f93287723bcce02e80c3f4553c8336e280a26e"
+  },
+  {
+   "address": "0x0056c4bc",
+   "file": "0056c4bc.inferred.c",
+   "source": "ghidra/exports/refine/0056c4bc.inferred.c",
+   "sha256": "1b9abf3f0d70ec0fc5a07c82f2d4dab68fbb330885b82a80cf5b78bbd3cc0710"
+  },
+  {
+   "address": "0x0056cd14",
+   "file": "0056cd14.asm.txt",
+   "source": "ghidra/exports/refine/0056cd14.asm.txt",
+   "sha256": "b13bb34a0d1a561676cbb4190b6ea5645b84022e11d2ddc37a5350fc9bae5f83"
+  },
+  {
+   "address": "0x0056cd14",
+   "file": "0056cd14.inferred.c",
+   "source": "ghidra/exports/refine/0056cd14.inferred.c",
+   "sha256": "6efeef997e170b78f9537c6170fb735c7036d15f95fe22930ea520bca218b344"
+  },
+  {
+   "address": "0x0056cfe4",
+   "file": "0056cfe4.asm.txt",
+   "source": "ghidra/exports/refine/0056cfe4.asm.txt",
+   "sha256": "a2e8214ab504176ac55c41682debf20e02ea2052e73b4a7a9ecabd91c3562721"
+  },
+  {
+   "address": "0x0056cfe4",
+   "file": "0056cfe4.inferred.c",
+   "source": "ghidra/exports/refine/0056cfe4.inferred.c",
+   "sha256": "5e8c4af58a2572d7a44d929ffd368d253f695d8cdb85ec17577055145a536710"
+  },
+  {
+   "address": "0x0056e7bc",
+   "file": "0056e7bc.asm.txt",
+   "source": "ghidra/exports/refine/0056e7bc.asm.txt",
+   "sha256": "ca86a1c3070c18c8c52d9bda43005c21e62c9a902fde2a3a5f105737380a6df3"
+  },
+  {
+   "address": "0x0056e7bc",
+   "file": "0056e7bc.inferred.c",
+   "source": "ghidra/exports/refine/0056e7bc.inferred.c",
+   "sha256": "be843daa1cc768f849941fc13810df008cbc490239e3e421f4e22820a3998705"
+  },
+  {
+   "address": "0x0056e8ec",
+   "file": "0056e8ec.asm.txt",
+   "source": "ghidra/exports/refine/0056e8ec.asm.txt",
+   "sha256": "82f726a893c9e43e8321e5a345c2c1158d49bfb68be9da47c560d0e4e1cd8657"
+  },
+  {
+   "address": "0x0056e8ec",
+   "file": "0056e8ec.inferred.c",
+   "source": "ghidra/exports/refine/0056e8ec.inferred.c",
+   "sha256": "715b3f0de1de7e72ebcc60dba05c37e1d04d4412821388d2af48e64007cd2796"
+  },
+  {
+   "address": "0x0056f7f4",
+   "file": "0056f7f4.asm.txt",
+   "source": "ghidra/exports/refine/0056f7f4.asm.txt",
+   "sha256": "94129e4b565a3d9939c4e03c9eef8ce40d357e166dd3eaa30295a08611de20e3"
+  },
+  {
+   "address": "0x0056f7f4",
+   "file": "0056f7f4.inferred.c",
+   "source": "ghidra/exports/refine/0056f7f4.inferred.c",
+   "sha256": "9564c1884b8a651d15021247e83bb96a97fcd6e898a85d7a1cb1a10f078b68fd"
+  },
+  {
+   "address": "0x005712cc",
+   "file": "005712cc.asm.txt",
+   "source": "ghidra/exports/refine/005712cc.asm.txt",
+   "sha256": "06baf5a4aefb96814d400c183095912486dd2fa67e27f18485ba628e501058c6"
+  },
+  {
+   "address": "0x005712cc",
+   "file": "005712cc.inferred.c",
+   "source": "ghidra/exports/refine/005712cc.inferred.c",
+   "sha256": "a54743cf9ad5db8717bb803826fb026f55a451bbe026ccadf011a0f95363ef7f"
+  },
+  {
+   "address": "0x0057155c",
+   "file": "0057155c.asm.txt",
+   "source": "ghidra/exports/refine/0057155c.asm.txt",
+   "sha256": "fa39a6be0a1ce40efe4a4c4fb8812986863f3c011dee6155fa64fe3521e10d0d"
+  },
+  {
+   "address": "0x0057155c",
+   "file": "0057155c.inferred.c",
+   "source": "ghidra/exports/refine/0057155c.inferred.c",
+   "sha256": "619555279044b558b5f2d0f7815a059c6c8a51c9302cad4b6dd13e7d8f9d3491"
+  },
+  {
+   "address": "0x00571d24",
+   "file": "00571d24.asm.txt",
+   "source": "ghidra/exports/refine/00571d24.asm.txt",
+   "sha256": "1b3f461c56b2ec6bbc03113ed05f65bcda289007c2e1e49e5f6b1e72d4a24f33"
+  },
+  {
+   "address": "0x00571d24",
+   "file": "00571d24.inferred.c",
+   "source": "ghidra/exports/refine/00571d24.inferred.c",
+   "sha256": "9d3cf9cca04e0af83b4dac2bd84a9453f33fe94725b789bc99a4edbea3a8d272"
+  },
+  {
+   "address": "0x0062d868",
+   "file": "0062d868.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0062d868.asm.txt",
+   "sha256": "319443d7dab580a1914d75217975dd2c9eec3de2ddde82b02163fd753e1975f8"
+  },
+  {
+   "address": "0x0062d868",
+   "file": "0062d868.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/exports/0062d868.inferred.c",
+   "sha256": "7d4e5aa1a0c62110fee19fba692d1696ad99b955c2051a18f5060a461a58fa88"
+  },
+  {
+   "address": "0x006457dc",
+   "file": "006457dc.asm.txt",
+   "source": "ghidra/exports/refine/006457dc.asm.txt",
+   "sha256": "e353b15508056b9348d912928881c9cd524debc74387511feb21789aa4ab6258"
+  },
+  {
+   "address": "0x006457dc",
+   "file": "006457dc.inferred.c",
+   "source": "ghidra/exports/refine/006457dc.inferred.c",
+   "sha256": "cb31a3c36eaed0685ec08e9b3622aa2e419616776ad62e957507f223e41a947a"
+  },
+  {
+   "address": "0x0064582c",
+   "file": "0064582c.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0064582c.asm.txt",
+   "sha256": "cd172d2290bd5b3db521f24d2e12ace4c7d4eaadea9dcc50902896eae3bda08d"
+  },
+  {
+   "address": "0x0064582c",
+   "file": "0064582c.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0064582c.inferred.c",
+   "sha256": "186391a6a553d661fdbccde7776a6eba25433ff8277fbf59e030fa21ccda6ad3"
+  },
+  {
+   "address": "0x0064703c",
+   "file": "0064703c.asm.txt",
+   "source": "ghidra/exports/refine/0064703c.asm.txt",
+   "sha256": "d9849fe4442e094d0d292722627240480f81710f89522de31125881b7090bb90"
+  },
+  {
+   "address": "0x0064703c",
+   "file": "0064703c.inferred.c",
+   "source": "ghidra/exports/refine/0064703c.inferred.c",
+   "sha256": "8882ac6bb6e6ade185319e7ef87549a91c8d55c760dfc45106172055ca58c10c"
+  },
+  {
+   "address": "0x0065d7c0",
+   "file": "0065d7c0.asm.txt",
+   "source": "ghidra/exports/refine/0065d7c0.asm.txt",
+   "sha256": "9cda3abe388db30ce185c7c5bdb93cf1d4e3cd69de037858f4e9b751265efacd"
+  },
+  {
+   "address": "0x0065d7c0",
+   "file": "0065d7c0.inferred.c",
+   "source": "ghidra/exports/refine/0065d7c0.inferred.c",
+   "sha256": "cac9c0b2f4e596751e030ceb5eacde49f5a2ba2209a336bc36e0892d0fab5528"
+  },
+  {
+   "address": "0x0065e09c",
+   "file": "0065e09c.asm.txt",
+   "source": "ghidra/exports/refine/0065e09c.asm.txt",
+   "sha256": "17b920096881845ee52cc2f7f97f72e584fa937826b14a203baaee53d2d35b07"
+  },
+  {
+   "address": "0x0065e09c",
+   "file": "0065e09c.inferred.c",
+   "source": "ghidra/exports/refine/0065e09c.inferred.c",
+   "sha256": "5bb7b250a78dccea5214ce273ee1d87c7758c44c0543ea3d16b8714da7efbed7"
+  },
+  {
+   "address": "0x006958e0",
+   "file": "006958e0.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/006958e0.asm.txt",
+   "sha256": "2f595d6a05bc8e45826109b713cbc986dd3d35a2fb010ba029fd3da615799486"
+  },
+  {
+   "address": "0x006958e0",
+   "file": "006958e0.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/006958e0.inferred.c",
+   "sha256": "78ea4954e599e5257efd7250c73c8ca35b5c33148a53d91550ff7ec0b6547259"
+  },
+  {
+   "address": "0x006964a0",
+   "file": "006964a0.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/006964a0.asm.txt",
+   "sha256": "0718fc566bcb3c09bae3ef1709b19fed937131d101ac555b406c73b328369233"
+  },
+  {
+   "address": "0x006964a0",
+   "file": "006964a0.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/006964a0.inferred.c",
+   "sha256": "de0faacc4be647a7d61ddcc4fb7886172536652d108e60935f669a302980e28f"
+  },
+  {
+   "address": "0x0069653c",
+   "file": "0069653c.asm.txt",
+   "source": "ghidra/exports/refine/0069653c.asm.txt",
+   "sha256": "a1895b10edd768bf320c2cf7f786c568fe36133498786d32e9c1d28c32e22104"
+  },
+  {
+   "address": "0x0069653c",
+   "file": "0069653c.inferred.c",
+   "source": "ghidra/exports/refine/0069653c.inferred.c",
+   "sha256": "4168487612dff480a227be3768d2d8ac15e6edb03b4ff6ba003a385c9fdbd5ef"
+  },
+  {
+   "address": "0x00696634",
+   "file": "00696634.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00696634.asm.txt",
+   "sha256": "27ed981bcef011a82607f46e7b038f73178d1dda7741acc65d3cbdeca5d252a5"
+  },
+  {
+   "address": "0x00696634",
+   "file": "00696634.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00696634.inferred.c",
+   "sha256": "9a6863820f4bbd575eea84e8abd452760ce8861349c2c1119b89ef91fcf03ee9"
+  },
+  {
+   "address": "0x00696cf4",
+   "file": "00696cf4.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00696cf4.asm.txt",
+   "sha256": "a144edb146fefc05bd17d335f692085e2ed7f21cd6e9133a675cdb4bb5b2ff56"
+  },
+  {
+   "address": "0x00696cf4",
+   "file": "00696cf4.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00696cf4.inferred.c",
+   "sha256": "72a7ea29c3f70430fd43be4f476b4949e3a4312b047aff035a2b390f4c67ec9a"
+  },
+  {
+   "address": "0x00696d58",
+   "file": "00696d58.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00696d58.asm.txt",
+   "sha256": "97644cb1748cd8b6455990425bd5912d824f0c751f8aecdfe1772397191b4396"
+  },
+  {
+   "address": "0x00696d58",
+   "file": "00696d58.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00696d58.inferred.c",
+   "sha256": "d9741e731dac7ce37f87e17807535e2bd423eacb8610b1e85bf6cebe3ef46902"
+  },
+  {
+   "address": "0x00696e68",
+   "file": "00696e68.asm.txt",
+   "source": "ghidra/exports/refine/00696e68.asm.txt",
+   "sha256": "c99b4021095ccd4128bfb583e286d16c2c19b65868af2d8e54aeb27564a2ced4"
+  },
+  {
+   "address": "0x00696e68",
+   "file": "00696e68.inferred.c",
+   "source": "ghidra/exports/refine/00696e68.inferred.c",
+   "sha256": "55f975c439e124f88411cce0dc57e33cadf4b94528406e95aa8b363af5cc651d"
+  },
+  {
+   "address": "0x00697ecc",
+   "file": "00697ecc.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00697ecc.asm.txt",
+   "sha256": "b49991070b916a901570e8fd2c0fa49956aad079d687efab5e4365eb3f7fd27c"
+  },
+  {
+   "address": "0x00697ecc",
+   "file": "00697ecc.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00697ecc.inferred.c",
+   "sha256": "d95ec46556c2d79410602d38781e334b8c02ebf3322e5e2c1c25e6bc57021add"
+  },
+  {
+   "address": "0x00697eec",
+   "file": "00697eec.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00697eec.asm.txt",
+   "sha256": "6afddb5de4e9f78dfbe5e26c00d832cef785dcc1d4a4d3b54cffcae2ef1900c3"
+  },
+  {
+   "address": "0x00697eec",
+   "file": "00697eec.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00697eec.inferred.c",
+   "sha256": "4acd887a9aa966fb30e47bd81982b46f243fcc784ee6d2b74242088d2b548ae6"
+  },
+  {
+   "address": "0x00697fc0",
+   "file": "00697fc0.asm.txt",
+   "source": "ghidra/exports/refine/00697fc0.asm.txt",
+   "sha256": "03b317deb10a86e5feb13abee58aa89108f6210efcac9b4a54416c9b8e3c5816"
+  },
+  {
+   "address": "0x00697fc0",
+   "file": "00697fc0.inferred.c",
+   "source": "ghidra/exports/refine/00697fc0.inferred.c",
+   "sha256": "5389dce42172bb220e4cffc344db2f3aad20f6864681fb5b8993f83ad0673c31"
+  },
+  {
+   "address": "0x0069826c",
+   "file": "0069826c.asm.txt",
+   "source": "ghidra/exports/refine/0069826c.asm.txt",
+   "sha256": "62f185279579cfc04bece5f20724cd7df7225424bafb31187fc06bf9e0c1fe13"
+  },
+  {
+   "address": "0x0069826c",
+   "file": "0069826c.inferred.c",
+   "source": "ghidra/exports/refine/0069826c.inferred.c",
+   "sha256": "0d376f5d6963de2315f8aae822bfa0aeb3dbc84bf2ffc889285f7c3fa5fbfcdb"
+  },
+  {
+   "address": "0x006982fc",
+   "file": "006982fc.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006982fc.asm.txt",
+   "sha256": "3d0517976cec994f50db2a76e8221f589380f52fad2a1995c71334fdcfca3d9c"
+  },
+  {
+   "address": "0x006982fc",
+   "file": "006982fc.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006982fc.inferred.c",
+   "sha256": "1a2d52e5274694598c8f2f82dcc03b994b24996d3a4b5e5034004c8b170a261b"
+  },
+  {
+   "address": "0x00698384",
+   "file": "00698384.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00698384.asm.txt",
+   "sha256": "a86d5906398ea89e7ba22330af068fef68696c87fe3c818282c4abd43538496c"
+  },
+  {
+   "address": "0x00698384",
+   "file": "00698384.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00698384.inferred.c",
+   "sha256": "ea4fbb9d869bc4d690491d3bafe811d8059e229c926d3c7ba85466021eadc2e2"
+  },
+  {
+   "address": "0x00698468",
+   "file": "00698468.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00698468.asm.txt",
+   "sha256": "d46b0e92782df3ec42046bef28121d6870535507987973921935a074c84e6c35"
+  },
+  {
+   "address": "0x00698468",
+   "file": "00698468.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00698468.inferred.c",
+   "sha256": "be856430c373553b70cff544c994a312cb64f883d299d7564ad356ecde547162"
+  },
+  {
+   "address": "0x0069850c",
+   "file": "0069850c.asm.txt",
+   "source": "ghidra/exports/refine/0069850c.asm.txt",
+   "sha256": "ab3d4bbfb2a941ea4f308b0a2aadc236cf33e6ad16197b86d90520da3f68e6bc"
+  },
+  {
+   "address": "0x0069850c",
+   "file": "0069850c.inferred.c",
+   "source": "ghidra/exports/refine/0069850c.inferred.c",
+   "sha256": "602efde0225dadbdb9c1f0a414874a8d7d9e1dba638f9de3295be92b2b0957de"
+  },
+  {
+   "address": "0x006986a0",
+   "file": "006986a0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/006986a0.asm.txt",
+   "sha256": "f11b6211cda8bf86ee9cbd1135a3c0a6d0829587231dc929fc615839f4384ca5"
+  },
+  {
+   "address": "0x006986a0",
+   "file": "006986a0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/006986a0.inferred.c",
+   "sha256": "aa30675e04a551f6d407ca7c2dd89e307e9a1d2532236e2786ce4be3a7058a30"
+  },
+  {
+   "address": "0x006987f8",
+   "file": "006987f8.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006987f8.asm.txt",
+   "sha256": "55edddaabbf39286941c8c1e5a5d383a410ea9d36d75af1f435ccccd4b4de841"
+  },
+  {
+   "address": "0x006987f8",
+   "file": "006987f8.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006987f8.inferred.c",
+   "sha256": "2a95f75b163ca495ce7ef4bba01777e46a7b6a3df1a7216f702139c2819a411e"
+  },
+  {
+   "address": "0x006988b8",
+   "file": "006988b8.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006988b8.asm.txt",
+   "sha256": "b23827cdbe7e93419f3f4af317cae9b91a47a2c281cb6e290467aa9971ee37ac"
+  },
+  {
+   "address": "0x006988b8",
+   "file": "006988b8.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/006988b8.inferred.c",
+   "sha256": "6c19d7a7b217fd7b2388cc60b6a6d3009e000dfa78ae985fb80c227e495dcd96"
+  },
+  {
+   "address": "0x00698ad0",
+   "file": "00698ad0.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00698ad0.asm.txt",
+   "sha256": "79d4b78969835b30c36da11061b51ab4ab688dfe6126f94742a19d99f9cb174b"
+  },
+  {
+   "address": "0x00698ad0",
+   "file": "00698ad0.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00698ad0.inferred.c",
+   "sha256": "55429572b11a98ba8fac7cbbf79533ce4d2c39143ec30427b8407f8ba62c21d7"
+  },
+  {
+   "address": "0x00699484",
+   "file": "00699484.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699484.asm.txt",
+   "sha256": "530a08d1acca83762cc180ec255be26b995b1f85a3bf99298505532d5eab9f9d"
+  },
+  {
+   "address": "0x00699484",
+   "file": "00699484.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699484.inferred.c",
+   "sha256": "ac6411d4633a596fe51e7cd1d370b9ba258533e09dbc20f1355d76c4c362a9e8"
+  },
+  {
+   "address": "0x0069954c",
+   "file": "0069954c.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/0069954c.asm.txt",
+   "sha256": "55fb47602dbd7c2701f1f4bb774d5904d2bc667efca2c671a01cd9807af7a5ff"
+  },
+  {
+   "address": "0x0069954c",
+   "file": "0069954c.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/0069954c.inferred.c",
+   "sha256": "f78acba744a7edbc65a5726296181f60082d244bad68fad601acf5af35f651cf"
+  },
+  {
+   "address": "0x00699728",
+   "file": "00699728.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699728.asm.txt",
+   "sha256": "95313ae53f87b3230b1fc6f511bcd562aab608261b2b713ba7aecec4dc262cda"
+  },
+  {
+   "address": "0x00699728",
+   "file": "00699728.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699728.inferred.c",
+   "sha256": "1f5eeccdba6fb5944a5e7d2d2544c0268b55055f3ede3f60a693b9936f281f9d"
+  },
+  {
+   "address": "0x00699860",
+   "file": "00699860.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699860.asm.txt",
+   "sha256": "837e34fda05c1079ffff39bcb507d3a6597d0e3d004ad243f8720bc219ef3c5a"
+  },
+  {
+   "address": "0x00699860",
+   "file": "00699860.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699860.inferred.c",
+   "sha256": "6bd66faa42351db8c85a34eecdabc8d024e9cbd60352ec5b765b1e22a56a2db1"
+  },
+  {
+   "address": "0x00699a14",
+   "file": "00699a14.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699a14.asm.txt",
+   "sha256": "1a84f866d600d835f9f913ae4cbaa770eba1f40e577fd90f7e4286e9d271ec51"
+  },
+  {
+   "address": "0x00699a14",
+   "file": "00699a14.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699a14.inferred.c",
+   "sha256": "839af62197357daf85ec086dd2de5f9965e24ef582fcefa4d0667bebdee884c7"
+  },
+  {
+   "address": "0x00699b64",
+   "file": "00699b64.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699b64.asm.txt",
+   "sha256": "f83ea457bed3d40c73ddf628e148675d5f6384b19c3dc46e1c8cea898b0b47ae"
+  },
+  {
+   "address": "0x00699b64",
+   "file": "00699b64.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699b64.inferred.c",
+   "sha256": "4129ce6a8beceecf222e30d4c707094394502f105f5a84e7931399baa1d33b15"
+  },
+  {
+   "address": "0x00699c8c",
+   "file": "00699c8c.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699c8c.asm.txt",
+   "sha256": "39aa655cba29e75d9e5a35778fa3896a4baf52bd4bffd42308a24295623f9f9e"
+  },
+  {
+   "address": "0x00699c8c",
+   "file": "00699c8c.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/followup/00699c8c.inferred.c",
+   "sha256": "012b53e07201fc46be42f9f95cadd4a22a2c4faaf383bf56aacd01ee22ac0a47"
+  },
+  {
+   "address": "0x0069a4e4",
+   "file": "0069a4e4.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069a4e4.asm.txt",
+   "sha256": "5b5de033f333ca4daf5d05fc91d4c4df9e7153bbce2d8f861821f2f714d2936c"
+  },
+  {
+   "address": "0x0069a4e4",
+   "file": "0069a4e4.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069a4e4.inferred.c",
+   "sha256": "80bd4158d1e3e80c6967a9e4f7949cd4b5885d27393a8e2c0e9cd7f1903e583d"
+  },
+  {
+   "address": "0x0069a828",
+   "file": "0069a828.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069a828.asm.txt",
+   "sha256": "8679cb2c6fb594b2b77f801b4417989d7cc5c4021d59313961b1299a4a04e20b"
+  },
+  {
+   "address": "0x0069a828",
+   "file": "0069a828.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069a828.inferred.c",
+   "sha256": "f0d3de3d2eff534dec5935aaf108e1a3d28692f1614643a32ee8275ef9b7d755"
+  },
+  {
+   "address": "0x0069a9e8",
+   "file": "0069a9e8.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069a9e8.asm.txt",
+   "sha256": "c559d623a409c0756acc43eb931930a71e328e6ca956256b09654952f41afee7"
+  },
+  {
+   "address": "0x0069a9e8",
+   "file": "0069a9e8.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069a9e8.inferred.c",
+   "sha256": "e45b99b711616d5d576ba337d44101f24bb8dc4e27d704c814221f8a5b213bd7"
+  },
+  {
+   "address": "0x0069aa44",
+   "file": "0069aa44.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069aa44.asm.txt",
+   "sha256": "92ca58d2cfb8afcc1413e2ed566e907e26dcf59524fd840c52557a14ca9c42ad"
+  },
+  {
+   "address": "0x0069aa44",
+   "file": "0069aa44.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069aa44.inferred.c",
+   "sha256": "f9637c0cb46368e28216b9b1d78e14fa919df1055b7d4c247d765ab6d0123a19"
+  },
+  {
+   "address": "0x0069ac58",
+   "file": "0069ac58.asm.txt",
+   "source": "ghidra/exports/refine/0069ac58.asm.txt",
+   "sha256": "e81737b92cf2949913d885152a811c30530327d0feb1cbb4a3c4588d14de1943"
+  },
+  {
+   "address": "0x0069ac58",
+   "file": "0069ac58.inferred.c",
+   "source": "ghidra/exports/refine/0069ac58.inferred.c",
+   "sha256": "48ee3ccf6b352ea72322f4488b2f8e364e17ab4dd3c87574e81de99363ad83b4"
+  },
+  {
+   "address": "0x0069afc0",
+   "file": "0069afc0.asm.txt",
+   "source": "ghidra/exports/refine/0069afc0.asm.txt",
+   "sha256": "914d278810f6d9022b00dda94dbaae9ce83b6cf7e358b7f33227baa52865a680"
+  },
+  {
+   "address": "0x0069afc0",
+   "file": "0069afc0.inferred.c",
+   "source": "ghidra/exports/refine/0069afc0.inferred.c",
+   "sha256": "d6293b5420fd792652fff17268f8a480cfe3118c860aff2d0d5f09b5e7ddeb05"
+  },
+  {
+   "address": "0x0069b684",
+   "file": "0069b684.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069b684.asm.txt",
+   "sha256": "c678fd29814d0392ea2870e52d1fd1aa85a33eba89c22eebf6495f44b00b60f2"
+  },
+  {
+   "address": "0x0069b684",
+   "file": "0069b684.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069b684.inferred.c",
+   "sha256": "20746e9f4d1ef4890220b1bc58bc51c5082d72763503e89cf5205ebb94f6b5f0"
+  },
+  {
+   "address": "0x0069bf5c",
+   "file": "0069bf5c.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0069bf5c.asm.txt",
+   "sha256": "29e885c3ce76a9018996c109ad13bb46c2da071ca0a5ae95e8c7d6abc06f66b2"
+  },
+  {
+   "address": "0x0069bf5c",
+   "file": "0069bf5c.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0069bf5c.inferred.c",
+   "sha256": "c48f0d617d5706d60b0a52a247a88a4a754e100408dd7124646392303efeb671"
+  },
+  {
+   "address": "0x0069e2b0",
+   "file": "0069e2b0.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0069e2b0.asm.txt",
+   "sha256": "ed6db223338a54db9c68aed67fe2e535933ea2255709b5638073641f2ffc59d5"
+  },
+  {
+   "address": "0x0069e2b0",
+   "file": "0069e2b0.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/annotated/0069e2b0.inferred.c",
+   "sha256": "fe92a7ee6516c837bae34113964a925faa58c1ab1a6f0eca429221096e71bd94"
+  },
+  {
+   "address": "0x0069e6f0",
+   "file": "0069e6f0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/0069e6f0.asm.txt",
+   "sha256": "83ef731d6f1c4eea7a432d6258169a43e54e5da738dcefc487cd02b0eb7aad9b"
+  },
+  {
+   "address": "0x0069e6f0",
+   "file": "0069e6f0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/0069e6f0.inferred.c",
+   "sha256": "ee15a3d1029d26c4fdfff94dac2656f863d2cd27f0e4f8294c8f7694b35d0c96"
+  },
+  {
+   "address": "0x0069e740",
+   "file": "0069e740.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0069e740.asm.txt",
+   "sha256": "ed25f4ec8b63cca6ca9aa48ff7c26c9abad269be92c2e08e80370b9cf9119f67"
+  },
+  {
+   "address": "0x0069e740",
+   "file": "0069e740.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0069e740.inferred.c",
+   "sha256": "1cc898020148e0619ba63d7654ff1c68f2402470d3b933035b05e005bfcc8620"
+  },
+  {
+   "address": "0x0069eaf0",
+   "file": "0069eaf0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-message-dispatch/0069eaf0.asm.txt",
+   "sha256": "b5d63460e4ab217f970cc9f3baea4e02e18a6f5d0380fa079a1744cc1eeac664"
+  },
+  {
+   "address": "0x0069eaf0",
+   "file": "0069eaf0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-message-dispatch/0069eaf0.inferred.c",
+   "sha256": "d1ab2e503b95005e9f87d887a24e63462894eba2e7570a3891c90319396ee3bc"
+  },
+  {
+   "address": "0x0069f9bc",
+   "file": "0069f9bc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/0069f9bc.asm.txt",
+   "sha256": "b82598e8ee75df8c9299aaa8408b4343a8d2513f9af39bf5915582b3ee3c4c3c"
+  },
+  {
+   "address": "0x0069f9bc",
+   "file": "0069f9bc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/0069f9bc.inferred.c",
+   "sha256": "62f0354cb727811a749dcdaf967cec83c1150dfbfdc23df03544e24bcb352f4e"
+  },
+  {
+   "address": "0x007535ec",
+   "file": "007535ec.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-final-touch-leaf-11/007535ec.asm.txt",
+   "sha256": "4773981bd9b39e1abbb168aa9e5b14461d17814c8b44c85f8ba5ef0d335e59a7"
+  },
+  {
+   "address": "0x007535ec",
+   "file": "007535ec.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-final-touch-leaf-11/007535ec.inferred.c",
+   "sha256": "24963f91a3072f13b775f52a94cd919e6b483abb7f360fb1cc8fd0ff3786ce1b"
+  },
+  {
+   "address": "0x007535f8",
+   "file": "007535f8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535f8.asm.txt",
+   "sha256": "9126b8a7f6f2ac33583a9d9c0a9ed3be67bda716328aa44c0ae6fa98c022f8ad"
+  },
+  {
+   "address": "0x007535f8",
+   "file": "007535f8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535f8.inferred.c",
+   "sha256": "ff274bb7ecc9590833035eb60a0772c7b8a6e8762d0eb82291e2890455a16627"
+  },
+  {
+   "address": "0x007535fc",
+   "file": "007535fc.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535fc.asm.txt",
+   "sha256": "022a15f58d2b39f2cbfa260935b3f43adf0cae23d127ddaccb15156bb9aff989"
+  },
+  {
+   "address": "0x007535fc",
+   "file": "007535fc.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/007535fc.inferred.c",
+   "sha256": "f0d9e1020fec9aec997e75f702112f920e567fc0a2164a906947e5d925926c82"
+  },
+  {
+   "address": "0x00753600",
+   "file": "00753600.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/00753600.asm.txt",
+   "sha256": "690ad3b61f462748c01a2ffa90412fd7f09b737122f04d100802f3b5cca06686"
+  },
+  {
+   "address": "0x00753600",
+   "file": "00753600.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-touch-detector-5/00753600.inferred.c",
+   "sha256": "95804459281b396fdedb8360a1d7f16a40ac127c9adad1e80c41a08c3719e3c6"
+  },
+  {
+   "address": "0x00753650",
+   "file": "00753650.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753650.asm.txt",
+   "sha256": "cbb22cdda2b3c51cac6fa2270f8483da41392adcbedbe395145bd876f5196b12"
+  },
+  {
+   "address": "0x00753650",
+   "file": "00753650.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753650.inferred.c",
+   "sha256": "891da613702c9b6b03603d4fba2a37530c45db459dddb3dae73a066684bad8bc"
+  },
+  {
+   "address": "0x00753654",
+   "file": "00753654.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753654.asm.txt",
+   "sha256": "23a0c69012ad9f7850fdfd867ac0fdec7ef4c8dac3ec426ee64f249aed67cb1b"
+  },
+  {
+   "address": "0x00753654",
+   "file": "00753654.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-widget-input-leaves-2/00753654.inferred.c",
+   "sha256": "201333d8c18f3015a098ae4f24895f283141e1704be94ebe44d0c96b4493ed09"
+  },
+  {
+   "address": "0x00753658",
+   "file": "00753658.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753658.asm.txt",
+   "sha256": "d3ae725ea1073209a9a8aa8fd48c904f41d1f8ff236ef24cec15860e36417ac2"
+  },
+  {
+   "address": "0x00753658",
+   "file": "00753658.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753658.inferred.c",
+   "sha256": "983906cccbe6f76b679f437fcf95c87c7f9bdb2694ab96b72fa4b84b39c9fb8e"
+  },
+  {
+   "address": "0x00753660",
+   "file": "00753660.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753660.asm.txt",
+   "sha256": "64dc36186d5510d9ac5fe31f7ffed6462474cc3db2a036ae8613cfd04f5a7532"
+  },
+  {
+   "address": "0x00753660",
+   "file": "00753660.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753660.inferred.c",
+   "sha256": "271174c12da5a678895207d7147cada993e83fffcc11d9d3d1c64c9d9c20c112"
+  },
+  {
+   "address": "0x00753670",
+   "file": "00753670.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753670.asm.txt",
+   "sha256": "44d8cd94d0f337260d42e06ef72430b1a0fdd3523960856a79c74abff52d95bf"
+  },
+  {
+   "address": "0x00753670",
+   "file": "00753670.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-mutation-xrefs-2/00753670.inferred.c",
+   "sha256": "a1232d757d607eeb67eeae103e8b5b93925bcd8a959418492b15e946b193eef3"
+  },
+  {
+   "address": "0x00753778",
+   "file": "00753778.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-mutation-xrefs-2/00753778.asm.txt",
+   "sha256": "f36bff1b48aa3d2d7e57bd72254e18a83924fc1b3e11dac138322c78694d2b57"
+  },
+  {
+   "address": "0x00753778",
+   "file": "00753778.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/input/reused/send-mutation-xrefs-2/00753778.inferred.c",
+   "sha256": "47e35c4b7e61070fff7bf2b1ddd67b925c45fd0a74d506c81b4f405eafce7575"
+  },
+  {
+   "address": "0x007552b0",
+   "file": "007552b0.asm.txt",
+   "source": "ghidra/exports/refine/007552b0.asm.txt",
+   "sha256": "204c6ac6dbd779024bee828ef41d125925163baa281fb506811928364fe9de50"
+  },
+  {
+   "address": "0x007552b0",
+   "file": "007552b0.inferred.c",
+   "source": "ghidra/exports/refine/007552b0.inferred.c",
+   "sha256": "23290fe0fba2b3a78b695598343ae2864b2d1e6ad617428f70d05477d006eae2"
+  },
+  {
+   "address": "0x00760eb0",
+   "file": "00760eb0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-range-boundary-repair-8/00760eb0.asm.txt",
+   "sha256": "ab10a8ea48ec06dcfe7e37cec38026fd23221ebf1e3521c9d9909ac787578dd8"
+  },
+  {
+   "address": "0x00760eb0",
+   "file": "00760eb0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/send-range-boundary-repair-8/00760eb0.inferred.c",
+   "sha256": "29b091e81bc3a7bc76b37286821e64e0d6a8b0757c90827891e99f574ce1b8b9"
+  },
+  {
+   "address": "0x00781a04",
+   "file": "00781a04.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00781a04.asm.txt",
+   "sha256": "37786e25ed8261d20a0e7687d62af93c873c287edec0d6f8b94c45a816e78b45"
+  },
+  {
+   "address": "0x00781a04",
+   "file": "00781a04.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00781a04.inferred.c",
+   "sha256": "c449252b83ec2ec7ee9e205ee1285c3f905e2fa6ba4e3f1ba13484d8be6f1aa5"
+  },
+  {
+   "address": "0x00783304",
+   "file": "00783304.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00783304.asm.txt",
+   "sha256": "063d252507883785036424a0d1d9d8a5e759fcb99fec2d51ca07284217e01af6"
+  },
+  {
+   "address": "0x00783304",
+   "file": "00783304.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00783304.inferred.c",
+   "sha256": "b846ae049220cb2ac2481aa9b924b8d7b348bb0af6e705109357e7e36b435ec8"
+  },
+  {
+   "address": "0x00783a60",
+   "file": "00783a60.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.asm.txt",
+   "sha256": "9bda0a6c368bf90059b01beda5ef49ddec592dfaf68f92f5b15c1a9ef1bebe96"
+  },
+  {
+   "address": "0x00783a60",
+   "file": "00783a60.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00783a60.inferred.c",
+   "sha256": "197c70a201f0c7b9856678e76697bac5128ac77040a35afe915503f8a4ecea50"
+  },
+  {
+   "address": "0x00787364",
+   "file": "00787364.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/00787364.asm.txt",
+   "sha256": "eb2c67f70ffc68f8282619abb7cb77f438f439b344e7b9d7009533c9e2488e5d"
+  },
+  {
+   "address": "0x00787364",
+   "file": "00787364.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/00787364.inferred.c",
+   "sha256": "1a543e4b9d5bef8ef9f0a4e549e647a7a1f60cde3c0b65e1828de6a244340bfd"
+  },
+  {
+   "address": "0x00789950",
+   "file": "00789950.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/00789950.asm.txt",
+   "sha256": "f6b0373b7baf5e406f517a3e933e81cd6861aef6d24ed5128e79af346380e0ff"
+  },
+  {
+   "address": "0x00789950",
+   "file": "00789950.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/00789950.inferred.c",
+   "sha256": "7f1033122642b7f07d868c570dee354aa54d24fe19fbb01f0fb7cbf6c98fad85"
+  },
+  {
+   "address": "0x00789bc0",
+   "file": "00789bc0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/00789bc0.asm.txt",
+   "sha256": "328761e00a415dcbf9ba60fdcb06a24a7c9c80ba5622853b2a64a514599c23ae"
+  },
+  {
+   "address": "0x00789bc0",
+   "file": "00789bc0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/00789bc0.inferred.c",
+   "sha256": "cea4075fd47799ac6e1f5c0c7e66a460dbf6ab14743e15c4c86ae9615bb72a3e"
+  },
+  {
+   "address": "0x0078a6ac",
+   "file": "0078a6ac.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/0078a6ac.asm.txt",
+   "sha256": "25578c9bb051fc4dbd1018b4d05e689f74e9c2c5ac0c7f244f9e1655cf5937d1"
+  },
+  {
+   "address": "0x0078a6ac",
+   "file": "0078a6ac.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/0078a6ac.inferred.c",
+   "sha256": "81eaf84fa18d984e7953e19724c0ed7c5f49b0af1ef36808a7fa5c81655fe45e"
+  },
+  {
+   "address": "0x0078f8d8",
+   "file": "0078f8d8.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0078f8d8.asm.txt",
+   "sha256": "b9d7ffe0a4effd731468075b88393840c7fb1a8aa11f72e25a6c69e8a762a754"
+  },
+  {
+   "address": "0x0078f8d8",
+   "file": "0078f8d8.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/draw-and-mixer-touch/0078f8d8.inferred.c",
+   "sha256": "f091995413852b06e02d7dc8e1b923fcdc9d5adff2ccc53d1779a7157b24a869"
+  },
+  {
+   "address": "0x0078fb14",
+   "file": "0078fb14.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0078fb14.asm.txt",
+   "sha256": "3fb2612d2a6367bf907fd558698c1ebb30a4ea344914927b069fe10108ad3c44"
+  },
+  {
+   "address": "0x0078fb14",
+   "file": "0078fb14.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-final-and-volume/0078fb14.inferred.c",
+   "sha256": "d3d0102735017a79c673aee3e2a05cb60ce7be276551bace9a92f9753edab4c0"
+  },
+  {
+   "address": "0x00790630",
+   "file": "00790630.asm.txt",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/repaint-final-and-volume/00790630.asm.txt",
+   "sha256": "b7a9b2299f1167bc142b6be3673a5adb1fb164adcbd5cde59b165298736e0626"
+  },
+  {
+   "address": "0x00790630",
+   "file": "00790630.inferred.c",
+   "source": "ghidra/parallel-send-round-20261009/display/reused-exports/repaint-final-and-volume/00790630.inferred.c",
+   "sha256": "7f5df4db04e9fd6961c5e2cb7d2acbb228dd926e2ccb5d28c090cbedec869406"
+  },
+  {
+   "address": "0x0079aa54",
+   "file": "0079aa54.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/0079aa54.asm.txt",
+   "sha256": "b293f276251a7f072afa80791de9ad860c8272baa1ba426a6ad01f5605f6ed0e"
+  },
+  {
+   "address": "0x0079aa54",
+   "file": "0079aa54.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/0079aa54.inferred.c",
+   "sha256": "8bea1e6b15f3326136ba617536031ef69eb402f749e203a910696a376c3c4bcd"
+  },
+  {
+   "address": "0x0079b524",
+   "file": "0079b524.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0079b524.asm.txt",
+   "sha256": "00709a40557564811526baaccb4a48495500cf7c44dcc173c399b13a48dd4b55"
+  },
+  {
+   "address": "0x0079b524",
+   "file": "0079b524.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/0079b524.inferred.c",
+   "sha256": "1c073e1787a2e169255c32794def4e2184727856c6f818c3cabd0f3667d1c25b"
+  },
+  {
+   "address": "0x007c1324",
+   "file": "007c1324.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/007c1324.asm.txt",
+   "sha256": "df258bf267082949cc70cd22ad1efb1ad2898f3447c54719a3b8505af39924a5"
+  },
+  {
+   "address": "0x007c1324",
+   "file": "007c1324.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/007c1324.inferred.c",
+   "sha256": "8f1ef82ce747dba09f3a9d57fe663491aa41ef406683d1ad6761326c0689f184"
+  },
+  {
+   "address": "0x007c1644",
+   "file": "007c1644.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007c1644.asm.txt",
+   "sha256": "829f1816d470229ce9e1b4cafcb56fbb787b144069a0b0528bd19022e84d1dee"
+  },
+  {
+   "address": "0x007c1644",
+   "file": "007c1644.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007c1644.inferred.c",
+   "sha256": "f30ed123b2600298af0bab189c644f09b88cb112ce0c1e570b746fc6536a5006"
+  },
+  {
+   "address": "0x007c4b70",
+   "file": "007c4b70.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007c4b70.asm.txt",
+   "sha256": "d62f54b71043fe92b391631d542b9fa000946e3fd9e658e8d1658df65cada055"
+  },
+  {
+   "address": "0x007c4b70",
+   "file": "007c4b70.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007c4b70.inferred.c",
+   "sha256": "03370548b80957daeca32ad467b07f5f3106880bab59bca61bee3e010a567790"
+  },
+  {
+   "address": "0x007cbd94",
+   "file": "007cbd94.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/007cbd94.asm.txt",
+   "sha256": "78a00993c3668a052167f7fc5e1c2a325331f5338d7b49a9f2bbb3bfa68fcd5e"
+  },
+  {
+   "address": "0x007cbd94",
+   "file": "007cbd94.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-control/007cbd94.inferred.c",
+   "sha256": "674895b4074fa6c01857bc5a6c48b1a5652f208cc7316f7f4fc63e550fb8cfa0"
+  },
+  {
+   "address": "0x007ccc24",
+   "file": "007ccc24.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007ccc24.asm.txt",
+   "sha256": "c477d3fb912a91afa6e46a039d007639c727a5d40463f9f2cf2fd92679886a01"
+  },
+  {
+   "address": "0x007ccc24",
+   "file": "007ccc24.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-and-registration/007ccc24.inferred.c",
+   "sha256": "ffe5ad531dc94aea1aa8fe1e175a8b09728a01e1dba87b3b9aa7bb4ee2271839"
+  },
+  {
+   "address": "0x007dfff4",
+   "file": "007dfff4.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/007dfff4.asm.txt",
+   "sha256": "42027ccc61fd25c90c210a5fb8266e94539badba2e9d7166f9494e25b4638c8f"
+  },
+  {
+   "address": "0x007dfff4",
+   "file": "007dfff4.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/007dfff4.inferred.c",
+   "sha256": "b3ec0a507a5dd79066943d4e09d4b5d759766d59e79638e3a06ab8b4f6941af0"
+  },
+  {
+   "address": "0x007e00c8",
+   "file": "007e00c8.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/007e00c8.asm.txt",
+   "sha256": "9ae6cbab581999890108c1eb9b78b9b034231e2f57291eec627b445ea5f184fe"
+  },
+  {
+   "address": "0x007e00c8",
+   "file": "007e00c8.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/007e00c8.inferred.c",
+   "sha256": "6565dd2fce58a22692aaa817459b37fee31d5726f61273b85728355aeb305c66"
+  },
+  {
+   "address": "0x007e02d4",
+   "file": "007e02d4.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/007e02d4.asm.txt",
+   "sha256": "c58c00d8c46e7973426bd326adedebee35aeb7f8a381582b38952278fcc261d2"
+  },
+  {
+   "address": "0x007e02d4",
+   "file": "007e02d4.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/007e02d4.inferred.c",
+   "sha256": "c05287ffc8190c243464e3c6f38dcd182cecb4038e722e2a923de2424b1604e8"
+  },
+  {
+   "address": "0x007e2270",
+   "file": "007e2270.asm.txt",
+   "source": "ghidra/startup-gates-20261009/exports/007e2270.asm.txt",
+   "sha256": "477e7c049c9a56a7d8b81aff16ba13063ac2059b52070f6cf90094e9c3072181"
+  },
+  {
+   "address": "0x007e2270",
+   "file": "007e2270.inferred.c",
+   "source": "ghidra/startup-gates-20261009/exports/007e2270.inferred.c",
+   "sha256": "c29b7827b12ce915e6e3bd305a3dafa01c972eb7d067ba778754383a682b12f6"
+  },
+  {
+   "address": "0x007fd028",
+   "file": "007fd028.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/007fd028.asm.txt",
+   "sha256": "4429c922b7b2d52ffebe9a808b2c1228547720d34dcf3551486f90f2f756d88e"
+  },
+  {
+   "address": "0x007fd028",
+   "file": "007fd028.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/007fd028.inferred.c",
+   "sha256": "438c06883807e10de9e067879ccce95b69b66dfa0f2f55e06f07f8613be8d24d"
+  },
+  {
+   "address": "0x007fd0d0",
+   "file": "007fd0d0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/007fd0d0.asm.txt",
+   "sha256": "a7346e1a444e0273a171b3392f498b400afe0ff0ab73608b7281e78fede993d4"
+  },
+  {
+   "address": "0x007fd0d0",
+   "file": "007fd0d0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/creation-and-render/007fd0d0.inferred.c",
+   "sha256": "f8f9e962f422105c2e761a5c15abede00236d2219fed2aaf3b0d5d7f2423b779"
+  },
+  {
+   "address": "0x007fd958",
+   "file": "007fd958.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/007fd958.asm.txt",
+   "sha256": "a0e18704299fa0a070136679907985cbea448e7c24a558b526c278da1d6ef627"
+  },
+  {
+   "address": "0x007fd958",
+   "file": "007fd958.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/007fd958.inferred.c",
+   "sha256": "0b58ffcdf143e3b5733711cfde289bd2c1596ce993166daf1355bfd1a75e6499"
+  },
+  {
+   "address": "0x00805e38",
+   "file": "00805e38.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00805e38.asm.txt",
+   "sha256": "d140dc7599546d843c7fc6ae7a84bb2312ee735ebd17c16f4de7aa8e0bb11e9d"
+  },
+  {
+   "address": "0x00805e38",
+   "file": "00805e38.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-2/00805e38.inferred.c",
+   "sha256": "f0bfcbe60982d5b114b8ec62e3ef8353740486203b95de6469892002dcd9840f"
+  },
+  {
+   "address": "0x00806840",
+   "file": "00806840.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/00806840.asm.txt",
+   "sha256": "891a8bda2cd4611ddbcb0d1ea8303ca21fe24469310b878d2f0e503986b8919d"
+  },
+  {
+   "address": "0x00806840",
+   "file": "00806840.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/repaint-timer-boundary/00806840.inferred.c",
+   "sha256": "5a2cd85693f5483ec85673663ba3faedd1f4ad784b5450eb8c46cfa943ea67bc"
+  },
+  {
+   "address": "0x00806858",
+   "file": "00806858.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/00806858.asm.txt",
+   "sha256": "f2549f9b073371f7c4d34eb791cdcdc22a25afa39a4a87f3244e65b3dd95b5cf"
+  },
+  {
+   "address": "0x00806858",
+   "file": "00806858.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/refresh-timer-message/00806858.inferred.c",
+   "sha256": "972c5013b73b0db64346028a366c0b53925b877acdf79eb5ea75a5a79b32d734"
+  },
+  {
+   "address": "0x00806890",
+   "file": "00806890.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/00806890.asm.txt",
+   "sha256": "ca0b83646b00eb32fb60e015b44aaaf289e6a65f999da34e7abcba4b2b36beca"
+  },
+  {
+   "address": "0x00806890",
+   "file": "00806890.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/render-and-volume-parameter/00806890.inferred.c",
+   "sha256": "afdc934acab834b0393940a33f0f8161d986f1369716bf33c8ae2d71f85dfea4"
+  },
+  {
+   "address": "0x00806898",
+   "file": "00806898.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-track-registration/00806898.asm.txt",
+   "sha256": "ccbbe1d0c7a61f109f40a4ec4bbed9ba6f50a5c3467e30edc8b61a3d75dc9702"
+  },
+  {
+   "address": "0x00806898",
+   "file": "00806898.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/mixer-track-registration/00806898.inferred.c",
+   "sha256": "1fcd13f3a6d4246ccbcdd6affb26687bc9c20efa034d71ba994ef5161edb1f61"
+  },
+  {
+   "address": "0x00817cf0",
+   "file": "00817cf0.asm.txt",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-1/00817cf0.asm.txt",
+   "sha256": "9437b46a7201f71128a7e4a2c5d2534f2b35abae1858b121894591e6ed011325"
+  },
+  {
+   "address": "0x00817cf0",
+   "file": "00817cf0.inferred.c",
+   "source": "ghidra/parallel-ui-paths-20261009/exports/navigation-1/00817cf0.inferred.c",
+   "sha256": "27d820999f874025155d8f12bba70dd77079ac6b1f2b748d0111d08af551f8b6"
+  }
+ ]
+}

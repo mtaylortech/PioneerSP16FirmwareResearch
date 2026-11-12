@@ -1,0 +1,35 @@
+STATIC ORIGINAL INSTRUCTIONS; 0026cce0 candidate_0026cce0
+0026cce0: f8402de9 stmdb sp!,{r3,r4,r5,r6,r7,lr}
+0026cce4: 207080e2 add r7,r0,#0x20
+0026cce8: 0050a0e1 cpy r5,r0
+0026ccec: 0140a0e1 cpy r4,r1
+0026ccf0: 0700a0e1 cpy r0,r7
+0026ccf4: 8461a0e1 mov r6,r4, lsl #0x3
+0026ccf8: 7a1902eb bl 0x002f32e8
+0026ccfc: 000054e1 cmp r4,r0
+0026cd00: 0b00000a beq 0x0026cd34
+0026cd04: 063064e0 rsb r3,r4,r6
+0026cd08: 0700a0e1 cpy r0,r7
+0026cd0c: 0410a0e1 cpy r1,r4
+0026cd10: 064064e0 rsb r4,r4,r6
+0026cd14: 037185e0 add r7,r5,r3, lsl #0x2
+0026cd18: 0030a0e3 mov r3,#0x0
+0026cd1c: 045185e0 add r5,r5,r4, lsl #0x2
+0026cd20: 6831c7e5 strb r3,[r7,#0x168]
+0026cd24: 9d1c02eb bl 0x002f3fa0
+0026cd28: 740187e5 str r0,[r7,#0x174]
+0026cd2c: 5a0f85e2 add r0,r5,#0x168
+0026cd30: f880bde8 ldmia sp!,{r3,r4,r5,r6,r7,pc}
+0026cd34: 0700a0e1 cpy r0,r7
+0026cd38: 067064e0 rsb r7,r4,r6
+0026cd3c: 0410a0e1 cpy r1,r4
+0026cd40: 064064e0 rsb r4,r4,r6
+0026cd44: 0771a0e1 mov r7,r7, lsl #0x2
+0026cd48: 5a2f87e2 add r2,r7,#0x168
+0026cd4c: 077085e0 add r7,r5,r7
+0026cd50: 022085e0 add r2,r5,r2
+0026cd54: 045185e0 add r5,r5,r4, lsl #0x2
+0026cd58: 501c02eb bl 0x002f3ea0
+0026cd5c: 740187e5 str r0,[r7,#0x174]
+0026cd60: 5a0f85e2 add r0,r5,#0x168
+0026cd64: f880bde8 ldmia sp!,{r3,r4,r5,r6,r7,pc}

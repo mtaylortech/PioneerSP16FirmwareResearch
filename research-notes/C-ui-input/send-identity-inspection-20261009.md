@@ -1,0 +1,15 @@
+<!-- research-note: experiments/send-identity-inspection-20261009/HANDOFF.md | thread C | scrubbed, links rewritten; see EDIT-LOG.md / LINK-REWRITE-LOG.csv -->
+
+# Fresh offline Send identity inspection — October 9, 2026
+
+**Offline preparation complete; live integration unvalidated and positive mutation readiness withheld.** The [existing inspection package] `../parallel-send-integration-20261009/HANDOFF.md` (evidence not published) and consumed live evidence remain unchanged. Async assignment remains incomplete; all partial findings are unverified/excluded and were not reconstructed. Startup-gates remains paused. No firmware/runtime or input was authorized or launched.
+
+Question: preserve the actual operands behind the prior `SEND third registered Send Amount widget` rejection while keeping two bounded same-owner listener snapshots.
+
+The fresh [overlay] `private/overlay/` (evidence not published) emits actual vtable, widget identifier, component name and both identity/name cell addresses and words **before rejection**, with owner/thread/SP context. Unreadable operands produce partial receipts and reject; a failing vtable cannot short-circuit the remaining reads. Name and construction identity remain distinct roles. Stable successful logging is sparse. Snapshot collection rechecks identity and records the same receipt. [Exact changes and provenance] `PATCH_PROVENANCE.md` (evidence not published).
+
+The two listener snapshots retain the original bounds and ≥5s spacing; completion now explicitly requires identical widget/model/thread and enclosing owners. Both samples retain rosters, identity receipts, monotonic times and owner tuples. A changed second owner preserves the first snapshot and withholds completion. No new hook site or mutation/input route was added.
+
+[37 focused synthetic controls] `offline-controls.json` (evidence not published) pass. [Two saved synthetic same-owner snapshots] `controls/synthetic-inspection.json` (evidence not published) and [rejection-time receipts] `controls/rejection-receipts.json` (evidence not published) are retained. The prior [30-control record] `inherited/offline-controls.json` (evidence not published) remains bound to its inherited source identities; unchanged probe, contract and supervision/input identities were checked without rerunning their suites. The first missing-import failure and the passing second run remain in [logs] `logs/` (evidence not published). [Overlay identities] `overlay-provenance.json` (evidence not published) and [package check] `package-check.json` (evidence not published) bind the result.
+
+Next action is a later, newly authorized known-entry-only diagnostic using the [test plan] `TEST_PLAN.md` (evidence not published): 600s within 1,200s, independent 605/608/610s supervision and owned cleanup, with no Send gesture or encoder substitution. The [execution note] `EXPERIMENTAL_PROMPT.md` (evidence not published) grants no allowance. Runtime recipients/ownership, broader/global coverage, transport, async application and owned edit rendering remain unresolved. No mutation readiness or runtime milestone is established by this preparation.

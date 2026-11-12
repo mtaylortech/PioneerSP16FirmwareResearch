@@ -1,0 +1,24 @@
+<!-- source: engineering-reviews/2026-10-09-panel-queue-delivery-decision.md | scrubbed -->
+
+# Panel transport and queued-record decision
+
+October 9, 2026, America/Chicago. Cycle: `experiments/panel-passive-corrected-live-20261009-230743` followed by `experiments/panel-record-contract-20261009`. Previous verified frontier: mapped original startup, HOME→MIXER navigation, stable owned MIXER pixels and Send identity/listener snapshots; editing remained unproved.
+
+1. **Result.** The [corrected runtime] `../experiments/panel-passive-corrected-live-20261009-230743/result.json` (evidence not published) distinguishes missing transport from missing ownership: original panel open/stored fd and epoll ADD return −1; callback/encoder3 registrations succeed, MIXER is active, and Send is enabled with clamps 0–127. Original-byte/frame/thread receipts and five identical owned captures through 595.078s support high confidence within this harness. All 24 checks passed over 600.240s; [runtime/postflight took 760.172s] `../experiments/panel-passive-corrected-live-20261009-230743/closeout.json` (evidence not published). These are elapsed measurements, not a demonstrated speedup or isolated overhead. [Static inspection] `../experiments/panel-record-contract-20261009/inspection.json` (evidence not published) establishes 128-byte records, CRC over 124 raw bytes and type-1 callback gating. [39 synthetic controls] `../experiments/panel-record-contract-20261009/controls.json` (evidence not published) validate the proposed queue/read/epoll contract; they execute no original ARM. The adapter remains uninstalled/live-unvalidated. Predicate result, thread delivery, editing, physical boot and audio remain unproved; postflight retains detached-child/second-resolution limits.
+
+2. **Failures.** The [earlier passive attempt] `../experiments/panel-passive-live-20261009-225409/HANDOFF.md` (evidence not published) faulted because its observer checked completion during emission, before the producer set that flag; its valid original return/registration receipts survive, but its native final remains absent. Initial sandbox `ps` denial and missing synthetic LR were corrected. [Offline failures] `../experiments/panel-record-contract-20261009/tooling-notes.json` (evidence not published) include Darwin EAGAIN 35 leaking into guest results, syntax/module-shadowing errors and a manifest-path error; corrected controls pass. The last error lacks on-disk raw stderr. Immediate input flags remain false despite exact packets/returned handling/pixels proving the tap; summary divergence remains unresolved. App-side −1 and synthetic syscall −9 describe different layers; live errno was not captured.
+
+3. **Decision.** Retain the corrected sparse observer, original UI milestone and provisional queued adapter. Device absence, registration and active-owner questions leave the critical path. Reject zero-filled type-1 packets as proven neutral inputs. Enabled ownership alone does not establish edit readiness; async remains incomplete/excluded and startup-gates paused.
+
+4. **Next action.** Integrate the already prepared type-0 transport control and sparse receipt observer into a fresh working copy. The highest-value question is whether the original worker receives and checksum-validates one complete queued record while MIXER remains stable. Success advances to a justified type-1 callback experiment; failure localizes transport/parser/integration before mutation.
+
+5. **Efficiency.** Reuse unchanged controls/supervision and completed ownership findings; add one actual-producer integration replay for new receipt ordering before launch. The earlier synthetic overlay controls missed that boundary. No measured performance improvement justifies changing runtime settings.
+
+Compact proposed plan:
+
+- One fresh guest, **600s within 1,200s**, one gated MIXER tap, one type-0 record; no encoder/Send edit. Publish only after fd/ADD attribution and two stable owned MIXER captures, with ≥40s left.
+- Require exact 128-byte raw read, original CRC match, matched converter return zero, no record callback, drained readiness, stable owned pixels, native final and private-pipe cleanup.
+- Preserve guards, free endpoints/private credentials, independent **605/608/610s** supervision, ownership-aware reaping and independent postflight. Stop on faults/ownership mismatches; withhold on unmet gates. Missing evidence stays missing; no replay/replacement guest.
+- Live success would establish transport/checksum/type filtering, not callback delivery or usable Send editing. Prior guest authorization is consumed; **this review authorizes no preparation execution, guest or input**. No work is currently running.
+
+The existing [contract/handoff] `../experiments/panel-record-contract-20261009/HANDOFF.md` (evidence not published) contains implementation and raw evidence. README's active next action already matches this decision and is unchanged.
