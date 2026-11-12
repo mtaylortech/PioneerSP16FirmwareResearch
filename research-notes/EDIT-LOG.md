@@ -94,3 +94,10 @@ Every path rewrite, flag, and guarded summary. Nothing was silently removed.
 | `/home/iMX6/ltib` (x2) | history (PROJECT_STATE, handoffs/CLAIM_LEDGER) | Freescale's original firmware LTIB build-host path — a documented finding about how the firmware was built, NOT the owner's machine. Genericizing it would destroy the finding. |
 | authorization / stop-rule boilerplate | throughout A–E1 | Kept per owner: explains why experiments stopped. Not removed. |
 | `<HOME>/Code_Projects/ghidra_12.1.4_PUBLIC` | A/rea-ghidra-comparison | Tool install path outside the research tree; `<HOME>`-genericized, no personal info. |
+
+## 2026-11-12 — storage integration
+- `D-normalize/project-flush-20261010-075605.md`: added a bracketed editor's note after the
+  phrase "unique dot-prefixed sibling". Reason: the staging name is fixed (`.<name>.prj`), as
+  the step 07 note and the 2026-10-10 adversarial audit (finding 2) already record. The
+  original sentence is kept unchanged as historical text; the note points to step 07 and to
+  `docs/storage.md`. Nothing removed.

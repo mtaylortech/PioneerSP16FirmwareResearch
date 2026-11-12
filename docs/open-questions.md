@@ -40,6 +40,7 @@ The highest-value, lowest-risk continuations that need **no hardware**:
 | Subsystems | How do audio/MIDI/UI/panel communicate and meet timing? | Unknown; only library/module inventory established. |
 | Normalize | Legal all-owner sample reload in firmware (producer/lifetime protocol)? | Blocked; empty roster observed; host tool works, integration does not. |
 | Startup | How much parent-init work remains before a natural drawable display? | Partial in emulator; no persistent causal wait established. |
+| Storage | Live NAND environment; eMMC boot-area contents; whether real units pass the first-boot format check; on-unit confirmation of the predicted boot sector and resume behaviour. Parked: `resumeProject` caller, `ProjectManager` ops +0x58/+0x60 and check `0x3391a0`, ten listing callers, the `.wav.dat` append case. | Open. Static/emulated picture in [storage.md](storage.md); NAND env needs a receive-only serial console; the rest needs a unit session. |
 
 ## Questions only the original researcher / owner can answer
 

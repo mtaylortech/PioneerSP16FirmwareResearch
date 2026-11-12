@@ -32,6 +32,7 @@ come from emulation and are labelled as such.
 - [docs/firmware-reference.md](docs/firmware-reference.md) — versions + hashes +
   where to get firmware.
 - [docs/hardware.md](docs/hardware.md) — hardware facts, access leads, and risk.
+- [docs/storage.md](docs/storage.md) — **how the unit stores and moves files:** NAND vs eMMC, USB storage mode, the eMMC layout and first-boot format, how saving/moving/resume work, and what a failed save looks like (1.50; 1.60 identical).
 - [docs/architecture.md](docs/architecture.md) — **application class maps (1.50 & 1.60):** the sequencer, sampler, MIDI/sync and project-file subsystems recovered from the binary, with the MIDI clock/sync path written up in detail. Backed by [symbols/classes-1.50.md](symbols/classes-1.50.md) and [symbols/classes-1.60.md](symbols/classes-1.60.md).
 - [docs/version-evolution.md](docs/version-evolution.md) — **what changed between firmware 1.20→1.60**, recovered from the binaries: which classes/features each release added (AS-1 in 1.30, copy/swap/undo in 1.40, live sampling in 1.50), with a per-version address matrix ([symbols/classes-crossversion.csv](symbols/classes-crossversion.csv)).
 - [docs/open-questions.md](docs/open-questions.md) — where it stopped and the
@@ -42,7 +43,7 @@ come from emulation and are labelled as such.
 ## Layout
 
 ```
-docs/        findings, firmware format, firmware reference, hardware, open questions
+docs/        findings, firmware format, firmware reference, hardware, storage, open questions
 tools/       decode/ (portable + original decoder), firmware/ (catalog + Ghidra
              pilot scripts), ghidra/ (1.60 analysis scripts), normalization/
              (host WAV normalizer), contracts/ (ARM32 trace helpers)

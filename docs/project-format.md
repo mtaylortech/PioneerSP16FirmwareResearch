@@ -8,8 +8,9 @@ Verified on firmware 1.50 data; the 1.60 container is identical.
 
 > **What was confirmed vs. still open.** Container, compression, the JUCE
 > ValueTree encoding, and the full node/field schema (31 node types, real field
-> names and types) are **confirmed** from a real file, which also round-trips
-> byte-for-byte through an independent writer. Still open: the fields of
+> names and types) are **confirmed** from a real file, which also re-serializes
+> byte-for-byte (an independent writer reproduced it exactly; that writer is not
+> yet shipped here). Still open: the fields of
 > `ArrangementData.Sections` and `SliceData.grids` (both default/empty in the
 > test project), and the parameter name behind each FX `params` slot. No firmware
 > bytes are reproduced here; all example values come from a commercial sample
@@ -154,62 +155,53 @@ versioned `prj::StepDataFormat::readStepData` / `readStepDataForVer`
 | 0 | int32 | trigger / first value — **empty = `-127`**, set when the step is programmed |
 | 4 | int32 | second value — **empty = `-126`**, set when programmed |
 | 8 | int32 | constant `15` (`0x0f`) — flags/param-count (inferred) |
-| 12 … 151 | 35 × float32 | **parameter-lock slots** (default value `1.0f`, bit-OR'd with the slot's parameter index — see below) |
+| 12 … 151 | 35 × packed 32-bit word | **parameter-lock slots** — each word is `[vct:2 | value:22 (signed) | idx:8]`, not a float; empty = the packed `-32768` sentinel (`0x3f800000 | idx`). See below. |
 
-`152 = 12 + 35×4`. The 35 slots are **not** a flat list — each slot's default
-value is `0x3f800000 | index` (i.e. `1.0f` carrying its parameter index in the
-low byte), which reveals the layout directly from an empty step:
+`152 = 12 + 35×4`. Slot layout:
 
 ```
-slot  0 … 22   index 0..22    → ParamIndex    (the 23 "main" lockable params)
-slot 23 … 28   index 5..10    → FxParamIndex  for FX unit 1
-slot 29 … 34   index 5..10    → FxParamIndex  for FX unit 2
+slot  0 … 22   → ParamIndex 0..22   (the 23 "main" lockable params)
+slot 23 … 28   → FX unit 1          (sub-slots 0..5)
+slot 29 … 34   → FX unit 2          (sub-slots 0..5)
 ```
 
-This matches the firmware exactly: `Sequencer::setStepSequenceDataIndividuallyAsFloat`
-has one overload taking **`ParamIndex`** and one taking **`(int fxUnit, FxParamIndex)`**
-— so a step stores a lock value for each `ParamIndex` plus six `FxParamIndex`
-values for *each* of the two FX units. Each lock defaults to nominal (`1.0`); a
-programmed lock overwrites its slot.
+**Slot encoding (confirmed from the 1.50 record writers).** Each 32-bit slot is a
+packed word `[vct:2 | value:22 (signed) | idx:8]`, **not** a float32. The low byte
+is the parameter index; the 22-bit middle field is `value = round(v × 2097151)`
+(2097151 = 2²¹−1 = 127 × 16513); the top 2 bits are a value-change type. The
+"empty" word `0x3f800000 | idx` is the packed `-32768` *no-lock* sentinel — the
+same bit pattern an earlier pass misread as float `1.0`. Writers (1.50):
+`FUN_0034f054` (ParamIndex, AsFloat), `0x34f0e4` (AsIndex), `0x34ef94`
+(OnlyIndex); FX: `0x34f314` (AsFloat), `0x34f3f0` (AsIndex). A ParamIndex lock is
+stored at byte `12 + 4·idx` (confirmed). Cross-check: the one real project's six
+slot-6 locks decode exactly to 8/127, 9/127, 10/127 and 11/127 (packed upper
+fields `0x020408`, `0x024489`, `0x02850a`, `0x02c58b` = 8..11 × 16513).
 
-**What is confirmed vs. inferred.**
+**FX slots (confirmed).** `FxParamIndex` has a flat **0–71** domain (bound-checked
+at `0x34f40c`); the FX AsIndex writer `0x34f3f0` maps it through a 72-entry
+signed-byte table to a sub-slot 0–5, so a slot is `23 + 6·unit + T[fxIdx]`. The
+earlier open item "`FxParamIndex` 0–4 unexplained" no longer applies. *Likely:*
+`FxParamIndex` is one flat list of per-effect parameters.
 
-- **Confirmed (observed in a real 1.50 file):** the 152-byte record size, the
-  35-slot count, and the bit pattern of each empty slot's default
-  (`0x3f800000 | n`). The low bytes run 0–22 in slots 0–22, then 5–10 twice.
-- **Likely (inference, no code seen yet):** that each low byte is the slot's enum
-  value, i.e. slots 0–22 = `ParamIndex` 0–22 and slots 23–34 = `FxParamIndex`
-  5–10 for FX unit 1 then FX unit 2. This rests on the two setter overloads
-  above, and on the manual's six FX parameters per unit (CC 46–51, 63–68). No
-  firmware code has yet been observed reading or writing these slots.
-- **Likely:** a single `FxParamIndex` type with the FX unit passed separately
-  (from the mangled names), so "FX slot *n*" probably means Parameter *n* of
-  whichever effect is loaded. Not tested against tracks with different effects.
+**Value classes (confirmed code paths; meanings hedged).**
 
-**Unknown.**
+- Ordinals 5–7 are normalized 0–127 (`value = k/127`); ordinal 8 is 0–127, or a
+  **12-step** range when the AsIndex flag is set.
+- Ordinals 0, 4 and 9–22 store a raw 22-bit integer.
+- Ordinals 1–3 split their value base-1,411,200 (= 44,100 × 32, i.e. 32 s at
+  44.1 kHz): the low part in their own slot, the high part in companion slots
+  16/17/18. *Likely:* 1–3 are START / LOOP START / LENGTH in samples.
+  *Guess:* 16–18 are overflow (high-part) slots, not standalone parameters —
+  which could absorb some of the "extra" ordinals beyond the 21 manual track CCs.
 
-- **Which parameter each `ParamIndex` value is.** The manual's CC map
-  ([midi-implementation.md](midi-implementation.md)) lists 21 step-lockable
-  track parameters: Track (volume, pan, time-stretch, loop, trigger mode, send,
-  mute), Playback (pitch, start, loop start, length), Amp envelope (velocity,
-  attack, hold, release), Sequence (offset, retrigger count, retrigger speed)
-  and LFO (speed, depth, phase). There are 23 `ParamIndex` slots, so **two are
-  not accounted for**, and the CC map does not give the enum order.
-- **What `FxParamIndex` 0–4 are.** Only 5–10 are stored per step.
-- The manual's 35 CC receive rows include CC 0 and CC 32 (scene and pattern
-  select), which are not step parameters. The match with the 35 slots is
-  therefore a coincidence, not evidence.
-
-A static attempt (Nov 2026) to name the ordinals from the firmware did **not**
-recover the ordinal order. It found two converter functions on the sequencer's
-step get/set path whose switches take a parameter-index argument and have
-distinct cases for 7, 10, 23, 26–29, 54, 56 and 60–62, each branching to its own
-small helper. These values equal the manual's CC numbers for the same
-parameters, which suggests (**likely**, not confirmed) that the firmware numbers
-its parameters internally the same way as the CC map. Not shown: that these
-values come from received MIDI messages, or that the helpers read or write the
-step record. The same switch also has cases 0–4 and a comparison against 71,
-both unexplained. The ordinal→name map remains open.
+**Still unknown: which parameter each `ParamIndex` ordinal is.** Static analysis
+(Nov 2026) confirmed all 23 ordinals have writers but found **no** table mapping
+an ordinal to any other ID, so the names are not recoverable from the binary
+alone. An earlier reading — that the sequencer dispatch is keyed on MIDI CC
+numbers — was **wrong**: those 12 values are `FxParamIndex` values (0–71) that
+merely overlap the CC list that was searched, and nothing ties them to received
+MIDI. The manual's CC map ([midi-implementation.md](midi-implementation.md))
+names 21 step-lockable track parameters but does not give the ordinal order.
 
 One controlled export from a unit would settle the naming: program a single
 step, change one parameter by a known amount, re-export, and the changed slot

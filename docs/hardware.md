@@ -19,6 +19,10 @@ firmware — **not** from probing a unit:
 - **Storage:** named NAND and eMMC parts; firmware declares a 256 MiB NAND
   partition map (boot / env / kernel_a / kernel_b / rootfs / pdj / data / …) in
   `fw_env.txt`. Pad calibration and MAC data live in NAND per the manual.
+  How the two stores are used, USB storage mode and the eMMC layout are in
+  [storage.md](storage.md). Kernel 3.0.101 has no RPMB support; eMMC boot
+  partitions, if present, are exposed read-only, unused by the product, and not
+  part of the USB export.
 - **Controllers:** two panel/sub MCUs (M1/M2); panel firmware ships as
   `PANELCOM1.mot` / `PANELCOM2.mot`.
 

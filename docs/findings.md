@@ -89,6 +89,18 @@ literally.
   whole-eMMC export path; the USB-A updater checks a package marker + CRC32
   before mounting and running its `update` program. This is **not** cryptographic
   authentication, and **no** command shell or arbitrary code loading was shown.
+- **Supported (static):** the 1.50 project save path — fixed hidden staging
+  name, leftover-safe, fsync before replace, but not atomic; a failed final
+  rename leaves the project only as a hidden dot-file, which the unit's lists
+  don't show. Details: [storage.md](storage.md). 1.60 identical.
+- **Supported (static):** resume — `System/data.rsm` is normally a byte copy of
+  the last saved/loaded project, always on; an empty `System/resuming` directory
+  guards the boot-time load and quarantines a broken resume file to
+  `System/crashed/`. Details: [storage.md](storage.md).
+- **Supported (static; matched in emulation):** the eMMC layout and first-boot
+  format — partition 1 type 0x83 at LBA 16, BusyBox 1.20.2 FAT32 with
+  recognisable boot-sector fields; the format check does not wait for the
+  partition node (outcome on real units unknown). Details: [storage.md](storage.md).
 - **Demonstrated (emulator), partial:** a QEMU build executed original
   kernel/init/rootfs/application paths using explicit SD aliases and
   backlight/GPU substitutions, reaching a repeatable checkpoint defined by
