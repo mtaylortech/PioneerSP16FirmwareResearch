@@ -8,11 +8,12 @@ Verified on firmware 1.50 data; the 1.60 container is identical.
 
 > **What was confirmed vs. still open.** Container, compression, the JUCE
 > ValueTree encoding, and the full node/field schema (31 node types, real field
-> names and types) are **confirmed** from a real file. Still open: the internal
-> layout of a few packed blobs — `PatternData.Steps` (the versioned step binary),
-> and the `params` / `grids` / `channelNo` arrays — which are identified but not
-> yet field-decoded. No firmware bytes are reproduced here; all example values
-> come from a commercial sample pack's project.
+> names and types) are **confirmed** from a real file, which also round-trips
+> byte-for-byte through an independent writer. Still open: the fields of
+> `ArrangementData.Sections` and `SliceData.grids` (both default/empty in the
+> test project), and the parameter name behind each FX `params` slot. No firmware
+> bytes are reproduced here; all example values come from a commercial sample
+> pack's project.
 
 ## Container
 
@@ -72,7 +73,7 @@ ProjectData                      (1)   global settings
 │  │  ├─ PlaybackData                  sample playback (see below)
 │  │  ├─ AmpEnvelopeData               attack/hold/release, curves, velocity
 │  │  ├─ SequencerData                 retrigger count/speed, offset, transpose
-│  │  ├─ SliceData                     grids(array), nGrids, windowOffset
+│  │  ├─ SliceData                     grids(array, empty unless edited), nGrids, windowOffset
 │  │  ├─ ScaleSetting / ScaleSettingMidi
 │  │  ├─ InsertFx × 2                  effectType, params(array), filter types
 │  │  ├─ SendData                      sendChannel, sendAmount
@@ -82,13 +83,16 @@ ProjectData                      (1)   global settings
 │  │     ├─ MidiCc1Data / MidiCc2Data  per-param CC number / value / active
 │  │     ├─ MidiOtherData              bank select msb/lsb, program change
 │  │     └─ MidiModeData               midimode
-│  ├─ PatternData × 4                  Steps(binary), Length, TrackMutes, TrackSolos
+│  ├─ PatternData × 4                  Steps(binary), Length, TrackMutes[16 bool], TrackSolos[16 bool]
 │  ├─ SendFx / MasterFx                effectType, params(array), filter types
 │  └─ RoutingData → TrackRoutingData × 16
-├─ ArrangementData                     length, Sections(binary)
+├─ ArrangementData                     length, Sections(binary, zlib → 999 × 8 B)
 ├─ RibbonData → UserSetting ×2 (Item ×8), PitchSetting
-└─ MidiSettingData → Input, Output     bUseClock/StartStop/NoteCC/SongPosition, channelNo
+└─ MidiSettingData → Input, Output     bUseClock/StartStop/NoteCC/SongPosition, channelNo[16]
 ```
+
+Instance nodes carry a numeric suffix in the file (`SceneData0`…`SceneData15`,
+`ArrangementData0`); the schema and this diagram use the base type name.
 
 ### Selected confirmed fields (real values from the test project)
 
@@ -168,29 +172,95 @@ has one overload taking **`ParamIndex`** and one taking **`(int fxUnit, FxParamI
 values for *each* of the two FX units. Each lock defaults to nominal (`1.0`); a
 programmed lock overwrites its slot.
 
-The 23 `ParamIndex` params are the per-step-lockable track parameters documented
-in [midi-implementation.md](midi-implementation.md) — Track (volume, pan, time-
-stretch, loop, trigger-mode, send, mute), Playback (pitch, start, loop-start,
-length), Amp-envelope (velocity, attack, hold, release), Sequence (offset,
-retrigger count, retrigger speed) and LFO (speed, depth, phase); the `FxParamIndex`
-5-10 are each FX unit's Parameter 1-6. The block structure, slot count, index of
-every slot, and the two enums are **confirmed**; the only residual is the exact
-name bound to each of the 23 `ParamIndex` ordinals (the CC map fixes the *set*,
-not the enum's internal order). That last naming is a one-export refinement:
-program a single step, change one parameter by a known amount, re-export, and the
-changed slot names itself.
+**What is confirmed vs. inferred.**
+
+- **Confirmed (observed in a real 1.50 file):** the 152-byte record size, the
+  35-slot count, and the bit pattern of each empty slot's default
+  (`0x3f800000 | n`). The low bytes run 0–22 in slots 0–22, then 5–10 twice.
+- **Likely (inference, no code seen yet):** that each low byte is the slot's enum
+  value, i.e. slots 0–22 = `ParamIndex` 0–22 and slots 23–34 = `FxParamIndex`
+  5–10 for FX unit 1 then FX unit 2. This rests on the two setter overloads
+  above, and on the manual's six FX parameters per unit (CC 46–51, 63–68). No
+  firmware code has yet been observed reading or writing these slots.
+- **Likely:** a single `FxParamIndex` type with the FX unit passed separately
+  (from the mangled names), so "FX slot *n*" probably means Parameter *n* of
+  whichever effect is loaded. Not tested against tracks with different effects.
+
+**Unknown.**
+
+- **Which parameter each `ParamIndex` value is.** The manual's CC map
+  ([midi-implementation.md](midi-implementation.md)) lists 21 step-lockable
+  track parameters: Track (volume, pan, time-stretch, loop, trigger mode, send,
+  mute), Playback (pitch, start, loop start, length), Amp envelope (velocity,
+  attack, hold, release), Sequence (offset, retrigger count, retrigger speed)
+  and LFO (speed, depth, phase). There are 23 `ParamIndex` slots, so **two are
+  not accounted for**, and the CC map does not give the enum order.
+- **What `FxParamIndex` 0–4 are.** Only 5–10 are stored per step.
+- The manual's 35 CC receive rows include CC 0 and CC 32 (scene and pattern
+  select), which are not step parameters. The match with the 35 slots is
+  therefore a coincidence, not evidence.
+
+A static attempt (Nov 2026) to name the ordinals from the firmware did **not**
+recover the ordinal order. It found two converter functions on the sequencer's
+step get/set path whose switches take a parameter-index argument and have
+distinct cases for 7, 10, 23, 26–29, 54, 56 and 60–62, each branching to its own
+small helper. These values equal the manual's CC numbers for the same
+parameters, which suggests (**likely**, not confirmed) that the firmware numbers
+its parameters internally the same way as the CC map. Not shown: that these
+values come from received MIDI messages, or that the helpers read or write the
+step record. The same switch also has cases 0–4 and a comparison against 71,
+both unexplained. The ordinal→name map remains open.
+
+One controlled export from a unit would settle the naming: program a single
+step, change one parameter by a known amount, re-export, and the changed slot
+names itself.
 
 Read the matrix with `zlib.decompress(steps_bytes)` → 155,648 bytes, indexed
 `step*2432 + track*152` (+ `12 + slot*4` for a lock).
-- **`ArrangementData.Sections`** — a small binary blob (song arrangement).
-- **`params` arrays** (InsertFx/SendFx/MasterFx), **`grids`** (SliceData slice
-  points), **`channelNo`** (MIDI) — JUCE `var` arrays; element layout not yet
-  enumerated.
+### The `var` arrays (decoded)
+
+A JUCE `var` array (stream marker `7`) is a compressed-int element count followed
+by that many ordinary `var`s, which may themselves be arrays. Example: one FX
+parameter slot is the 2-element array `[string "None", double 0.4]`. Every array
+in the test project decoded with no leftover bytes.
+
+- **FX `params`** (InsertFx/SendFx/MasterFx) — always **6 × `[string, double]`**
+  (confirmed). The string is `"None"` in every slot, even for active effects, so
+  it does **not** carry the parameter name. The doubles are 0–1 (float32 widened
+  to double). *Likely* FX Parameter 1–6, each stored as a fixed-resolution
+  fraction (observed denominators differ per effect/slot: /127, /99, /100, /7…),
+  consistent with `value = step / (steps − 1)`. The parameter name behind each
+  slot is **unknown** (needs one controlled export).
+- **`SliceData.grids`** — array, **empty in all 256 tracks** of the test project
+  even where `nGrids = 16`. *Likely* only user-moved slice points are stored;
+  element layout **unknown**.
+- **`MidiSettingData/{Input,Output}.channelNo`** — 16 ints, default `0..15`
+  (confirmed). *Likely* one 0-based MIDI channel per track; whether it instead
+  lists enabled channels is **unknown** (needs one export).
+- **`PatternData.TrackMutes` / `TrackSolos`** — **16 bools per pattern**
+  (confirmed), independent of `TrackData.muteSetting` (confirmed: 3 tracks muted
+  at track level while all pattern mutes are off). *Likely* per-pattern mute/solo.
+
+### `ArrangementData.Sections` — song arrangement (structure only)
+
+`Sections` is a **zlib stream** (level 6) that inflates to **7,992 bytes = 999 ×
+8-byte records** (confirmed). In the test project the arrangement is unused
+(`bPlayArrangement = false`, `length = 1`) and every record holds the same
+default (int32 `65536`, int32 `0`), so the two per-record fields **cannot be told
+apart** and their meaning is **unknown**. `length` is *likely* the number of
+sections in use. One export of a real arrangement would settle it.
 
 ## Tooling
 
 [`../tools/project/parse_project.py`](../tools/project/parse_project.py) parses a
 `.prj` (inflates `vltrgzip`+zlib) or a `.wav.dat`, and prints the tree or a JSON
 schema (`--schema`). [`project-schema-1.50.json`](../tools/project/project-schema-1.50.json)
-is the full generated schema. To make a project file on a computer, write the
-inverse: build the ValueTree, serialize, `zlib`-compress, prepend `vltrgzip`.
+is the full generated schema. Writing has also been demonstrated: serialize the
+ValueTree, `zlib`-compress the outer stream at level 1 (the inner
+`Steps`/`Sections` blobs at level 6), and prepend the 8-byte `vltrgzip` magic.
+With those levels a re-serialized project is **byte-identical** to the original
+(verified on the test project and all 45 `.wav.dat`). Compressed ints are minimal
+(`0` is the single byte `00`; bit 7 of the header byte marks a negative value). A
+packaged writer tool is not included yet. Loading a computer-written file **on a
+unit has not been tested**; a byte-identical rebuilt copy is the safest first
+trial.

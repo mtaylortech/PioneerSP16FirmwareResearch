@@ -16,6 +16,7 @@ import sys, struct, zlib, json, re, collections
 
 # JUCE var stream markers (this build): 1 int, 2 boolTrue, 3 boolFalse,
 # 4 double, 5 string, 6 int64, 7 array, 8 binary. var length 0 = void/undefined.
+# Arrays (7) decode to Python lists; binary (8) stays opaque (hex).
 class Reader:
     def __init__(self, b): self.b, self.p = b, 0
     def string(self):
@@ -29,15 +30,21 @@ class Reader:
         nb = self.cint()
         if nb == 0: return None
         m = self.b[self.p]; pay = self.b[self.p+1:self.p+nb]; self.p += nb
-        if m == 1: return struct.unpack('<i', pay[:4])[0]
-        if m == 2: return True
-        if m == 3: return False
-        if m == 4: return struct.unpack('<d', pay[:8])[0]
-        if m == 5: return pay.split(b'\x00')[0].decode('utf-8', 'replace')
-        if m == 6: return struct.unpack('<q', pay[:8])[0]
-        if m == 7: return {'__array__': pay.hex()}
-        if m == 8: return {'__binary__': len(pay), 'hex': pay.hex()}
-        return {'__marker__': m, 'hex': pay.hex()}
+        return decode_payload(m, pay)
+
+def decode_payload(m, pay):
+    if m == 1: return struct.unpack('<i', pay[:4])[0]
+    if m == 2: return True
+    if m == 3: return False
+    if m == 4: return struct.unpack('<d', pay[:8])[0]
+    if m == 5: return pay.split(b'\x00')[0].decode('utf-8', 'replace')
+    if m == 6: return struct.unpack('<q', pay[:8])[0]
+    if m == 7:   # array: compressed-int count, then that many vars (may nest)
+        r = Reader(pay); out = [r.var() for _ in range(r.cint())]
+        if r.p != len(pay): raise ValueError('array payload not fully consumed')
+        return out
+    if m == 8: return {'__binary__': len(pay), 'hex': pay.hex()}
+    return {'__marker__': m, 'hex': pay.hex()}
 
 def read_tree(r):
     t = r.string(); np = r.cint(); props = []
@@ -58,6 +65,7 @@ def typename(v):
     if isinstance(v, float): return 'double'
     if isinstance(v, str): return 'string'
     if v is None: return 'void'
+    if isinstance(v, list): return 'array'
     if isinstance(v, dict):
         return 'array' if '__array__' in v else ('binary' if '__binary__' in v else 'var')
     return type(v).__name__
