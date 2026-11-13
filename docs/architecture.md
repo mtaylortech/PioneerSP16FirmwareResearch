@@ -49,7 +49,7 @@ Pioneer's own classes fall into a small number of subsystems:
 | **MIDI & Sync** | MIDI in/out, clock following, tempo | `MidiClockInterpreter`, `MidiSender`, `AlsaClient::MidiInputThread`, `MidiCc1/2ViewController` |
 | **Sequencer / Pattern / Scene** | the step sequencer, patterns, scenes, song/section arrangement | `Sequencer`, `SectionSequencer`, `ScenePatternSwitcher`, `ScenePatternManager`, `SceneEditor`, `RealtimeTriggerHandler` |
 | **Sampling / Audio / DSP** | the voice/player engine, live sampling, slicing, LFO, envelopes, filter | `HexaTrackAudioSystem`, `PlayerUnit`, `LiveSampling`, `LfoProcessor`, `PeakDetectorUnit`, `DaveSmithManager`, `AudioRenderingManager` |
-| **Mixer / FX / Send / Routing** | the mixer, insert FX, sends, output routing | `CompositeFxUnit`, `FxInsert*ViewController`, `DsfSendOutputSelector`, `HeadphoneRouter` |
+| **Mixer / FX / Send / Routing** | the mixer, insert FX, sends, output routing | `CompositeFxUnit`, `FxInsert*ViewController`, `DsfSendOutputSelector`, `HeadphoneRouter`. The DSP classes (`InsertFxProcessor`, `EffectBase` and its effects) have RTTI but are not in this class map: see [effects/](effects/README.md) (1.60) |
 | **Project / File / Storage** | the saved-project data model and load/save | the entire `prj::` namespace, `prj::UndoManager`, `BrowseViewController` |
 | **UI / View / Panel / Encoder** | touchscreen views, widgets, popups | the `*ViewController` / `*WidgetController` family |
 

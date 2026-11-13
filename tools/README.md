@@ -15,6 +15,7 @@ are here so you can see exactly how results were produced.
 | `ghidra/*.java` | Ghidra scripts from the 1.60 startup / Send-widget static analysis. | In Ghidra, with your own 1.60 binary |
 | `contracts/slice_contracts.py`, `trace_records.py` | ARM32 partial-layout contract checker and trace-record helper (methodology). | Yes (stdlib), with your own trace data |
 | `normalization/` | Host-side WAV peak normalizer, independent oracle, 278-check synthetic fixture suite. See `normalization/README.md`. | **Yes** (Python stdlib) |
+| `fx/` | Pure-Python models of four 1.60 effects (LoFi, multi-mode filter, 2-band EQ, Phaser) and the shared modulation oscillator, bit-exact to the 1.60 routines run in a single-function emulator; transliterations of the glibc 2.13 (fdlibm) float math they need. See `fx/README.md`; the emulation harness that validated them is in `fx/verify/` (reference code). | **Yes** (Python stdlib). Checking against firmware needs your own 1.60 files |
 
 Labels and the import script for Ghidra are in `../symbols/`.
 

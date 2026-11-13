@@ -67,3 +67,10 @@ emulation/app/reference/harness/full-device
 emulation/app/reference/harness/captures/
 emulation/app/reference/harness/logs/
 *.xauth
+
+# Effects harness: your own firmware/libraries and run output (never commit)
+tools/fx/target/
+tools/fx/decoded/
+tools/fx/verify/out/
+harness/out/
+*.f32

@@ -33,7 +33,8 @@ the entry says so. Nothing here asserts a result the note did not support.
 ## Contents
 
 - **A — firmware catalog & tooling** · **B — 1.60 app-emulation startup** ·
-  **C — UI / input** · **D — normalize** · **E1 — board-emulator sources** below.
+  **C — UI / input** · **D — normalize** · **E1 — board-emulator sources** ·
+  **F — effects (1.60)** below.
 - [`E2-updater-usb-diagnostic-SUMMARY.md`](E2-updater-usb-diagnostic-SUMMARY.md)
   — six 1.50 updater/USB/diagnostic studies, **summary only** (owner decision).
 - [`NO-WRITEUP-FOLDERS.md`](NO-WRITEUP-FOLDERS.md) — 45 experiment folders with
@@ -45,6 +46,20 @@ the entry says so. Nothing here asserts a result the note did not support.
   — cross-cutting lessons and dead ends.
 
 ---
+
+## F — Effects (1.60) (1 note)
+
+The evidence behind [`../docs/effects/`](../docs/effects/README.md), from an automated
+worker/critic research loop (nine cycles, one hypothesis each, every result re-run by
+an independent review pass). Published as the findings ledger, plus the method write-up [`methods/worker-critic-research-loop.md`](methods/worker-critic-research-loop.md). The nine per-cycle
+logs are **not** published: their conclusions, refuted alternatives and evidence hashes
+are all in the ledger, and the logs are mostly process (tool sessions, scratch paths)
+(evidence not published).
+
+| note | question → result | status (editor-assigned) |
+|---|---|---|
+| [findings-ledger](F-effects/findings-ledger.md) | How does the 1.60 app process effects, and can each effect be reconstructed bit-exactly? → Audio path, effect selection and the `EffectBase` interface established. LoFi, multi-mode filter, 2-band EQ, Phaser and the shared oscillator reconstructed, with Python models bit-exact to the routines run in a single-function emulator. Chorus/Flanger cores confirmed; other effects not started. | demonstrated-in-emulator (single function); static finding for the call chain |
+
 
 ## A — Firmware catalog & tooling (6 notes)
 

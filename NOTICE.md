@@ -6,10 +6,31 @@
 |---|---|
 | Original code: `tools/**`, `emulation/**` and `symbols/*.py`, `symbols/*.java` | MIT — see [LICENSE](LICENSE) |
 | Original prose: `README.md`, `NOTICE.md`, `DISCLAIMER.md`, `CONTRIBUTING.md`, `docs/**`, and the prose in each `README.md` | CC BY 4.0 — see [LICENSE-docs](LICENSE-docs) |
-| The label data `symbols/labels-1.60.{json,csv}`, `symbols/annotations-reviewed-1.60.json`, `symbols/partial-structures-1.60.txt` (names, addresses, types inferred by the analysts) | CC BY 4.0 |
+| The label data `symbols/labels-1.60.{json,csv}`, `symbols/annotations-reviewed-1.60.json`, `symbols/partial-structures-1.60.txt`, `symbols/fx-functions-1.60.csv` (names, addresses, types inferred by the analysts) | CC BY 4.0 |
 
 These licenses cover **only** material this project's contributors authored, and
 grant no rights the contributors do not have.
+
+## Third-party notice kept in project code
+
+`tools/fx/fdlibm_powf.py`, `tools/fx/fdlibm_tanf.py` and `tools/fx/fdlibm_sincosf.py`
+are Python transliterations of the public fdlibm single-precision algorithms, as
+shipped in glibc 2.13. They contain no firmware bytes. The fdlibm notice, which each
+file repeats and which must be preserved:
+
+> Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+> Developed at SunPro, a Sun Microsystems, Inc. business.
+> Permission to use, copy, modify, and distribute this software is freely granted,
+> provided that this notice is preserved.
+
+The single-precision conversion is credited to Ian Lance Taylor, Cygnus Support. The
+project's own changes to these files are MIT. `tools/fx/crmath.py` is the project's own
+code (high-precision series in Python's `decimal` module), with no third-party source.
+
+The effect models do **not** include the 8192-entry table that the oscillator's random
+waveform reads from the firmware's `.data`. Users supply it from their own copy of the
+firmware (see `tools/fx/README.md`).
+
 
 ## Material NOT covered by those licenses
 

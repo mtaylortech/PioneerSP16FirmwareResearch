@@ -112,6 +112,35 @@ literally.
   reproducible with [`emulation/board/`](../emulation/board/) (the USB/diagnostic
   arm is not included).
 
+## Effects (1.60)
+
+Full detail, evidence IDs and a per-effect status table: [effects/README.md](effects/README.md).
+
+- **Supported (static):** all effects processing is CPU code in `EP085_Main_R`, on
+  the path that produces the ALSA output. The application has no FX offload device
+  (kernel codec drivers not examined). The call chain from JUCE's ALSA thread through
+  the audio graph and `CompositeFxUnit` to the Master and Send effect processors is
+  traced edge by edge. The per-track Insert route, the mixer and the send levels are
+  **not** traced.
+- **Supported (static; confirmed in emulation):** each effect processor builds one
+  object per effect type and switches by index, translating stored effect IDs through
+  fixed tables. Every effect implements the `EffectBase` interface: parameters through
+  vtable slot 14, the shared dispatcher in slot 18, and the per-effect audio entry in
+  slot 25. Activation, the dry/wet mix and a ≈10 Hz high-pass on the wet signal
+  (filter type *likely*) are shared `EffectBase` stages, not part of the effects.
+- **Demonstrated (single-function emulator):** **LoFi**, the **multi-mode filter**,
+  the **2-band EQ** and the **Phaser** are fully reconstructed: signal flow, every
+  parameter formula and the object layout. Their Python models in
+  [tools/fx/](../tools/fx/README.md) are bit-exact to the 1.60 routines run one at a
+  time in an emulator, including adversarial review cases. The same holds for the
+  **shared modulation oscillator** (seven waveforms) that drives the Phaser, Chorus and
+  Flanger. None of this was compared with audio from a real SP-16.
+- **Partial:** Chorus and Flanger are confirmed to be oscillator-modulated delay lines
+  (kernels re-stated bit-exactly). Their parameter formulas and end-to-end models are
+  not done. **Not started:** Distortion (construction emulated only), Delay, Reverb,
+  Compressor, Ducker, the limiter, the mixer and the send levels. Open questions:
+  [open-questions.md → Effects](open-questions.md#effects).
+
 ## What was NOT achieved (so no one over-reads the above)
 
 - No authentic hardware boot, no real audio/DSP, no broad instrument usability.
@@ -120,6 +149,8 @@ literally.
   proof.
 - No work on a physical unit beyond the owner's report that theirs runs OS 1.5
   and boots/plays normally.
+- No effect model was compared with audio from a physical unit; the models
+  match the emulated 1.60 routines only.
 
 ## Reusable methods (the transferable part)
 

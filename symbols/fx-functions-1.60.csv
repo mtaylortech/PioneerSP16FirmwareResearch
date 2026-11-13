@@ -1,0 +1,387 @@
+address,end_address,name,kind,role,confidence,findings
+0xff40,,powf,plt,"glibc 2.13 libm (fdlibm float routines, F044)",high,F038–F044
+0x104c8,,tanf,plt,glibc 2.13 libm = fdlibm tanf (F048),high,F045–F050
+0x1078c,,memcpy,plt,,high,F010
+0x10ab0,,log10f,plt,"glibc 2.13 libm (fdlibm float routines, F044)",high,F038–F044
+0x10e58,,tan,plt,"glibc 2.13 libm (fdlibm float routines, F044)",high,F038–F044
+0x11098,,__cxa_pure_virtual,plt,,high,F010
+0x137cc,,static_init_bss_f52ebc,function,".init_array entry: 0xf52ebc = 17.0; 0xf52ec0..cc = 1000^(1/250), inverse, 50^(1/100), inverse (LoFi filter step multipliers, F028); log10f/pow",high,F020–F025
+0x13a28,,static_init_q_step_globals,function,".init_array: 0xf52ef4 = 50^(1/100), 0xf52ef8 inverse",high,F032–F037
+0x13aa8,,static_init_peq_step_globals,function,".init_array: 0xf52f00/04 = powf(10,0.012f), inverse; 0xf52f08/0c = powf(10,0.02f), inverse",high,F038–F044
+0x6cb20,,static_init_phaser_sync_table,function,.init_array; store block 0x6cbe0–0x6ce8c,high,F045–F050
+0xe16dc,,IirFilter_process,function,"DF-I biquad, NEON 2-lane L/R, v = x + k·y_prev",high,F026–F031
+0xe1844,,IirFilter_reseed,function,re-filters the last 4 inputs after a type switch (flag +0x48),med,F026–F031
+0xe1bb8,,IirHpf2ndOrder_calcCoefs,function,bilinear 2nd-order coefficients (F028); BPF asserts Q > 0.01 via 0x4f782c,high,F026–F031
+0xe1ca0,,IirLpf2ndOrder_calcCoefs,function,bilinear 2nd-order coefficients (F028); BPF asserts Q > 0.01 via 0x4f782c,high,F026–F031
+0xe1d88,,IirBpf2ndOrder_calcCoefs,function,bilinear 2nd-order coefficients (F028); BPF asserts Q > 0.01 via 0x4f782c,high,F026–F031
+0xe1edc,,IirFilter_ctor,function,sub-filter 0x50 (layout F029),high,F026–F031
+0xe2440,,PeakingFilter_calcCoefs_s9,function,Zölzer boost-form peak (F040),high,F038–F044
+0xe2540,,LowShelvingFilter_calcCoefs_s9,function,Zölzer boost-form low shelf (F040),high,F038–F044
+0xe27b8,,IirFilter2_processKernel_s8,function,"DF-I NEON 2-lane, re-seed via +0x78",high,F038–F044
+0xe2ab4,,IirFilter2_configure_s6,function,"stores fc/Q/gain only within limits, p = 10^(g/20) − 1, coefs, re-seed flag",high,F038–F044
+0xe2cf8,,IirFilter2_clearTaps,function,,med,F038–F044
+0xe2df0,,IirFilter2_ctor,function,"base 0x90, vt 0x83bc60; limits table",high,F038–F044
+0xe30e4,,PeakingFilter_ctor,function,Zölzer boost-form peak (F040),high,F038–F044
+0xe311c,,LowShelvingFilter_ctor,function,Zölzer boost-form low shelf (F040),high,F038–F044
+0xe34d8,,IirFilter2_process_s2,function,"DF-I NEON 2-lane, re-seed via +0x78",high,F038–F044
+0xe8228,,,function,"post-effect dry/wet mix, n=64",low,F010
+0xe8900,,GainRamp_ctor,function,"(obj, N, initial); MMF N = 132, 1.0",high,F032–F037
+0xe895c,,GainRamp_setTarget,function,"(obj, g, force, delay): linear ramp over N",high,F032–F037
+0xe89f0,,GainRamp_process,function,"(obj, inL, inR, outL, outR, n)",high,F032–F037
+0xe9358,,GainRamp_setNow,function,"cur = target = g, ramp cleared",high,F038–F044
+0xf0738,,ToggleParameter_setValue,function,vt 0x840b20,high,F045–F050
+0xf0814,,ToggleParameter_get,function,vt 0x840b20,high,F045–F050
+0xf0858,,ToggleParameter_consumeChange,function,vt 0x840b20,high,F045–F050
+0xf0874,,LinearParameter_setValue,function,"slot 4: float → +0x28 (unclamped), choice → +0x44 = (int)v",high,F026–F031
+0xf0898,,Parameter_getValue,function,,med,F026–F031
+0xf0ffc,,Parameter_consumeChange,function,"change = last ≠ current (int, or float within ±FLT_MIN); F026",high,F026–F031
+0xf1800,,ToggleParameter_ctor,function,vt 0x840b20,high,F045–F050
+0xf1850,,,function,"LinearParameter constructor, float kind (ctor 'last' default 0.5)",med,F026–F031
+0xf1a00,,,function,"LinearParameter constructor, choice kind (ctor 'last' 0 / 2 for LoFi choices)",med,F026–F031
+0xf3868,,IirLpf2ndOrder_s4,function,wrappers → calcCoefs,high,F026–F031
+0xf3890,,IirHpf2ndOrder_s4,function,wrappers → calcCoefs,high,F026–F031
+0xf4e5c,,SignalGate_ctor,function,"vptr 0x840e40; scratch buffer, fs, block",high,F026–F031
+0xf505c,,SignalGate_setFadeSamples,function,"N (132 = 3 ms for LoFi), 1/N",high,F026–F031
+0xf50b8,,SignalGate_setClosedNow,function,ramp current := off (0.0),high,F026–F031
+0xf5188,,SignalGate_close,function,start ramp to on / off,high,F026–F031
+0xf5198,,SignalGate_open,function,start ramp to on / off,high,F026–F031
+0xf521c,,SignalGate_applyGateGain,function,multiply the input by the gate ramp,high,F026–F031
+0xf5584,,SmoothFloat_setNow,function,"linear ramp, float32 increment",high,F026–F031
+0xf55a4,,SmoothFloat_fillGains,function,"linear ramp, float32 increment",high,F026–F031
+0xf5668,,SmoothFloat_setTarget,function,"linear ramp, float32 increment",high,F026–F031
+0xf5a54,,SignalGate_applyRamp,function,,med,F026–F031
+0xf61a0,,Ducker_ctor,function,,high,F016–F019
+0xf6ef4,,Ducker_processEntry_s25,function,VFP loops,high (entry),F010
+0xf7584,,FxCompressor_ctor,function,,high,F016–F019
+0xf8050,,FxCompressor_processEntry_s25,function,indexed float loop,high (entry),F010
+0xf8270,,SendFxCompressor_processEntry_s25,function,indexed float loop,high (entry),F010
+0xf8718,,InsertFxCompressor_processEntry_s25,function,indexed float loop,high (entry),F010
+0xf8a20,,InsertFxCompressor_ctor,function,,high,F016–F019
+0xf8a40,,SendFxCompressor_ctor,function,,high,F016–F019
+0xfa568,,c_distortion_ctor,function,oscillator config F054,high,F051–F056
+0xfa78c,,c_distortion_process,function,"HPF/LPF/auto-gain/drive/soft-clip (F056, decompile only)",med,F051–F056
+0xfaef4,,LoFi_updateMix_s26,function,"EffectBase +0x14 = wet = MIX, +0x10 = dry = 1 − MIX",high,F026–F031
+0xfaf28,,LoFiCrusher_process,function,sign·(trunc(2^b·√abs(x))/2^b)²,high,F026–F031
+0xfb20c,,LoFi_updateChangedParams,function,applies changed parameters (formulas F028) before processing,high,F020–F025
+0xfb3d8,,,call site,"call site in LoFi; pow(1000, CUTOFF) → cutoff 20·1000^CUTOFF Hz",high,F020–F025
+0xfb5a4,,LoFi_reset_s27,function,"clears sub-filter taps and S&H holds, phase := step (decompile only)",med,F026–F031
+0xfb6e4,,LoFiPreamp_process,function,"clip ±1/g, × (1 + 0.2g)/1.2, 44-sample gain ramp",high,F026–F031
+0xfb8e0,,,function,LoFi S&H standalone; sample-and-hold routine; the chain uses an inline copy,med,F026–F031
+0xfb994,,LoFiFilter_rampSetup,function,exponential cutoff/Q step counts; > 38 steps → gated jump,high,F026–F031
+0xfbb70,,LoFiFilter_process,function,"cutoff/Q stepping, type switch, sub-filter process, filter gate",high,F026–F031
+0xfbf64,,LoFi_chain,function,position-gate gain; preamp → crusher → S&H → filter (filter first if +0x4b0 == 0),high,F026–F031
+0xfc0f4,,LoFi_process_s25,function,apply params → position gate → 0xfbf64 → slot 26 if MIX changed; returns 0,high,F026–F031
+0xfc434,,PerformanceFxLoFi_processEntry_s25,function,,high (entry),F010
+0xfc5e4,,LoFiFilter_ctor,function,"container 0x44: HPF, LPF, BPF, Off sub-filters; gate closed",high,F026–F031
+0xfd640,,LoFi_ctor,function,"(obj, fs, block); new 0x4b8, vptr 0x841a68",high,F026–F031
+0xfdbf0,,IirOff_process,function,bx lr,high,F026–F031
+0xfdc0c,,IirBpf2ndOrder_s4,function,wrappers → calcCoefs,high,F026–F031
+0xfe710,,c_chorus_process_s19,function,"linear-interpolated delay line, 4474-sample ring, start-up mute + 3.3 ms ramp (F055)",high,F051–F056
+0xfeb10,,c_chorus_s3_rate,function,c_chorus vtable slot 3: rate -> Osc setFrequency (clamped 0.00104..64 Hz),high,F051–F056
+0xfebc4,,c_chorus_s4,function,c_chorus vtable slot 4,low,F051–F056
+0xfec34,,c_chorus_s6_phase,function,c_chorus slot 6: phase -> setPhaseOffset,high,F051–F056
+0xfed90,,c_chorus_s5_depth,function,c_chorus slot 5: depth -> amplitude/offset,high,F051–F056
+0xfeecc,,c_chorus_s7_depthScale,function,c_chorus slot 7: depth scale -> amplitude/offset,high,F051–F056
+0xff008,,c_chorus_ctor,function,oscillator config F054,high,F051–F056
+0xff9ac,,c_flanger_process_s19,function,"372-sample ring, pre-gain feedback +0x10c, gain g(d) (F055)",high,F051–F056
+0xffdc4,,c_flanger_s3_rate,function,,high,F051–F056
+0xffe68,,c_flanger_s6_phase,function,,high,F051–F056
+0xfff50,,c_flanger_s4,function,,low,F051–F056
+0xfffd4,,c_flanger_s5_depth,function,,high,F051–F056
+0x100104,,c_flanger_s7_depthScale,function,,high,F051–F056
+0x100234,,c_flanger_ctor,function,oscillator config F054,high,F051–F056
+0x100710,,Osc_init,function,"sets all fields per waveform 0..6; invalid → +0x0c = −1, returns 0",high,F051–F056
+0x100af0,,Osc_ctor,function,"(osc, wave, freq, fs): init first, then table ptr +0x90 and id +0x08 (F051 quirks)",high,F051–F056
+0x100b28,,Osc_initPeriodMs,function,"shared vtable-less oscillator (0x98 B), F047",high,F045–F050
+0x100b54,,,function,oscillator getter (no direct caller found),low,F051–F056
+0x100b5c,,Osc_setWaveform,function,same value = no-op (confirmed); new value converts phase position (not modelled),med,F051–F056
+0x101090,,Osc_setFrequency,function,P = 44100/f − 1 (literal 44100),high,F045–F050
+0x1012f8,,,function,oscillator getter (no direct caller found),low,F051–F056
+0x101320,,Osc_setPeriodMs,function,P = 44100/f − 1 (literal 44100),high,F045–F050
+0x101440,,Osc_resetPhase,function,,high,F045–F050
+0x1015c8,,Osc_initMsPhaseAmp,function,"re-init from period ms, phase, amplitude (LfoProcessor)",med,F051–F056
+0x101620,,,function,oscillator getter (no direct caller found),low,F051–F056
+0x1016dc,,,function,oscillator getter (no direct caller found),low,F051–F056
+0x1017d4,,Osc_setPhaseOffset,function,,high,F045–F050
+0x1019d8,,Osc_setAmplitude,function,,high,F045–F050
+0x1019e4,,Osc_setOffset,function,,high,F045–F050
+0x1019f0,,Osc_setSmoothingHz,function,,high,F045–F050
+0x101b30,,Osc_resync,function,sine amplitude renormalisation ≈ 1/s,high,F051–F056
+0x101bdc,,Osc_process,function,"stereo, waveforms 0..6, smoother, resync (F052)",high,F051–F056
+0x1025d4,,Osc_processMono,function,LfoProcessor only; not modelled,med,F051–F056
+0x102c50,,Osc_setRandomOffset,function,+0x88 (LfoProcessor callers),high,F051–F056
+0x102c58,,Osc_nextRandom,function,random-table helper,low,F051–F056
+0x102cb0,,Osc_setSmoothingOff,function,,high,F045–F050
+0x102cc0,,InsertFxDelay_processEntry_s25,function,→ own slot 33,high (entry),F010
+0x103488,,InsertFxDelay_ctor,function,,high,F016–F019
+0x104e90,,SendFxDelay_processEntry_s25_thunk,function,"slot-25 thunk: adjusts this by -0x238, continues at 0x104e98",high (entry),F010
+0x104e98,,SendFxDelay_processEntry_s25,function,target of the slot-25 thunk 0x104e90 (this − 0x238),high (entry),F010
+0x1054ac,,SendFxDelay_ctor,function,SendFxDelay stored as obj+0x238 (EffectBase sub-object),high,F016–F019
+0x1059b0,,EffectBase_s22,function,stores byte e+0xa8,med,F020–F025
+0x1059bc,,EffectBase_gateState_s9,function,→ 0x1079d0,high,F020–F025
+0x105c20,,EffectBase_s8_target2,function,"0x107310(gate, 1, e+0x60) / slot-8 variant",high (s7); s8 med,F020–F025
+0x105c58,,EffectBase_s7_target1,function,"0x107310(gate, 1, e+0x60) / slot-8 variant",high (s7); s8 med,F020–F025
+0x105d24,,EffectBase_setParameter_s14,function,"(e, index, float in r2) → parameter vtable 0x840ac8 +0x10",high,F020–F025
+0x10623c,,EffectBase_start_s5,function,"reset (slots 27/26/31) + 0x107310(gate, 2, e+0x30)",high (calls); role med,F020–F025
+0x1067d8,,EffectBase_ctor,function,,high,F016–F019
+0x106c7c,,EffectBase_setCC_D0,function,"+0xcc = r1 (byte), +0xd0 = r2 (float); Insert init passes (1, 10.0f)",high,F020–F025
+0x106c88,,EffectBase_postStage,function,wet-copy post-stage on the slot-18 copy path; ≈10 Hz one-pole HPF,high (stage); filter med,F020–F025
+0x106de4,,EffectBase_process_s18,function,shared dispatcher → slot 25; skip/offset/clamp n; in-place or copy path,high,F010
+0x10711c,,EffectInOutGain_ctor,function,"gate object at [e+0xc8], vptr 0x842078",high,F020–F025
+0x1072bc,,EffectInOutGain_resetState,function,,low,F020–F025
+0x107310,,EffectInOutGain_setTargetState,function,"(gate, state, src); pending +0x28/+0x2c when +0xd0 set",med,F020–F025
+0x107374,,EffectInOutGain_applyPendingTarget,function,applied at the next slot 18,med,F020–F025
+0x1074c4,,,function,called before slot 25 on the copy path,low,F020–F025
+0x10770c,,EffectInOutGain_mixWriteBack,function,"(gate, L, R, cL, cR, n): dry/wet write-back; MIX=0 → bit-exact dry",high (call); role med,F020–F025
+0x1079d0,,EffectInOutGain_activeState,function,0 → slot 18 passes through untouched,high,F020–F025
+0x107b20,,MMF_s23,function,not examined,low,F032–F037
+0x107b28,,MMF_s24,function,not examined,low,F032–F037
+0x107b30,,MMF_updateMix_s26,function,"wet +0x14 = v, dry +0x10 = 1 − v",high,F032–F037
+0x107b64,,MMFFilterStage_configure24dB,function,"Q' = √Q to both biquads; fc clamp [5 Hz, Nyquist]; VFP-arg local function",high,F032–F037
+0x107c24,,MMF_applyTypeDb,function,"(FILTERTYPE, FILTERDB) → kind 0..6",high,F032–F037
+0x107d18,,MMF_updateChangedParams,function,"CUTOFF, Q, GAIN, GLIDE, type/dB (formulas F034)",high,F032–F037
+0x107fa8,,MMF_reset_s27,function,"re-applies params, clears current kind's biquad taps (decompile only)",med,F032–F037
+0x1080a0,,MMFFilterStage_ctor,function,"stage 0xc: kind, biquad 1, biquad 2",high,F032–F037
+0x108608,,MMFFilter_rampSetup,function,step counts; gated jump only at GLIDE 0 and > G·152/1000 steps,high,F032–F037
+0x108808,,MMFFilter_process,function,"cutoff/Q stepping, kind swap via gate, stage biquads, filter gate",high,F032–F037
+0x108ee4,,MMF_process_s25,function,params → filter container → GainRamp → slot 26 if MIX changed; returns 0,high,F032–F037
+0x10913c,,MMFFilter_ctor,function,"container 0x50, 7 stages, gate closed, kind 0",high,F032–F037
+0x109e8c,,MMF_ctor,function,"(obj, fs, block); new 0x4a0, vptr 0x8420b8; 8 parameters (F032)",high,F032–F037
+0x10a4c8,,PEQ_s23,function,return 4; meaning unknown,low,F038–F044
+0x10a4d0,,PEQ_s24,function,return 4; meaning unknown,low,F038–F044
+0x10a4d8,,PEQ_setDryWet_s26,function,"dry 0.0 / wet 1.0, every block",high,F038–F044
+0x10a4f0,,PEQ_updateChangedParams,function,freq/gain/Q/type formulas (F041),high,F038–F044
+0x10a7ec,,PEQ_reset_s27,function,"re-applies params, clears current stage taps (static only)",med,F038–F044
+0x10a928,,PEQBandStage_ctor,function,"stage 0x10: IirFilter, IirFilter2, GainRamp, type",high,F038–F044
+0x10abdc,,PEQBand_rampSetup,function,"step counts (trunc), jump thresholds 38/70/250",high,F038–F044
+0x10ae70,,PEQ_process_s25,function,params → band 1 → band 2 (series) → slot 26; returns 0,high,F038–F044
+0x10afd4,,PEQBand_ctor,function,"band 0x64: 5 stages, SignalGate (closed), GainRamp N 44",high,F038–F044
+0x10baec,,PEQ_ctor,function,"(obj, fs, block); new 0x4a0, vptr 0x842198; 8 parameters (F038), 2 bands",high,F038–F044
+0x10c070,,PEQBand_swapType,function,"current := pending, sets targets; null stage for type ≥ 5",high,F038–F044
+0x10c208,,PEQBand_process,function,"gate states, glide chunk loop, stage filter + GainRamp, band gate",high,F038–F044
+0x10cb38,,Phaser_retrigger_s10,function,sets +0x4ec (resetPhase 0.25 next block),high,F045–F050
+0x10cb48,,Phaser_updateMix_s26,function,"wet = Mixratio, dry = 1 − Mixratio",high,F045–F050
+0x10cb78,,Phaser_reset,function,"state clear, oscillator re-init, seed a",high,F045–F050
+0x10cf30,,Phaser_reset_s27,function,"state clear, oscillator re-init, seed a",high,F045–F050
+0x10cf40,,Phaser_allpassKernel,function,"NEON: feedback LPF, 6 first-order all-passes, (in + ap)·g(a)",high,F045–F050
+0x10d260,,Phaser_processBlock,function,"change handling, oscillator, cubic coefficient targets, ramps, kernel (F046)",high,F045–F050
+0x10d630,,Phaser_process_s25,function,0x10d260 then slot 26; returns 0,high,F045–F050
+0x10d654,,Phaser_ctor,function,"(obj, fs, block); new 0x4f0, vptr 0x8422b8; 8 parameters (F045), oscillator waveform 1",high,F045–F050
+0x10def0,,Phaser_s23,function,return 0,high,F045–F050
+0x10def8,,Phaser_s24,function,return 0,high,F045–F050
+0x10df00,,Phaser_updateRate,function,Rate/Sync/Bpm → period ms → oscillator,high,F045–F050
+0x111730,,SendFxReverb_processEntry_s25,function,"→ own slot 32, then Reverb9NXSBase +0x48",high (entry),F010
+0x1123d0,,SendFxReverb_ctor,function,SendFxDelay stored as obj+0x238 (EffectBase sub-object),high,F016–F019
+0x1128cc,,FxProcessorBase_ctor,function,"zeroes FX list +0x80/+0x84/+0x88, +0x8c/+0x90; +0x9d = +0x9e = 1",high,F016–F019
+0x1129bc,,FxProcessorBase_setFlag9d,function,writes +0x9d (manager slot 46 via 0x11caf4),med,F020–F025
+0x112a08,,FxProcessorBase_setFlag9e,function,"writes +0x9e (@0x112a1c); (proc,1) calls current effect slot 6 (e,1.0f); from manager slot 9 via 0x11cafc",high (writes); role med,F020–F025
+0x112acc,,MasterFxProcessor_processBlock_s5,function,"same pattern (one slot-18 call, n=0x40)",high,F010
+0x112cbc,,MasterFxProcessor_getPendingFxIndex_s48,function,current / pending getters,"high (slot), med (role)",F016–F019
+0x1132e4,,MasterFxProcessor_setFxType_s47,function,,high,F016–F019
+0x113398,,MasterFxProcessor_getCurrentFxIndex_s46,function,current / pending getters,"high (slot), med (role)",F016–F019
+0x114bc0,,MasterFxProcessor_ctor,function,"10 effects each; +0xa0 current, +0xa4 pending",high,F016–F019
+0x115d48,,Distortion_process_s25,function,rate/sync/bpm change → kernel slot 3; kernel process,high,F051–F056
+0x115d70,,Chorus_process_s25,function,rate/sync/bpm change → kernel slot 3; kernel process,high,F051–F056
+0x115f58,,Flanger_process_s25,function,rate/sync/bpm change → kernel slot 3; kernel process,high,F051–F056
+0x116224,,Chorus_setParameter_s14,function,,high,F051–F056
+0x1163f0,,Flanger_setParameter_s14,function,,med,F051–F056
+0x1164d8,,Distortion_setParameter_s14,function,,med,F051–F056
+0x11681c,,InsertFxProcessor_loadEstimate_s45,function,table 0x842be0[current],med,F016–F019
+0x116838,,InsertFxProcessor_getPendingFxIndex_s48,function,return +0xa4 / +0xa8,high,F016–F019
+0x116860,,InsertFxProcessor_processBlock_s5,function,"64-sample block: dry copy, effect slot 18, mix 0xe8228",high,F010
+0x11735c,,InsertFxProcessor_setFxType_s47,function,sets pending +0xa8 (or current+pending when none current),high,F016–F019
+0x117434,,,function,switch body of InsertFxProcessor_initEffectDefaults_s52 (per-index defaults),med,F016–F019
+0x118a9c,,InsertFxProcessor_initEffectDefaults_s52,function,per-index parameter defaults; switch body at 0x117434,med,F016–F019
+0x118b0c,,InsertFxProcessor_ctor,function,vptr 0x842c10; builds 10 effects (F016); +0xa4 = +0xa8 = −1,high,F016–F019
+0x118b50,0x118c64,InsertFxProcessor_ctor_inlineChorus,code range,Chorus new 0x2b0 / Flanger 0x2b0 / Distortion 0x1d8 (F056),high,F051–F056
+0x118cd8,0x118ddc,InsertFxProcessor_ctor_inlineFlanger,code range,Chorus new 0x2b0 / Flanger 0x2b0 / Distortion 0x1d8 (F056),high,F051–F056
+0x119060,0x1190ec,InsertFxProcessor_ctor_inlineDistortion,code range,Chorus new 0x2b0 / Flanger 0x2b0 / Distortion 0x1d8 (F056),high,F051–F056
+0x1195f0,,,instruction,"instruction in InsertFxProcessor_ctor; strb #0,[this,#0x9e]: freshly built processor activates its effect on block 1",high,F020–F025
+0x119900,,InsertFxProcessor_getCurrentFxIndex_s46,function,return +0xa4 / +0xa8,high,F016–F019
+0x119980,,SendFxProcessor_getPendingFxIndex_s48,function,current / pending getters,"high (slot), med (role)",F016–F019
+0x119994,,SendFxProcessor_processBlock_s5,function,"same pattern (one slot-18 call, n=0x40)",high,F010
+0x11a254,,SendFxProcessor_setFxType_s47,function,,high,F016–F019
+0x11a308,,SendFxProcessor_getCurrentFxIndex_s46,function,current / pending getters,"high (slot), med (role)",F016–F019
+0x11bbe4,,SendFxProcessor_ctor,function,"10 effects each; +0xa0 current, +0xa4 pending",high,F016–F019
+0x11fa0c,,FxParameterManagerBase_ctor,function,"+0x1c = processor (arg 4, @0x11fa78)",high,F016–F019
+0x1237cc,,MasterFxPM_applyFxType_s32,function,case j → setFxType(j); names Delay…Phaser,high,F016–F019
+0x1262b0,,InsertFxPM_effectIdToIndex_s53,function,table 0x843d98 / +0x50,high,F016–F019
+0x1262cc,,InsertFxPM_indexToEffectId_s54,function,table 0x843d98 / +0x50,high,F016–F019
+0x12864c,,InsertFxParameterManager_ctor,function,only caller 0x1bacec @0x1bbda0,high,F016–F019
+0x1287d4,,InsertFxPM_applyFxType_s32,function,"effectId → index → setFxType, writes type name to prj::EffectData",high,F016–F019
+0x134e14,,LfoProcessor_updateOsc,function,,med,F051–F056
+0x134fc4,,LfoProcessor_reinitOsc,function,,med,F051–F056
+0x135da0,,LfoProcessor_ctor,function,"RTTI 12LfoProcessor, vt 0x8451ec; not FX",high,F051–F056
+0x153980,,AudioJob_run_processBlock,function,unit->processBlock vt+0x14,high,F012–F015
+0x153998,,,function,"job assignment by load estimate (vt+0xb4), with 0x1541fc",low,F012–F015
+0x1539c0,,ParallelAudioProcessingManager_execute_s5,function,"vtable 0x849190; runs own jobs, nanosleep spin-wait",high,F012–F015
+0x153e98,,ParallelAudioProcessingManager_ctor,function,"vtable 0x849190; runs own jobs, nanosleep spin-wait",high,F012–F015
+0x1541fc,,,function,"job assignment by load estimate (vt+0xb4), with 0x153998",low,F012–F015
+0x155ea0,,ParallelAudioProcessingWorkerThread_run,function,vtable 0x849288; AudioWorker* threads,high,F012–F015
+0x1a94cc,,CompositeFxUnit_processBlock_s5,function,"+0x8c Master, +0x90 Send, +0x94 pool",high,F012–F015
+0x1aa808,,CompositeFxUnit_ctor,function,"+0x8c Master, +0x90 Send, +0x94 pool",high,F012–F015
+0x1b1b80,,MasterFxUnit_processBlock_s5,function,+0x84 MasterFxProcessor,high,F012–F015
+0x1b1d30,,MasterFxUnit_ctor,function,+0x84 MasterFxProcessor,high,F012–F015
+0x1b3068,,SendFxUnit_processBlock_s5,function,+0x8c SendFxProcessor; +0x80/+0x90 children unidentified,high (role of children low),F012–F015
+0x1b3314,,SendFxUnit_ctor,function,+0x8c SendFxProcessor; +0x80/+0x90 children unidentified,high (role of children low),F012–F015
+0x1b5b84,,AudioSystemBase_start,function,start reached via thunk 0x1b5b7c (IAudioSystem vtable 0x863f74 slot 48),high,F012–F015
+0x1b5c5c,,AudioSystemBase_stop,function,start reached via thunk 0x1b5b7c (IAudioSystem vtable 0x863f74 slot 48),high,F012–F015
+0x1b5e0c,,AudioSystemBase_initDevice_44100_64,function,"sets AudioDeviceSetup, calls initialise",high,F012–F015
+0x1b6020,,AudioSystemBase_addNamedNode,function,→ addNode @0x1b6034,high,F012–F015
+0x1b8198,,AudioSystemBase_ctor,function,"player at +0x268, requests 44100/64",high,F012–F015
+0x1bacec,,,function,unnamed) multi-track builder; new InsertFxProcessor @0x1bbd80 + its manager @0x1bbda0,med,F016–F019
+0x1bc8d4,,HexaTrackAudioSystem_buildGraph_s55,function,vtable 0x863da0,high,F012–F015
+0x1c12a0,,HexaTrackAudioSystem_processBlock_s5,function,vtable 0x863da0,high,F012–F015
+0x1c2cac,,HexaTrackAudioSystem_ctor,function,vtable 0x863da0,high,F012–F015
+0x349778,,,data,Chorus rate table (with 0x349798),likely,F055
+0x349798,,,data,Chorus rate table (with 0x349778),likely,F055
+0x34c240,,PhaserRate_indexToHz,function,value tables (F048),high,F045–F050
+0x34c2a8,,PhaserSync_indexToFraction,function,value tables (F048),high,F045–F050
+0x34c8c8,,PhaserFreq_indexToHz,function,value tables (F048),high,F045–F050
+0x384a38,,DsfHipassDac_writeData,function,2-byte SPI control write to /dev/dac_spi4.0,high,F012–F015
+0x4f782c,,,function,"log/assert; ""%s - %s"" formatter via vsprintf; reached from IirFilter::calcCoefBpf2ndOrder",med,F026–F031
+0x576afc,,,function,CompositeFxUnit fills its internal unit buffers,low,F012–F015
+0x5775c8,,,function,ALSA-loop copy stage: clear-like (H015),low,F012–F015
+0x577d5c,,,function,ALSA-loop copy stage: copyFrom-like (H015),low,F012–F015
+0x578634,,,function,vector helper: fill (NEON x4 + VFP tail),med,F026–F031
+0x579018,,,function,vector helper: multiply by buffer (NEON x4 + VFP tail),med,F026–F031
+0x579178,,,function,vector helper: multiply by scalar (NEON x4 + VFP tail),med,F026–F031
+0x5792c8,,vec_mulScalarTo,function,"(dst, src, g, n), NEON ×4 with FTZ + VFP tail",high,F032–F037
+0x589ab8,,juce_ALSAAudioIODevice_start,function,slot 10; stores callback at device+0x148,high,F012–F015
+0x58c224,,juce_ALSAAudioIODeviceType_createDevice,function,"new(0xac0), vptrs 0x935f98 / 0x936000",high,F012–F015
+0x58dbb0,,juce_ALSADevice_readFromInputDevice,function,float→int + writei/writen; readi/readn,high,F012–F015
+0x58df80,,juce_ALSADevice_writeToOutputDevice,function,float→int + writei/writen; readi/readn,high,F012–F015
+0x58e394,,juce_ALSAThread_run,function,"ALSA render loop (vtable 0x936000 slot 2): wait/avail/write ×3, callback, copy stage",high,F012–F015
+0x58eea0,,juce_ALSADevice_setParameters,function,"hw_params (Pioneer extra flag → S16_LE, 2·ch)",high,F012–F015
+0x590320,,juce_ALSAAudioIODevice_open,function,"vtable 0x935f98 slot 7; setParameters, startThread(9) ×3",high,F012–F015
+0x591cb4,,juce_AudioDeviceManager_addAudioCallback,function,,high,F012–F015
+0x591f48,,juce_AudioDeviceManager_audioDeviceIOCallbackInt,function,,high,F012–F015
+0x5961b8,,juce_AudioDeviceManager_initialise,function,"(hop to device open untraced, H016)",med,F012–F015
+0x59971c,,juce_AudioDeviceManager_CallbackHandler_audioDeviceIOCallback,function,thunk → 0x591f48,high,F012–F015
+0x5f91fc,,juce_AudioProcessorGraph_processBlock,function,vtable 0xaa4938 slot 5,high,F012–F015
+0x5fdfec,,juce_AudioProcessorGraph_addNode,function,,high,F012–F015
+0x601f90,,juce_ProcessBufferOp_perform,function,vtable 0xaa3ad0 slot 2; [op+8] processBlock,high,F012–F015
+0x60b560,,juce_AudioProcessorPlayer_audioDeviceIOCallback,function,used by AudioProcessorPlayerChild (vtable 0x8635c8),high,F012–F015
+0x612b50,,juce_AudioProcessorPlayer_setProcessor,function,used by AudioProcessorPlayerChild (vtable 0x8635c8),high,F012–F015
+0x646ef4,,juce_Thread_launchThread,function,pthread_create @0x646f18,high,F012–F015
+0x64722c,,juce_Thread_startThread,function,pthread_create @0x646f18,high,F012–F015
+0x6680b8,,juce_Thread_threadEntryPoint,function,run() vt+8 @0x66811c,high,F012–F015
+0x6682ac,,juce_threadEntryProc,function,run() vt+8 @0x66811c,high,F012–F015
+0x83bc40,,IirFilter_minCutoff_5Hz,data,5 Hz cutoff floor constant,high,F034
+0x841098,,Ducker::vtable,vtable,effect,high (vtable),F007–F008
+0x841590,,FxCompressor::vtable,vtable,compressor base,high,F007–F008
+0x841618,,InsertFxCompressor::vtable,vtable,insert compressor,high,F007–F008
+0x8416a0,,SendFxCompressor::vtable,vtable,send compressor,high,F007–F008
+0x841730,,FxCompressor::typeinfo,typeinfo,compressor base,high,F007–F008
+0x841758,,InsertFxCompressor::typeinfo,typeinfo,insert compressor,high,F007–F008
+0x84177c,,SendFxCompressor::typeinfo,typeinfo,send compressor,high,F007–F008
+0x841830,,c_effect_base::vtable,vtable,inner DSP kernel base,high,F007–F008
+0x841880,,c_effect_base::typeinfo,typeinfo,inner DSP kernel base,high,F007–F008
+0x8418a0,,c_distortion::vtable,vtable,DSP kernels,high (vtable),F007–F008
+0x841988,,LoFi_bitDepth_table,data,"BITDEPTH values [1..16, 24, 100]",high,F028
+0x8419d8,,PerformanceFxLoFi::vtable,vtable,performance-FX LoFi,high (vtable),F007–F008
+0x841a68,,LoFi::vtable,vtable,effect,high (vtable),F007–F008
+0x841b14,,PerformanceFxLoFi::typeinfo,typeinfo,performance-FX LoFi,high (vtable),F007–F008
+0x841ba0,,c_chorus::vtable,vtable,DSP kernels,high (vtable),F007–F008
+0x841c10,,c_flanger::vtable,vtable,DSP kernels,high (vtable),F007–F008
+0x841c80,,InsertFxDelay::vtable,vtable,insert delay (+DelayEchoBaseSingleDelay),high,F007–F008
+0x841d10,,InsertFxDelay::vtable_secondary,vtable,insert delay (+DelayEchoBaseSingleDelay),high,F007–F008
+0x841d48,,InsertFxDelay::typeinfo,typeinfo,insert delay (+DelayEchoBaseSingleDelay),high,F007–F008
+0x841e18,,DelayEchoBase::typeinfo,typeinfo,delay core,high (typeinfo),F007–F008
+0x841ea8,,SendFxDelay::vtable,vtable,send delay (primary DelayEchoBase),high,F007–F008
+0x841eec,,SendFxDelay::vtable_secondary,vtable,send delay (primary DelayEchoBase),high,F007–F008
+0x841f80,,SendFxDelay::typeinfo,typeinfo,send delay (primary DelayEchoBase),high,F007–F008
+0x841fb8,,EffectBase::vtable,vtable,abstract effect interface; slots 23–26 pure,high,F007–F008
+0x842048,,EffectBase::typeinfo,typeinfo,abstract effect interface; slots 23–26 pure,high,F007–F008
+0x842078,,EffectInOutGain::vtable,vtable,in/out gain helper,high (vtable); role low,F007–F008
+0x84209c,,EffectInOutGain::typeinfo,typeinfo,in/out gain helper,high (vtable); role low,F007–F008
+0x8420b8,,MultiModeFilter::vtable,vtable,effect,high (vtable),F007–F008
+0x842198,,ParametricEqualizer::vtable,vtable,effect (2-band EQ?),high (vtable); role low,F007–F008
+0x8422b8,,Phaser::vtable,vtable,effect,high (vtable),F007–F008
+0x842380,,Reverb9NXSBase::vtable,vtable,reverb core,high (vtable); role med,F007–F008
+0x8423e4,,Reverb9NXSBase::typeinfo,typeinfo,reverb core,high (vtable); role med,F007–F008
+0x842618,,SendFxReverb::vtable,vtable,send reverb (+Reverb9NXSBase),high,F007–F008
+0x8426b0,,SendFxReverb::vtable_secondary,vtable,send reverb (+Reverb9NXSBase),high,F007–F008
+0x842710,,SendFxReverb::typeinfo,typeinfo,send reverb (+Reverb9NXSBase),high,F007–F008
+0x842790,,FxProcessorBase::vtable,vtable,FX processor base (juce AudioProcessor chain),high,F007–F008
+0x842884,,FxProcessorBase::typeinfo,typeinfo,FX processor base (juce AudioProcessor chain),high,F007–F008
+0x842898,,Distortion::vtable,vtable,effect,high (vtable),F007–F008
+0x842920,,Chorus::vtable,vtable,effect,high (vtable),F007–F008
+0x8429a8,,Flanger::vtable,vtable,effect,high (vtable),F007–F008
+0x842aa8,,MasterFxProcessor::vtable,vtable,master FX processor,high,F007–F008
+0x842b9c,,MasterFxProcessor::typeinfo,typeinfo,master FX processor,high,F007–F008
+0x842be0,,InsertFx_loadEstimate_table,data,10 ints per Insert index (likely load estimate),med,F017
+0x842c10,,InsertFxProcessor::vtable,vtable,track insert FX processor,high,F007–F008
+0x842d04,,InsertFxProcessor::typeinfo,typeinfo,track insert FX processor,high,F007–F008
+0x842d40,,SendFxProcessor::vtable,vtable,send FX processor,high,F007–F008
+0x842e34,,SendFxProcessor::typeinfo,typeinfo,send FX processor,high,F007–F008
+0x8430cc,,FxParameterManagerBase::vtable,vtable,FX parameter manager base,high,F007–F008
+0x8433f4,,FxParameterManagerBase::typeinfo,typeinfo,FX parameter manager base,high,F007–F008
+0x8436e0,,MasterFx_effectIdToIndex_table,data,"18 ints, effectId -> Master index",high,F019
+0x8437ec,,MasterFxParameterManager::vtable,vtable,master param manager,high,F007–F008
+0x843a9c,,MasterFxParameterManager::typeinfo,typeinfo,master param manager,high,F007–F008
+0x843d98,,InsertFx_effectIdToIndex_table,data,20 ints: effectId 1..20 -> Insert index; inverse at +0x50,high,F018
+0x84407c,,InsertFxParameterManager::vtable,vtable,insert param manager,high,F007–F008
+0x844334,,InsertFxParameterManager::typeinfo,typeinfo,insert param manager,high,F007–F008
+0x8445c8,,SendFx_effectIdToIndex_table,data,"18 ints, identical to the Master table",high,F019
+0x8446d4,,SendFxParameterManager::vtable,vtable,send param manager,high,F007–F008
+0x844984,,SendFxParameterManager::typeinfo,typeinfo,send param manager,high,F007–F008
+0x861854,,CompositeFxUnit::vtable,vtable,FX unit (class map said 8 slots: truncated),high (vtable); role med,F007–F008
+0x861a64,,CompositeFxUnit::typeinfo,typeinfo,FX unit (class map said 8 slots: truncated),high (vtable); role med,F007–F008
+0x862978,,MasterFxUnit::vtable,vtable,master FX unit (audio graph),high (vtable); role med,F007–F008
+0x862a40,,MasterFxUnit::typeinfo,typeinfo,master FX unit (audio graph),high (vtable); role med,F007–F008
+0x862e28,,SendFxUnit::vtable,vtable,send FX unit; slot 5 0x1b3068 calls 3 child processBlocks,high (vtable); role low,F007–F008
+0x862ef0,,SendFxUnit::typeinfo,typeinfo,send FX unit; slot 5 0x1b3068 calls 3 child processBlocks,high (vtable); role low,F007–F008
+0x86b42c,,FxSelectPopupWidgetController::vtable,vtable,UI popup controller,high (vtable); role med,F005
+0x86b5f0,,FxSelectPopupWidgetController::typeinfo,typeinfo,UI popup controller,high (vtable); role med,F005
+0x87316c,,FxInsertDuckerViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x873284,,FxInsertViewControllerBase::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x873360,,FxInsertDuckerViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x8737ac,,FxInsertPhaserViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x8739a0,,FxInsertPhaserViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x873cfc,,FxMasterPhaserViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x873e14,,FxMasterViewControllerBase::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x873ef0,,FxMasterPhaserViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87422c,,FxReverbViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87441c,,FxReverbViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x874734,,FxMasterNoSelectViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x874924,,FxMasterNoSelectViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x874d1c,,FxInsertNoSelectViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x874f0c,,FxInsertNoSelectViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x875400,,FxInsertViewControllerBase::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x875ff4,,FxMasterLofiViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x8761e8,,FxMasterLofiViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x8767bc,,FxInsertLofiViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x8769b0,,FxInsertLofiViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x877b5c,,FxMasterCompressorViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x877d54,,FxMasterCompressorViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x878294,,FxInsertCompressorViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87848c,,FxInsertCompressorViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x878934,,FxMasterMultiModeFilterViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x878b30,,FxMasterMultiModeFilterViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x879014,,FxInsertMultiModeFilterViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x879210,,FxInsertMultiModeFilterViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x8798e0,,FxMasterViewControllerBase::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x879d54,,FxInsert2BandEqViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x879f48,,FxInsert2BandEqViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87a2dc,,FxMaster2BandEqViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87a4d0,,FxMaster2BandEqViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87a82c,,FxMasterFlangerViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87aa20,,FxMasterFlangerViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87ad7c,,FxInsertFlangerViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87af70,,FxInsertFlangerViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87b2cc,,FxMasterChorusViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87b4c0,,FxMasterChorusViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87b81c,,FxInsertChorusViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87ba10,,FxInsertChorusViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87bd6c,,FxInsertDelayViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87bf60,,FxInsertDelayViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87c2dc,,FxMasterDelayViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87c4d0,,FxMasterDelayViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x87e73c,,FxLimiterViewController::vtable,vtable,UI view controller,high (vtable); role med,F005
+0x87e9dc,,FxLimiterViewController::typeinfo,typeinfo,UI view controller,high (vtable); role med,F005
+0x8ac720,,prj::EffectData::vtable,vtable,project-file FX data node,high (vtable); role med,F005
+0x8acd80,,prj::EffectData::typeinfo,typeinfo,project-file FX data node,high (vtable); role med,F005
+0xb70e4c,,Osc_idCounter,data,"global oscillator id counter (.data, initial 1)",high,F051
+0xb70e50,,Osc_randomTable,data,8192 float32 in .data used by waveform 6 (firmware data; not published),high,F051
+0xf61fcc,,Phaser_syncFraction_table,data,.bss table filled by 0x6cb20 (beats 64 .. 1/16),high,F048

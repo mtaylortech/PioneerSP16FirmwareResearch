@@ -101,3 +101,36 @@ Every path rewrite, flag, and guarded summary. Nothing was silently removed.
   the step 07 note and the 2026-10-10 adversarial audit (finding 2) already record. The
   original sentence is kept unchanged as historical text; the note points to step 07 and to
   `docs/storage.md`. Nothing removed.
+
+## 2026-11-13 — effects integration (1.60)
+
+Source: the effects research workspace at a pinned commit, read-only. Nothing was
+silently removed; every change is listed here.
+
+| file | item | action |
+|---|---|---|
+| F-effects/findings-ledger.md | editor's header | added (scope, what is unpublished, [1.50] warning) |
+| F-effects/findings-ledger.md | title line of the source file | replaced by the editor's header |
+| F-effects/findings-ledger.md | private research-folder names (firmware catalog, decoder output, class-map path, 1.50 reference workspace, storage study, 1.60 analysis handoff) | 7 sentences rewritten to point at the published equivalent (`docs/firmware-reference.md`, `symbols/classes-1.60.json`, `docs/project-format.md`, `docs/storage.md`, `research-notes/history/…`) or marked "(evidence not published)" |
+| F-effects/findings-ledger.md | local library manifest / git-ignored folder wording | 2 sentences reworded ("recorded locally (evidence not published)") |
+| F-effects/findings-ledger.md | "kb/functions.md" | 2 mentions annotated "(published as symbols/fx-functions-1.60.csv)" |
+| F-effects/findings-ledger.md | owner references ("the owner's Mac", "owner decides publication", "setup session") | 4 phrases made neutral ("macOS research host", "research host") |
+| F-effects/findings-ledger.md | "credit required before any publication" (×3), "reword before publication" (×1) | historical text kept; bracketed editor's note added saying it was done |
+| F-effects/findings-ledger.md | `harness/models/` | 18 paths → `tools/fx/` (published) |
+| F-effects/findings-ledger.md | local virtual-environment interpreter path in run commands | 9 → `python` |
+| F-effects/findings-ledger.md | temporary scratch-folder paths of review runs | 7 → `<critic scratch run>` |
+| `tools/fx/*.py` (9 files) | provenance header | one comment line added at the top (seven for `fdlibm_*`, including the full standard fdlibm notice) |
+| `tools/fx/*.py` | references to unpublished cycle notes / harness / local library folder | 13 docstring references → `docs/effects/<page>.md` or "the project's unpublished harness" |
+| `tools/fx/phaser.py` | docstrings and messages calling the oscillator "LFO" | 7 strings reworded ("oscillator"; it is not the RTTI `LFO` class). The Python class name `LFO` is unchanged, so no code changed |
+| `tools/fx/fdlibm_powf.py` | **missing fdlibm notice** (the other two fdlibm files had it) | Sun's notice and the Ian Lance Taylor (Cygnus Support) conversion credit added to the docstring (flag: the source copy lacked it) |
+| `docs/effects/lofi.md` | adapted from the workspace's LoFi write-up | private repository name, local commands, scratch paths and sandbox detail removed; finding IDs added; host note moved to `docs/effects/README.md` |
+
+Code was not changed: only comments, docstrings and two exception messages. Checked by
+parsing every file (no import or execution).
+
+
+## 2026-11-13 — owner decisions applied
+
+- `tools/fx/verify/`: the effects harness (17 scripts + requirements) published **unchanged** as reference code, with a README; `.gitignore` gained the firmware/output paths it uses.
+- `methods/worker-critic-research-loop.md`: method write-up added (draft banner line removed).
+- Small firmware constants in `tools/fx/` and `docs/effects/`: kept (owner decision).

@@ -135,3 +135,42 @@ including the MIDI clock/sync path.
 
 `labels-1.60.json` and the `listings/` legitimately describe the **1.60** binary
 (`3d1392a6…`); the class map here is the **1.50** binary (`075cff7a…`).
+
+---
+
+## FX function table (new): `fx-functions-1.60.csv`
+
+A table of **386 addresses** in the **1.60** `EP085_Main_R` (`3d1392a6…`) that the
+effects research named or identified: the FX processors and units, the `EffectBase`
+interface and dispatcher, the audio callback path from JUCE's ALSA thread, every
+function of the four reconstructed effects and the shared oscillator, shared DSP
+blocks, the inline Chorus/Flanger/Distortion construction ranges, FX vtables and
+typeinfos, and a few data tables. The narrative is in
+[`../docs/effects/`](../docs/effects/README.md).
+
+| Column | Meaning |
+|---|---|
+| `address`, `end_address` | 1.60 virtual address; `end_address` only for code ranges |
+| `name` | analyst name from the research notes (empty where the notes left it unnamed). `_sNN` = vtable slot NN. **Not** original source names |
+| `kind` | `function`, `vtable`, `typeinfo`, `plt`, `data`, `code range`, `instruction`, `call site` |
+| `role` | what it does, in the research's words |
+| `confidence` | `high` / `med` / `low` as recorded in the research (some rows split it, e.g. "high (vtable); role med") |
+| `findings` | finding IDs in the [effects findings ledger](../research-notes/F-effects/findings-ledger.md) |
+
+Notes:
+
+- **1.60 only.** Facts carried from 1.50 work (the FX step-lock writers and table) are
+  **not** in this table. They are labelled [1.50] in the ledger and
+  [open-questions.md](../docs/open-questions.md#effects) (H003).
+- Cross-checked against this folder: all 26 FX class vtables agree with
+  `classes-1.60.csv`, and the only addresses shared with `labels-1.60.*` are the
+  imports `memcpy` and `tan`, with the same names. Two differences from
+  `classes-1.60.*`: the class map lists `CompositeFxUnit` with 8 virtual methods (its
+  vtable has 52 slots under the end rule in the ledger, F009), and it files
+  `CompositeFxUnit` and the two MultiModeFilter view controllers under
+  "Sampling / Audio / DSP" rather than "Mixer / FX / Send / Routing". Neither file was
+  changed.
+- This table is not yet in the Ghidra import format of `labels-1.60.json`. To import
+  it, convert the named `function` rows to that format, or to
+  `ImportSymbolsScript.py`'s `name address` lines.
+
