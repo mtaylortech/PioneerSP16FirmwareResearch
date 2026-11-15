@@ -1,6 +1,7 @@
 # Multi-mode filter (Insert index 3, Master/Send index 5)
 
-Part of [Effects in firmware 1.60](README.md). Findings F032–F037 in the
+Part of [Effects in firmware 1.60](README.md). Findings F032–F037, F150, F164, F171,
+F175 and F206–F208 in the
 [findings ledger](../../research-notes/F-effects/findings-ledger.md). Model:
 [tools/fx/mmf.py](../../tools/fx/mmf.py).
 
@@ -10,7 +11,11 @@ Part of [Effects in firmware 1.60](README.md). Findings F032–F037 in the
 low-, high- or band-pass filter with an optional glide on cutoff changes, followed by
 an output gain of −30…+15 dB. It has no drive, saturation, LFO or envelope (F033). The
 Python model is **bit-exact to the 1.60 routine run in a single-function emulator** in
-48 of 48 runs, plus 17 review cases (F036).
+48 of 48 runs, plus 17 review cases (F036). With its reset (slot 27) it is also
+bit-exact end to end through the shared `EffectBase` wrapper (F150, F151). The Master
+and Send processors build the **identical** object, with the same constructor
+arguments and the same defaults, so the model covers all three contexts unchanged
+(F175).
 
 It reuses LoFi's parameter objects, gate and biquads with identical layouts and
 formulas. But it has **its own filter container**, with seven kinds, glide and two-stage
@@ -108,7 +113,27 @@ current gain using `0x5792c8` (NEON ×4 with flush-to-zero, VFP tail) (F033).
 Only the filter gate is involved. It is built closed and opens linearly over 132
 samples on block 0. On a 1 kHz sine at the defaults, the first four blocks come out at
 0.183, 0.491, 0.700 and 0.714 rms gain. 0.714 is the steady gain of the 997.8 Hz, Q 0.7
-low-pass (F033).
+low-pass (F033). The gate stays open afterwards, so this happens once per object
+lifetime (the reset leaves the gate alone, F150).
+
+## Reset (slot 27 `0x107fa8`)
+
+Called on every activation (`EffectBase` slot 5, F149). It applies **pending** parameter
+changes only (`0x107d18`; nothing is re-applied when nothing is pending), then zeroes
+the tap memory of the **current** kind only: kinds 0–2 one biquad, kinds 3–5 both
+cascaded biquads, kind 6 nothing. It does not touch coefficients, cutoff or Q, the
+gate, the GainRamp, the glide state (a glide interrupted by a stop continues after
+re-activation) or the stale taps of other kinds. It returns 0 (F150). This corrects the
+earlier reading "slot 27 re-applies the parameters" (F035).
+
+## What the UI and the project can send
+
+- The UI sends FILTERTYPE as LowPass, HighPass, BandPass or Off only, and FILTERDB as
+  FilterOrder2 or FilterOrder4 only (F171).
+- The shared name converter also knows "LowPass24", "HighPass24", "BandPass24" (→ 3, 4, 5)
+  and "FilterOrder1" (→ 0). A FILTERTYPE of 3–5 gives filter kind 6 in the real code,
+  which is **no filter**: a 24 dB slope comes only from FILTERDB (F164). Whether a
+  project file can ever hold the "…24" names is a *guess* (no) (F164).
 
 ## Object layout (0x4a0 bytes)
 
@@ -132,7 +157,7 @@ Container fields `+0x00…+0x41` are in the same order as LoFi's container (F035
 | `0x108ee4` | Slot 25 |
 | `0x107d18` / `0x107c24` | Apply changed parameters / type + dB → kind |
 | `0x107b30` | Slot 26 (dry/wet) |
-| `0x107fa8` | Slot 27 reset (*likely*: re-applies parameters, clears the current kind's taps; decompiled code only) |
+| `0x107fa8` | Slot 27 reset (applies pending changes, clears the current kind's taps; emulated, F150) |
 | `0x10913c` / `0x108808` / `0x108608` | Container ctor / process / ramp setup |
 | `0x1080a0` / `0x107b64` | Stage ctor / 24 dB configuration (Q′ = √Q, fc clamp) |
 | `0xe8900` / `0xe895c` / `0xe89f0` | GainRamp ctor / set target / process |
@@ -150,6 +175,15 @@ Container fields `+0x00…+0x41` are in the same order as LoFi's container (F035
   switch every block, GLIDE edges (0, 1e-9, 1e-7, 1e-6), ±10,000 and denormal inputs,
   and finite out-of-range values. Planted errors were caught: wrong GAIN span,
   FILTERDB 2 = 12 dB, FILTERTYPE 3 = LPF 24, Q′ = Q, and gain before filter.
+- **Reset and wrapper** (F150, F151): field-level state dumps (302 fields as raw bits) and
+  composition cases through the real slot 18 with three activations each, plus a review
+  fuzz at 44.1 and 48 kHz: all bit-exact.
+- **Master and Send** (F175): 102 of 102 non-default Master/Send cases and 28 of 28
+  values the UI cannot send, bit-exact with the unchanged model; the constructed object
+  graphs of the three contexts are word-identical.
+- **Maths library** (F206, F207): the model now uses an own correctly rounded `pow`
+  (`crmath.py`) and fdlibm `log10f`, not the host's. The MMF apply and ramp routines
+  matched in 8,000 random settings.
 
 ## Known quirks
 
@@ -162,11 +196,13 @@ Container fields `+0x00…+0x41` are in the same order as LoFi's container (F035
 
 ## Unknowns
 
-- On-screen labels for FILTERTYPE ≥ 3 and FILTERDB 0/2 (*guess*).
-- Slots 23, 24 and 27 not emulated; container `+0x20` before the first setup
+- On-screen labels for the filter types and slopes (*guess*; the internal names are in
+  F164).
+- Slots 23 and 24 not emulated; container `+0x20` before the first setup
   (uninitialised; *likely* never read first); the GainRamp idle byte when force = 0
   (F035).
 - Negative Q could not be tested: the emulator lacks `__errno_location` (F036).
-- The Master context (index 5) is *likely* the same class with different defaults only
-  (H027).
-- The host-libm residual (F044, H029).
+
+Settled since the first version of this page: reset (F150), the Master/Send context
+(F175; it has the same defaults, not different ones), and the host-libm residual
+(F206–F208).

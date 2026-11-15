@@ -1,6 +1,7 @@
 # LoFi (Insert index 5, Master/Send index 6)
 
-Part of [Effects in firmware 1.60](README.md). Findings F025–F031 in the
+Part of [Effects in firmware 1.60](README.md). Findings F025–F031, F150–F153 and
+F206–F208 in the
 [findings ledger](../../research-notes/F-effects/findings-ledger.md). Model:
 [tools/fx/lofi.py](../../tools/fx/lofi.py).
 
@@ -9,17 +10,26 @@ Part of [Effects in firmware 1.60](README.md). Findings F025–F031 in the
 LoFi is **fully reconstructed**: signal chain, all eight parameter formulas, filter
 coefficients, object layout and start-up behaviour. The Python model is **bit-exact to
 the 1.60 routine run in a single-function emulator** in 52 of 52 runs, plus more than
-30 edge cases from independent review (F030). It has not been compared with audio
-recorded from an SP-16.
+30 edge cases from independent review (F030). With its reset (slot 27) it is also
+bit-exact end to end through the shared `EffectBase` wrapper, including stops and
+re-activations (F150, F151). It has not been compared with audio recorded from an
+SP-16.
 
 LoFi is four stages in series: a preamp with clipper, a bit crusher, a sample-and-hold
 rate reducer, and a resonant filter (high-pass, low-pass, band-pass or off). A position
-setting puts the filter first or last. Like every effect, LoFi's output then passes
-through the shared `EffectBase` stages: a ≈10 Hz high-pass on the wet signal and the
-dry/wet mix (see [README](README.md#the-effectbase-interface)).
+setting puts the filter first or last. LoFi's output then passes through the shared
+`EffectBase` stages: a 10 Hz high-pass on the wet signal (switched on for LoFi and five
+other effects, F141) and the dry/wet mix (see
+[README](README.md#how-effects-work-in-the-160-app-overview) and
+[effectbase.md](effectbase.md)).
 
-All Insert, Master and Send processors build the same `LoFi` class (F016, F019). Only
-the Insert context was exercised.
+All Insert, Master and Send processors build the same `LoFi` class (F016, F019). The
+algorithm was reconstructed in the Insert context; the Master and Send processors were
+later driven with LoFi as well, bit-exact (F154).
+
+Note: a second, separate class `PerformanceFxLoFi` exists in 1.60 but is **never
+constructed**, so it never runs on the device. See
+[Performance-FX LoFi](#performance-fx-lofi-never-constructed) below.
 
 ## Signal flow
 
@@ -30,7 +40,7 @@ flowchart TD
   A1 --> A2["Preamp + clipper"] --> A3["Bit crusher<br/>square-root companded"] --> A4["Sample-and-hold<br/>44 Hz…44.1 kHz"]
   PF -->|"FILTERPOSITION 1 or 2: filter last"| B1["Preamp + clipper"]
   B1 --> B2["Bit crusher"] --> B3["Sample-and-hold"] --> B4["Filter"]
-  subgraph EB["EffectBase (every effect)"]
+  subgraph EB["EffectBase (post-stage on for LoFi, F141)"]
     HP["≈10 Hz high-pass on the wet signal"] --> MIX["Dry/wet mix<br/>wet v, dry 1 − v"]
   end
   A4 --> HP
@@ -135,6 +145,49 @@ samples (3 ms) on the first block. So the first 132 output samples are x·(n/132
 level (F031). Changing FILTERPOSITION fades out through the position gate, swaps the
 order, and fades back in. When the filter is off, the swap is immediate (F027).
 
+The two gates stay open after this, so the one-time dip happens only after
+construction: through the real wrapper at default settings, the RMS level after the
+first activation is 0.83 (44.1 kHz) or 0.75 (48 kHz) of the input, and 1.00 after any
+re-activation (F153).
+
+### Reset and re-activation (slot 27 `0xfb5a4`)
+
+Each time the processor activates the effect (`EffectBase` slot 5, including every
+type switch back to LoFi and every re-enable), it calls slot 27 (F149, F150). LoFi's
+reset (F150):
+
+1. applies **pending** parameter changes only (`0xfb20c`); nothing is re-applied when
+   nothing is pending;
+2. zeroes the tap memory of the **current** sub-filter only;
+3. sets both sample-and-hold values to 0 and the phase to the hold step (the step read
+   after the apply, so a pending REDUCTION change already counts);
+4. returns 0.
+
+It does **not** touch the coefficients, the gates, the glide state (a cutoff glide
+interrupted by a stop continues after re-activation), the preamp ramp, the crusher,
+FILTERPOSITION or the other sub-filters' taps (F150). "No reset", "clear all stages",
+"snap the glides", "phase := 0 or 1" and "keep the held values" were each refuted by at
+least one case (F150).
+
+**Output dropout after every activation** (F152; confirmed in emulation, audible on
+the device *likely*). Because the reset sets the phase to the step with held values
+of 0, the wet path outputs 0 for ⌊step⌋ samples after activation. With MIXRATIO 1 the
+dry part has gone by the end of the activation fade, so the output is exact digital
+silence for ⌊step⌋ − F samples starting at sample F, where F = 147 at 44.1 kHz and
+160 at 48 kHz:
+
+| REDUCTION | Silent samples at 44.1 kHz |
+|---|---|
+| 0.2 | 103 |
+| 0.1 | 354 |
+| 0.05 | 564 |
+| 0 | 855 (19.4 ms) |
+
+At 48 kHz, REDUCTION 0.1 and 0 give 385 and 930 samples. This happens at the first and
+at every later activation, with any filter type, on noise and sine. There is no gap when
+the step is at most F (REDUCTION about 0.28 or more at 44.1 kHz). With MIXRATIO v < 1 the
+output during the gap is exactly the dry share (1 − v) (F152).
+
 ## Object layout (0x4b8 bytes)
 
 From emulated memory dumps, with the writers taken from the disassembly (F029).
@@ -171,7 +224,7 @@ b0 b1 b2 a1 a2 at `+0x28…+0x38`, Q (double) `+0x40`, and the re-seed flag byte
 | `0xe16dc` / `0xe1844` | Biquad process / re-seed after a type switch |
 | `0xe1bb8`, `0xe1ca0`, `0xe1d88` | High-, low-, band-pass coefficient routines |
 | `0xfaef4` | Slot 26: dry/wet pair |
-| `0xfb5a4` | Slot 27: reset (*likely*: clears the filter taps and the held samples; read in decompiled code only, not emulated, H025) |
+| `0xfb5a4` | Slot 27: reset (applies pending changes, clears the current sub-filter's taps, held values := 0, phase := step; emulated, F150) |
 
 ## Validation evidence
 
@@ -186,6 +239,14 @@ b0 b1 b2 a1 a2 at `+0x28…+0x38`, Q (double) `+0x40`, and the re-seed flag byte
   out-of-range values, and NaN/infinity: all bit-exact. Four planted model errors
   were each caught.
 - **Second host:** the comparison was reproduced on Linux as well as macOS.
+- **Reset and wrapper** (F150, F151): the reset was checked on field-level state dumps
+  (162 LoFi fields as raw bits) and in 27 composition cases through the real slot 18
+  (PEQ, MMF and LoFi × 3 settings × noise/sine/impulse, 220 blocks, three activations
+  each), plus a 30-run review fuzz at 44.1 and 48 kHz: all bit-exact.
+- **Maths library** (F206, F207): the model now uses own correctly rounded `tan` and
+  `pow` (`crmath.py`) and fdlibm `log10f`, not the host's. These equal the emulated 1.60
+  libm on every tested argument, and the LoFi apply and smoothing routines matched in
+  9,000 random settings.
 - **Refuted along the way:** "filter types 0 and 3 sound the same" and "0.5 on
   BITDEPTH or REDUCTION changes nothing". Both were artefacts of change detection
   (F025, F026). Once actually applied, type 0 is a high-pass, BITDEPTH 0.5 gives 9 bits
@@ -197,13 +258,39 @@ b0 b1 b2 a1 a2 at `+0x28…+0x38`, Q (double) `+0x40`, and the re-seed flag byte
 - BITDEPTH above ≈1.03 makes the firmware index past its bit-depth table. The model
   raises an error rather than imitate that (F030).
 - The two closed start-up gates mean the first 3 ms after construction are faded in
-  even before the `EffectBase` activation fade (F031).
+  even before the `EffectBase` activation fade (F031, F153).
+- The output drops out after every activation at low REDUCTION settings (F152, see
+  [above](#reset-and-re-activation-slot-27-0xfb5a4)).
+
+## Settled since the first version of this page
+
+- Reset (slot 27) is modelled (F150; this settles H025).
+- The device runs its audio threads without flush-to-zero, as the emulator does
+  (F202–F205).
+- The model no longer depends on the host's maths library (F206–F208).
+- The shared activation fade is a 147-sample linear ramp at 44.1 kHz (160 at 48 kHz)
+  (F149).
 
 ## Unknowns
 
-- The labels the screen shows for filter types 0–3 and positions 0–2 (*guess* only).
-- Reset (slot 27) is not modelled (H025).
-- Whether the device runs its scalar float code without flush-to-zero (*likely*, F020).
-- The host-libm residual: the model uses the host's `pow`/`tan`/`log10`/`trunc` (F030,
-  H029).
-- The shape and length of the shared activation fade (H018).
+- The labels the screen shows for filter types 0–3 and positions 0–2 (*guess* only;
+  the enum names the parameter manager uses are in F164).
+- Whether the dropout (F152) is audible on the device (*likely*).
+- The model is undefined for infinite or NaN input, where the firmware saturates
+  (H067).
+
+## Performance-FX LoFi (never constructed)
+
+`PerformanceFxLoFi` (vtable `0x8419d8`, ctor `0xfd1f8`, slot 25 `0xfc434`) is the only
+"Performance FX" DSP class in 1.60 (F128). **Nothing constructs it**: no reference to
+its constructor exists anywhere in the binary, and the Insert, Master and Send
+processors build `LoFi` instead. So it has no place in the audio graph and none of its
+parameters is ever set on the device. That it is left-over or unused code is *likely*
+(F128).
+
+Its algorithm is a one-knob LoFi built from LoFi's blocks but not LoFi's kernel (F129):
+low-pass filter → bit crusher → sample-and-hold → high-pass filter, with four
+parameters (LEVEL, REDUCTION, CUTOFFMAX, RESONANCE, all 0…1). LEVEL drives everything
+at once: the bit depth, the hold length, both filter cutoffs and the wet amount. The
+model `tools/fx/perf_lofi.py` is bit-exact to the emulated slot 25 (384,000 samples plus a
+review fuzz, F130). It is documented for completeness; it is not a live effect.

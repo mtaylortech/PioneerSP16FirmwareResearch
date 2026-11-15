@@ -507,7 +507,7 @@ def main():
         lv = [f32(g.uniform(0.001, 1000)) for _ in range(2000)] + [f32(math.exp(g.uniform(-8, 8))) for _ in range(1000)] + \
              [M.M_F, M.M_Q]
         el = [u2f(e.call(PLT_LOG10F, f2u(x_))[0]) for x_ in lv]
-        l_fd = sum(f2u(r) == f2u(FL.log10f(x_)) for r, x_ in zip(el, lv)); l_host = sum(f2u(r) == f2u(LM.log10f(x_)) for r, x_ in zip(el, lv))
+        l_fd = sum(f2u(r) == f2u(FL.log10f(x_)) for r, x_ in zip(el, lv)); l_host = sum(f2u(r) == f2u(f32(math.log10(x_))) for r, x_ in zip(el, lv))   # host-rounded double log10 (lofi.log10f is fdlibm since H029)
         P("  libm powf (PLT 0x%x) vs fdlibm model: %d/%d bit-exact; with the 'corrected' t_h constant: %d/%d; host-rounded pow: %d/%d" %
           (PLT_POWF, m_fd, len(pv), m_fix, len(pv), m_host, len(pv)))
         P("  libm log10f (PLT 0x%x) vs fdlibm model: %d/%d bit-exact; host-rounded log10: %d/%d" % (PLT_LOG10F, l_fd, len(lv), l_host, len(lv)))

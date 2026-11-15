@@ -22,6 +22,7 @@ Usage:
   m = PEQ(); m.insert_defaults(); m.set_param(idx, value); L, R = m.process(L, R)   (lists of floats, one block)
 """
 import math
+import crmath as CR                                    # glibc-exact double tan/pow (H029)
 from lofi import F, EPS, FS, Param, SignalGate, Biquad, near, rnd, nmul, nadd, nsub, vmul_block
 import mmf
 import fdlibm_powf as FL
@@ -52,7 +53,7 @@ class IirFilter2:
         nyq = F(float(int(fs / 2)))
         self.fc_min = F(1.0); self.fc_max = nyq              # +0xc / +0x10
         self.fc = F(F(nyq + F(1.0)) * F(0.5))                # +8 (ctor, kept if inside the limits)
-        self.Q = 0.7071067811865476                          # +0x18 (double); limits +0x20 0.01, +0x28 20
+        self.Q = 1.0 / math.sqrt(2.0)                        # +0x18 (double, ctor 1/sqrt(2) = 0.70710678118654746); limits 0.01 / 20
         self.Q_min = 0.01; self.Q_max = 20.0
         self.p = 0.0; self.p_min = -1.0; self.p_max = 100.0  # +0x38 (= V - 1), limits +0x40 / +0x48
         self.gdb = 0.0; self.g_min = -80.0; self.g_max = 40.0   # +0x58, limits +0x60 / +0x68
@@ -60,20 +61,22 @@ class IirFilter2:
         z = lambda: [F(0), F(0)]
         self.x = [z(), z(), z(), z()]; self.y = [z(), z(), z(), z()]   # +0x7c..+0x88: {x_k, y_k} per lane
         self.b0 = self.b1 = self.b2 = self.a1 = self.a2 = F(0)          # [+0x8c]
+        self.coefs(self.fc, self.Q, self.p, F(float(fs)))    # ctor: coefficients for fc = (Nyquist+1)/2, 0 dB (H076 ctor readback;
+                                                             # always recomputed by configure before the stage is used)
 
     def configure(self, fc, Q, gdb, flag):                   # slot 6 0xe2ab4
         fc = F(fc)
         if not fc < self.fc_min and fc <= self.fc_max: self.fc = fc
         if not Q < self.Q_min and Q <= self.Q_max: self.Q = Q
         if not gdb < self.g_min and gdb <= self.g_max: self.gdb = gdb
-        p = math.pow(10.0, gdb / 20.0) - 1.0
+        p = CR.pow(10.0, gdb / 20.0) - 1.0
         if not p < self.p_min and p <= self.p_max: self.p = p
         else: p = self.p
         self.coefs(self.fc, self.Q, p, F(float(self.fs)))
         self.flag78 = flag
 
     def coefs(self, fc, Q, p, fs):                           # slot 9: 0xe2540 / 0xe2440 (double math, float32 stores)
-        t = math.tan(float(fc) * (PI / float(fs)))
+        t = CR.tan(float(fc) * (PI / float(fs)))
         K = (t * INV_TWO_PI) * TWO_PI
         iq = 1.0 / Q
         if self.kind == "lowshelf":
@@ -102,6 +105,10 @@ class IirFilter2:
             b2n = (1.0 - vk) + K2
             self.b0 = F(b0n * nrm); self.a1 = F(a1n * nrm); self.b1 = self.a1
             self.b2 = F(b2n * nrm); self.a2 = F(a2n * nrm)
+
+    def clear_taps(self):                                    # 0xe2cf8: the four {x, y} tap pairs of both lanes := 0
+        z = lambda: [F(0), F(0)]
+        self.x = [z(), z(), z(), z()]; self.y = [z(), z(), z(), z()]
 
     def process(self, L, R, i0, n):                          # 0xe27b8
         b0, b1, b2, a1, a2 = self.b0, self.b1, self.b2, self.a1, self.a2
@@ -141,7 +148,7 @@ class GainRamp(mmf.GainRamp):
 
 
 def gain_lin(gdb):                                           # (float)pow(10, (double)(gdb * 0.05f))
-    return F(math.pow(10.0, float(F(F(gdb) * F(0.05)))))
+    return F(CR.pow(10.0, float(F(F(gdb) * F(0.05)))))
 
 
 class Stage:
@@ -312,3 +319,14 @@ class PEQ:
         self.bands[1].process(L, R, n)
         self.dry = F(0.0); self.wet = F(1.0)                 # slot 26, every block
         return [float(x) for x in L], [float(x) for x in R]
+
+    def reset(self):                                         # slot 27 0x10a7ec (called by EffectBase slot 5 on every activation)
+        """Apply changed parameters (0x10a4f0), then in each band clear the taps of the CURRENT stage only (band +0x18):
+        types 0..2 the IirFilter2 (0xe2cf8), types 3/4 the IirFilter. Gates, GainRamps, glide state and the other stages are
+        left as they are (so the 'first block unfiltered' start-up of F039 happens once per object lifetime). A current type
+        with no stage (5 or negative) is a null read in 1.60, as in Band.process."""
+        self.apply_params()
+        for b in self.bands:
+            st = b.stage()
+            st.f.clear_taps()
+        return 0

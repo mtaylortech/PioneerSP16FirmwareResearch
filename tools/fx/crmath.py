@@ -5,7 +5,10 @@ significant digits and rounded once to IEEE double (or float32).
 Why: the 1.60 oscillator calls glibc 2.13 libm `sincos`, `cos`, `acos` (dbl-64, IBM Accurate Mathematical Library, which
 returns correctly rounded results) and `expf`. The host's math module is not correctly rounded (macOS libm differs from
 the emulated 1.60 libm in a few % of cases), so a bit-exact model needs correctly rounded values. Checked against the
-emulated 1.60 libm by the project's model-versus-emulation harness (not published; see tools/fx/README.md).
+emulated 1.60 libm by tools/fx/verify/H031_osc_model.py (section C3 libm).
+tan / pow / exp (double) were added later (F206, H029) for the LoFi / MMF / PEQ / PerfLoFi / EffectBase / Phaser coefficient
+steps; tools/fx/verify/H029_libm_exact.py checks them against the emulated 1.60 libm `tan` / `pow` / `exp` (section B).
+Note: expf below is correctly rounded, but glibc 2.13 expf is not always (use glibc_expf.py where bit-exactness matters).
 """
 import decimal
 import math
@@ -101,3 +104,42 @@ def expf(x):
     u = struct.unpack("<I", struct.pack("<f", _f32(float(v))))[0]     # v > 0, so neighbours are u +- 1
     cands = [struct.unpack("<f", struct.pack("<I", w))[0] for w in (u - 1, u, u + 1)]
     return min(cands, key=lambda cc: (abs(D(cc) - v), struct.unpack("<I", struct.pack("<f", cc))[0] & 1))
+
+
+def tan(x):
+    """Correctly rounded double tan (glibc 2.13 dbl-64 tan is correctly rounded). Accurate for |x| up to ~1e40 (PI has 65 digits);
+    the models only reach |x| < pi/2."""
+    if x == 0.0: return x
+    with decimal.localcontext(_CTX) as c:
+        y = D(x)
+        k = (y / PI).to_integral_value(rounding=decimal.ROUND_HALF_EVEN)
+        r = y - k * PI                                            # tan has period pi
+        r2 = r * r; s = r; t = r; n = 1
+        eps = D(10) ** -(c.prec + 2)
+        while True:
+            t = -t * r2 / ((n + 1) * (n + 2)); n += 2
+            if abs(t) < eps: break
+            s += t
+        co = D(1); t = D(1); n = 0
+        while True:
+            t = -t * r2 / ((n + 1) * (n + 2)); n += 2
+            if abs(t) < eps: break
+            co += t
+        return float(s / co)
+
+
+def pow(x, y):
+    """Correctly rounded double pow for finite x > 0 and finite y (glibc 2.13 dbl-64 pow is correctly rounded), EXCEPT when the
+    exact result is a double midpoint (e.g. pow((2^27-1)*2^-26, 2)): exp(y*ln x) at 60 digits can land on the wrong side of the tie
+    (found in independent review, F206). The modelled bases/exponents cannot produce such a midpoint (likely). Other operands raise."""
+    if y == 0.0 or x == 1.0: return 1.0
+    if not (x > 0.0 and math.isfinite(x) and math.isfinite(y)): raise ValueError("crmath.pow: unsupported operands %r, %r" % (x, y))
+    with decimal.localcontext(_CTX):
+        return float((D(y) * D(x).ln()).exp())
+
+
+def exp(x):
+    """Correctly rounded double exp (glibc 2.13 dbl-64 exp is correctly rounded); finite x."""
+    if not math.isfinite(x): raise ValueError("crmath.exp: non-finite operand %r" % x)
+    with decimal.localcontext(_CTX):
+        return float(D(x).exp())

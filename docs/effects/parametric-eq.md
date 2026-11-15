@@ -1,6 +1,7 @@
 # 2-band EQ — `ParametricEqualizer` (Insert index 2, Master/Send index 4)
 
-Part of [Effects in firmware 1.60](README.md). Findings F038–F044 in the
+Part of [Effects in firmware 1.60](README.md). Findings F038–F044, F150, F153, F154,
+F156, F164, F171 and F206–F208 in the
 [findings ledger](../../research-notes/F-effects/findings-ledger.md). Models:
 [tools/fx/peq.py](../../tools/fx/peq.py) and
 [tools/fx/fdlibm_powf.py](../../tools/fx/fdlibm_powf.py).
@@ -14,7 +15,9 @@ shelf and peak filters are a separate filter family (`IirFilter2`) using Zölzer
 *boost* formulas, also for cuts (F040). The Python model is **bit-exact to the 1.60
 routine run in a single-function emulator** in 48 of 48 runs plus 47 review cases
 (F043). Reproducing it bit for bit requires the device's non-correctly-rounded
-`powf`/`log10f` (F044).
+`powf`/`log10f` (F044). With its reset (slot 27) it is also bit-exact end to end
+through the shared `EffectBase` wrapper (F150, F151), and in the Master and Send
+processors, which use the same defaults (F154, F156).
 
 The EQ has **no dry/wet parameter**: slot 26 forces dry 0 and wet 1 every block (F038).
 
@@ -25,7 +28,7 @@ flowchart LR
   IN["Input block"] --> P["Apply changed params<br/>0x10a4f0"]
   P --> B1["Band 1 0x10c208<br/>one stage + gain ramp + gate"]
   B1 --> B2["Band 2 0x10c208<br/>one stage + gain ramp + gate"]
-  B2 --> M["Slot 26: dry 0, wet 1"] --> EB["EffectBase: ≈10 Hz HPF, mix"]
+  B2 --> M["Slot 26: dry 0, wet 1"] --> EB["EffectBase: mix (no post-stage HPF for the EQ, F141)"]
 ```
 
 Slot 25 (`0x10ae70`) applies changed parameters (in the order B1F, B1G, B1Q, B2F, B2G,
@@ -109,9 +112,14 @@ both types (F038).
 **Type 5 is invalid.** It is the constructor's "last" value and the registered
 maximum, but no stage exists for it. Neither is there one for negative types. The swap
 indexes the stage vector only if type < 5; otherwise it reads through a null pointer.
-The emulator faults at `0x10c0c8`. A device crash is *likely*. Whether the UI can send
-5 is a *guess* (H030). The on-screen labels for types 0–4 are a *guess* as well: low
-shelf, high shelf, peak, LPF, HPF.
+The emulator faults at `0x10c0c8`. A device crash is *likely*. **Type 5 cannot be
+reached** from the UI or from a project: the UI's band-type selector has five entries
+(HighPass, LowPass, Peaking, HighShelving, LowShelving) and sends nothing for a sixth
+(F171), and the name converter never yields 5 (F164).
+
+The internal names of types 0–4, from the shared name converter (F164): 0
+"LowShelving", 1 "HighShelving", 2 "Peaking", 3 "LowPass", 4 "HighPass" (unknown names
+→ 0). The on-screen labels and their order on screen were not checked.
 
 ## Glide
 
@@ -133,9 +141,24 @@ From `0x10abdc` and `0x10c208` (F041). One step every 44.1 samples:
 Both band gates are built closed, so block 0 = x·(n/132)² (two gates in series, as in
 LoFi). On a 1 kHz sine at the defaults: 0.1084, 0.6116, 0.999, 1.0 rms gain. Because a
 closed gate skips the filter (see above), **the first block after construction is not
-equalised at all**. This happens once per object lifetime: *likely*, because reset
-(slot 27) does not touch the gates. Whether the `EffectBase` activation fade hides it
-on the device is untested (F039, H030).
+equalised at all** (F039).
+
+Through the real `EffectBase` wrapper this start-up quirk is **reduced, not hidden**
+(F153; confirmed in emulation, once per object lifetime *likely*, audibility a
+*guess*). With the defaults and a DC input of 0.5, the output falls to 0.6544 of the
+input (−3.68 dB) at sample 76 after the first activation at 44.1 kHz, and to 0.6536 at
+sample 83 at 48 kHz. After any re-activation the level stays at 1.0000, because the
+reset leaves the gates open (F150, F153). This is evidence against the earlier premise
+that the quirk is inaudible (H030).
+
+## Reset (slot 27 `0x10a7ec`)
+
+Called on every activation (`EffectBase` slot 5, F149). It applies **pending** parameter
+changes only (`0x10a4f0`), then zeroes the tap memory of each band's **current** stage
+only (types 0–2: the `IirFilter2` taps via `0xe2cf8`; types 3/4: the `IirFilter` taps).
+It does not touch the coefficients, frequency, Q or gain, the gates, the GainRamps or
+the glide state, and returns 0 (F150). This corrects the earlier reading "slot 27
+re-applies the parameters" (F042).
 
 ## Math library
 
@@ -149,11 +172,12 @@ fdlibm algorithms and are **not** correctly rounded. Measured against the emulat
 - `log10f`: 3,002 / 3,002 and 9,000 / 9,000. Correctly rounded in 7,838 of 9,000.
 - A PEQ variant using the host's `powf` matched only 284 of 2,048 samples.
 
-The double routines differ from macOS's by 1 ulp in some cases: `tan` in 1,958 of
-6,000 PEQ arguments, `pow(10, x)` in 27 of 20,000. None of 6,000 random (fc, Q, gain)
-sets gave a different float32 coefficient. So `lofi.py`, `mmf.py` and `peq.py` carry a
-small residual risk from the host double libm (*likely* below 1e-4 per coefficient
-set; H029).
+The 1.60 double routines `tan`, `pow` and `exp` are correctly rounded; a host's
+maths library is not always (F206). The models therefore use their own correctly
+rounded routines (`crmath.py`) instead of the host's, and equal the emulated 1.60 libm
+on every tested argument (F206). The PEQ configure and shelf/peak coefficient routines
+matched in 10,000 random settings, and its gain law in 10,000 more (F207). The earlier host-libm residual is closed
+(F208).
 
 ## Object layout (0x4a0 bytes)
 
@@ -186,7 +210,7 @@ GainRamp and its type. `IirFilter2` (0x90 bytes, vtable `0x83bc60`) stores fs `+
 | `0x10ae70` | Slot 25 |
 | `0x10a4f0` | Apply changed parameters |
 | `0x10a4d8` | Slot 26: dry 0, wet 1 |
-| `0x10a7ec` | Slot 27 reset (static reading only) |
+| `0x10a7ec` | Slot 27 reset (applies pending changes, clears the current stages' taps; emulated, F150) |
 | `0x10afd4` / `0x10c208` / `0x10abdc` / `0x10c070` | Band ctor / process / ramp setup / type swap |
 | `0x10a928` | Stage ctor |
 | `0xe2df0` / `0xe2ab4` / `0xe34d8` → `0xe27b8` | `IirFilter2` ctor / configure (slot 6) / process (slot 2 → slot 8) |
@@ -205,16 +229,24 @@ GainRamp and its type. `IirFilter2` (0x90 bytes, vtable `0x83bc60`) stores fs `+
   block, odd type values, a type switch every block, ±10,000 and denormal inputs,
   out-of-range values, n = 1…63). 11 planted errors, all caught (2 of them only by
   targeted tests).
+- **Reset and wrapper** (F150, F151): field-level state dumps (386 fields as raw bits)
+  and composition cases through the real slot 18 with three activations each, plus a
+  review fuzz at 44.1 and 48 kHz: all bit-exact.
 
 ## Known quirks
 
-- Type 5 has no stage. On the device it would read through a null pointer (F038).
-- The first block after construction is not equalised (F039).
+- Type 5 has no stage. On the device it would read through a null pointer, but neither
+  the UI nor a project name can produce it (F038, F164, F171).
+- The first block after construction is not equalised; through the wrapper this gives a
+  one-time dip to −3.68 dB (F039, F153).
 - Cuts are narrower than boosts at the same Q (F040).
 
 ## Unknowns
 
-- Whether the UI can select type 5, and the on-screen type labels (H030).
-- Slots 23/24 return 4; their meaning is unknown. Slot 27 is not modelled (F042).
-- The Master context (index 4) was not exercised.
-- The host-libm residual for double `tan`/`pow` (H029).
+- The on-screen type labels and their order (H030, H019).
+- Slots 23/24 return 4; their meaning is unknown (F042).
+- Whether the one-time start-up dip is audible on the device (*guess*, F153).
+
+Settled since the first version of this page: reset (F150), the Master/Send context
+(F154, F156), reachability of type 5 (F164, F171), and the host-libm residual
+(F206–F208).

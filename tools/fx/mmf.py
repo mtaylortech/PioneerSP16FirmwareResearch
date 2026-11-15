@@ -20,6 +20,7 @@ Usage:
   m = MMF(); m.insert_defaults(); m.set_param(idx, value); L, R = m.process(L, R)   (lists of floats, one block)
 """
 import math
+import crmath as CR                                    # glibc-exact double pow (H029)
 from lofi import F, EPS, FS, Param, SignalGate, Biquad, vmul_block, near, rnd, log10f, G3, G4
 
 PARAM_NAMES = ["CUTOFF", "GAIN", "Q", "GLIDE", "NONE", "MIXRATIO", "FILTERTYPE", "FILTERDB"]   # slot-14 index 0..7
@@ -80,7 +81,7 @@ class FilterContainer:
 
     def set_glide_steps(self, g):
         self.g44 = g
-        m = F(math.pow(10.0, float(F(log10f(F(1000.0)) / g))))
+        m = F(CR.pow(10.0, float(F(log10f(F(1000.0)) / g))))
         self.up48 = m; self.dn4c = F(F(1.0) / m)
 
     def set_kind(self, k):                              # tail of 0x107c24
@@ -201,13 +202,13 @@ class MMF:
 
     # formulas (also used by the harness readback checks)
     @staticmethod
-    def cutoff_hz(v): return F(F(math.pow(1000.0, float(F(v)))) * F(20.0))
+    def cutoff_hz(v): return F(F(CR.pow(1000.0, float(F(v)))) * F(20.0))
     @staticmethod
     def q_of(v): return F(F(0.2) + F(F(v) * F(9.8)))
     @staticmethod
     def gain_db(v): return F(F(F(v) * F(45.0)) - F(30.0))
     @staticmethod
-    def gain_lin(v): return F(math.pow(10.0, float(F(MMF.gain_db(v) * F(0.05)))))
+    def gain_lin(v): return F(CR.pow(10.0, float(F(MMF.gain_db(v) * F(0.05)))))
     @staticmethod
     def glide_steps(v):
         s = F(F(F(1.0) + F(F(v) * F(8.0))) * F(64.0))
@@ -239,3 +240,12 @@ class MMF:
         if self.params[5].changed():                    # slot 26 0x107b30
             v = self.params[5].get(); self.wet = v; self.dry = F(F(1.0) - v)
         return [float(x) for x in L], [float(x) for x in R]
+
+    def reset(self):                                    # slot 27 0x107fa8 (called by EffectBase slot 5 on every activation)
+        """Apply changed parameters (0x107d18), then clear the taps of the biquad(s) of the CURRENT kind only (container +0x14:
+        kinds 0..2 one biquad, 3..5 both cascaded biquads, 6 nothing). The other kinds' biquads, the glide state, the
+        filter SignalGate and the output GainRamp are left as they are."""
+        self.apply_params()
+        for s in self.filt.w[self.filt.cur].stages:
+            s.clear_taps()
+        return 0

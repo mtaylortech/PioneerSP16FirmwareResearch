@@ -16,9 +16,10 @@ It **is**: a verified description of the firmware update format and a portable
 decoder; a six-release hash catalog; analyst symbols for the 1.60 application;
 an honest, confidence-labelled account of what was and wasn't learned about
 boot, UI, "Normalize", and USB/updater behaviour; a working host-side WAV
-normalizer; reconstructions of four 1.60 effects and their shared modulation oscillator, with
-Python models bit-exact to the 1.60 routines run in a single-function emulator; and reusable
-methods.
+normalizer; reconstructions of the 1.60 audio engine (all twelve live effects, the shared
+`EffectBase` wrapper, the FX processors, the mixer, the buses, the output stage and the
+headphone router), with Python models bit-exact to the 1.60 routines run in a
+single-function emulator; and reusable methods.
 
 It **isn't**: recovered application source, a replacement OS, deployable
 modified firmware, or anything tested on real hardware. Most dynamic findings
@@ -36,7 +37,7 @@ come from emulation and are labelled as such.
 - [docs/hardware.md](docs/hardware.md) — hardware facts, access leads, and risk.
 - [docs/storage.md](docs/storage.md) — **how the unit stores and moves files:** NAND vs eMMC, USB storage mode, the eMMC layout and first-boot format, how saving/moving/resume work, and what a failed save looks like (1.50; 1.60 identical).
 - [docs/architecture.md](docs/architecture.md) — **application class maps (1.50 & 1.60):** the sequencer, sampler, MIDI/sync and project-file subsystems recovered from the binary, with the MIDI clock/sync path written up in detail. Backed by [symbols/classes-1.50.md](symbols/classes-1.50.md) and [symbols/classes-1.60.md](symbols/classes-1.60.md).
-- [docs/effects/](docs/effects/README.md) — **how the effects work in 1.60:** the FX audio path, effect selection, the `EffectBase` interface every effect implements, a status table of all Insert/Master/Send effects, and full reconstructions of LoFi, the multi-mode filter, the 2-band EQ, the Phaser and the shared oscillator (Chorus/Flanger core), each with a bit-exact Python model in [tools/fx/](tools/fx/README.md).
+- [docs/effects/](docs/effects/README.md) — **how the 1.60 audio engine and effects work:** a status table of every Insert/Master/Send effect and mixer stage, the [signal flow](docs/effects/signal-flow.md) from track to DAC and headphones, the `EffectBase` wrapper, the FX processors, parameter plumbing and numerics, and one page per effect (Chorus, Flanger, 2-band EQ, multi-mode filter, Insert Delay, Send Delay, Reverb, LoFi, Distortion, Compressor, Phaser, Ducker, shared oscillator), each with a bit-exact Python model in [tools/fx/](tools/fx/README.md) (start with its quickstart).
 - [docs/version-evolution.md](docs/version-evolution.md) — **what changed between firmware 1.20→1.60**, recovered from the binaries: which classes/features each release added (AS-1 in 1.30, copy/swap/undo in 1.40, live sampling in 1.50), with a per-version address matrix ([symbols/classes-crossversion.csv](symbols/classes-crossversion.csv)).
 - [docs/open-questions.md](docs/open-questions.md) — where it stopped and the
   next steps.
@@ -51,7 +52,8 @@ docs/        findings, firmware format, firmware reference, hardware, storage,
 tools/       decode/ (portable + original decoder), firmware/ (catalog + Ghidra
              pilot scripts), ghidra/ (1.60 analysis scripts), normalization/
              (host WAV normalizer), contracts/ (ARM32 trace helpers),
-             fx/ (pure-Python models of 1.60 effects)
+             fx/ (pure-Python models of the 1.60 effects and mixer, plus
+             verify/, the emulation harness as reference code)
 emulation/   board/ (runnable 1.50 QEMU board emulator) and app/ (reference
              code for the 1.60 application emulator)
 symbols/     inferred labels for EP085_Main_R 1.60 (JSON/CSV), reviewed
@@ -92,7 +94,8 @@ release. See [tools/decode/README.md](tools/decode/README.md).
 
 ## Licenses
 
-- Code (`tools/`, `emulation/`, `symbols/*.py`, `symbols/*.java`): **MIT** — [LICENSE](LICENSE)
+- Code (`tools/`, `emulation/`, `symbols/*.py`, `symbols/*.java`): **MIT** — [LICENSE](LICENSE),
+  except `tools/fx/glibc_expf.py`: **LGPL-2.1-or-later** — [LICENSE-LGPL-2.1](LICENSE-LGPL-2.1)
 - Docs, label data and the FX function table: **CC BY 4.0** — [LICENSE-docs](LICENSE-docs)
 - These cover only the contributors' own work. Pioneer firmware/GPL components
   and the derived disassembly listings are **not** relicensed — see

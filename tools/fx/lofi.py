@@ -4,7 +4,8 @@
 Own re-implementation written from the analysis in docs/effects/lofi.md. It contains no firmware bytes. Constants are
 the documented numeric values of the algorithm (e.g. 42 dB preamp range, 44.1 Hz..44.1 kHz rate, 20 Hz..20 kHz cutoff, bit-depth
 table). Arithmetic mirrors the 1.60 code's precision: float32 for VFP single-precision steps, float64 for double steps,
-flush-to-zero for NEON steps (biquad, gate gain multiply), libm pow/tan/log10f via the host (double, then rounded).
+flush-to-zero for NEON steps (biquad, gate gain multiply). libm: double pow/tan = correctly rounded crmath.pow/crmath.tan
+(= glibc 2.13 dbl-64), float log10f = fdlibm (fdlibm_powf.log10f); checked against the emulated 1.60 libm (H029, F206-F207).
 Pure Python (no numpy): float32 ops are computed in double and rounded to float32, which is exact for + - * / sqrt.
 
 Signal flow per 64-sample block (all addresses 1.60):
@@ -18,6 +19,8 @@ Usage:
   m = LoFi(); m.insert_defaults(); m.set_param(idx, value); L, R = m.process(L, R)   (lists of floats, one block)
 """
 import ctypes, math
+import crmath as CR                                    # glibc-exact double tan/pow (H029)
+import fdlibm_powf as FP                                # glibc 2.13 (fdlibm) log10f (F044)
 
 _cf = ctypes.c_float
 def F(x):
@@ -33,12 +36,12 @@ EIGHT_PI2 = 78.95683520871486
 
 # BITDEPTH: bits = BITS[round(17 * v)]; >= 32 means "crusher off"
 BITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 24, 100]
-INSERT_DEFAULTS = {0: 0.0, 2: 1.0, 1: 1.0, 3: 0.566, 4: 0.0510204, 5: 1.0, 6: 3.0, 7: 1.0}   # F025 (slot 52 case 5)
+INSERT_DEFAULTS = {0: 0.0, 2: 1.0, 1: 1.0, 3: 0.566, 4: 5.0 / 98.0, 5: 1.0, 6: 3.0, 7: 1.0}  # F025 (slot 52 case 5); RESONANCE = f32(5/98) (H076 readback)
 PARAM_NAMES = ["PREAMP", "REDUCTION", "BITDEPTH", "CUTOFF", "RESONANCE", "MIXRATIO", "FILTERTYPE", "FILTERPOSITION"]
 
 
 def f32(x): return F(x)
-def log10f(x): return F(math.log10(float(x)))
+def log10f(x): return FP.log10f(x)                 # 1.60 libm log10f = fdlibm e_log10f (not correctly rounded)
 def rnd(x): return int(round(float(x)))          # double + 1.5*2^52 trick = round half to even
 def near(a, b):
     d = F(F(a) - F(b))
@@ -58,9 +61,9 @@ def nsub(a, b): return ftz(F(ftz(a) - ftz(b)))
 
 # globals written by the .init_array initialiser 0x137cc
 G0 = F(17.0)
-G3 = F(math.pow(10.0, float(F(log10f(50.0) / F(100.0)))))      # Q step multiplier up   (50^(1/100))
+G3 = F(CR.pow(10.0, float(F(log10f(50.0) / F(100.0)))))      # Q step multiplier up   (50^(1/100))
 G4 = F(F(1.0) / G3)
-G1 = F(math.pow(10.0, float(F(log10f(1000.0) / F(250.0)))))    # cutoff step multiplier up (1000^(1/250))
+G1 = F(CR.pow(10.0, float(F(log10f(1000.0) / F(250.0)))))    # cutoff step multiplier up (1000^(1/250))
 G2 = F(F(1.0) / G1)
 
 
@@ -153,12 +156,18 @@ class Biquad:
         self.v = [z(), z(), z(), z()]; self.y = [z(), z(), z(), z()]; self.yprev = z()   # v1..v4, y1..y4 per lane
         self.flag48 = 0
 
+    def clear_taps(self):
+        """Zero the 4-deep {v, y} history and y_prev of both lanes (inline in LoFi slot 27 0xfb5a4 and MMF slot 27 0x107fa8;
+        PEQ slot 27 0x10a7ec for its IirFilter stages). Coefficients, fc, Q and the re-seed flag +0x48 are kept."""
+        z = lambda: [F(0), F(0)]
+        self.v = [z(), z(), z(), z()]; self.y = [z(), z(), z(), z()]; self.yprev = z()
+
     def coefs(self):                                    # slot 4: 0xe1bb8 / 0xe1ca0 / 0xe1d88 / no-op
         if self.kind == "off": return
         fc = float(self.fc); Q = self.Q; fs = float(self.fs)
         if self.kind == "bpf":
             if not Q > 0.01: Q = 0.01
-            w = math.tan(fc * (math.pi / fs))
+            w = CR.tan(fc * (math.pi / fs))
             iq = 1.0 / Q
             s = math.sqrt(4.0 + iq * iq)
             f = w * INV_TWO_PI
@@ -171,7 +180,7 @@ class Biquad:
             a2 = ((1.0 - B) + W) * nrm
             self.b0 = F(B * nrm); self.b1 = F(0); self.a1 = F(a1); self.a2 = F(a2); self.b2 = F(-self.b0)
             return
-        w = math.tan(fc * (math.pi / fs))
+        w = CR.tan(fc * (math.pi / fs))
         f = w * INV_TWO_PI
         wq = ((1.0 / Q) * TWO_PI) * f
         w2 = (f * FOUR_PI2) * f
@@ -320,7 +329,7 @@ class LoFi:
         P = self.params
         if P[0].changed():
             v = P[0].get(); e = F(F(v * F(42.0)) * F(0.05))
-            t = F(math.pow(10.0, float(e)))
+            t = F(CR.pow(10.0, float(e)))
             inv = F(F(1.0) / F(self.pre_N))
             self.pre_t = t; self.pre_cnt = self.pre_N; self.pre_inc = F(F(t - self.pre_c) * inv)
         if P[2].changed():
@@ -328,11 +337,11 @@ class LoFi:
             iv = (1 << self.bits) if self.bits < 31 else (-(1 << 31) if self.bits == 31 else 0)
             self.scale = F(iv); self.inv = F(F(1.0) / self.scale) if iv else float('inf')
         if P[1].changed():
-            v = P[1].get(); r = F(math.pow(1000.0000610351562, float(v)) * 44.099998474121094)
+            v = P[1].get(); r = F(CR.pow(1000.0000610351562, float(v)) * 44.099998474121094)
             rate = rnd(r)
             self.sh_step = F(1.0) if rate > self.sh_fs else F(F(self.sh_fs) / F(rate))
         if P[3].changed():
-            v = P[3].get(); self.filt.cut_t = F(math.pow(1000.0, float(v)) * 20.0); self.filt.dirty41 = 1
+            v = P[3].get(); self.filt.cut_t = F(CR.pow(1000.0, float(v)) * 20.0); self.filt.dirty41 = 1
         if P[4].changed():
             v = P[4].get(); q = F(F(0.2) + F(v * F(9.8)))
             if not near(self.filt.q_t, q): self.filt.q_t = q; self.filt.dirty41 = 1
@@ -405,3 +414,12 @@ class LoFi:
         if self.params[5].changed():                    # slot 26 0xfaef4
             v = self.params[5].get(); self.wet = v; self.dry = F(F(1.0) - v)
         return [float(x) for x in L], [float(x) for x in R]
+
+    def reset(self):                                    # slot 27 0xfb5a4 (called by EffectBase slot 5 on every activation)
+        """Apply changed parameters (0xfb20c, same as at the top of slot 25), clear the taps of the CURRENT sub-filter only
+        (container +0x14; the other three keep theirs), zero the sample-and-hold holds and set its phase := step. Nothing else:
+        the preamp ramp, crusher, cutoff/Q glide state, both SignalGates and FILTERPOSITION are left as they are."""
+        self.apply_params()
+        self.filt.subs[self.filt.cur].clear_taps()
+        self.sh_hold = [F(0), F(0)]; self.sh_phase = self.sh_step
+        return 0

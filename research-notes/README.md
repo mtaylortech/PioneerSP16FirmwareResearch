@@ -50,15 +50,15 @@ the entry says so. Nothing here asserts a result the note did not support.
 ## F — Effects (1.60) (1 note)
 
 The evidence behind [`../docs/effects/`](../docs/effects/README.md), from an automated
-worker/critic research loop (nine cycles, one hypothesis each, every result re-run by
-an independent review pass). Published as the findings ledger, plus the method write-up [`methods/worker-critic-research-loop.md`](methods/worker-critic-research-loop.md). The nine per-cycle
+worker/critic research loop (42 cycles, one hypothesis each, every result re-run by
+an independent review pass). Published as the findings ledger (F001–F213), plus the method write-up [`methods/worker-critic-research-loop.md`](methods/worker-critic-research-loop.md). The per-cycle
 logs are **not** published: their conclusions, refuted alternatives and evidence hashes
 are all in the ledger, and the logs are mostly process (tool sessions, scratch paths)
 (evidence not published).
 
 | note | question → result | status (editor-assigned) |
 |---|---|---|
-| [findings-ledger](F-effects/findings-ledger.md) | How does the 1.60 app process effects, and can each effect be reconstructed bit-exactly? → Audio path, effect selection and the `EffectBase` interface established. LoFi, multi-mode filter, 2-band EQ, Phaser and the shared oscillator reconstructed, with Python models bit-exact to the routines run in a single-function emulator. Chorus/Flanger cores confirmed; other effects not started. | demonstrated-in-emulator (single function); static finding for the call chain |
+| [findings-ledger](F-effects/findings-ledger.md) | How does the 1.60 app process effects, and can each effect be reconstructed bit-exactly? → Audio path, effect selection and the `EffectBase` interface established. All twelve live effects, the shared oscillator, the `EffectBase` wrapper, the FX processors, the mixer, buses, output stage and headphone router reconstructed, with Python models bit-exact to the routines run in a single-function emulator. Parameter plumbing, FPSCR and libm settled. LFO modulation, step locks and the popup contents open. | demonstrated-in-emulator (single function); static finding for the call chain |
 
 
 ## A — Firmware catalog & tooling (6 notes)

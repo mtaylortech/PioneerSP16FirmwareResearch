@@ -1,9 +1,10 @@
 # Shared modulation oscillator, and its role in Chorus and Flanger
 
-Part of [Effects in firmware 1.60](README.md). Findings F047 and F051–F056 in the
+Part of [Effects in firmware 1.60](README.md). Findings F047 and F051–F056 (with later corrections from F057–F072 and F156) in the
 [findings ledger](../../research-notes/F-effects/findings-ledger.md). Models:
 [tools/fx/osc.py](../../tools/fx/osc.py), [tools/fx/crmath.py](../../tools/fx/crmath.py)
-and [tools/fx/fdlibm_sincosf.py](../../tools/fx/fdlibm_sincosf.py).
+and [tools/fx/fdlibm_sincosf.py](../../tools/fx/fdlibm_sincosf.py). Effect pages:
+[chorus.md](chorus.md), [flanger.md](flanger.md), [distortion.md](distortion.md).
 
 ## Summary
 
@@ -18,9 +19,9 @@ after every call (F053).
 | User (1.60) | Waveform | Role | Evidence |
 |---|---|---|---|
 | Phaser (`0x10d654`) | 1 triangle | all-pass coefficient sweep | F047, [phaser.md](phaser.md) |
-| `c_chorus` (`0xff008`) | 0 sine | **delay time** of a modulated delay line | F054, F055 |
-| `c_flanger` (`0x100234`) | 0 sine | **delay time** of a feedback delay line | F054, F055 |
-| `c_distortion` (`0xfa568`) | 0 sine | built, but **never run** | F054 |
+| `c_chorus` (`0xff008`) | 0 sine | **delay time** of a modulated delay line | F054, F055, [chorus.md](chorus.md) |
+| `c_flanger` (`0x100234`) | 0 sine | **delay time** of a feedback delay line | F054, F055, [flanger.md](flanger.md) |
+| `c_distortion` (`0xfa568`) | 0 sine | built, but **never run** | F054, [distortion.md](distortion.md) |
 | `LfoProcessor` (`0x135da0`, not an FX class) | any 0–6 (*likely*) | sequencer LFO; uses a mono path not modelled here | F054 |
 
 ## Waveforms and timing
@@ -67,7 +68,7 @@ at `0xb70e50`** (uniform in [−1, 1)). Only the constructor references the tabl
 (F051). It is a static table, not a run-time random generator: patching it changes the
 emulated output accordingly, and glibc `rand()` matched 0 of 1,000 values. The table is
 firmware data, so it is **not published or reconstructed here**. The model takes it as
-an argument; see [tools/fx/README.md](../../tools/fx/README.md#input-you-must-supply-the-random-waveform-table).
+an argument; see [tools/fx/README.md](../../tools/fx/README.md#inputs-you-must-supply).
 
 ## Object layout and API (0x98 bytes, no vptr)
 
@@ -142,9 +143,11 @@ The sine path calls the 1.60 glibc 2.13 libm (F052):
 
 ## Chorus and Flanger
 
-The full Chorus and Flanger effects are **not** reconstructed yet (H033, H034). What
-is confirmed is their core: both are **oscillator-modulated delay lines**, and their
-kernels were re-stated bit-exactly against emulation (F055).
+Both effects are **fully reconstructed** and have their own pages and models:
+[chorus.md](chorus.md) (F057–F062, `tools/fx/chorus.py`) and [flanger.md](flanger.md)
+(F063–F068, `tools/fx/flanger.py`). Neither needs the random table. This section keeps
+what concerns the oscillator: both are **oscillator-modulated delay lines**, and their kernels were first
+re-stated bit-exactly against emulation in F055.
 
 | | Chorus (`c_chorus` slot 19 `0xfe710`) | Flanger (`c_flanger` slot 19 `0xff9ac`) |
 |---|---|---|
@@ -153,19 +156,24 @@ kernels were re-stated bit-exactly against emulation (F055).
 | Ring buffer | fs/10 + block = 4,474 samples | 7·fs/1000 + block = 372 samples |
 | Read | write, then read at index − d with linear interpolation | out = (1 − fr)·buf[r] + fr·buf[r − 1] |
 | Feedback | none | line input = in + y_prev·fb (`+0x10c`); y_prev = the previous **pre-gain** output of that channel |
-| Output | wet only (dry/wet is in EffectBase). Output gain `+0xe8` stays 0 until the ring has wrapped once, then rises linearly over ≈3.3 ms. At 64-sample blocks, blocks 0–68 are exactly 0 | × g(d) = d·0.013154167 + 1 − 0.6314 for d ≤ 48 samples, else 1 |
-| Delay range | 0.2 … 2·amplitude + 0.2 samples | (as set by amplitude/offset) |
+| Output | wet only (dry/wet is in EffectBase). Output gain `+0xe8` stays 0 until the ring has wrapped once (at 64-sample blocks, blocks 0–68 are exactly 0), then approaches 1 by a per-block exponential step with a final snap (F060; this corrects the "linear over ≈3.3 ms" reading of F055) | × g(d) = d·0.013154167 + 1 − 0.6314 for d ≤ 48 samples, else 1 |
+| Delay range | 0.2 … 2·amplitude + 0.2 samples | 0.2 … 2·amplitude + 0.2 samples, at most 308.87 samples (7.0 ms); 0.2…4.61 samples at the Insert defaults (F063, F064) |
 
 Parameter paths that are known (F054): Chorus slot 25 `0x115d70` passes rate changes
 to kernel slot 3 `0xfeb10` (clamped 0.00104…64 Hz), which calls setFrequency. Slot 14
 `0x116224` routes index 1 to depth (kernel slot 5 `0xfed90`), index 3 to depth scale
 (slot 7 `0xfeecc`), both giving amplitude = depth·scale·0.01·0.0005·fs and offset =
 amplitude + 0.2, and index 2 to phase (slot 6 `0xfec34`). Retrigger (`+0xe0`) and a
-reset flag set by the constructor (`+0xe2`) call resetPhase(0). Flanger mirrors this
-through `0x115f58`, `0xffdc4`, `0xfffd4`/`0x100104`, `0xffe68` and retrigger `+0xf0`.
-*Likely*, from four readbacks: Chorus depth scale v → 1 + 9v, Flanger v → 0.1 + 7v,
-phase v → index·0.45/19 cycles. Chorus and Flanger, like the Phaser, have an Insert
-default Mixratio of 0 (F054).
+reset flag set by the constructor (`+0xe2`) call resetPhase(0). Flanger uses the same
+paths through `0x115f58`, `0xffdc4`, `0xfffd4`/`0x100104`, `0xffe68` and retrigger
+`+0xf0`, plus its feedback setter, kernel slot 8 `0xff694` (F063). One difference:
+Flanger's constructor reset flag `+0xf2` does **not** restart the oscillator, so only a
+retrigger calls resetPhase(0) there (F066). The Flanger model therefore assumes zeroed
+heap for the oscillator fields that init leaves unwritten (F051, F066, H036).
+The confirmed parameter formulas (F058, F064) replace the earlier four-readback
+estimates: Chorus depth scale 0.1·rint(10 + 90v) (1…10), Flanger depth scale
+0.1·rint(1 + 69v) (0.1…7), phase rint(180v)/380 cycles in both. Chorus and Flanger, like
+the Phaser, have a default Mixratio of 0, in all three processors (F054, F156).
 
 **Construction** (F056). Chorus, Flanger and Distortion are built **inline** in the
 `InsertFxProcessor` constructor (`0x118b50–0x118c64`, `0x118cd8–0x118ddc`,
@@ -183,15 +191,16 @@ mid-run changes). Refuted: the oscillator as an amplitude modulator, a constant 
 and feedback taken after the gain. These re-statements are not separate published
 models.
 
-**Still missing** (H033, H034): the full parameter formulas (rate tables at
-`0x349778`/`0x349798`, Sync, depth/scale/phase, Flanger feedback mapping) and an
-end-to-end slot-25 model for each.
+The rate, Sync, depth, scale, phase and Flanger feedback formulas and the end-to-end
+slot-25 models are on [chorus.md](chorus.md) and [flanger.md](flanger.md). The values at `0x349778`/`0x349798`
+first read as rate tables are code, not tables (F057, F058).
 
-**Distortion** (H035): its oscillator is built but never run. No oscillator call
-appears in any `c_distortion` vtable target, and emulation recorded 0 process calls
-(F054). Its processing (`0xfa78c`) is *likely*, from decompiled code only: a one-pole
-high-pass, a one-pole low-pass, an auto-gain envelope, drive, a blend of a ±1 clip and
-a cubic soft clip 1.5x − 0.5x³, ×0.7, then an output low-pass (F056).
+**Distortion**: its oscillator is built but never run. No oscillator call appears in any
+`c_distortion` vtable target, and emulation recorded 0 process calls (F054). The
+Distortion algorithm itself is reconstructed on [distortion.md](distortion.md)
+(F069–F074). Note that the structure
+first read from decompiled code (F056) was wrong in one point: the soft clip blends
+towards the raw cube u³, not towards a ±1 hard clip (F070–F072).
 
 ## Validation evidence
 
@@ -210,5 +219,5 @@ a cubic soft clip 1.5x − 0.5x³, ×0.7, then an output low-pass (F056).
 - `setWaveform` with a new value and the mono path (`LfoProcessor`) are not modelled
   (F053).
 - Whether fresh heap is zero on the device (H036).
-- Chorus/Flanger parameter formulas and end-to-end models (H033, H034); Distortion
-  (H035).
+- Chorus, Flanger and Distortion are reconstructed: see [chorus.md](chorus.md),
+  [flanger.md](flanger.md) and [distortion.md](distortion.md).

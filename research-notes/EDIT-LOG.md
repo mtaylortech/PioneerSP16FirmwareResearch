@@ -134,3 +134,40 @@ parsing every file (no import or execution).
 - `tools/fx/verify/`: the effects harness (17 scripts + requirements) published **unchanged** as reference code, with a README; `.gitignore` gained the firmware/output paths it uses.
 - `methods/worker-critic-research-loop.md`: method write-up added (draft banner line removed).
 - Small firmware constants in `tools/fx/` and `docs/effects/`: kept (owner decision).
+
+## 2026-11-14 — second effects merge, session 1 (corrections to published pages)
+
+Source: the effects research workspace at its milestone commit (findings F057–F213). These are editorial updates written in
+our own words, not copies of research files, so nothing was scrubbed. They are listed here so that a reader can see what
+changed in the already-published pages.
+
+| File | What changed | Why |
+|---|---|---|
+| `docs/effects/README.md` | rewritten: scope, how to use, status table for every effect and mixer stage, overview, type selection, EffectBase interface, shared blocks, validation and its limits, known gaps for reimplementers | the old status table still said "Not started" for nine stages that are now reconstructed |
+| `docs/effects/signal-flow.md` | new page: the whole engine end to end | F095–F114, F187–F191, F209–F213 |
+| `docs/effects/lofi.md` | reset (slot 27) now documented (was "not modelled"); output dropout after every activation (F152) added; one-time start-up dip through the wrapper (F153); flush-to-zero now confirmed off (was "likely"); host `pow`/`tan`/`log10` replaced by own routines; Master/Send context exercised; Performance-FX LoFi section (never constructed) | statements made stale by F150–F154, F202–F208, F128–F130 |
+| `docs/effects/multimode-filter.md` | reset documented (corrects "re-applies parameters"); Master/Send identical object incl. defaults (corrects "different defaults"); enum values the UI and project can send; host-libm residual closed | F150, F164, F171, F175, F206–F208 |
+| `docs/effects/parametric-eq.md` | reset documented; start-up quirk reduced, not hidden, by the activation fade; type 5 unreachable; internal type names; host-libm residual closed; Master/Send exercised | F150, F153, F154, F156, F164, F171, F206–F208 |
+| `docs/effects/phaser.md` | Master/Send tempo feed and defaults; wrapper/processor validation; 22.05 kHz model limit | F149, F154, F156, F207, F208 |
+| `docs/effects/oscillator.md` | Chorus/Flanger now reconstructed; Chorus start-up gain is a per-block exponential approach (corrects "linear over ≈3.3 ms"); confirmed depth-scale and phase formulas replace estimates; "rate tables" are code; Distortion soft clip blends towards the raw cube (corrects the decompile reading) | F057–F072, F156 |
+
+## 2026-11-14 — second effects merge, session 2 (models, verifiers, ledger, symbols, new pages)
+
+Source: the effects research workspace at its milestone commit (cycles 010–042, findings F057–F213), read-only.
+Every scrub below is a path, a process reference or an owner reference. No claim, label or finding ID was changed.
+
+| File | What was edited | How |
+|---|---|---|
+| `tools/fx/*.py`, 18 new models | provenance header | one comment line added at the top (`ducker.py`, `glibc_log10.py`: a second line naming the kept fdlibm notice) |
+| `tools/fx/glibc_expf.py` | licence (owner decision 2026-11-14) | `SPDX-License-Identifier: LGPL-2.1-or-later` header and notice added: own re-implementation of glibc 2.13 `e_expf.c`, LGPL because of that origin, tables not included and read at run time from the user's own 1.60 `libm.so.6`. Full text added as `LICENSE-LGPL-2.1` (downloaded from gnu.org) |
+| `tools/fx/*.py` (new and the 5 changed: `crmath`, `lofi`, `mmf`, `peq`, `phaser`) | references to unpublished cycle notes, the research `harness/` folder and reviewer notes | 41 docstring/comment references → `docs/effects/<page>.md`, finding IDs or the published `tools/fx/verify/` path. For the 4 changed effect models the first merge's scrubs (incl. the Phaser "LFO" → "oscillator" strings) were re-applied with `patch`; `crmath.py` line 7 now names the published verifier instead of "not published" |
+| `tools/fx/device_out.py`, `tools/fx/glibc_expf.py` | default input paths in the research-folder layout (`target/`, `decoded/lib/`) | **flagged, not removed**: a docstring sentence explains the layout and says to pass the path explicitly. Code unchanged |
+| `tools/fx/verify/H006_fx2_routing.py` (lines 29, 31) | two home-relative path constants naming private research folders | replaced by `SP16_APP150_ELF` and `SP16_CLASSES_XVER_CSV` with neutral fallbacks (`tools/fx/target/app-1.50.elf`; the repo's `symbols/classes-crossversion.csv`) and a clear exit message (owner decision 2026-11-14). Nothing else changed |
+| `tools/fx/verify/H038_fpscr_census.py` (line 36) | one home-relative path constant naming a private decoder-output folder | replaced by `SP16_IMAGE2_LIBDIR` with a neutral fallback (`tools/fx/decoded/image2-lib`; absent → libraries reported missing, as before). Nothing else changed |
+| `tools/fx/verify/` (35 other new scripts, `H026` changed, `lib/armflow.py`, `lib/symwalk.py`) | — | published unchanged (standing decision). Their docstrings still mention research cycle logs and `harness/out/`; the verify README says so |
+| `research-notes/F-effects/findings-ledger.md` | refreshed through F213 | first-merge part kept; its 4 changed lines (F035, F042, F054, F055 corrections) applied. New part: 24 × virtual-environment interpreter path → `python`; 6 × reviewer scratch path → `<critic scratch run>`; 42 × `harness/models/` → `tools/fx/`; 1 × "owner decides each publication" → editor's note on the LGPL decision; 1 × "owner decision" (unit check) removed. Editor's note updated to name both merges. `kb/cycles/…`, `harness/…` and `REA` mentions kept, as in the first merge |
+| `symbols/fx-functions-1.60.csv` | extended 386 → 1,070 rows | generated from the research function table; 28 identifier renames applied, 29 descriptive labels added to `role` (names kept), 6 library/kernel offsets given their own `kind`; "cycle NNN" mentions removed from roles. Rules and the one conflict in `symbols/README.md` |
+| `docs/effects/` 12 new pages | drafted from the findings in own words | process wording "critic" → "review"; no copied text |
+| `docs/effects/README.md`, `lofi.md`, `parametric-eq.md`, `docs/findings.md` | **correction**: the 10 Hz post-stage high-pass was described as applying to every effect | F141: the processors switch it on only for Chorus, Flanger, the multi-mode filter, LoFi, Distortion and Phaser |
+| `docs/effects/oscillator.md` | Chorus/Flanger section | links to the new pages; Flanger reset flag `+0xf2` does not restart the oscillator (F066); Flanger feedback setter slot 8 (F063); Flanger delay range completed |
+| `.gitignore` | safety net | `/target/`, `/decoded/` and `EP085_Main_R*` added, because the models' default paths resolve to the repository root |

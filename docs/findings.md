@@ -120,25 +120,45 @@ Full detail, evidence IDs and a per-effect status table: [effects/README.md](eff
   the path that produces the ALSA output. The application has no FX offload device
   (kernel codec drivers not examined). The call chain from JUCE's ALSA thread through
   the audio graph and `CompositeFxUnit` to the Master and Send effect processors is
-  traced edge by edge. The per-track Insert route, the mixer and the send levels are
-  **not** traced.
+  traced edge by edge, and so is the whole engine from each track to the DAC pairs and
+  the headphone output ([effects/signal-flow.md](effects/signal-flow.md), F095–F114,
+  F187–F191, F209–F213).
 - **Supported (static; confirmed in emulation):** each effect processor builds one
   object per effect type and switches by index, translating stored effect IDs through
   fixed tables. Every effect implements the `EffectBase` interface: parameters through
   vtable slot 14, the shared dispatcher in slot 18, and the per-effect audio entry in
-  slot 25. Activation, the dry/wet mix and a ≈10 Hz high-pass on the wet signal
-  (filter type *likely*) are shared `EffectBase` stages, not part of the effects.
-- **Demonstrated (single-function emulator):** **LoFi**, the **multi-mode filter**,
-  the **2-band EQ** and the **Phaser** are fully reconstructed: signal flow, every
-  parameter formula and the object layout. Their Python models in
-  [tools/fx/](../tools/fx/README.md) are bit-exact to the 1.60 routines run one at a
-  time in an emulator, including adversarial review cases. The same holds for the
-  **shared modulation oscillator** (seven waveforms) that drives the Phaser, Chorus and
-  Flanger. None of this was compared with audio from a real SP-16.
-- **Partial:** Chorus and Flanger are confirmed to be oscillator-modulated delay lines
-  (kernels re-stated bit-exactly). Their parameter formulas and end-to-end models are
-  not done. **Not started:** Distortion (construction emulated only), Delay, Reverb,
-  Compressor, Ducker, the limiter, the mixer and the send levels. Open questions:
+  slot 25. Activation and the dry/wet mix are shared `EffectBase` stages, not part of
+  the effects. A 10 Hz first-order high-pass on the wet signal is a further shared
+  stage, but the processors switch it on only for Chorus, Flanger, the multi-mode
+  filter, LoFi, Distortion and Phaser (F141, F147).
+- **Demonstrated (single-function emulator):** all twelve live effect algorithms are
+  fully reconstructed: signal flow, every parameter formula, the object layout and
+  the lifecycle. Their Python models in [tools/fx/](../tools/fx/README.md) are
+  bit-exact to the 1.60 routines run one at a time in an emulator, including
+  adversarial review cases, and also end to end through the real shared wrapper
+  (F151). Pages: [Chorus](effects/chorus.md), [Flanger](effects/flanger.md),
+  [2-band EQ](effects/parametric-eq.md), [multi-mode filter](effects/multimode-filter.md),
+  [Insert Delay](effects/insert-delay.md), [Send/Master Delay](effects/send-delay.md),
+  [Reverb](effects/send-reverb.md) (an own design, not Freeverb), [LoFi](effects/lofi.md),
+  [Distortion](effects/distortion.md), [Compressor](effects/compressor.md) (Insert and
+  Send, shared core), [Phaser](effects/phaser.md), [Ducker](effects/ducker.md) (driven by
+  sequencer triggers, not by audio) and the [shared oscillator](effects/oscillator.md).
+- **Demonstrated (single-function emulator):** the shared
+  [`EffectBase` wrapper](effects/effectbase.md) (activation gate, dry/wet, post-stage,
+  skip/clamp, resets), the [Insert, Master and Send processors](effects/fx-processors.md)
+  (type switch, bypass, disable, tempo feed), the track mixer, the send and master
+  buses, the device output stage and the headphone router are modelled bit-exactly
+  ([signal-flow.md](effects/signal-flow.md)). The parameter path from the UI and the
+  project file to each effect ([parameters.md](effects/parameters.md)) and the
+  floating-point environment ([numerics.md](effects/numerics.md): FPSCR flush-to-zero
+  off, which libm routines are correctly rounded) are settled for the modelled
+  routines.
+- **Supported (static):** `PerformanceFxLoFi` exists but is never constructed in 1.60
+  (F128). Eight FX popup items (Limiter, Ring mod, Tremolo, Auto pan, Auto wah, Vinyl
+  brake, Trans, Roll) have no DSP class (F131).
+- **Not done:** LFO → FX parameter modulation, per-step FX parameter locks, what the
+  FX popup shows in each context, and the ALSA copy stage. None of this was compared
+  with audio from a real SP-16. Open questions:
   [open-questions.md → Effects](open-questions.md#effects).
 
 ## What was NOT achieved (so no one over-reads the above)

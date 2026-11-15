@@ -16,6 +16,7 @@ Signal flow per block (slot 25):
 All float32; NEON lanes (the kernel) flush denormals to zero, scalar VFP code does not (FPSCR = 0).
 """
 import math
+import crmath as CR                                    # glibc-exact double exp (H029)
 from lofi import F, Param, ftz, nmul, nadd, nsub, FLT_MIN
 import fdlibm_powf as FP
 import fdlibm_tanf as FT
@@ -159,7 +160,7 @@ class Phaser:
         self.fb = F(0.0); self.y = [F(0.0), F(0.0)]
         self.a = [self.a_hi, self.a_hi]                                # +0x1ec / +0x1f0
         self.z = [[F(0.0), F(0.0)] for _ in range(6)]                  # [+0x1f4] 6 stages x (L, R)
-        self.pole = F(math.exp(FB_LP / float(fs)))                     # +0x1f8
+        self.pole = F(CR.exp(FB_LP / float(fs)))                     # +0x1f8
         self.pole1 = F(F(1.0) - self.pole)                             # +0x1fc
         self.s = [F(0.0), F(0.0)]                                      # +0x200
         self.lo_t, self.hi_t = self.t_lo, self.t_hi                    # +0x208 / +0x20c

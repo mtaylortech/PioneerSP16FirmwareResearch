@@ -1,6 +1,6 @@
-# Phaser (Insert index 8, Master index 9)
+# Phaser (Insert index 8, Master/Send index 9)
 
-Part of [Effects in firmware 1.60](README.md). Findings F045–F050 in the
+Part of [Effects in firmware 1.60](README.md). Findings F045–F050, F149, F154, F156, F207 and F208 in the
 [findings ledger](../../research-notes/F-effects/findings-ledger.md). Models:
 [tools/fx/phaser.py](../../tools/fx/phaser.py) and
 [tools/fx/fdlibm_tanf.py](../../tools/fx/fdlibm_tanf.py).
@@ -87,8 +87,10 @@ start-up by the static initialiser `0x6cb20`, from constants only (F048).
 **The Insert default Mixratio is 0**, so with the processor's own defaults the Phaser
 is fully dry. Whether a project or UI default overrides this is a *guess* (H032).
 
-**Tempo feed** (F045). Before every block, the Insert processor clamps the current
+**Tempo feed** (F045, F156). Before every block, the processor clamps the current
 tempo to 1…999 and sends it to parameter 7 as the BPM value, not a normalised value.
+The Master and Send processors do the same for their Phaser (index 9), and their
+Phaser defaults equal the Insert ones, including Mixratio 0 (F156).
 
 ## Object layout (0x4f0 bytes)
 
@@ -170,6 +172,10 @@ Frequency steps 204, 212 and 248 (F048). `powf` comes from `fdlibm_powf.py`
   all-pass; a linear instead of cubic curve; a sine oscillator; no L/R offset; a
   per-block stepped coefficient. With the coefficient frozen, the notches at 625,
   2,326 and 7,832 Hz match six-stage theory (628, 2,324 and 7,826 Hz).
+- **Wrapper and processors** (F149, F154): bit-exact end to end through the real slot 18
+  and in the real Master and Send processors.
+- **Maths library** (F207): the model uses no host maths routine (`exp` comes from
+  `crmath.py`, `tanf` and `powf` from the fdlibm files).
 
 ## Known quirks
 
@@ -177,10 +183,13 @@ Frequency steps 204, 212 and 248 (F048). `powf` comes from `fdlibm_powf.py`
 - The Insert default Mixratio is 0, so the effect is dry by default (F045).
 - Out-of-range values or a BPM sent straight to slot 14 can reach a firmware assert
   (not emulated) or the model's `tanf` range limit (|x| ≥ 3π/4) (F050).
+- The model fails at a sample rate of 22.05 kHz: there the cutoff argument reaches the
+  `fdlibm_tanf` range limit (F208, H102). 44.1, 48 and 96 kHz work.
 
 ## Unknowns
 
 - Who calls retrigger (slot 10) on the device, e.g. on sequencer start, and whether a
   project or UI default overrides Mixratio 0 (H032).
-- The Master context (index 9) was not exercised (F050).
 - Block sizes above the constructor's block size are not modelled.
+
+Settled since the first version of this page: the Master context (F154, F156).
