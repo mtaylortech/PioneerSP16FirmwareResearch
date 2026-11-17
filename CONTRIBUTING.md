@@ -1,9 +1,12 @@
 # Contributing
 
-The original researcher is **not continuing this project**. It is published as
-an archived research snapshot so that someone else can understand it and carry
-it forward. Forks and independent continuations are welcome. There is no promise
-of maintenance, review, or response.
+This is an ongoing, independent research project, and contributions are
+welcome: findings, corrections, tools, tests, documentation, and reproducible
+reports of device behaviour. Issues and pull requests are reviewed on a
+best-effort basis, with no fixed response time. Forks and independent
+continuations are welcome too. See the README's
+[Contributing to the research](README.md#contributing-to-the-research) section
+for the kinds of help that are most useful.
 
 ## The one rule that matters most
 
