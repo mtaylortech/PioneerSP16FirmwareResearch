@@ -1,9 +1,15 @@
-# TORAIZ SP-16 firmware research (open, unfinished)
+# TORAIZ SP-16 firmware research
 
 Reverse-engineering notes, tools, and symbols for the **Pioneer DJ TORAIZ
-SP-16** sampler, published so someone else can continue the work. The original
-researcher is **not** continuing it. This is an archived research snapshot, not
-a product.
+SP-16** sampler. This is an ongoing, independent research project into the
+SP-16's firmware and internal architecture. Findings are published here openly,
+with confidence labels, as the work progresses.
+
+The research may make future tools, firmware modifications or other
+developments possible, but none is guaranteed: there is no committed schedule,
+and a complete custom firmware release may never happen. This is research, not
+a product. If you find it useful, you can
+[support the research](#support-the-research).
 
 > **No Pioneer firmware, keys, or binaries are in this repository.** Firmware is
 > referenced by version and SHA-256 only. **Read [DISCLAIMER.md](DISCLAIMER.md)
@@ -92,6 +98,39 @@ python3 tools/decode/upd_decrypt.py \
 The key is **not** included; Pioneer published it in the SP-16 GPL source
 release. See [tools/decode/README.md](tools/decode/README.md).
 
+## Contributing to the research
+
+Help is welcome from people with experience in any of these:
+
+- ARM assembly and reverse engineering
+- embedded Linux
+- C/C++ development
+- digital signal processing
+- firmware analysis and emulation
+- testing, documentation and technical validation
+
+You don't need to program to help. SP-16 owners can contribute by sharing the
+project, discussing the findings, reporting device behaviour that others can
+reproduce (say which firmware version you run), or putting the project in touch
+with people who have the skills above.
+
+[docs/open-questions.md](docs/open-questions.md) lists where each thread stopped,
+with suggested next steps. Issues and pull requests are welcome. Before you
+contribute, read [CONTRIBUTING.md](CONTRIBUTING.md): above all, never post
+firmware, keys, device images or anything derived from them.
+
+## Support the research
+
+This project is independently funded. If you want to support it, you can do so
+on Ko-fi: **[ko-fi.com/mtaylortech](https://ko-fi.com/mtaylortech)**.
+Contributions help cover the ongoing costs of research tools, development
+software, analysis and documentation.
+
+Support is entirely optional. It funds continued investigation; it does not buy
+a product, and it does not guarantee any feature, milestone or custom firmware
+release. Everything published here stays open whether or not anyone
+contributes.
+
 ## Licenses
 
 - Code (`tools/`, `emulation/`, `symbols/*.py`, `symbols/*.java`): **MIT** — [LICENSE](LICENSE),
@@ -103,6 +142,6 @@ release. See [tools/decode/README.md](tools/decode/README.md).
 
 ## Status
 
-Archived snapshot. Not affiliated with or endorsed by Pioneer DJ / AlphaTheta.
-Contributions and forks welcome ([CONTRIBUTING.md](CONTRIBUTING.md)); no
-maintenance is promised.
+Active, independent research, with no committed schedule. This project is not
+affiliated with or endorsed by Pioneer DJ / AlphaTheta. Contributions and forks
+are welcome ([CONTRIBUTING.md](CONTRIBUTING.md)).
